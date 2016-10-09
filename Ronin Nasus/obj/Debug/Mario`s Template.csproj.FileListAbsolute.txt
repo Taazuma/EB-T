@@ -1,0 +1,3 @@
+D:\Tommi\Documents\My\Deve\ItsMeMario-master\ItsMeMario-master\Mario`s Template\Mario`s Template\bin\Debug\Mario`s Template.exe.config
+D:\Tommi\Documents\My\Deve\Ronin`s Template\Mario`s Template\bin\Debug\Mario`s Template.exe.config
+D:\Tommi\Documents\My\Deve\Ronin`s Template\Ronin Template\bin\Debug\Mario`s Template.exe.config

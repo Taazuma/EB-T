@@ -1,0 +1,2 @@
+D:\Tommi\Documents\My\Deve\Ronin`s Template\Ronin Template\bin\Debug\Ronin.exe.config
+C:\Users\Tommi\Desktop\Ronin`s Nasus\Ronin Nasus\bin\Debug\Ronin.exe.config

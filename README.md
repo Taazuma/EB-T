@@ -1,2 +1,0 @@
-# EB-T
-Supported Addons +
