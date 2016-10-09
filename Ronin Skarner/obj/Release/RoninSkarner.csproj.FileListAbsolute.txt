@@ -1,0 +1,14 @@
+D:\Tommi\Documents\My\Deve\Ronin Skarner\Ronin Skarner\bin\Release\RoninSkarner.exe.config
+D:\Tommi\Documents\My\Deve\Ronin Skarner\Ronin Skarner\bin\Release\RoninSkarner.exe
+D:\Tommi\Documents\My\Deve\Ronin Skarner\Ronin Skarner\bin\Release\RoninSkarner.pdb
+D:\Tommi\Documents\My\Deve\Ronin Skarner\Ronin Skarner\bin\Release\EloBuddy.dll
+D:\Tommi\Documents\My\Deve\Ronin Skarner\Ronin Skarner\bin\Release\EloBuddy.Sandbox.dll
+D:\Tommi\Documents\My\Deve\Ronin Skarner\Ronin Skarner\bin\Release\EloBuddy.SDK.dll
+D:\Tommi\Documents\My\Deve\Ronin Skarner\Ronin Skarner\bin\Release\Newtonsoft.Json.dll
+D:\Tommi\Documents\My\Deve\Ronin Skarner\Ronin Skarner\bin\Release\SharpDX.Direct3D9.dll
+D:\Tommi\Documents\My\Deve\Ronin Skarner\Ronin Skarner\bin\Release\SharpDX.dll
+D:\Tommi\Documents\My\Deve\Ronin Skarner\Ronin Skarner\bin\Release\SharpDX.XInput.dll
+D:\Tommi\Documents\My\Deve\Ronin Skarner\Ronin Skarner\obj\Release\RoninSkarner.csprojResolveAssemblyReference.cache
+D:\Tommi\Documents\My\Deve\Ronin Skarner\Ronin Skarner\obj\Release\RoninSkarner.exe
+D:\Tommi\Documents\My\Deve\Ronin Skarner\Ronin Skarner\obj\Release\RoninSkarner.pdb
+D:\Tommi\Documents\My\Deve\Ronin Skarner\Ronin Skarner\bin\Release\Mario`s Lib.dll
