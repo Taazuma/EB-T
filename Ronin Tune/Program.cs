@@ -30,7 +30,7 @@ namespace RoninTune
         {
             Loading.OnLoadingComplete += Loading_OnLoadingComplete;
         }
-        public const float SmiteRange = 570;
+        
         public static AIHeroClient _player
         {
             get { return ObjectManager.Player; }
@@ -53,9 +53,16 @@ namespace RoninTune
             _W_Advance.Initialize();
             ModeManager.InitializeModes();
             DrawingsManager.InitializeDrawings();
-            Events.Initialize();
             Game.OnUpdate += OnGameUpdate;
             Interrupter.OnInterruptableSpell += Program.Interrupter2_OnInterruptableTarget;
+            if (!SpellManager.HasSmite())
+            {
+                Chat.Print("No smite detected - unloading Smite.", System.Drawing.Color.Red);
+                return;
+            }
+            Config.Initialize();
+            ModeManagerSmite.Initialize();
+            Events.Initialize();
         }
 
         private static void OnGameUpdate(EventArgs args)

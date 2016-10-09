@@ -24,7 +24,6 @@ namespace RoninTune
         public static Spell.Targeted E;
         public static Spell.Active R;
         public static Spell.Targeted R1;
-        public static Spell.Targeted Smite { get; private set; }
         public static Spell.Skillshot Flash { get; private set; }
         public static Spell.Targeted Ignite { get; private set; }
 
@@ -33,9 +32,6 @@ namespace RoninTune
         /// </summary>
         public static void InitializeSpells()
         {
-            var smite = Player.Spells.FirstOrDefault(s => s.SData.Name.ToLower().Contains("smite"));
-            if (smite != null)
-                Smite = new Spell.Targeted(smite.Slot, 570);
             Q = new Spell.Skillshot(SpellSlot.Q, 1125, SkillShotType.Linear);
             W = new Spell.Active(SpellSlot.W);
             E = new Spell.Targeted(SpellSlot.E, 425);
@@ -50,23 +46,6 @@ namespace RoninTune
             Obj_AI_Base.OnLevelUp += Obj_AI_Base_OnLevelUp;
         }
 
-        public static bool HasSmite()
-        {
-            return Smite != null;
-        }
-
-        public static bool HasChillingSmite()
-        {
-
-            return Smite != null &&
-                   Smite.Name.Equals("s5_summonersmiteplayerganker", StringComparison.CurrentCultureIgnoreCase);
-        }
-
-        public static bool HasChallengingSmite()
-        {
-            return Smite != null &&
-            Smite.Name.Equals("s5_summonersmiteduel", StringComparison.CurrentCultureIgnoreCase);
-        }
 
         public static bool IsReady(this SpellSlot slot)
         {
