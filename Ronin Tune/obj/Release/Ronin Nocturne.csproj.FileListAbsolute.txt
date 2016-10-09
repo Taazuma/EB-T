@@ -1,0 +1,14 @@
+D:\Tommi\Documents\My\Deve\Ronin Tune\Ronin Tune\bin\Release\Ronin Tune.exe.config
+D:\Tommi\Documents\My\Deve\Ronin Tune\Ronin Tune\bin\Release\Ronin Tune.exe
+D:\Tommi\Documents\My\Deve\Ronin Tune\Ronin Tune\bin\Release\Ronin Tune.pdb
+D:\Tommi\Documents\My\Deve\Ronin Tune\Ronin Tune\bin\Release\EloBuddy.dll
+D:\Tommi\Documents\My\Deve\Ronin Tune\Ronin Tune\bin\Release\EloBuddy.Sandbox.dll
+D:\Tommi\Documents\My\Deve\Ronin Tune\Ronin Tune\bin\Release\EloBuddy.SDK.dll
+D:\Tommi\Documents\My\Deve\Ronin Tune\Ronin Tune\bin\Release\Newtonsoft.Json.dll
+D:\Tommi\Documents\My\Deve\Ronin Tune\Ronin Tune\bin\Release\SharpDX.Direct3D9.dll
+D:\Tommi\Documents\My\Deve\Ronin Tune\Ronin Tune\bin\Release\SharpDX.dll
+D:\Tommi\Documents\My\Deve\Ronin Tune\Ronin Tune\bin\Release\SharpDX.XInput.dll
+D:\Tommi\Documents\My\Deve\Ronin Tune\Ronin Tune\obj\Release\Ronin Nocturne.csprojResolveAssemblyReference.cache
+D:\Tommi\Documents\My\Deve\Ronin Tune\Ronin Tune\obj\Release\Ronin Tune.exe
+D:\Tommi\Documents\My\Deve\Ronin Tune\Ronin Tune\obj\Release\Ronin Tune.pdb
+D:\Tommi\Documents\My\Deve\Ronin Tune\Ronin Tune\bin\Release\Mario`s Lib.dll

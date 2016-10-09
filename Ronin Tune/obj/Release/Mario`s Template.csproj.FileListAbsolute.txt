@@ -1,0 +1,13 @@
+D:\Tommi\Documents\My\Deve\Mario`s Template\Mario`s Template\bin\Release\Mario`s Template.exe.config
+D:\Tommi\Documents\My\Deve\Mario`s Template\Mario`s Template\bin\Release\Mario`s Template.exe
+D:\Tommi\Documents\My\Deve\Mario`s Template\Mario`s Template\bin\Release\Mario`s Template.pdb
+D:\Tommi\Documents\My\Deve\Mario`s Template\Mario`s Template\bin\Release\EloBuddy.dll
+D:\Tommi\Documents\My\Deve\Mario`s Template\Mario`s Template\bin\Release\EloBuddy.SDK.dll
+D:\Tommi\Documents\My\Deve\Mario`s Template\Mario`s Template\bin\Release\Mario`s Lib.dll
+D:\Tommi\Documents\My\Deve\Mario`s Template\Mario`s Template\bin\Release\SharpDX.Direct3D9.dll
+D:\Tommi\Documents\My\Deve\Mario`s Template\Mario`s Template\bin\Release\SharpDX.dll
+D:\Tommi\Documents\My\Deve\Mario`s Template\Mario`s Template\bin\Release\Newtonsoft.Json.dll
+D:\Tommi\Documents\My\Deve\Mario`s Template\Mario`s Template\bin\Release\EloBuddy.Sandbox.dll
+D:\Tommi\Documents\My\Deve\Mario`s Template\Mario`s Template\obj\Release\Mario`s Template.csprojResolveAssemblyReference.cache
+D:\Tommi\Documents\My\Deve\Mario`s Template\Mario`s Template\obj\Release\Mario`s Template.exe
+D:\Tommi\Documents\My\Deve\Mario`s Template\Mario`s Template\obj\Release\Mario`s Template.pdb
