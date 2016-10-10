@@ -39,11 +39,6 @@ namespace RoninSkarner.Modes
                 E.Cast(etarget);
                 }
 
-            if (ComboMenu.GetCheckBoxValue("eUse") && etarget.IsValidTarget(SpellsManager.E.Range) && E.IsReady() && E.GetPrediction(etarget).HitChance >= Hitch.hitchance(E, FirstMenu))
-            {
-                E.Cast(etarget);
-            }
-
             if (ComboMenu.GetCheckBoxValue("qUse") && target.IsValidTarget(SpellsManager.Q.Range) && Q.IsReady())
             {
                 Q.Cast();
