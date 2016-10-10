@@ -3,3 +3,4 @@ D:\Tommi\Documents\My\Deve\Ronin Tune\Ronin Tune\bin\Debug\Ronin Tune.exe.config
 D:\Tommi\Documents\Visual Studio 2015\Projects\Ronin Old\Ronin Tune\Ronin Tune\bin\Debug\Ronin Tune.exe.config
 D:\Tommi\Documents\Visual Studio 2015\Projects\Ronin\Ronin Tune\Ronin Tune\bin\Debug\Ronin Tune.exe.config
 D:\Tommi\Documents\Visual Studio 2015\Projects\Ronin Tune\bin\Debug\Ronin Tune.exe.config
+D:\Tommi\Documents\GitHub\EB-T\Ronin Tune\bin\Debug\Ronin Tune.exe.config

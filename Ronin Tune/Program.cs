@@ -46,7 +46,6 @@ namespace RoninTune
             //Put the name of the champion here
             if (Player.Instance.ChampionName != "Nocturne") return;
             Chat.Print("Welcome to the Ronin´s BETA ;)");
-            Chat.Print("By Taazuma ;)");
             SpellsManager.InitializeSpells();
             Menus.CreateMenu();
             _W.Initialize();
