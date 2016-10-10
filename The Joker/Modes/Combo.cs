@@ -78,16 +78,22 @@ namespace Eclipse.Modes
                 E.Cast(target);
             }
 
+            if (ComboMenu.GetCheckBoxValue("rLow") && R2.IsReady() && Player.Instance.HealthPercent <= ComboMenu.GetSliderValue("hpR"))
+            {
+                R2.Cast();
+            }
+
             if (ComboMenu["user"].Cast<CheckBox>().CurrentValue && R.IsReady() && !Program.ShacoClone && target.HealthPercent < 75 &&
             cmbDmg < target.Health && target.HealthPercent > cmbDmg && target.HealthPercent > 25)
             {
                 R2.Cast();
             }
 
-            if (Player.Instance.HealthPercent <= ComboMenu.GetSliderValue("hpR") && R.IsReady() && ComboMenu.GetCheckBoxValue("rLow"))
-            {
-                R.Cast();
-            }
+
+            //if (Player.Instance.HealthPercent <= ComboMenu.GetSliderValue("hpR") && R.IsReady() && ComboMenu.GetCheckBoxValue("rLow"))
+            //{
+            //    R.Cast();
+            //}
 
         }
         }
