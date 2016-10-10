@@ -33,20 +33,8 @@ namespace RoninSkarner.Modes
             var etarget = TargetSelector.GetTarget(E.Range, DamageType.Magical);
             var enemiese = EntityManager.Heroes.Enemies.OrderByDescending
              (a => a.HealthPercent).Where(a => !a.IsMe && a.IsValidTarget() && a.Distance(Player) <= E.Range);
-
-            if (ComboMenu.GetCheckBoxValue("eUse") && etarget.IsValidTarget(SpellsManager.E.Range) && E.IsReady() && E.GetPrediction(etarget).HitChance >= Hitch.hitchance(E, FirstMenu))
-            {
-                foreach (var eenemies in enemiese)
-                {
-                    var predE = E.GetPrediction(eenemies);
-                    { 
-                    E.Cast(predE.CastPosition);
-                    }
-                }
-               
-            }
             
-            if (E.IsReady() && ComboMenu.GetCheckBoxValue("eUse") && etarget.IsValidTarget(SpellsManager.E.Range) && E.GetPrediction(etarget).HitChance >= Hitch.hitchance(E, FirstMenu)      
+            if (E.IsReady() && ComboMenu.GetCheckBoxValue("eUse") && etarget.IsValidTarget(SpellsManager.E.Range + 200) && E.GetPrediction(etarget).HitChance >= Hitch.hitchance(E, FirstMenu))    
                 {
                 E.Cast(etarget);
                 }
