@@ -31,7 +31,7 @@ namespace Eclipse.Modes
                     W.Cast(Player.Instance);
                 }
             }
-            if (Player.Instance.CountEnemiesInRange(W.Range) >= 2 || Player.Instance.HealthPercent <= 20 && W.IsReady())
+            if (Player.Instance.CountEnemiesInRange(W.Range) >= 2 || Player.Instance.HealthPercent <= 20 && W.IsReady() && ComboMenu.GetCheckBoxValue("wlow"))
             {
                 W.Cast(Player.Instance);
             }
