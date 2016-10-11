@@ -31,16 +31,17 @@ namespace RoninTune.Modes
     EntityManager.MinionsAndMonsters.GetJungleMonsters()
         .OrderBy(a => a.MaxHealth)
         .FirstOrDefault(a => a.IsValidTarget(Q.Range));
+            var target = EntityManager.MinionsAndMonsters.GetJungleMonsters().OrderByDescending(a => a.MaxHealth).FirstOrDefault(a => a.IsValidTarget(900));
 
-            if (source == null) return;
+            if (target == null) return;
             if (Q.IsReady() && JungleClearMenu.GetCheckBoxValue("qUse") && source.Distance(Player) <= Q.Range)
             {
-                Q.Cast(source.Position);
+                Q.Cast(target.Position);
             }
 
             if (E.IsReady() && JungleClearMenu.GetCheckBoxValue("eUse") && source.Distance(Player) <= E.Range)
             {
-                E.Cast(source);
+                E.Cast(target);
             }
 
             if (W.IsReady() && ComboMenu.GetCheckBoxValue("wUse"))

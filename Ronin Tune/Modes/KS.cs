@@ -60,8 +60,6 @@ namespace RoninTune.Modes
                     {
                         E.Cast(target);
                     }
-
-
                 }
             }
         }

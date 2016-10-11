@@ -24,8 +24,8 @@ namespace RoninTune
         public static Spell.Targeted E;
         public static Spell.Active R;
         public static Spell.Targeted R1;
-        //public static Spell.Skillshot Flash { get; private set; }
-        //public static Spell.Targeted Ignite { get; private set; }
+        public static Spell.Skillshot Flash { get; private set; }
+        public static Spell.Targeted Ignite { get; private set; }
 
         /// <summary>
         /// It sets the values to the spells

@@ -46,6 +46,7 @@ namespace RoninTune
             //Put the name of the champion here
             if (Player.Instance.ChampionName != "Nocturne") return;
             Chat.Print("Welcome to the Ronin´s BETA ;)");
+            Chat.Print("By Taazuma ;)");
             SpellsManager.InitializeSpells();
             Menus.CreateMenu();
             _W.Initialize();
@@ -95,6 +96,22 @@ namespace RoninTune
             {
                 SpellsManager.W.Cast(sender.Position);
             }
+        }
+
+        public static void Items()
+        {
+            if (Item.HasItem(3074) && Item.CanUseItem(3074)) // Hydra
+                Item.UseItem(3074);
+            if (Item.HasItem(3077) && Item.CanUseItem(3077)) // Tiamat
+                Item.UseItem(3077);
+            if (Item.HasItem(3748) && Item.CanUseItem(3748)) // Titanic Hydra
+                Item.UseItem(3748);
+        }
+
+        public static void ItemsYuno()
+        {
+            if (Item.HasItem(3142) && Item.CanUseItem(3142)) // Youmuu's
+                Item.UseItem(3142);
         }
 
 

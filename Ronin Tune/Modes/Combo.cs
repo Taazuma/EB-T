@@ -50,6 +50,7 @@ namespace RoninTune.Modes
 
                         R.Cast();
                         R1.Cast(ultenemies);
+                        Program.ItemsYuno();
                     }
 
                 if (E.IsReady() && ComboMenu.GetCheckBoxValue("eUse"))
@@ -57,7 +58,8 @@ namespace RoninTune.Modes
 
                 {
                     E.Cast(eenemies);
-                }
+                    Program.Items();
+                 }
 
                 if (W.IsReady() && ComboMenu.GetCheckBoxValue("wUse"))
                 {
@@ -86,6 +88,7 @@ namespace RoninTune.Modes
 
                         R.Cast();
                         R1.Cast(ultenemies);
+                        Program.ItemsYuno();
                     }
 
                 if (W.IsReady() && ComboMenu.GetCheckBoxValue("wUse"))
@@ -99,6 +102,7 @@ namespace RoninTune.Modes
 
                     {
                         E.Cast(eenemies);
+                        Program.Items();
                     }
 
                 if (Q.IsReady() && target.IsValidTarget(Q.Range) && ComboMenu.GetCheckBoxValue("qUse"))
@@ -109,6 +113,7 @@ namespace RoninTune.Modes
 
                         {
                             Q.Cast(predQ.CastPosition);
+                            
                         }
                     }
                 }
@@ -123,6 +128,7 @@ namespace RoninTune.Modes
 
                         R.Cast();
                         R1.Cast(ultenemies);
+                        Program.ItemsYuno();
                     }
 
                 if (Q.IsReady() && target.IsValidTarget(Q.Range) && ComboMenu.GetCheckBoxValue("qUse"))
@@ -134,14 +140,15 @@ namespace RoninTune.Modes
                         {
                             Q.Cast(predQ.CastPosition);
                         }
+                    }
 
-                        if (E.IsReady() && ComboMenu.GetCheckBoxValue("eUse"))
-                    foreach (var eenemies in enemies)
-
+                    if (E.IsReady() && ComboMenu.GetCheckBoxValue("eUse") && target.IsValidTarget(E.Range))
                     {
-                        E.Cast(eenemies);
+                        E.Cast(target);
+                        Program.Items();
                     }
-                    }
+
+                    
                     }
 
 
