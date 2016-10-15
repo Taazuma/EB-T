@@ -58,7 +58,7 @@ namespace Eclipse
             FirstMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             ComboMenu = FirstMenu.AddSubMenu("Combo", ComboMenuID);
             HarassMenu = FirstMenu.AddSubMenu("Harass", HarassMenuID);
-            AutoHarassMenu = FirstMenu.AddSubMenu("AutoHarass", AutoHarassMenuID);
+            //AutoHarassMenu = FirstMenu.AddSubMenu("AutoHarass", AutoHarassMenuID);
             LaneClearMenu = FirstMenu.AddSubMenu("LaneClear", LaneClearMenuID);
             LasthitMenu = FirstMenu.AddSubMenu("LastHit", LastHitMenuID);
             JungleClearMenu = FirstMenu.AddSubMenu("JungleClear", JungleClearMenuID);
@@ -162,7 +162,7 @@ namespace Eclipse
             MiscMenu.Add("lvlup", new CheckBox("Auto Level Up Spells", true));
             MiscMenu.AddSeparator(15);
             MiscMenu.Add("skinhax", new CheckBox("Activate Skin hack"));
-            MiscMenu.Add("skinID", new ComboBox("Skin Hack", 1, "Default", "Spellthief Lux", "Sorceress Lux", "Commando Lux", "", "Imperial Lux", "Steel Legion Lux", "Star Guardian Lux"));
+            MiscMenu.Add("skinID", new ComboBox("Skin Hack", 1, "Default", "Spellthief Lux", "Sorceress Lux", "Commando Lux", "Imperial Lux", "Steel Legion Lux", "Star Guardian Lux"));
             MiscMenu.AddGroupLabel("Interrupter settings");
             MiscMenu.Add("interruptq", new CheckBox("Use Q Spell to Interrupt"));
             MiscMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
