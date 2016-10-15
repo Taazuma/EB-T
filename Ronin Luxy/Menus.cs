@@ -48,7 +48,7 @@ namespace Eclipse
 
         public static void CreateMenu()
         {
-            FirstMenu = MainMenu.AddMenu("Taazuma "+Player.Instance.ChampionName, Player.Instance.ChampionName.ToLower() + "taazuma");
+            FirstMenu = MainMenu.AddMenu("Ronin "+Player.Instance.ChampionName, Player.Instance.ChampionName.ToLower() + "taazuma");
 			FirstMenu.AddGroupLabel("Addon by Taazuma / Thanks for using it");
             FirstMenu.AddLabel("If you found any bugs report it on my Thread");
             FirstMenu.AddLabel("Have fun with Playing");
@@ -133,8 +133,8 @@ namespace Eclipse
             KillStealMenu.AddGroupLabel("Killsteal");
             KillStealMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             KillStealMenu.CreateCheckBox(" - Use R", "rUse");
-            KillStealMenu.CreateCheckBox("Steal Baron", "StealBaron");
-            KillStealMenu.CreateCheckBox("Steal Dragon", "StealDragon");
+            KillStealMenu.CreateCheckBox("Steal Baron", "StealBaron", false);
+            KillStealMenu.CreateCheckBox("Steal Dragon", "StealDragon", false);
             KillStealMenu.AddGroupLabel("Settings");
             KillStealMenu.CreateSlider("Mana must be higher than [{0}%] to use Killsteal spells", "manaSlider", 20);
             KillStealMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
