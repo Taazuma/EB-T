@@ -70,6 +70,7 @@ namespace Eclipse
             ComboMenu.AddSeparator(15);
             // --------------------------------------------------------------COMBO LOGICS-------------------------------------------------------------- //
             ComboMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
+            ComboMenu.AddLabel("Only use one Combo");
             ComboMenu.AddLabel("ComboLogics");
             ComboMenu.CreateCheckBox("Taaz Stun - Spell Combo", "1combo", true);
             ComboMenu.AddGroupLabel("Combo Q - when Stunned -> E - R - W");
@@ -132,7 +133,7 @@ namespace Eclipse
 
             KillStealMenu.AddGroupLabel("Killsteal");
             KillStealMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
-            KillStealMenu.CreateCheckBox(" - Use R", "rUse");
+            KillStealMenu.CreateCheckBox(" - Use R", "rUse", false);
             KillStealMenu.CreateCheckBox("Steal Baron", "StealBaron", false);
             KillStealMenu.CreateCheckBox("Steal Dragon", "StealDragon", false);
             KillStealMenu.AddGroupLabel("Settings");

@@ -66,7 +66,7 @@ namespace Eclipse.Modes
                         }
                     }, Edelay);
 
-                    if (ComboMenu.GetCheckBoxValue("rUse") && R.IsReady() && rtarget.IsValidTarget(R.Range) && R.GetPrediction(rtarget).HitChance >= HitChance.Medium)
+                    if (ComboMenu.GetCheckBoxValue("rUse") && R.IsReady() && rtarget.IsValidTarget(R.Range))
                     {
                         foreach (var ultenemies in enemies)
                         {
@@ -126,7 +126,7 @@ namespace Eclipse.Modes
                 {
                     W.Cast(wtarget.Position);
                 }
-                if (ComboMenu.GetCheckBoxValue("rUse") && R.IsReady() && rtarget.IsValidTarget(R.Range) && R.GetPrediction(rtarget).HitChance >= HitChance.Medium)
+                if (ComboMenu.GetCheckBoxValue("rUse") && R.IsReady() && rtarget.IsValidTarget(R.Range))
                 {
                     foreach (var ultenemies in enemies)
                     {

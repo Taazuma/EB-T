@@ -45,7 +45,7 @@ namespace Eclipse.Modes
             }
 
             //Thanks to Mario
-            if (KillStealMenu.GetCheckBoxValue("rUse"))
+            if (KillStealMenu.GetCheckBoxValue("rUse") && R.IsReady())
             {
                 var rtarget = TargetSelector.GetTarget(R.Range, DamageType.Magical);
 
@@ -69,10 +69,10 @@ namespace Eclipse.Modes
                 }
             }// END THANKS
 
-            if (!R.IsReady())
-            {
-                return;
-            }
+            //if (!R.IsReady())
+            //{
+            //    return;
+            //}
 
             var stealBlue = KillStealMenu.GetCheckBoxValue("StealBlueBuff");
             var stealRed = KillStealMenu.GetCheckBoxValue("StealRedBuff");
