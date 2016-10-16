@@ -66,25 +66,25 @@ namespace Eclipse
             HarassMenu.CreateCheckBox("Use W", "wUse");
             HarassMenu.CreateCheckBox("Use E", "eUse");
             HarassMenu.AddGroupLabel("Settings");
-            HarassMenu.CreateSlider("Mana must be higher than [{0}%] to use Harass spells", "manaSlider", 60);
+            HarassMenu.CreateSlider("Mana must be higher than [{0}%] to use spells", "manaSlider", 60);
 
             LaneClearMenu.AddGroupLabel("LaneClear");
             LaneClearMenu.CreateCheckBox("Use W", "wUse");
             LaneClearMenu.CreateCheckBox("Use E", "eUse");
             LaneClearMenu.AddGroupLabel("Settings");
-            LaneClearMenu.CreateSlider("Mana must be higher than [{0}%] to use Harass spells", "manaSlider", 60);
+            LaneClearMenu.CreateSlider("Mana must be higher than [{0}%] to use spells", "manaSlider", 60);
 
             JungleClearMenu.AddGroupLabel("JungleClear");
             JungleClearMenu.CreateCheckBox("Use W", "wUse");
             JungleClearMenu.CreateCheckBox("Use E", "eUse");
             JungleClearMenu.AddGroupLabel("Settings");
-            JungleClearMenu.CreateSlider("Mana must be higher than [{0}%] to use Harass spells", "manaSlider", 20);
+            JungleClearMenu.CreateSlider("Mana must be higher than [{0}%] to use spells", "manaSlider", 20);
 
             KillStealMenu.AddGroupLabel("KillSteal");
             KillStealMenu.CreateCheckBox("Use E", "eUse");
             KillStealMenu.CreateCheckBox("Use Smite to KS", "sks");
             KillStealMenu.AddGroupLabel("Settings");
-            KillStealMenu.CreateSlider("Mana must be higher than [{0}%] to use Harass spells", "manaSlider", 20);
+            KillStealMenu.CreateSlider("Mana must be higher than [{0}%] to use spells", "manaSlider", 20);
 
             DrawingsMenu.AddGroupLabel("Settings");
             DrawingsMenu.CreateCheckBox("Draw spell`s range only if they are ready.", "readyDraw");

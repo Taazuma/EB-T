@@ -74,43 +74,43 @@ namespace Eclipse.Modes
             //    return;
             //}
 
-            var stealBlue = KillStealMenu.GetCheckBoxValue("StealBlueBuff");
-            var stealRed = KillStealMenu.GetCheckBoxValue("StealRedBuff");
-            var stealDragon = KillStealMenu.GetCheckBoxValue("StealDragon");
-            var stealBaron = KillStealMenu.GetCheckBoxValue("StealBaron");
-            var stealBuffMode = KillStealMenu.GetCheckBoxValue("StealBuffMode");
+            //var stealBlue = KillStealMenu.GetCheckBoxValue("StealBlueBuff");
+            //var stealRed = KillStealMenu.GetCheckBoxValue("StealRedBuff");
+            //var stealDragon = KillStealMenu.GetCheckBoxValue("StealDragon");
+            //var stealBaron = KillStealMenu.GetCheckBoxValue("StealBaron");
+            //var stealBuffMode = KillStealMenu.GetCheckBoxValue("StealBuffMode");
 
-            if (stealBaron)
-            {
-                var baron = ObjectManager.Get<Obj_AI_Minion>().FirstOrDefault(x => x.CharData.BaseSkinName.Equals("SRU_Baron"));
-                var predictedHealth = Prediction.Health.GetPrediction(baron, R.CastDelay + Game.Ping);
-                if (baron != null)
-                {
-                    //var healthPred = HealthPrediction.GetHealthPrediction(baron, (int)(R.Delay * 1000) + Game.Ping / 2);
-                    var rDamage = baron.GetDamage(SpellSlot.R);
-                    if (predictedHealth <= rDamage)
-                    {
-                        R.Cast(baron);
-                    }
-                }
-            }
+            //if (stealBaron)
+            //{
+            //    var baron = ObjectManager.Get<Obj_AI_Minion>().FirstOrDefault(x => x.CharData.BaseSkinName.Equals("SRU_Baron"));
+            //    var predictedHealth = Prediction.Health.GetPrediction(baron, R.CastDelay + Game.Ping);
+            //    if (baron != null)
+            //    {
+            //        //var healthPred = HealthPrediction.GetHealthPrediction(baron, (int)(R.Delay * 1000) + Game.Ping / 2);
+            //        var rDamage = baron.GetDamage(SpellSlot.R);
+            //        if (predictedHealth <= rDamage)
+            //        {
+            //            R.Cast(baron);
+            //        }
+            //    }
+            //}
 
-            if (stealDragon)
-            {
-                var dragon =
-                    ObjectManager.Get<Obj_AI_Minion>().FirstOrDefault(x => x.CharData.BaseSkinName.Equals("SRU_Dragon"));
+            //if (stealDragon)
+            //{
+            //    var dragon =
+            //        ObjectManager.Get<Obj_AI_Minion>().FirstOrDefault(x => x.CharData.BaseSkinName.Equals("SRU_Dragon"));
 
-                if (dragon != null)
-                {
-                    var predictedHealth = Prediction.Health.GetPrediction(dragon, R.CastDelay + Game.Ping);
-                    var rDamage = dragon.GetDamage(SpellSlot.R);
+            //    if (dragon != null)
+            //    {
+            //        var predictedHealth = Prediction.Health.GetPrediction(dragon, R.CastDelay + Game.Ping);
+            //        var rDamage = dragon.GetDamage(SpellSlot.R);
 
-                    if (predictedHealth <= rDamage)
-                    {
-                        R.Cast(dragon);
-                    }
-                }
-            }
+            //        if (predictedHealth <= rDamage)
+            //        {
+            //            R.Cast(dragon);
+            //        }
+            //    }
+            //}
 
 
         }

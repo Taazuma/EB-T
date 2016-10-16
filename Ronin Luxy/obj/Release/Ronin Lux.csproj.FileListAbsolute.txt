@@ -11,3 +11,16 @@ D:\Tommi\Documents\Visual Studio 2015\Projects\Ronin Luxy\Ronin Luxy\bin\Release
 D:\Tommi\Documents\Visual Studio 2015\Projects\Ronin Luxy\Ronin Luxy\obj\Release\Ronin Lux.csprojResolveAssemblyReference.cache
 D:\Tommi\Documents\Visual Studio 2015\Projects\Ronin Luxy\Ronin Luxy\obj\Release\Eclipse Template.exe
 D:\Tommi\Documents\Visual Studio 2015\Projects\Ronin Luxy\Ronin Luxy\obj\Release\Eclipse Template.pdb
+D:\Tommi\Documents\GitHub\EB-T\Ronin Luxy\bin\Release\Eclipse Template.exe.config
+D:\Tommi\Documents\GitHub\EB-T\Ronin Luxy\bin\Release\Eclipse Template.exe
+D:\Tommi\Documents\GitHub\EB-T\Ronin Luxy\bin\Release\Eclipse Template.pdb
+D:\Tommi\Documents\GitHub\EB-T\Ronin Luxy\bin\Release\EloBuddy.dll
+D:\Tommi\Documents\GitHub\EB-T\Ronin Luxy\bin\Release\EloBuddy.Sandbox.dll
+D:\Tommi\Documents\GitHub\EB-T\Ronin Luxy\bin\Release\EloBuddy.SDK.dll
+D:\Tommi\Documents\GitHub\EB-T\Ronin Luxy\bin\Release\Newtonsoft.Json.dll
+D:\Tommi\Documents\GitHub\EB-T\Ronin Luxy\bin\Release\SharpDX.Direct3D9.dll
+D:\Tommi\Documents\GitHub\EB-T\Ronin Luxy\bin\Release\SharpDX.dll
+D:\Tommi\Documents\GitHub\EB-T\Ronin Luxy\bin\Release\SharpDX.XInput.dll
+D:\Tommi\Documents\GitHub\EB-T\Ronin Luxy\obj\Release\Ronin Lux.csprojResolveAssemblyReference.cache
+D:\Tommi\Documents\GitHub\EB-T\Ronin Luxy\obj\Release\Eclipse Template.exe
+D:\Tommi\Documents\GitHub\EB-T\Ronin Luxy\obj\Release\Eclipse Template.pdb

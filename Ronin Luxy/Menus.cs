@@ -134,8 +134,8 @@ namespace Eclipse
             KillStealMenu.AddGroupLabel("Killsteal");
             KillStealMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             KillStealMenu.CreateCheckBox(" - Use R", "rUse", false);
-            KillStealMenu.CreateCheckBox("Steal Baron", "StealBaron", false);
-            KillStealMenu.CreateCheckBox("Steal Dragon", "StealDragon", false);
+            //KillStealMenu.CreateCheckBox("Steal Baron", "StealBaron", false);
+            //KillStealMenu.CreateCheckBox("Steal Dragon", "StealDragon", false);
             KillStealMenu.AddGroupLabel("Settings");
             KillStealMenu.CreateSlider("Mana must be higher than [{0}%] to use Killsteal spells", "manaSlider", 20);
             KillStealMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
