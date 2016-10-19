@@ -43,6 +43,10 @@ namespace Eclipse.Modes
             var rtarget = TargetSelector.GetTarget(R.Range, DamageType.Mixed);
             var target = TargetSelector.GetTarget(Q.Range + 200, DamageType.Magical);
             //var enemies = EntityManager.Heroes.Enemies.OrderByDescending(a => a.HealthPercent).Where(a => !a.IsMe && a.IsValidTarget() && a.Distance(_Player) <= R.Range);
+            if (target == null || target.IsInvulnerable || target.MagicImmune)
+            {
+                return;
+            }
 
             // COMBO 1 Beginn --------------------------------------------------------------------------------
             if (ComboMenu.GetCheckBoxValue("combo1"))

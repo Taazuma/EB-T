@@ -40,7 +40,7 @@ namespace Eclipse
         private static void Loading_OnLoadingComplete(EventArgs args)
         {
             //Put the name of the champion here
-            // if (Player.Instance.ChampionName != "Akali") return;
+            if (Player.Instance.ChampionName != "Akali") return;
             Chat.Print("Have Fun with Playing ! by TaaZ");
             AbilitySequence = new int[] { 1, 3, 2, 1, 1, 4, 1, 3, 1, 3, 4, 3, 3, 2, 2, 4, 2, 2 };
             SpellsManager.InitializeSpells();

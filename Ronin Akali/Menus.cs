@@ -68,7 +68,7 @@ namespace Eclipse
             ComboMenu.AddGroupLabel("Combo Q - AA - E - R");
             ComboMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             ComboMenu.CreateCheckBox(" - Use Q", "qUse");
-            ComboMenu.CreateCheckBox(" - Use W", "wUse");
+            ComboMenu.CreateCheckBox(" - Use W", "wUse", false);
             ComboMenu.CreateCheckBox(" - Use E", "eUse");
             ComboMenu.CreateCheckBox(" - Use R", "rUse");
             ComboMenu.AddLabel("Humanizer Settings");
@@ -87,7 +87,7 @@ namespace Eclipse
 
             LaneClearMenu.AddGroupLabel("LaneClear");
             LaneClearMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
-            LaneClearMenu.CreateCheckBox(" - Use Q", "qUse");
+            LaneClearMenu.CreateCheckBox(" - Use Q", "qUse", false);
             LaneClearMenu.CreateCheckBox(" - Use AA Reset", "aaclear");
             LaneClearMenu.CreateCheckBox(" - Use E", "eUse");
             LaneClearMenu.CreateCheckBox(" - Use R", "rUse", false);
