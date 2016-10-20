@@ -29,13 +29,10 @@ namespace Eclipse.Modes
         public static void Execute()
         {
 
-            if (R.IsReady() && Player.Instance.HealthPercent <= 35 && Player.Instance.CountEnemiesInRange(R.Range) >= 1)
+            if (R.IsReady() && Player.Instance.CountEnemiesInRange(R.Range) >= 1)
             {
-                var enemyminion =
-                    EntityManager.MinionsAndMonsters.EnemyMinions.OrderByDescending(m => m.Distance(Game.CursorPos))
-                        .FirstOrDefault(m => m.IsValidTarget(R.Range));
+                var enemyminion =EntityManager.MinionsAndMonsters.EnemyMinions.OrderByDescending(m => m.Distance(Game.CursorPos)).FirstOrDefault(m => m.IsValidTarget(R.Range));
                 if (enemyminion == null) return;
-
                 R.Cast(enemyminion);
             }
 
@@ -43,6 +40,7 @@ namespace Eclipse.Modes
             {
                 W.Cast(Player.Instance);
             }
+
         }
     }
 }

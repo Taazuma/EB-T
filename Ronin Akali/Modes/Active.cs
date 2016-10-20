@@ -20,18 +20,41 @@ namespace Eclipse.Modes
 {
     internal class Active
     {
+        public static readonly AIHeroClient Akali = ObjectManager.Player;
 
         public static void Execute()
         {
 
-            if (Player.HasBuff("zedulttargetmark"))
+            if (DrawingsMenu.GetCheckBoxValue("showkilla"))
+                Indicator.DamageToUnit = Program.GetComboDamage;
+
+            if (Player.HasBuff("zedulttargetmark") && MiscMenu.GetCheckBoxValue("wlow"))
             {
                 if (W.IsReady())
                 {
                     W.Cast(Player.Instance);
                 }
             }
-            if (Player.Instance.CountEnemiesInRange(W.Range) >= 2 || Player.Instance.HealthPercent <= 20 && W.IsReady() && ComboMenu.GetCheckBoxValue("wlow"))
+
+            if (Akali.IsInShopRange() && MiscMenu.GetCheckBoxValue("fun"))
+            {
+                Chat.Say("/masterybadge");
+                W.Cast(Player.Instance);
+            }
+
+            //if (Akali.IsDead && MiscMenu.GetCheckBoxValue("fun"))
+            //{
+        
+            //}
+
+            var target = TargetSelector.GetTarget(Q.Range + 200, DamageType.Magical);
+            //var enemies = EntityManager.Heroes.Enemies.OrderByDescending(a => a.HealthPercent).Where(a => !a.IsMe && a.IsValidTarget() && a.Distance(_Player) <= R.Range);
+            if (target == null || target.IsInvulnerable || target.MagicImmune)
+            {
+                return;
+            }
+
+            if (Player.Instance.CountEnemiesInRange(W.Range) >= 2 || Player.Instance.HealthPercent <= 20 && W.IsReady() && MiscMenu.GetCheckBoxValue("wlow"))
             {
                 W.Cast(Player.Instance);
             }
@@ -44,12 +67,8 @@ namespace Eclipse.Modes
 
                 if (Q.IsReady())
                 {
-                    //var passiveDamage = rtarget.HasPassive() ? rtarget.GetPassiveDamage() : 0f;
                     var rDamage = qtarget.GetDamage(SpellSlot.Q);
-
-                    var predictedHealth = Prediction.Health.GetPrediction(qtarget, Q.CastDelay + Game.Ping);
-
-                    if (predictedHealth <= rDamage)
+                    if (qtarget.Health + qtarget.AttackShield <= rDamage)
                     {
                         if (qtarget.IsValidTarget(Q.Range))
                         {
@@ -65,20 +84,9 @@ namespace Eclipse.Modes
 
                 if (etarget == null) return;
 
-                if (E.IsReady())
+                if (E.IsReady() && etarget.Health + etarget.AttackShield <= Akali.GetSpellDamage(etarget, SpellSlot.E) && etarget.IsValidTarget(E.Range))
                 {
-                    //var passiveDamage = rtarget.HasPassive() ? rtarget.GetPassiveDamage() : 0f;
-                    var rDamage = etarget.GetDamage(SpellSlot.E);
-
-                    var predictedHealth = Prediction.Health.GetPrediction(etarget, E.CastDelay + Game.Ping);
-
-                    if (predictedHealth <= rDamage)
-                    {
-                        if (etarget.IsValidTarget(E.Range))
-                        {
-                            E.Cast(etarget);
-                        }
-                    }
+                    E.Cast();
                 }
             }// END KS
 
@@ -93,9 +101,7 @@ namespace Eclipse.Modes
                     //var passiveDamage = rtarget.HasPassive() ? rtarget.GetPassiveDamage() : 0f;
                     var rDamage = rtarget.GetDamage(SpellSlot.R);
 
-                    var predictedHealth = Prediction.Health.GetPrediction(rtarget, R.CastDelay + Game.Ping);
-
-                    if (predictedHealth <= rDamage)
+                    if (rtarget.Health + rtarget.AttackShield <= rDamage)
                     {
                         if (rtarget.IsValidTarget(R.Range))
                         {
@@ -104,6 +110,12 @@ namespace Eclipse.Modes
                     }
                 }
             }// END KS
+
+            if (MiscMenu.GetCheckBoxValue("autoq") && Q.IsReady() && target.IsValidTarget(Q.Range + 200) && Player.Instance.Mana <= 100)
+            {
+                Q.Cast(target);
+            }
+
 
         }
 

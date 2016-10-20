@@ -19,7 +19,7 @@ namespace Eclipse.Modes
 {
     internal class Combo
     {
-        private static AIHeroClient enemyHaveMota
+        public static AIHeroClient enemyHaveMota
         {
             get
             {
@@ -51,6 +51,12 @@ namespace Eclipse.Modes
             // COMBO 1 Beginn --------------------------------------------------------------------------------
             if (ComboMenu.GetCheckBoxValue("combo1"))
             {
+
+                if (MiscMenu.GetCheckBoxValue("useitems"))
+                {
+                    Eclipse.Modes.Items.CastItems(target);
+                }
+
                 Core.DelayAction(delegate
                 {
                     if (ComboMenu.GetCheckBoxValue("qUse") && Q.IsReady() && qtarget.IsValidTarget(Q.Range))
@@ -78,19 +84,25 @@ namespace Eclipse.Modes
                     }
                 }, Edelay);
 
-                if (W.IsReady() && wtarget.IsValidTarget(W.Range) && ComboMenu.GetCheckBoxValue("wUse"))
-                {
-                    if (Player.Instance.CountEnemiesInRange(Q.Range) >= 1 || Player.Instance.HealthPercent <= 15)
-                    {
-                        W.Cast(Player.Instance);
-                    }
-                }
+                //if (W.IsReady() && wtarget.IsValidTarget(W.Range) && ComboMenu.GetCheckBoxValue("wUse"))
+                //{
+                //    if (Player.Instance.CountEnemiesInRange(Q.Range) >= 1 || Player.Instance.HealthPercent <= 15)
+                //    {
+                //        W.Cast(Player.Instance);
+                //    }
+                //}
             }
             // COMBO 1 END --------------------------------------------------------------------------------
 
             // COMBO 2 Beginn --------------------------------------------------------------------------------
             if (ComboMenu.GetCheckBoxValue("combo2"))
             {
+
+                if (MiscMenu.GetCheckBoxValue("useitems"))
+                {
+                    Eclipse.Modes.Items.CastItems(target);
+                }
+
                 Core.DelayAction(delegate
                 {
                     if (ComboMenu.GetCheckBoxValue("qUse") && Q.IsReady() && qtarget.IsValidTarget(Q.Range))
@@ -119,13 +131,13 @@ namespace Eclipse.Modes
                     }
                 }, Rdelay);
 
-                if (W.IsReady() && wtarget.IsValidTarget(W.Range) && ComboMenu.GetCheckBoxValue("wUse"))
-                {
-                    if (Player.Instance.CountEnemiesInRange(Q.Range) >= 1 || Player.Instance.HealthPercent <= 15)
-                    {
-                        W.Cast(Player.Instance);
-                    }
-                }
+                //if (W.IsReady() && wtarget.IsValidTarget(W.Range) && ComboMenu.GetCheckBoxValue("wUse"))
+                //{
+                //    if (Player.Instance.CountEnemiesInRange(Q.Range) >= 1 || Player.Instance.HealthPercent <= 15)
+                //    {
+                //        W.Cast(Player.Instance);
+                //    }
+                //}
             }
             // COMBO 2 END --------------------------------------------------------------------------------
 
@@ -133,6 +145,11 @@ namespace Eclipse.Modes
             if (ComboMenu.GetCheckBoxValue("combo3"))
             {
 
+                if (MiscMenu.GetCheckBoxValue("useitems"))
+                {
+                    Eclipse.Modes.Items.CastItems(target);
+                }
+
                 Core.DelayAction(delegate
                 {
                     if (ComboMenu.GetCheckBoxValue("rUse") && R.IsReady() && rtarget.IsValidTarget(R.Range))
@@ -163,13 +180,13 @@ namespace Eclipse.Modes
 
 
 
-                if (W.IsReady() && wtarget.IsValidTarget(W.Range) && ComboMenu.GetCheckBoxValue("wUse"))
-                {
-                    if (Player.Instance.CountEnemiesInRange(Q.Range) >= 1 || Player.Instance.HealthPercent <= 15)
-                    {
-                        W.Cast(Player.Instance);
-                    }
-                }
+                //if (W.IsReady() && wtarget.IsValidTarget(W.Range) && ComboMenu.GetCheckBoxValue("wUse"))
+                //{
+                //    if (Player.Instance.CountEnemiesInRange(Q.Range) >= 1 || Player.Instance.HealthPercent <= 15)
+                //    {
+                //        W.Cast(Player.Instance);
+                //    }
+                //}
             }
             // COMBO 3 END --------------------------------------------------------------------------------
 
@@ -177,27 +194,43 @@ namespace Eclipse.Modes
             if (ComboMenu.GetCheckBoxValue("combo4"))
             {
 
+                if (MiscMenu.GetCheckBoxValue("useitems"))
+                {
+                    Eclipse.Modes.Items.CastItems(target);
+                }
+
+                Core.DelayAction(delegate
+                {
                     if (ComboMenu.GetCheckBoxValue("qUse") && Q.IsReady() && qtarget.IsValidTarget(Q.Range))
                     {
                         Q.Cast(qtarget);
                     }
+                }, Qdelay);
 
                 var motaEnemy = enemyHaveMota;
                 if (motaEnemy != null && motaEnemy.IsValidTarget(_player.GetAutoAttackRange(qtarget)))
                     return;
 
+
+                Core.DelayAction(delegate
+                {
                     if (ComboMenu.GetCheckBoxValue("eUse") && E.IsReady() && etarget.IsValidTarget(E.Range))
                     {
                         E.Cast();
                     }
+                }, Edelay);
 
-                    if (ComboMenu.GetCheckBoxValue("rUse") && R.IsReady() && rtarget.IsValidTarget(R.Range))
+                Core.DelayAction(delegate
+                    {
+                        if (ComboMenu.GetCheckBoxValue("rUse") && R.IsReady() && rtarget.IsValidTarget(R.Range))
                     {
                         R.Cast(rtarget);
                     }
-
+                    }, Rdelay);
             }
             // COMBO 4 END --------------------------------------------------------------------------------
+
+            
 
         }
     }

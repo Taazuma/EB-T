@@ -5,6 +5,12 @@ using EloBuddy.SDK;
 using SharpDX;
 using SharpDX.Direct3D9;
 using Color = System.Drawing.Color;
+using EloBuddy.SDK.Enumerations;
+using EloBuddy.SDK.Events;
+using EloBuddy.SDK.Menu;
+using EloBuddy.SDK.Menu.Values;
+using EloBuddy.SDK.Rendering;
+
 
 namespace Eclipse
 {
@@ -17,6 +23,9 @@ namespace Eclipse
         private const float Thick = 9.82f;
         //Offsets
         private static Font _Font, _Font2;
+        //
+
+
 
         public static void Init()
         {

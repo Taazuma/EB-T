@@ -56,10 +56,10 @@ namespace Eclipse
             // --------------------------------------------------------------COMBO LOGICS-------------------------------------------------------------- //
             ComboMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             ComboMenu.AddLabel("ComboLogics");
-            ComboMenu.CreateCheckBox("Normal One", "combo1", false);
+            ComboMenu.CreateCheckBox("Normal One", "combo1", true);
             ComboMenu.AddGroupLabel("Combo Q - AA - R - E - W (when Low)");
             ComboMenu.AddSeparator(10);
-            ComboMenu.CreateCheckBox("Extend Two", "combo2", true);
+            ComboMenu.CreateCheckBox("Extend Two", "combo2", false);
             ComboMenu.AddGroupLabel("Combo Q - AA - E - R - W (when Low)");
             ComboMenu.AddSeparator(10);
             ComboMenu.CreateCheckBox("Extend Three", "combo3", false);
@@ -80,26 +80,24 @@ namespace Eclipse
             HarassMenu.AddGroupLabel("Harass");
             HarassMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             HarassMenu.CreateCheckBox(" - Use Q", "qUse", false);
+            HarassMenu.CreateCheckBox(" - Use AA Reset", "qUse", false);
             HarassMenu.CreateCheckBox(" - Use E", "eUse");
             HarassMenu.AddGroupLabel("Settings");
-            HarassMenu.CreateSlider("Mana must be higher than [{0}%] to use Harass spells", "manaSlider", 30);
             HarassMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
 
             LaneClearMenu.AddGroupLabel("LaneClear");
             LaneClearMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
-            LaneClearMenu.CreateCheckBox(" - Use Q", "qUse", false);
+            LaneClearMenu.CreateCheckBox(" - Use Q", "qUse");
             LaneClearMenu.CreateCheckBox(" - Use AA Reset", "aaclear");
             LaneClearMenu.CreateCheckBox(" - Use E", "eUse");
             LaneClearMenu.CreateCheckBox(" - Use R", "rUse", false);
             LaneClearMenu.AddGroupLabel("Settings");
-            LaneClearMenu.CreateSlider("Mana must be higher than [{0}%] to use LaneClear spells", "manaSlider", 30);
             LaneClearMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
 
             LasthitMenu.AddGroupLabel("Lasthit");
             LasthitMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             LasthitMenu.CreateCheckBox(" - Use Q", "qUse");
             LasthitMenu.AddGroupLabel("Settings");
-            LasthitMenu.CreateSlider("Mana must be higher than [{0}%] to use LastHit spells", "manaSlider", 30);
             LasthitMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
 
             JungleClearMenu.AddGroupLabel("JungleClear");
@@ -109,16 +107,15 @@ namespace Eclipse
             JungleClearMenu.CreateCheckBox(" - Use E", "eUse");
             JungleClearMenu.CreateCheckBox(" - Use R", "rUse", false);
             JungleClearMenu.AddGroupLabel("Settings");
-            JungleClearMenu.CreateSlider("Mana must be higher than [{0}%] to use JungleClear spells", "manaSlider", 30);
             JungleClearMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
 
             KillStealMenu.AddGroupLabel("KillSteal");
             KillStealMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             KillStealMenu.CreateCheckBox(" - Use Q", "qUse");
-            KillStealMenu.CreateCheckBox(" - Use E", "eUse", false);
-            KillStealMenu.CreateCheckBox(" - Use R", "rUse", false);
+            KillStealMenu.CreateCheckBox(" - Use E", "eUse");
+            KillStealMenu.CreateCheckBox("- Use R", "rUse", false);
             KillStealMenu.AddGroupLabel("Settings");
-            KillStealMenu.CreateSlider("Mana must be higher than [{0}%] to use Killsteal spells", "manaSlider", 30);
+            KillStealMenu.AddLabel("Yoyo new KS");
             KillStealMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
 
             DrawingsMenu.AddGroupLabel("Settings");
@@ -126,11 +123,29 @@ namespace Eclipse
             DrawingsMenu.CreateCheckBox("Draw damage indicator.", "damageDraw");
             DrawingsMenu.CreateCheckBox("Draw damage indicator percent.", "perDraw");
             DrawingsMenu.CreateCheckBox("Draw damage indicator statistics.", "statDraw", false);
+            DrawingsMenu.CreateCheckBox("Show Killable", "showkilla");
             DrawingsMenu.AddGroupLabel("Spells");
             DrawingsMenu.CreateCheckBox("Draw Q.", "qDraw", false);
             DrawingsMenu.CreateCheckBox("Draw W.", "wDraw", false);
             DrawingsMenu.CreateCheckBox("Draw E.", "eDraw");
             DrawingsMenu.CreateCheckBox("Draw R.", "rDraw");
+            DrawingsMenu.AddSeparator(15);
+            DrawingsMenu.AddGroupLabel("Tracker Draws");
+            DrawingsMenu.Add("me", new CheckBox("My Path", false));
+            DrawingsMenu.Add("ally", new CheckBox("Ally Path", false));
+            DrawingsMenu.Add("enemy", new CheckBox("Enemy Path", true));
+            DrawingsMenu.AddLabel("Tracker Misc");
+            DrawingsMenu.Add("toggle", new KeyBind("Toggle On/Off", true, KeyBind.BindTypes.PressToggle, 'G'));
+            DrawingsMenu.Add("eta", new CheckBox("Estimated time of arrival (only me)", true));
+            DrawingsMenu.Add("name", new CheckBox("Champion Name", true));
+            DrawingsMenu.Add("thick", new Slider("Line Thickness", 2, 1, 5));
+            DrawingsMenu.AddGroupLabel("Disable while use orbwalk");
+            DrawingsMenu.Add("combo", new CheckBox("Combo", true));
+            DrawingsMenu.Add("harass", new CheckBox("Harass", true));
+            DrawingsMenu.Add("laneclear", new CheckBox("LaneClear", false));
+            DrawingsMenu.Add("lasthit", new CheckBox("LastHit", true));
+            DrawingsMenu.Add("flee", new CheckBox("Flee", false));
+            DrawingsMenu.AddSeparator(15);
             DrawingsMenu.AddGroupLabel("Drawings Color");
             QColorSlide = new ColorSlide(DrawingsMenu, "qColor", Color.Red, "Q Color:");
             WColorSlide = new ColorSlide(DrawingsMenu, "wColor", Color.Purple, "W Color:");
@@ -139,13 +154,15 @@ namespace Eclipse
             DamageIndicatorColorSlide = new ColorSlide(DrawingsMenu, "healthColor", Color.YellowGreen, "DamageIndicator Color:");
 
             MiscMenu.AddGroupLabel("Settings");
-            MiscMenu.CreateCheckBox("W when Low", "wlow");
+            MiscMenu.CreateCheckBox("Auto Q", "autoq", false);
+            MiscMenu.CreateCheckBox("W when low", "wlow");
+            MiscMenu.CreateCheckBox("Use Items", "useitems");
+            MiscMenu.CreateCheckBox("Base Fun", "fun");
             MiscMenu.AddLabel("Level Up Function");
             MiscMenu.Add("lvlup", new CheckBox("Auto Level Up Spells", false));
             MiscMenu.AddSeparator(15);
             MiscMenu.Add("skinhax", new CheckBox("Activate Skin hack"));
             MiscMenu.Add("skinID", new ComboBox("Skin Hack", 1, "Default", "Crimson Akali", "Stinger Akali", "All-Star Akali", "Nurse Akali", "Blood Moon Akali", "Silverfang Akali", "Headhunter Akali", "Sashimi Akali"));
-
         }
         public static int skinId()
         {

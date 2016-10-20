@@ -29,15 +29,19 @@ namespace Eclipse.Modes
 
             if (target == null) return;
 
+            if (HarassMenu.GetCheckBoxValue("eUse") && E.IsReady() && etarget.IsValidTarget(E.Range))
+            {
+                E.Cast(etarget);
+            }
+
             if (HarassMenu.GetCheckBoxValue("qUse") && Q.IsReady() && qtarget.IsValidTarget(Q.Range))
             {
                 Q.Cast(qtarget);
             }
 
-            if (HarassMenu.GetCheckBoxValue("eUse") && E.IsReady() && etarget.IsValidTarget(E.Range))
-            {
-                E.Cast(etarget);
-            }
+            var motaEnemy = Modes.Combo.enemyHaveMota;
+            if (motaEnemy != null && motaEnemy.IsValidTarget(Modes.Combo._player.GetAutoAttackRange(qtarget)))
+                return;
 
         }
     }
