@@ -40,8 +40,12 @@ namespace RoninTune.Modes
             var enemies = EntityManager.Heroes.Enemies.OrderByDescending
                 (a => a.HealthPercent).Where(a => !a.IsMe && a.IsValidTarget() && a.Distance(Player) <= E.Range);
             var target = TargetSelector.GetTarget(1900, DamageType.Magical);
+            if (target == null || target.IsInvulnerable || target.MagicImmune)
+            {
+                return;
+            }
 
-           if (ComboMenu.GetCheckBoxValue("cOne"))
+            if (ComboMenu.GetCheckBoxValue("cOne"))
             {
 
                 if (R.IsReady() && target.IsValidTarget(R.Range) && ComboMenu.GetCheckBoxValue("rUse"))
@@ -153,17 +157,52 @@ namespace RoninTune.Modes
 
 
                 }
+
+            else if (ComboMenu.GetCheckBoxValue("cFour"))
+            {
+
+                if (R.IsReady() && target.IsValidTarget(R.Range) && ComboMenu.GetCheckBoxValue("rUse"))
+                    foreach (var ultenemies in enemiesr)
+                    {
+
+                        R.Cast();
+                        R1.Cast(ultenemies);
+                      
+                    }
+
+                if (Q.IsReady() && target.IsValidTarget(Q.Range) && ComboMenu.GetCheckBoxValue("qUse"))
+                {
+                    foreach (var qenemies in enemiesq)
+                    {
+                        var predQ = Q.GetPrediction(qenemies);
+
+                        {
+                            Q.Cast(predQ.CastPosition);
+                        }
+                    }
+
+                }
+
+                if (E.IsReady() && ComboMenu.GetCheckBoxValue("eUse") && target.IsValidTarget(E.Range))
+                    {
+                        E.Cast(target);
+                       
+                    }
+
+                Program.ItemsYuno();
+                Program.Items();
+
+                if (SpellManager.Smite.IsReady())
+                {
+                    SpellManager.Smite.Cast(target);
                 }
 
             }
 
 
+        }
 
-
-            //Q.TryToCast(target, ComboMenu);
-            //W.TryToCast(target, ComboMenu);
-            //E.TryToCast(target, ComboMenu);
-            //R.TryToCast(target, ComboMenu);
+            }
 
         }
     

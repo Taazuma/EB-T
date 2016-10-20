@@ -29,7 +29,7 @@
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -89,6 +89,7 @@
     <Compile Include="Evade\SpellDatabase.cs" />
     <Compile Include="Evade\Utils.cs" />
     <Compile Include="Extensions.cs" />
+    <Compile Include="Indicator.cs" />
     <Compile Include="Items.cs" />
     <Compile Include="Menus.cs" />
     <Compile Include="Modes\Active.cs" />
@@ -96,7 +97,6 @@
     <Compile Include="Modes\Flee.cs" />
     <Compile Include="Modes\Harass.cs" />
     <Compile Include="Modes\JungleClear.cs" />
-    <Compile Include="Modes\KS.cs" />
     <Compile Include="Modes\LaneClear.cs" />
     <Compile Include="Modes\LastHit.cs" />
     <Compile Include="Modes\ModeManager.cs" />

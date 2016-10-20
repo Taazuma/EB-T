@@ -65,6 +65,8 @@ namespace RoninTune
         public static void CreateMenu()
         {
             FirstMenu = MainMenu.AddMenu("Ronin " + Player.Instance.ChampionName, Player.Instance.ChampionName.ToLower() + "hue");
+            FirstMenu.AddGroupLabel("News");
+            FirstMenu.AddLabel("Update 6.21 - new Combo - Killsteal Fix - Path Tracker - Killable Message");
             ComboMenu = FirstMenu.AddSubMenu("♠ Combo", ComboMenuID);
             HarassMenu = FirstMenu.AddSubMenu("♠ Harass", HarassMenuID);
             //AutoHarassMenu = FirstMenu.AddSubMenu("♠ AutoHarass", AutoHarassMenuID);
@@ -94,6 +96,9 @@ namespace RoninTune
             ComboMenu.CreateCheckBox("Combo Three", "cThree", true);
             ComboMenu.AddGroupLabel("Combo R - Q - E");
             ComboMenu.AddSeparator(15);
+            ComboMenu.CreateCheckBox("Combo Four", "cFour", true);
+            ComboMenu.AddGroupLabel("Combo R - Q - E - Items- Smite");
+            ComboMenu.AddSeparator(15);
             //ComboMenu.CreateCheckBox("Gank Combo", "gThree");
             //ComboMenu.AddSeparator(15);
             ComboMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
@@ -102,6 +107,8 @@ namespace RoninTune
             ComboMenu.CreateCheckBox(" - Use E", "eUse");
             ComboMenu.CreateCheckBox(" - Use R", "rUse");
             ComboMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
+            ComboMenu.AddGroupLabel("News");
+            ComboMenu.AddLabel("On Combo 1-3 he using Items after Casting the Ultimate and E");
             // --------------------------------------------------------------COMBO LOGICS-------------------------------------------------------------- //
 
             HarassMenu.AddGroupLabel("HarassMenu");
@@ -169,11 +176,28 @@ namespace RoninTune
             DrawingsMenu.CreateCheckBox(" - Draw damage indicator.", "damageDraw");
             DrawingsMenu.CreateCheckBox(" - Draw damage indicator percent.", "perDraw");
             DrawingsMenu.CreateCheckBox(" - Draw damage indicator statistics.", "statDraw", false);
+            DrawingsMenu.CreateCheckBox("Show Killable", "showkilla");
             DrawingsMenu.AddGroupLabel("Spells");
             DrawingsMenu.CreateCheckBox(" - Draw Q.", "qDraw");
             DrawingsMenu.CreateCheckBox(" - Draw W.", "wDraw");
             DrawingsMenu.CreateCheckBox(" - Draw E.", "eDraw");
             DrawingsMenu.CreateCheckBox(" - Draw R.", "rDraw");
+            DrawingsMenu.AddSeparator(15);
+            DrawingsMenu.AddGroupLabel("Tracker Draws");
+            DrawingsMenu.Add("me", new CheckBox("My Path", false));
+            DrawingsMenu.Add("ally", new CheckBox("Ally Path", false));
+            DrawingsMenu.Add("enemy", new CheckBox("Enemy Path", true));
+            DrawingsMenu.AddLabel("Tracker Misc");
+            DrawingsMenu.Add("toggle", new KeyBind("Toggle On/Off", true, KeyBind.BindTypes.PressToggle, 'G'));
+            DrawingsMenu.Add("eta", new CheckBox("Estimated time of arrival (only me)", true));
+            DrawingsMenu.Add("name", new CheckBox("Champion Name", true));
+            DrawingsMenu.Add("thick", new Slider("Line Thickness", 2, 1, 5));
+            DrawingsMenu.AddGroupLabel("Disable while use orbwalk");
+            DrawingsMenu.Add("combo", new CheckBox("Combo", true));
+            DrawingsMenu.Add("harass", new CheckBox("Harass", true));
+            DrawingsMenu.Add("laneclear", new CheckBox("LaneClear", false));
+            DrawingsMenu.Add("lasthit", new CheckBox("LastHit", true));
+            DrawingsMenu.Add("flee", new CheckBox("Flee", false));
             DrawingsMenu.AddGroupLabel("Drawings Color");
             QColorSlide = new ColorSlide(DrawingsMenu, "qColor", Color.Red, "Q Color:");
             WColorSlide = new ColorSlide(DrawingsMenu, "wColor", Color.Purple, "W Color:");
