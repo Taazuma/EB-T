@@ -78,7 +78,7 @@ namespace Eclipse
             ComboMenu.AddGroupLabel("Combo RQ - W - E");
             ComboMenu.AddSeparator(12);
             ComboMenu.CreateCheckBox("Combo Seven", "combo7", false);
-            ComboMenu.AddGroupLabel("aliyrlmz advanced - Combo");
+            ComboMenu.AddGroupLabel("advanced - Combo");
             ComboMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             ComboMenu.CreateCheckBox(" - Use Q", "qUse");
             ComboMenu.CreateCheckBox(" - Use W", "wUse");
