@@ -77,6 +77,11 @@ namespace Eclipse
             Obj_AI_Base.OnNewPath += Obj_AI_Base_OnNewPath;
             Obj_AI_Base.OnBasicAttack += OnBasicAttack;
             Obj_AI_Base.OnProcessSpellCast += onSpellCast;
+            if (Igniter.ignt.Slot == SpellSlot.Unknown) return;
+            Chat.Print("IgniteHelper by T7");
+            Igniter.Menu();
+            Game.OnUpdate += Igniter.OnUpdate;
+            Drawing.OnDraw += Igniter.OnDraw;
             if (!SpellManager.HasSmite())
             {
                 Chat.Print("No smite detected - unloading Smite.", System.Drawing.Color.Red);
@@ -85,11 +90,6 @@ namespace Eclipse
             Config.Initialize();
             ModeManagerSmite.Initialize();
             Events.Initialize();
-            if (Igniter.ignt.Slot == SpellSlot.Unknown) return;
-            Chat.Print("IgniteHelper by T7");
-            Igniter.Menu();
-            Game.OnUpdate += Igniter.OnUpdate;
-            Drawing.OnDraw += Igniter.OnDraw;
         }
 
 
