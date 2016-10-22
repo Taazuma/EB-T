@@ -11,32 +11,28 @@ namespace Eclipse
 {
     class Igniter
     {   
-        //private static void Main(string[] args) { Loading.OnLoadingComplete += OnLoad; } CREDITS T7 :*
-        public static AIHeroClient myhero { get { return ObjectManager.Player; } }
-        public static Spell.Targeted ignt = new Spell.Targeted(myhero.GetSpellSlotFromName("summonerdot"), 600);
+
+//Credits T7
+
+        public static AIHeroClient myhera { get { return ObjectManager.Player; } }
+        public static Spell.Targeted ignt = new Spell.Targeted(myhera.GetSpellSlotFromName("summonerdot"), 600);
         private static Menu menu;
-        //public static void OnLoad(EventArgs args)
-        //{
-        //    if (ignt.Slot == SpellSlot.Unknown) return;
-        //    Chat.Print("<font color='#ff0000'>Ignite</font>Helper : Loaded!");
-        //    Chat.Print("<font color='#04B404'>By </font><font color='#FF0000'>T</font><font color='#FA5858'>o</font><font color='#FF0000'>y</font><font color='#FA5858'>o</font><font color='#FF0000'>t</font><font color='#FA5858'>a</font><font color='#0040FF'>7</font><font color='#FF0000'> <3 </font>");
-        //    Menu();
-        //    Game.OnUpdate += OnUpdate;
-        //    Drawing.OnDraw += OnDraw;
-        //}
+
         public static void OnUpdate(EventArgs args)
         {
-            var target = TargetSelector.GetTarget(1000, DamageType.Physical, Player.Instance.Position);
-            float HP5 = target.FlatHPRegenMod * 5, IgniteDMG = 50 + (20 * myhero.Level);
-            if (ignt.Slot != SpellSlot.Unknown && ignt.IsReady() && myhero.GetSummonerSpellDamage(target, DamageLibrary.SummonerSpells.Ignite) > target.Health && ignt.IsInRange(target) && menu["active"].Cast<CheckBox>().CurrentValue)
+            var targeter = TargetSelector.GetTarget(1000, DamageType.Physical, Player.Instance.Position);
+            float HP5 = targeter.FlatHPRegenMod * 5, IgniteDMG = 50 + (20 * myhera.Level);
+
+            if (ignt.Slot != SpellSlot.Unknown && ignt.IsReady() && myhera.GetSummonerSpellDamage(targeter, DamageLibrary.SummonerSpells.Ignite) > targeter.Health && ignt.IsInRange(targeter) && menu["active"].Cast<CheckBox>().CurrentValue)
             {
-                if (IgniteDMG > (target.Health + HP5)) ignt.Cast(target);
+                if (IgniteDMG > (targeter.Health + HP5)) ignt.Cast(targeter);
             }
+
         }
         public static void OnDraw(EventArgs args)
         {
             if (menu["draw"].Cast<CheckBox>().CurrentValue && ignt.IsReady())
-                Circle.Draw(SharpDX.Color.Red, ignt.Range, myhero.Position);
+                Circle.Draw(SharpDX.Color.Red, ignt.Range, myhera.Position);
         }
 
         public static bool HasIgnite()
@@ -50,5 +46,6 @@ namespace Eclipse
             menu.Add("active", new CheckBox("Use Ignite", true));
             menu.Add("draw", new CheckBox("Draw ignite Range", false));       
         }
+
     }
 }
