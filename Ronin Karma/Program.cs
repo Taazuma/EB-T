@@ -69,7 +69,6 @@ namespace Eclipse
             Menus.CreateMenu();
             ModeManager.InitializeModes();
             Game.OnTick += GameOnTick;
-            Obj_AI_Base.OnSpellCast += onSpellCast;
             Gapcloser.OnGapcloser += OnGapcloser;
             Drawing.OnDraw += Drawing_OnDraw;
             Obj_AI_Base.OnNewPath += Obj_AI_Base_OnNewPath;
