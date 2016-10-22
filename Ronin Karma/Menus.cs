@@ -91,7 +91,7 @@ namespace Eclipse
             AutoHarassMenu.AddGroupLabel("AutoHarass");
             AutoHarassMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             AutoHarassMenu.CreateCheckBox(" - Use Q", "qUse");
-            AutoHarassMenu.CreateCheckBox(" - Use RQ", "qrUse", false);
+            AutoHarassMenu.CreateCheckBox(" - Use RQ", "rqUse", false);
             AutoHarassMenu.AddGroupLabel("Settings");
             AutoHarassMenu.CreateKeyBind("Enable/Disable AutoHrass", "autoHarassKey", 'Z', 'U');
             AutoHarassMenu.CreateSlider("Mana must be higher than [{0}%] to use AutoHarass spells", "manaSlider", 65);

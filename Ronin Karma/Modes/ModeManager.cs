@@ -38,27 +38,32 @@ namespace Eclipse.Modes
                 Combo.Execute();
             }
 
-            if (orbMode.HasFlag(Orbwalker.ActiveModes.LastHit) && playerMana > HarassMenu.GetSliderValue("manaSlider"))
-            {
-                LastHit.Execute();
-            }
+            //if (orbMode.HasFlag(Orbwalker.ActiveModes.LastHit) && playerMana > LasthitMenu.GetSliderValue("manaSlider"))
+            //{
+            //    LastHit.Execute();
+            //}
 
-            if (orbMode.HasFlag(Orbwalker.ActiveModes.Flee) && playerMana > HarassMenu.GetSliderValue("manaSlider"))
+            if (orbMode.HasFlag(Orbwalker.ActiveModes.Flee))
             {
                 Flee.Execute();
             }
 
-            if (orbMode.HasFlag(Orbwalker.ActiveModes.LaneClear) && playerMana > HarassMenu.GetSliderValue("manaSlider"))
+            if (orbMode.HasFlag(Orbwalker.ActiveModes.LaneClear) && playerMana > LaneClearMenu.GetSliderValue("manaSlider"))
             {
                 LaneClear.Execute();
             }
 
-            if (orbMode.HasFlag(Orbwalker.ActiveModes.JungleClear) && playerMana > HarassMenu.GetSliderValue("manaSlider"))
+            if (orbMode.HasFlag(Orbwalker.ActiveModes.JungleClear) && playerMana > JungleClearMenu.GetSliderValue("manaSlider"))
             {
                 JungleClear.Execute();
             }
 
-            AutoHarass.Execute();
+            if (playerMana > AutoHarassMenu.GetSliderValue("manaSlider"))
+            {
+                AutoHarass.Execute();
+            }
+
+
         }
     }
 }

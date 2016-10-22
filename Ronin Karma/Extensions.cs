@@ -340,6 +340,7 @@ namespace Eclipse
             }
         }
 
+
         #region GetTargetHelper
 
         public static Obj_AI_Minion GetLastHitMinion(this Spell.SpellBase spell)
