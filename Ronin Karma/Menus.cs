@@ -134,6 +134,7 @@ namespace Eclipse
             DrawingsMenu.CreateCheckBox("Draw W.", "wDraw", false);
             DrawingsMenu.CreateCheckBox("Draw E.", "eDraw", false); //No one like Drawings kappa
             DrawingsMenu.CreateCheckBox("Draw R.", "rDraw", false );
+            DrawingsMenu.CreateCheckBox("Show Killable", "showkilla");
             DrawingsMenu.AddSeparator(8);
             DrawingsMenu.AddGroupLabel("Tracker Draws");
             DrawingsMenu.Add("me", new CheckBox("My Path", false));
