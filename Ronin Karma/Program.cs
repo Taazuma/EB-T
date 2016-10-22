@@ -68,7 +68,6 @@ namespace Eclipse
             DrawingsManager.InitializeDrawings();
             Menus.CreateMenu();
             ModeManager.InitializeModes();
-            Game.OnUpdate += OnGameUpdate;
             Game.OnTick += GameOnTick;
             SpellManager.Initialize();
             Obj_AI_Base.OnSpellCast += onSpellCast;
@@ -90,12 +89,6 @@ namespace Eclipse
             Config.Initialize();
             ModeManagerSmite.Initialize();
             Events.Initialize();
-        }
-
-
-        private static void OnGameUpdate(EventArgs args)
-        {
-
         }
 
         private static void GameOnTick(EventArgs args)
