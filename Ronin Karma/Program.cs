@@ -63,7 +63,7 @@ namespace Eclipse
             //Put the name of the champion here
             if (Player.Instance.ChampionName != "Karma") return;
             Chat.Print("Have Fun with Playing ! by TaaZ");
-            AbilitySequence = new int[] { 3, 2, 3, 1, 3, 4, 3, 2, 3, 2, 4, 2, 2, 1, 1, 4, 1, 1 };
+            AbilitySequence = new int[] { 1, 3, 2, 1, 1, 4, 1, 3, 1, 2, 4, 3, 3, 2, 2, 4, 2, 2 };
             SpellsManager.InitializeSpells();
             DrawingsManager.InitializeDrawings();
             Menus.CreateMenu();

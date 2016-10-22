@@ -48,7 +48,7 @@ namespace Eclipse
             //HarassMenu = FirstMenu.AddSubMenu("Harass", HarassMenuID);
             AutoHarassMenu = FirstMenu.AddSubMenu("AutoHarass", AutoHarassMenuID);
             LaneClearMenu = FirstMenu.AddSubMenu("LaneClear", LaneClearMenuID);
-            LasthitMenu = FirstMenu.AddSubMenu("LastHit", LastHitMenuID);
+            //LasthitMenu = FirstMenu.AddSubMenu("LastHit", LastHitMenuID);
             JungleClearMenu = FirstMenu.AddSubMenu("JungleClear", JungleClearMenuID);
             KillStealMenu = FirstMenu.AddSubMenu("KillSteal", KillStealMenuID);
             DrawingsMenu = FirstMenu.AddSubMenu("Drawings", DrawingsMenuID);

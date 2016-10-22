@@ -95,10 +95,7 @@ namespace Eclipse
             return Player.Instance.CalculateDamageOnUnit(target, DamageType.Magical, rawDamage);
         }
 
-        public static bool HasPassive(this Obj_AI_Base target)
-        {
-            return target.HasBuff("luxilluminatingfraulein");
-        }
+
 
         #endregion Damages
 
