@@ -78,7 +78,7 @@ namespace Eclipse
             ComboMenu.AddGroupLabel("Combo RQ - W - E");
             ComboMenu.AddSeparator(12);
             ComboMenu.CreateCheckBox("Combo Seven", "combo7", false);
-            ComboMenu.AddGroupLabel("aliyrlmz advanced - Combo´s");
+            ComboMenu.AddGroupLabel("aliyrlmz advanced - Combo");
             ComboMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             ComboMenu.CreateCheckBox(" - Use Q", "qUse");
             ComboMenu.CreateCheckBox(" - Use W", "wUse");
@@ -133,6 +133,23 @@ namespace Eclipse
             DrawingsMenu.CreateCheckBox("Draw W.", "wDraw", false);
             DrawingsMenu.CreateCheckBox("Draw E.", "eDraw", false); //No one like Drawings kappa
             DrawingsMenu.CreateCheckBox("Draw R.", "rDraw", false );
+            DrawingsMenu.AddSeparator(8);
+            DrawingsMenu.AddGroupLabel("Tracker Draws");
+            DrawingsMenu.Add("me", new CheckBox("My Path", false));
+            DrawingsMenu.Add("ally", new CheckBox("Ally Path", false));
+            DrawingsMenu.Add("enemy", new CheckBox("Enemy Path", true));
+            DrawingsMenu.AddLabel("Tracker Misc");
+            DrawingsMenu.Add("toggle", new KeyBind("Toggle On/Off", true, KeyBind.BindTypes.PressToggle, 'G'));
+            DrawingsMenu.Add("eta", new CheckBox("Estimated time of arrival (only me)", true));
+            DrawingsMenu.Add("name", new CheckBox("Champion Name", true));
+            DrawingsMenu.Add("thick", new Slider("Line Thickness", 2, 1, 5));
+            DrawingsMenu.AddGroupLabel("Disable while use orbwalk");
+            DrawingsMenu.Add("combo", new CheckBox("Combo", true));
+            DrawingsMenu.Add("harass", new CheckBox("Harass", true));
+            DrawingsMenu.Add("laneclear", new CheckBox("LaneClear", false));
+            DrawingsMenu.Add("lasthit", new CheckBox("LastHit", true));
+            DrawingsMenu.Add("flee", new CheckBox("Flee", false));
+            DrawingsMenu.AddSeparator(15);
             DrawingsMenu.AddGroupLabel("Drawings Color");
             QColorSlide = new ColorSlide(DrawingsMenu, "qColor", Color.Red, "Q Color:");
             WColorSlide = new ColorSlide(DrawingsMenu, "wColor", Color.Purple, "W Color:");
@@ -154,9 +171,8 @@ namespace Eclipse
             MiscMenu.Add("antiGapCloser", new CheckBox("Anti GapCloser", true));
             MiscMenu.CreateCheckBox("- Use OP E Logic - BlockSpell", "blockSpellsE");
             MiscMenu.AddSeparator(14);
-
-
         }
+
         public static int skinId()
         {
             return MiscMenu["skin.Id"].Cast<Slider>().CurrentValue;

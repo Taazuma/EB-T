@@ -16,12 +16,29 @@ using static Eclipse.SpellsManager;
 using static Eclipse.Menus;
 using Eclipse.Modes;
 using EloBuddy.SDK.Menu;
-using Eclipse;
+using Color = System.Drawing.Color;
 
 namespace Eclipse
 {
     internal class Program
     {
+        public class UnitData
+        {
+            public static string Name;
+
+            public static int StartTime;
+
+            public static void GetName(AIHeroClient unit)
+            {
+                Name = unit.BaseSkinName;
+            }
+
+            public static void GetStartTime(int time)
+            {
+                StartTime = time;
+            }
+        }
+
         private static void Main(string[] args)
         {
             Loading.OnLoadingComplete += Loading_OnLoadingComplete;
@@ -32,11 +49,15 @@ namespace Eclipse
 
         }
         public static int qOff = 0, wOff = 0, eOff = 0, rOff = 0;
+        public static int start = 0;
+        public const string ChampName = "Smite";
+        public static Text TextKillable { get; private set; }
         private static int[] AbilitySequence;
         private static bool check(Menu submenu, string sig)
         {
             return submenu[sig].Cast<CheckBox>().CurrentValue;
         }
+
         private static void Loading_OnLoadingComplete(EventArgs args)
         {
             //Put the name of the champion here
@@ -55,6 +76,8 @@ namespace Eclipse
             Obj_AI_Base.OnProcessSpellCast += ModeManager.OnProcessSpellCast;
             Obj_AI_Base.OnSpellCast += onSpellCast;
             Gapcloser.OnGapcloser += OnGapcloser;
+            Drawing.OnDraw += Drawing_OnDraw;
+            Obj_AI_Base.OnNewPath += Obj_AI_Base_OnNewPath;
             if (!SpellManager.HasSmite())
             {
                 Chat.Print("No smite detected - unloading Smite.", System.Drawing.Color.Red);
@@ -63,6 +86,11 @@ namespace Eclipse
             Config.Initialize();
             ModeManagerSmite.Initialize();
             Events.Initialize();
+            if (Igniter.ignt.Slot == SpellSlot.Unknown) return;
+            Chat.Print("IgniteHelper by T7");
+            Igniter.Menu();
+            Game.OnUpdate += Igniter.OnUpdate;
+            Drawing.OnDraw += Igniter.OnDraw;
         }
 
 
@@ -131,6 +159,152 @@ namespace Eclipse
                     E.Cast(sender);
                 }
             }
+        }
+
+        private static void Obj_AI_Base_OnNewPath(Obj_AI_Base sender, GameObjectNewPathEventArgs args)
+        {
+            if (!sender.IsMe)
+                return;
+
+            start = TickCount;
+        }
+
+        public static int TickCount
+        {
+            get
+            {
+                return Environment.TickCount & int.MaxValue;
+            }
+        }
+
+        private static void Drawing_OnDraw(EventArgs args)
+        {
+            if (!DrawingsMenu["toggle"].Cast<KeyBind>().CurrentValue || !Enable())
+                return;
+
+            var ETA = DrawingsMenu["eta"].Cast<CheckBox>().CurrentValue;
+            var Name = DrawingsMenu["name"].Cast<CheckBox>().CurrentValue;
+            var Thickness = DrawingsMenu["thick"].Cast<Slider>().CurrentValue;
+
+            foreach (var hero in EntityManager.Heroes.AllHeroes.Where(h => h.IsValid))
+            {
+                if (DrawingsMenu["me"].Cast<CheckBox>().CurrentValue && hero.IsMe)
+                {
+                    DrawPath(Player.Instance, Thickness, Color.LawnGreen);
+
+                    if (ETA && Player.Instance.Path.Length > 1 && Player.Instance.IsMoving)
+                        Drawing.DrawText(Player.Instance.Path[Player.Instance.Path.Length - 1].WorldToScreen(), Color.NavajoWhite, GetETA(Player.Instance), 10);
+
+                    continue;
+                }
+
+                if (DrawingsMenu["ally"].Cast<CheckBox>().CurrentValue && hero.IsAlly && !hero.IsMe)
+                {
+                    DrawPath(hero, Thickness, Color.Orange);
+
+                    if (hero.Path.Length > 1 && hero.IsMoving)
+                    {
+                        if (Name)
+                            Drawing.DrawText(hero.Path[hero.Path.Length - 1].WorldToScreen(), Color.LightSkyBlue, hero.BaseSkinName, 10);
+
+                        if (ETA && false)
+                            Drawing.DrawText(hero.Path[hero.Path.Length - 1].WorldToScreen() + new Vector2(0, 20), Color.NavajoWhite, GetETA(hero), 10);
+                    }
+
+                    continue;
+                }
+
+                if (DrawingsMenu["enemy"].Cast<CheckBox>().CurrentValue && hero.IsEnemy)
+                {
+                    DrawPath(hero, Thickness, Color.Red);
+
+                    if (hero.Path.Length > 1 && hero.IsMoving)
+                    {
+                        if (Name)
+                            Drawing.DrawText(hero.Path[hero.Path.Length - 1].WorldToScreen(), Color.LightSkyBlue, hero.BaseSkinName, 10);
+
+                        if (ETA && false)
+                            Drawing.DrawText(hero.Path[hero.Path.Length - 1].WorldToScreen() + new Vector2(0, 20), Color.NavajoWhite, GetETA(hero), 10);
+                    }
+
+                    continue;
+                }
+            }
+        }
+
+        public static void DrawPath(AIHeroClient unit, int thickness, Color color)
+        {
+            if (!unit.IsMoving)
+                return;
+
+            for (var i = 1; unit.Path.Length > i; i++)
+            {
+                if (unit.Path[i - 1].IsValid() && unit.Path[i].IsValid() && (unit.Path[i - 1].IsOnScreen() || unit.Path[i].IsOnScreen()))
+                {
+                    Drawing.DrawLine(Drawing.WorldToScreen(unit.Path[i - 1]), Drawing.WorldToScreen(unit.Path[i]), thickness, color);
+                }
+            }
+        }
+
+        public static string GetETA(AIHeroClient unit)
+        {
+            float Distance = 0;
+
+            if (unit.Path.Length > 1)
+            {
+                for (var i = 1; unit.Path.Length > i; i++)
+                {
+                    Distance += unit.Path[i - 1].Distance(unit.Path[i]);
+                }
+            }
+
+            var ETA = (start + Distance / unit.MoveSpeed * 1000 - TickCount) / 1000;
+
+            if (ETA <= 0)
+                ETA = 0;
+
+            return ETA.ToString("F2");
+        }
+
+        public static bool Enable()
+        {
+            if (Orbwalker.ActiveModesFlags == Orbwalker.ActiveModes.Combo && DrawingsMenu["combo"].Cast<CheckBox>().CurrentValue)
+                return false;
+            if (Orbwalker.ActiveModesFlags == Orbwalker.ActiveModes.Harass && DrawingsMenu["harass"].Cast<CheckBox>().CurrentValue)
+                return false;
+            if ((Orbwalker.ActiveModesFlags == Orbwalker.ActiveModes.LaneClear || Orbwalker.ActiveModesFlags == Orbwalker.ActiveModes.JungleClear) && DrawingsMenu["laneclear"].Cast<CheckBox>().CurrentValue)
+                return false;
+            if (Orbwalker.ActiveModesFlags == Orbwalker.ActiveModes.LastHit && DrawingsMenu["lasthit"].Cast<CheckBox>().CurrentValue)
+                return false;
+            if (Orbwalker.ActiveModesFlags == Orbwalker.ActiveModes.Flee && DrawingsMenu["flee"].Cast<CheckBox>().CurrentValue)
+                return false;
+            return true;
+        }
+
+        public static float GetComboDamage(AIHeroClient unit)
+        {
+            return GetComboDamage(unit, 0);
+        }
+
+        public static float GetComboDamage(AIHeroClient unit, int maxStacks)
+        {
+            //Thanks to Joker Basic Template //
+            var d = 2 * Player.Instance.GetAutoAttackDamage(unit);
+
+            if ((Player.Instance.GetSpellSlotFromName("summonerdot") == SpellSlot.Summoner1 ||
+                Player.Instance.GetSpellSlotFromName("summonerdot") == SpellSlot.Summoner2) && Eclipse.Igniter.ignt.IsReady())
+                d += Player.Instance.GetSummonerSpellDamage(unit, DamageLibrary.SummonerSpells.Ignite);
+
+            if (ComboMenu.GetCheckBoxValue("qUse") && SpellsManager.Q.IsReady())
+                d += Player.Instance.GetSpellDamage(unit, SpellSlot.Q);
+
+            if (ComboMenu.GetCheckBoxValue("wUse") && SpellsManager.W.IsReady())
+                d += Player.Instance.GetSpellDamage(unit, SpellSlot.W);
+
+            if (ComboMenu.GetCheckBoxValue("rUse"))
+                d += Player.Instance.GetAutoAttackDamage(unit);
+
+            return (float)d;
         }
 
         //----------------------------------------------------------------------------------------

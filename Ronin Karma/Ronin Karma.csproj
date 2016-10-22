@@ -14,7 +14,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -34,25 +34,25 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EloBuddy">
-      <HintPath>..\..\..\..\My\Deve\ItsMeMario-master\ItsMeMario-master\Mario`s Lib\Mario`s Lib\bin\Debug\EloBuddy.dll</HintPath>
+      <HintPath>..\..\..\My\Deve\ItsMeMario-master\ItsMeMario-master\Mario`s Lib\Mario`s Lib\bin\Debug\EloBuddy.dll</HintPath>
     </Reference>
     <Reference Include="EloBuddy.Sandbox">
-      <HintPath>..\..\..\..\My\Deve\ItsMeMario-master\ItsMeMario-master\Mario`s Lib\Mario`s Lib\bin\Debug\EloBuddy.Sandbox.dll</HintPath>
+      <HintPath>..\..\..\My\Deve\ItsMeMario-master\ItsMeMario-master\Mario`s Lib\Mario`s Lib\bin\Debug\EloBuddy.Sandbox.dll</HintPath>
     </Reference>
     <Reference Include="EloBuddy.SDK">
-      <HintPath>..\..\..\..\My\Deve\ItsMeMario-master\ItsMeMario-master\Mario`s Lib\Mario`s Lib\bin\Debug\EloBuddy.SDK.dll</HintPath>
+      <HintPath>..\..\..\My\Deve\ItsMeMario-master\ItsMeMario-master\Mario`s Lib\Mario`s Lib\bin\Debug\EloBuddy.SDK.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\..\..\My\Deve\ItsMeMario-master\ItsMeMario-master\Mario`s Lib\Mario`s Lib\bin\Debug\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\..\My\Deve\ItsMeMario-master\ItsMeMario-master\Mario`s Lib\Mario`s Lib\bin\Debug\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="SharpDX">
-      <HintPath>..\..\..\..\My\Deve\ItsMeMario-master\ItsMeMario-master\Mario`s Lib\Mario`s Lib\bin\Debug\SharpDX.dll</HintPath>
+      <HintPath>..\..\..\My\Deve\ItsMeMario-master\ItsMeMario-master\Mario`s Lib\Mario`s Lib\bin\Debug\SharpDX.dll</HintPath>
     </Reference>
     <Reference Include="SharpDX.Direct3D9">
-      <HintPath>..\..\..\..\My\Deve\ItsMeMario-master\ItsMeMario-master\Mario`s Lib\Mario`s Lib\bin\Debug\SharpDX.Direct3D9.dll</HintPath>
+      <HintPath>..\..\..\My\Deve\ItsMeMario-master\ItsMeMario-master\Mario`s Lib\Mario`s Lib\bin\Debug\SharpDX.Direct3D9.dll</HintPath>
     </Reference>
     <Reference Include="SharpDX.XInput">
-      <HintPath>..\..\..\..\My\Deve\ItsMeMario-master\ItsMeMario-master\Mario`s Lib\Mario`s Lib\bin\Debug\SharpDX.XInput.dll</HintPath>
+      <HintPath>..\..\..\My\Deve\ItsMeMario-master\ItsMeMario-master\Mario`s Lib\Mario`s Lib\bin\Debug\SharpDX.XInput.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -81,6 +81,8 @@
     <Compile Include="Evade\Utils.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Hitch.cs" />
+    <Compile Include="Ignite\Igniter.cs" />
+    <Compile Include="Indicator.cs" />
     <Compile Include="Menus.cs" />
     <Compile Include="Modes\Active.cs" />
     <Compile Include="Modes\AutoHarass.cs" />
