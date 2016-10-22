@@ -269,9 +269,9 @@ namespace Eclipse
             //Thanks to Joker Basic Template //
             var d = 2 * Player.Instance.GetAutoAttackDamage(unit);
 
-            //if ((Player.Instance.GetSpellSlotFromName("summonerdot") == SpellSlot.Summoner1 ||
-            //    Player.Instance.GetSpellSlotFromName("summonerdot") == SpellSlot.Summoner2) && Eclipse.Igniter.ignt.IsReady())
-            //    d += Player.Instance.GetSummonerSpellDamage(unit, DamageLibrary.SummonerSpells.Ignite);
+            if ((Player.Instance.GetSpellSlotFromName("summonerdot") == SpellSlot.Summoner1 ||
+                Player.Instance.GetSpellSlotFromName("summonerdot") == SpellSlot.Summoner2))
+                d += Player.Instance.GetSummonerSpellDamage(unit, DamageLibrary.SummonerSpells.Ignite);
 
             if (ComboMenu.GetCheckBoxValue("qUse") && SpellsManager.Q.IsReady())
                 d += Player.Instance.GetSpellDamage(unit, SpellSlot.Q);
