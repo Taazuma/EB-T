@@ -25,9 +25,31 @@ namespace Eclipse.Modes
         public static readonly AIHeroClient Player = ObjectManager.Player;
         public static void Execute()
         {
-            if (Q.IsReady())
+
+            ///////////////////////////////////////////////////////////////////////
+            var Target = TargetSelector.GetTarget(Q.Range, DamageType.Physical);
+            var useQ = ComboMenu.GetCheckBoxValue("qUse");
+            var useW = ComboMenu.GetCheckBoxValue("wUse");
+            var useE = ComboMenu.GetCheckBoxValue("eUse");
+            var useR = ComboMenu.GetCheckBoxValue("rUse");
+            var ultEnemies = ComboMenu.GetSliderValue("combo.REnemies");
+            if (Target == null || Target.IsInvulnerable || Target.MagicImmune)
             {
-                Q.Cast(Player.ServerPosition.Extend(Game.CursorPos, Q.Range).To3D());
+                return;
+            }
+            ///////////////////////////////////////////////////////////////////////
+
+            if (useQ && Q.IsReady())
+            {
+                if (!Target.HasBuff("AatroxQ"))
+                {
+                    Q.Cast(Target.ServerPosition);
+                }
+            }
+
+            if (useE && E.IsReady())
+            {
+                E.Cast(Target.ServerPosition);
             }
 
         }

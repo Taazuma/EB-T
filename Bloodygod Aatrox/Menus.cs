@@ -103,6 +103,7 @@ namespace Eclipse
             DrawingsMenu.CreateCheckBox("Draw W.", "wDraw", false);
             DrawingsMenu.CreateCheckBox("Draw E.", "eDraw");
             DrawingsMenu.CreateCheckBox("Draw R.", "rDraw", false);
+            DrawingsMenu.CreateCheckBox("Show Killable", "showkilla");
             DrawingsMenu.AddGroupLabel("Drawings Color");
             QColorSlide = new ColorSlide(DrawingsMenu, "qColor", Color.Red, "Q Color:");
             WColorSlide = new ColorSlide(DrawingsMenu, "wColor", Color.Purple, "W Color:");
@@ -119,18 +120,6 @@ namespace Eclipse
             MiscMenu.AddSeparator(15);
             MiscMenu.Add("skinhax", new CheckBox("Activate Skin hack"));
             MiscMenu.Add("skinID", new ComboBox("Skin Hack", 1, "Default", "Justikar Aatrox", "Mecha Aatrox", "Sea Hunter Aatrox"));
-            if (SpellsManager.Smite.IsLearned)
-            {
-                MiscMenu.AddLabel("Smite Spell");
-                MiscMenu.CreateCheckBox("Use Smite to KS", "sks");
-                MiscMenu.CreateCheckBox("Use Smite in JGL", "sjgl");
-                //MiscMenu.CreateCheckBox("Use Smite in Fight", "fjgl", false);
-                MiscMenu.Add("smitekey", new KeyBind("Smite Activated", false, KeyBind.BindTypes.PressToggle, 'M'));
-                MiscMenu.AddSeparator(15);
-                MiscMenu.Add("vSmiteDrawSmiteStatus", new CheckBox("Draw Smite Status"));
-                MiscMenu.Add("vSmiteDrawSmiteable", new CheckBox("Draw Smiteable Monsters"));
-                MiscMenu.Add("vSmiteDrawRange", new CheckBox("Draw Smite Range"));
-            }
 
 
         }

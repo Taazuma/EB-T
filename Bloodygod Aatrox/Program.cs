@@ -35,7 +35,7 @@ namespace Eclipse
         }
         public static int qOff = 0, wOff = 0, eOff = 0, rOff = 0;
         private static int[] AbilitySequence;
-        public const float SmiteRange = 570;
+
 
         private static void Loading_OnLoadingComplete(EventArgs args)
         {
@@ -48,10 +48,22 @@ namespace Eclipse
             ModeManager.InitializeModes();
             Game.OnUpdate += OnGameUpdate;
             Game.OnTick += GameOnTick;
-            Events.Initialize();
             Menus.CreateMenu();
             Interrupter.OnInterruptableSpell += Interrupter_OnInterruptableSpell;
             Gapcloser.OnGapcloser += AntiGapCloser;
+            if (!SpellManager.HasSmite())
+            {
+                Chat.Print("No smite detected - unloading Smite.", System.Drawing.Color.Red);
+                return;
+            }
+            Config.Initialize();
+            ModeManagerSmite.Initialize();
+            Events.Initialize();
+            if (Igniter.ignt.Slot == SpellSlot.Unknown) return;
+            Chat.Print("IgniteHelper by T7");
+            Igniter.Menu();
+            Game.OnUpdate += Igniter.OnUpdate;
+            Drawing.OnDraw += Igniter.OnDraw;
         }
 
         private static void OnGameUpdate(EventArgs args)
@@ -59,30 +71,7 @@ namespace Eclipse
             if (check(MiscMenu, "skinhax")) _player.SetSkinId((int)MiscMenu["skinID"].Cast<ComboBox>().CurrentValue);
         }
 
-        public static float SmiteDmgMonster(Obj_AI_Base target)
-        {
-            return Player.Instance.GetSummonerSpellDamage(target, DamageLibrary.SummonerSpells.Smite);
-        }
 
-        public static float SmiteDmgHero(AIHeroClient target)
-        {
-            return Player.Instance.CalculateDamageOnUnit(target, DamageType.True,
-                20.0f + Player.Instance.Level * 8.0f);
-        }
-
-
-        public static readonly string[] BuffsThatActuallyMakeSenseToSmite =
-       {
-                "SRU_Red", "SRU_Blue", "SRU_Dragon_Water",  "SRU_Dragon_Fire", "SRU_Dragon_Earth", "SRU_Dragon_Air", "SRU_Dragon_Elder",
-                "SRU_Baron", "SRU_RiftHerald", "TT_Spiderboss",
-       };
-
-        public readonly static string[] MonstersNames =
-        {
-            "SRU_Dragon_Water", "SRU_Dragon_Fire", "SRU_Dragon_Earth", "SRU_Dragon_Air", "SRU_Dragon_Elder", "Sru_Crab", "SRU_Baron", "SRU_RiftHerald",
-            "SRU_Red", "SRU_Blue",  "SRU_Krug", "SRU_Gromp", "SRU_Murkwolf", "SRU_Razorbeak",
-            "TT_Spiderboss", "TTNGolem", "TTNWolf", "TTNWraith",
-        };
 
         private static void AntiGapCloser(AIHeroClient sender, Gapcloser.GapcloserEventArgs e)
         {
@@ -127,6 +116,32 @@ namespace Eclipse
             if (wL < level[1]) ObjectManager.Player.Spellbook.LevelSpell(SpellSlot.W);
             if (eL < level[2]) ObjectManager.Player.Spellbook.LevelSpell(SpellSlot.E);
             if (rL < level[3]) ObjectManager.Player.Spellbook.LevelSpell(SpellSlot.R);
+        }
+
+        public static float GetComboDamage(AIHeroClient unit)
+        {
+            return GetComboDamage(unit, 0);
+        }
+
+        public static float GetComboDamage(AIHeroClient unit, int maxStacks)
+        {
+            //Thanks to Joker Basic Template //
+            var d = 2 * Player.Instance.GetAutoAttackDamage(unit);
+
+            if ((Player.Instance.GetSpellSlotFromName("summonerdot") == SpellSlot.Summoner1 ||
+                Player.Instance.GetSpellSlotFromName("summonerdot") == SpellSlot.Summoner2) && Eclipse.Igniter.ignt.IsReady())
+                d += Player.Instance.GetSummonerSpellDamage(unit, DamageLibrary.SummonerSpells.Ignite);
+
+            if (ComboMenu.GetCheckBoxValue("qUse") && SpellsManager.Q.IsReady())
+                d += Player.Instance.GetSpellDamage(unit, SpellSlot.Q);
+
+            if (ComboMenu.GetCheckBoxValue("eUse") && SpellsManager.E.IsReady())
+                d += Player.Instance.GetSpellDamage(unit, SpellSlot.E);
+
+            if (SpellsManager.R.IsReady() && ComboMenu.GetCheckBoxValue("rUse"))
+                d += 2 * Player.Instance.GetAutoAttackDamage(unit);
+
+            return (float)d;
         }
 
     }

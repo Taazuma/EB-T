@@ -265,7 +265,7 @@ namespace Eclipse
                 d += Player.Instance.GetSpellDamage(unit, SpellSlot.Q);
 
             if (ComboMenu.GetCheckBoxValue("eUse") && SpellsManager.E.IsReady())
-                d += 2 * Player.Instance.GetAutoAttackDamage(unit);
+                d += Player.Instance.GetSpellDamage(unit, SpellSlot.E);
 
             if (SpellsManager.R.IsReady())
                 d += Player.Instance.GetSpellDamage(unit, SpellSlot.R) * 2;

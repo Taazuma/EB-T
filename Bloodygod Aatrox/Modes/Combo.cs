@@ -25,11 +25,14 @@ namespace Eclipse.Modes
         }
         public static void Execute()
         {
-            var Target = TargetSelector.GetTarget(Q.Range, DamageType.Physical);
+
             ///////////////////////////////////////////////////////////////////////
+            var Target = TargetSelector.GetTarget(Q.Range, DamageType.Physical);
             var useQ = ComboMenu.GetCheckBoxValue("qUse");
             var useW = ComboMenu.GetCheckBoxValue("wUse");
             var useE = ComboMenu.GetCheckBoxValue("eUse");
+            var useR = ComboMenu.GetCheckBoxValue("rUse");
+            var ultEnemies = ComboMenu.GetSliderValue("combo.REnemies");
             if (Target == null || Target.IsInvulnerable || Target.MagicImmune)
             {
                 return;
@@ -68,8 +71,7 @@ namespace Eclipse.Modes
                 }
             }
 
-            var useR = ComboMenu.GetCheckBoxValue("rUse");
-            var ultEnemies = ComboMenu.GetSliderValue("combo.REnemies");
+         
             if (useR && R.IsReady() && Player.Instance.IsFacing(Target) && _player.ServerPosition.CountEnemiesInRange(500f) <= ultEnemies)
             {
                 R.Cast();

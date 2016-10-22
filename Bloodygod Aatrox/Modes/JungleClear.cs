@@ -31,13 +31,13 @@ namespace Eclipse.Modes
 
             if (E.IsReady() && useE)
             {
-                E.Cast(source.Position);
+                E.Cast(target.Position);
                 return;
             }
 
             if (Q.IsReady() && useQ && source.Distance(Eclipse.Modes.LaneClear.Player) <= Q.Range)
             {
-                Q.Cast(source);
+                Q.Cast(target);
                 return;
             }
             if (!W.IsReady() || !useW) return;
