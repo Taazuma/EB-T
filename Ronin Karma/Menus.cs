@@ -40,6 +40,7 @@ namespace Eclipse
 			FirstMenu.AddGroupLabel("Addon by Taazuma / Thanks for using it");
             FirstMenu.AddLabel("If you found any bugs report it on my Thread");
             FirstMenu.AddLabel("Have fun with Playing");
+            FirstMenu.AddLabel("Credits aliyrlmz");
             FirstMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             FirstMenu.Add(SpellsManager.Q.Slot + "hit", new ComboBox("Q HitChance", 0, "High", "Medium", "Low"));
             FirstMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
@@ -54,38 +55,18 @@ namespace Eclipse
             MiscMenu = FirstMenu.AddSubMenu("Misc", MiscMenuID);
 
             ComboMenu.AddGroupLabel("ComboMenu");
-            ComboMenu.AddGroupLabel("ONLY USE ON COMBO");
-            ComboMenu.AddSeparator(15);
+            ComboMenu.AddSeparator(10);
             // --------------------------------------------------------------COMBO LOGICS-------------------------------------------------------------- //
             ComboMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
-            ComboMenu.AddLabel("ComboLogics");
-            ComboMenu.CreateCheckBox("Combo One", "combo1", false);
-            ComboMenu.AddGroupLabel("Combo R - E - W - Q");
-            ComboMenu.AddSeparator(12);
-            ComboMenu.CreateCheckBox("Combo Two", "combo2", false);
-            ComboMenu.AddGroupLabel("Combo R - W - Q");
-            ComboMenu.AddSeparator(12);
-            ComboMenu.CreateCheckBox("Combo Three", "combo3", false);
-            ComboMenu.AddGroupLabel("Combo Q - W - R");
-            ComboMenu.AddSeparator(12);
-            ComboMenu.CreateCheckBox("Combo Four", "combo4", false);
-            ComboMenu.AddGroupLabel("Combo Q - R - W - E");
-            ComboMenu.AddSeparator(12);
-            ComboMenu.CreateCheckBox("Combo Five", "combo5", false);
-            ComboMenu.AddGroupLabel("Combo W - E - RQ");
-            ComboMenu.AddSeparator(12);
-            ComboMenu.CreateCheckBox("Combo Six", "combo6", true);
-            ComboMenu.AddGroupLabel("Combo RQ - W - E");
-            ComboMenu.AddSeparator(12);
-            ComboMenu.CreateCheckBox("Combo Seven", "combo7", false);
-            ComboMenu.AddGroupLabel("advanced - Combo");
-            ComboMenu.AddSeparator(12);
-            ComboMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
+            ComboMenu.AddLabel("Combo");
+            ComboMenu.CreateCheckBox("- Use Combo", "combouse", true);
+            ComboMenu.AddSeparator(10);
             ComboMenu.CreateCheckBox(" - Use Q", "qUse");
             ComboMenu.CreateCheckBox(" - Use W", "wUse");
-            ComboMenu.CreateCheckBox(" - Use E", "eUse", false);
+            ComboMenu.CreateCheckBox(" - Use E", "eUse");
             ComboMenu.CreateCheckBox(" - Use R", "rUse");
-            ComboMenu.Add("comboUseRW", new Slider("Use W+R combo when hp < ({0}%)", 40));
+            ComboMenu.Add("combouseE", new Slider("Use E combo when hp < ({0}%)", 60));
+            ComboMenu.Add("comboEnemies", new Slider("E Min Enemies >=", 2, 1, 5));
             ComboMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
 
             AutoHarassMenu.AddGroupLabel("AutoHarass");
