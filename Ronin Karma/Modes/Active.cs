@@ -36,6 +36,8 @@ namespace Eclipse.Modes
                 E.Cast(player1);
             }
 
+    
+
             //////////////////// KS Q
             var targetKSQ = TargetSelector.GetTarget(SpellsManager.Q.Range, DamageType.Magical);
             if (targetKSQ == null) return;

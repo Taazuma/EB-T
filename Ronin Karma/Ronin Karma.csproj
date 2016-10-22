@@ -93,8 +93,6 @@
     <Compile Include="Modes\LastHit.cs" />
     <Compile Include="Modes\ModeManager.cs" />
     <Compile Include="Modes\Utils.cs" />
-    <Compile Include="Modes\_E.cs" />
-    <Compile Include="Modes\_E_Advanced.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Smite\Config.cs" />

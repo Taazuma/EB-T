@@ -71,13 +71,12 @@ namespace Eclipse
             Game.OnUpdate += OnGameUpdate;
             Game.OnTick += GameOnTick;
             SpellManager.Initialize();
-            _E.Initialize();
-            _E_Advance.Initialize();
-            Obj_AI_Base.OnProcessSpellCast += ModeManager.OnProcessSpellCast;
             Obj_AI_Base.OnSpellCast += onSpellCast;
             Gapcloser.OnGapcloser += OnGapcloser;
             Drawing.OnDraw += Drawing_OnDraw;
             Obj_AI_Base.OnNewPath += Obj_AI_Base_OnNewPath;
+            Obj_AI_Base.OnBasicAttack += OnBasicAttack;
+            Obj_AI_Base.OnProcessSpellCast += onSpellCast;
             if (!SpellManager.HasSmite())
             {
                 Chat.Print("No smite detected - unloading Smite.", System.Drawing.Color.Red);
