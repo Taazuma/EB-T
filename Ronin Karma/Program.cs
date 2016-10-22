@@ -69,26 +69,12 @@ namespace Eclipse
             Menus.CreateMenu();
             ModeManager.InitializeModes();
             Game.OnTick += GameOnTick;
-            SpellManager.Initialize();
             Obj_AI_Base.OnSpellCast += onSpellCast;
             Gapcloser.OnGapcloser += OnGapcloser;
             Drawing.OnDraw += Drawing_OnDraw;
             Obj_AI_Base.OnNewPath += Obj_AI_Base_OnNewPath;
             Obj_AI_Base.OnBasicAttack += OnBasicAttack;
             Obj_AI_Base.OnProcessSpellCast += onSpellCast;
-            if (Igniter.ignt.Slot == SpellSlot.Unknown) return;
-            Chat.Print("IgniteHelper by T7");
-            Igniter.Menu();
-            Game.OnUpdate += Igniter.OnUpdate;
-            Drawing.OnDraw += Igniter.OnDraw;
-            if (!SpellManager.HasSmite())
-            {
-                Chat.Print("No smite detected - unloading Smite.", System.Drawing.Color.Red);
-                return;
-            }
-            Config.Initialize();
-            ModeManagerSmite.Initialize();
-            Events.Initialize();
         }
 
         private static void GameOnTick(EventArgs args)
@@ -283,9 +269,9 @@ namespace Eclipse
             //Thanks to Joker Basic Template //
             var d = 2 * Player.Instance.GetAutoAttackDamage(unit);
 
-            if ((Player.Instance.GetSpellSlotFromName("summonerdot") == SpellSlot.Summoner1 ||
-                Player.Instance.GetSpellSlotFromName("summonerdot") == SpellSlot.Summoner2) && Eclipse.Igniter.ignt.IsReady())
-                d += Player.Instance.GetSummonerSpellDamage(unit, DamageLibrary.SummonerSpells.Ignite);
+            //if ((Player.Instance.GetSpellSlotFromName("summonerdot") == SpellSlot.Summoner1 ||
+            //    Player.Instance.GetSpellSlotFromName("summonerdot") == SpellSlot.Summoner2) && Eclipse.Igniter.ignt.IsReady())
+            //    d += Player.Instance.GetSummonerSpellDamage(unit, DamageLibrary.SummonerSpells.Ignite);
 
             if (ComboMenu.GetCheckBoxValue("qUse") && SpellsManager.Q.IsReady())
                 d += Player.Instance.GetSpellDamage(unit, SpellSlot.Q);
