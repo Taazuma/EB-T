@@ -95,7 +95,7 @@ namespace Eclipse
 
         private static void OnGameUpdate(EventArgs args)
         {
-            _player.SetSkinId(skinId());
+
         }
 
         private static void GameOnTick(EventArgs args)

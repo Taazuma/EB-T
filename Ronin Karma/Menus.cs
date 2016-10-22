@@ -175,10 +175,6 @@ namespace Eclipse
             MiscMenu.AddSeparator(14);
         }
 
-        public static int skinId()
-        {
-            return MiscMenu["skin.Id"].Cast<Slider>().CurrentValue;
-        }
         public static int comboUseRW
         {
             get { return ComboMenu["comboUseRW"].Cast<Slider>().CurrentValue; }
