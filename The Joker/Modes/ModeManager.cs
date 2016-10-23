@@ -25,7 +25,7 @@ namespace Eclipse.Modes
         private static void Game_OnTick(EventArgs args)
         {
             var orbMode = Orbwalker.ActiveModesFlags;
-
+            var playerMana = Player.Instance.ManaPercent;
             Active.Execute();
 
             if (orbMode.HasFlag(Orbwalker.ActiveModes.Combo))
@@ -33,7 +33,7 @@ namespace Eclipse.Modes
                 Combo.Execute();
             }
 
-            if (orbMode.HasFlag(Orbwalker.ActiveModes.Harass))
+            if (orbMode.HasFlag(Orbwalker.ActiveModes.Harass) && playerMana > Eclipse.Menus.HarassMenu.GetSliderValue("manaSlider"))
             {
                 Harass.Execute();
             }
@@ -48,12 +48,12 @@ namespace Eclipse.Modes
                 Flee.Execute();
             }
 
-            if (orbMode.HasFlag(Orbwalker.ActiveModes.LaneClear))
+            if (orbMode.HasFlag(Orbwalker.ActiveModes.LaneClear) && playerMana > Eclipse.Menus.LaneClearMenu.GetSliderValue("manaSlider"))
             {
                 LaneClear.Execute();
             }
 
-            if (orbMode.HasFlag(Orbwalker.ActiveModes.JungleClear))
+            if (orbMode.HasFlag(Orbwalker.ActiveModes.JungleClear) && playerMana > Eclipse.Menus.JungleClearMenu.GetSliderValue("manaSlider"))
             {
                 JungleClear.Execute();
             }

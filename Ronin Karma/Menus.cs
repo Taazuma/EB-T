@@ -9,10 +9,8 @@ namespace Eclipse
     {
         public static Menu FirstMenu;
         public static Menu ComboMenu;
-        public static Menu HarassMenu;
         public static Menu AutoHarassMenu;
         public static Menu LaneClearMenu;
-        public static Menu LasthitMenu;
         public static Menu JungleClearMenu;
         public static Menu KillStealMenu;
         public static Menu DrawingsMenu;
@@ -25,10 +23,8 @@ namespace Eclipse
         public static ColorSlide DamageIndicatorColorSlide;
 
         public const string ComboMenuID = "combomenuid";
-        public const string HarassMenuID = "harassmenuid";
         public const string AutoHarassMenuID = "autoharassmenuid";
         public const string LaneClearMenuID = "laneclearmenuid";
-        public const string LastHitMenuID = "lasthitmenuid";
         public const string JungleClearMenuID = "jungleclearmenuid";
         public const string KillStealMenuID = "killstealmenuid";
         public const string DrawingsMenuID = "drawingsmenuid";
@@ -36,7 +32,7 @@ namespace Eclipse
 
         public static void CreateMenu()
         {
-            FirstMenu = MainMenu.AddMenu("Taazuma "+Player.Instance.ChampionName, Player.Instance.ChampionName.ToLower() + "taazuma");
+            FirstMenu = MainMenu.AddMenu("Ronin "+Player.Instance.ChampionName, Player.Instance.ChampionName.ToLower() + "taazuma");
 			FirstMenu.AddGroupLabel("Addon by Taazuma / Thanks for using it");
             FirstMenu.AddLabel("If you found any bugs report it on my Thread");
             FirstMenu.AddLabel("Have fun with Playing");

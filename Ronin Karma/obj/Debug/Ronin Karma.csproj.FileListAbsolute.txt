@@ -1,1 +1,13 @@
 D:\Tommi\Documents\GitHub\EB-T\Ronin Karma\bin\Debug\Eclipse Template.exe.config
+D:\Tommi\Documents\GitHub\EB-T\Ronin Karma\bin\Debug\Eclipse Template.exe
+D:\Tommi\Documents\GitHub\EB-T\Ronin Karma\bin\Debug\Eclipse Template.pdb
+D:\Tommi\Documents\GitHub\EB-T\Ronin Karma\bin\Debug\EloBuddy.dll
+D:\Tommi\Documents\GitHub\EB-T\Ronin Karma\bin\Debug\EloBuddy.Sandbox.dll
+D:\Tommi\Documents\GitHub\EB-T\Ronin Karma\bin\Debug\EloBuddy.SDK.dll
+D:\Tommi\Documents\GitHub\EB-T\Ronin Karma\bin\Debug\Newtonsoft.Json.dll
+D:\Tommi\Documents\GitHub\EB-T\Ronin Karma\bin\Debug\SharpDX.Direct3D9.dll
+D:\Tommi\Documents\GitHub\EB-T\Ronin Karma\bin\Debug\SharpDX.dll
+D:\Tommi\Documents\GitHub\EB-T\Ronin Karma\bin\Debug\SharpDX.XInput.dll
+D:\Tommi\Documents\GitHub\EB-T\Ronin Karma\obj\Debug\Ronin Karma.csprojResolveAssemblyReference.cache
+D:\Tommi\Documents\GitHub\EB-T\Ronin Karma\obj\Debug\Eclipse Template.exe
+D:\Tommi\Documents\GitHub\EB-T\Ronin Karma\obj\Debug\Eclipse Template.pdb

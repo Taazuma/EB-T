@@ -258,32 +258,6 @@ namespace Eclipse
             return true;
         }
 
-        public static float GetComboDamage(AIHeroClient unit)
-        {
-            return GetComboDamage(unit, 0);
-        }
-
-        public static float GetComboDamage(AIHeroClient unit, int maxStacks)
-        {
-            //Thanks to Joker Basic Template //
-            var d = 2 * Player.Instance.GetAutoAttackDamage(unit);
-
-            if ((Player.Instance.GetSpellSlotFromName("summonerdot") == SpellSlot.Summoner1 ||
-                Player.Instance.GetSpellSlotFromName("summonerdot") == SpellSlot.Summoner2))
-                d += Player.Instance.GetSummonerSpellDamage(unit, DamageLibrary.SummonerSpells.Ignite);
-
-            if (ComboMenu.GetCheckBoxValue("qUse") && SpellsManager.Q.IsReady())
-                d += Player.Instance.GetSpellDamage(unit, SpellSlot.Q);
-
-            if (ComboMenu.GetCheckBoxValue("wUse") && SpellsManager.W.IsReady())
-                d += Player.Instance.GetSpellDamage(unit, SpellSlot.W);
-
-            if (ComboMenu.GetCheckBoxValue("rUse"))
-                d += Player.Instance.GetAutoAttackDamage(unit);
-
-            return (float)d;
-        }
-
         //----------------------------------------------------------------------------------------
     }
 }

@@ -26,7 +26,7 @@ namespace Eclipse.Modes
         {
 
             if (DrawingsMenu.GetCheckBoxValue("showkilla"))
-                Indicator.DamageToUnit = SpellsManager.GetTotalDamage;
+                Indicator.DamageToUnit = SpellsManager.GetTotalDamageEBDB;
 
 
             if (Player.HasBuff("zedulttargetmark") && MiscMenu.GetCheckBoxValue("esafe") && R.IsReady() && E.IsReady())
