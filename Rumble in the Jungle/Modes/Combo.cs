@@ -38,12 +38,15 @@ namespace Eclipse.Modes
                 }
             }, Edelay);
 
+            Core.DelayAction(delegate
+            {
                 if (Player.Instance.Spellbook.GetSpell(SpellSlot.E).ToggleState == 1)
                 {
                       E.Cast(target.Position);
                 }
+            }, Edelay);
 
-           if (target.IsValidTarget(Q.Range) && Q.IsReady() && ComboMenu.GetCheckBoxValue("qUse") && Player.Instance.IsFacing(target) && (Hitch.ShouldOverload(SpellSlot.Q) || Player.Instance.Mana < 80))
+            if (target.IsValidTarget(Q.Range) && Q.IsReady() && ComboMenu.GetCheckBoxValue("qUse") && Player.Instance.IsFacing(target) && (Hitch.ShouldOverload(SpellSlot.Q) || Player.Instance.Mana < 80))
             {
                 Q.Cast();
             }
@@ -63,11 +66,11 @@ namespace Eclipse.Modes
                     {
                         R.Cast(target.Position -target.MoveSpeed);
                     }
-                }
                 else
                 {
-                    R.Cast(target.Position + 550);
+                    R.Cast(target.Position + 100);
                 }
+               }
 
             if (R.IsReady() && targetR.IsValidTarget(R.Range) && ComboMenu.GetCheckBoxValue("mario") && !targetR.IsInRange(Player.Instance, E.Range) && !targetR.IsFacing(Player.Instance))
             {

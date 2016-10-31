@@ -12,6 +12,7 @@ using EloBuddy.SDK.Events;
 using EloBuddy.SDK.Menu.Values;
 using EloBuddy.SDK.Rendering;
 using SharpDX;
+using static Eclipse.Menus;
 
 namespace Eclipse.Modes
 {
@@ -25,6 +26,8 @@ namespace Eclipse.Modes
         private static void Game_OnTick(EventArgs args)
         {
             var orbMode = Orbwalker.ActiveModesFlags;
+            var playerMana = Player.Instance.ManaPercent;
+
 
             Active.Execute();
 
@@ -38,7 +41,7 @@ namespace Eclipse.Modes
                 Harass.Execute();
             }
 
-            if (orbMode.HasFlag(Orbwalker.ActiveModes.LastHit))
+            if (orbMode.HasFlag(Orbwalker.ActiveModes.LastHit) && playerMana > LaneClearMenu.GetSliderValue("manaSlider"))
             {
                 LastHit.Execute();
             }
@@ -48,12 +51,12 @@ namespace Eclipse.Modes
                 Flee.Execute();
             }
 
-            if (orbMode.HasFlag(Orbwalker.ActiveModes.LaneClear))
+            if (orbMode.HasFlag(Orbwalker.ActiveModes.LaneClear) && playerMana > LaneClearMenu.GetSliderValue("manaSlider"))
             {
                 LaneClear.Execute();
             }
 
-            if (orbMode.HasFlag(Orbwalker.ActiveModes.JungleClear))
+            if (orbMode.HasFlag(Orbwalker.ActiveModes.JungleClear) && playerMana > LaneClearMenu.GetSliderValue("manaSlider"))
             {
                 JungleClear.Execute();
             }

@@ -38,7 +38,7 @@ namespace Eclipse.Modes
 
             if (Akali.IsInShopRange() && MiscMenu.GetCheckBoxValue("fun"))
             {
-                Chat.Say("/masterybadge");
+                //Chat.Say("/masterybadge");
                 W.Cast(Player.Instance);
             }
 

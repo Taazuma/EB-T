@@ -56,13 +56,13 @@ namespace Eclipse
             // --------------------------------------------------------------COMBO LOGICS-------------------------------------------------------------- //
             ComboMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             ComboMenu.AddLabel("ComboLogics");
-            ComboMenu.CreateCheckBox("Normal One", "combo1", true);
+            ComboMenu.CreateCheckBox("Normal One", "combo1", false);
             ComboMenu.AddGroupLabel("Combo Q - AA - R - E - W (when Low)");
             ComboMenu.AddSeparator(10);
             ComboMenu.CreateCheckBox("Extend Two", "combo2", false);
             ComboMenu.AddGroupLabel("Combo Q - AA - E - R - W (when Low)");
             ComboMenu.AddSeparator(10);
-            ComboMenu.CreateCheckBox("Extend Three", "combo3", false);
+            ComboMenu.CreateCheckBox("Extend Three", "combo3", true);
             ComboMenu.AddGroupLabel("Combo R - Q - AA - E - W (when Low)");
             ComboMenu.CreateCheckBox("Extend Four", "combo4", false);
             ComboMenu.AddGroupLabel("Combo Q - AA - E - R");
@@ -123,7 +123,7 @@ namespace Eclipse
             DrawingsMenu.CreateCheckBox("Draw damage indicator.", "damageDraw");
             DrawingsMenu.CreateCheckBox("Draw damage indicator percent.", "perDraw");
             DrawingsMenu.CreateCheckBox("Draw damage indicator statistics.", "statDraw", false);
-            DrawingsMenu.CreateCheckBox("Show Killable", "showkilla");
+            DrawingsMenu.CreateCheckBox("Show if Enemy Killable", "showkilla");
             DrawingsMenu.AddGroupLabel("Spells");
             DrawingsMenu.CreateCheckBox("Draw Q.", "qDraw", false);
             DrawingsMenu.CreateCheckBox("Draw W.", "wDraw", false);

@@ -1,0 +1,2 @@
+d:\tommi\documents\visual studio 2015\Projects\Eclipse Template\Eclipse Template\bin\Debug\Eclipse Template.exe.config
+D:\Tommi\Documents\Visual Studio 2015\Projects\God Kayle\God Kayle\bin\Debug\Eclipse Template.exe.config
