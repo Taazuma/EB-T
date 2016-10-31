@@ -17,7 +17,7 @@ using static Eclipse.Menus;
 using Eclipse.Modes;
 using EloBuddy.SDK.Menu;
 using Color = System.Drawing.Color;
-
+using Eclipse_Template.Properties;
 
 namespace Eclipse
 {
@@ -49,6 +49,8 @@ namespace Eclipse
 
         }
 
+        private static int drawTick;
+        private static Sprite introImg;
         public static int qOff = 0, wOff = 0, eOff = 0, rOff = 0;
         private static int[] AbilitySequence;
         public static int start = 0;
@@ -64,6 +66,16 @@ namespace Eclipse
             //Put the name of the champion here
             if (Player.Instance.ChampionName != "Kayle") return;
             Chat.Print("Have Fun with Playing ! by TaaZ");
+            Core.DelayAction(() =>
+            {
+                introImg = new Sprite(TextureLoader.BitmapToTexture(Resources.anime));
+                Chat.Print("<b><font size='20' color='#4B0082'>God Kayle</font><font size='20' color='#FFA07A'> Loaded</font></b>");
+                Drawing.OnDraw += DrawingOnOnDraw;
+                Core.DelayAction(() =>
+                {
+                    Drawing.OnDraw -= DrawingOnOnDraw;
+                }, 7000);
+            }, 2000);
             AbilitySequence = new int[] { 3, 1, 2, 3, 3, 4, 3, 1, 3, 1, 4, 1, 1, 2, 2, 4, 2, 2 };
             SpellsManager.InitializeSpells();
             Menus.CreateMenu();
@@ -80,7 +92,7 @@ namespace Eclipse
             Config.Initialize();
             ModeManagerSmite.Initialize();
             Events.Initialize();
-        }
+    }
 
         private static void GameOnTick(EventArgs args)
         {
@@ -130,6 +142,20 @@ namespace Eclipse
         }
 
         // Draws
+
+        private static void DrawingOnOnDraw(EventArgs args)
+        {
+            if (drawTick == 0)
+                drawTick = Environment.TickCount;
+
+            int timeElapsed = Environment.TickCount - drawTick;
+            introImg.CenterRef = new Vector2(Drawing.Width / 2f, Drawing.Height / 2f).To3D();
+
+            int dt = 300;
+            if (timeElapsed <= dt)
+                introImg.Scale = new Vector2(timeElapsed * 1f / dt, timeElapsed * 1f / dt);
+            introImg.Draw(new Vector2(Drawing.Width / 2f - 1415 / 2f, Drawing.Height / 2f - 750 / 2f));
+        }
 
         private static void Obj_AI_Base_OnNewPath(Obj_AI_Base sender, GameObjectNewPathEventArgs args)
         {

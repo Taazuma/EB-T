@@ -34,7 +34,7 @@ namespace Eclipse
 			FirstMenu.AddGroupLabel("Addon by Taazuma / Thanks for using it");
             FirstMenu.AddLabel("Just press Space to win");
             FirstMenu.AddLabel("The Addon will do his Job");
-            FirstMenu.CreateSlider("Mana Manager", "manaSlider", 50);
+            FirstMenu.CreateSlider("Mana Manager", "manaSlider", 45);
             FirstMenu.Add("lc.MinionsE", new Slider("Min. Minions for E ", 2, 0, 10));
             FirstMenu.Add("hpR", new Slider("Use R at % HP", 25));
             FirstMenu.AddLabel("Safer Option");
@@ -48,7 +48,7 @@ namespace Eclipse
             DrawingsMenu.AddSeparator(5);
             DrawingsMenu.AddGroupLabel("Tracker Draws");
             DrawingsMenu.Add("me", new CheckBox("My Path", false));
-            DrawingsMenu.Add("ally", new CheckBox("Ally Path", true));
+            DrawingsMenu.Add("ally", new CheckBox("Ally Path", false));
             DrawingsMenu.Add("enemy", new CheckBox("Enemy Path", true));
             DrawingsMenu.AddLabel("Tracker Misc");
             DrawingsMenu.Add("toggle", new KeyBind("Toggle On/Off", true, KeyBind.BindTypes.PressToggle, 'G'));
