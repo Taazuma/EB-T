@@ -24,25 +24,11 @@ namespace Eclipse.Modes
 
         public static void Execute()
         {
-            if (DrawingsMenu.GetCheckBoxValue("showkilla"))
-                Indicator.DamageToUnit = SpellsManager.GetTotalDamage;
 
             //////////////////////////////////////////////////////////////////////////////////////////////////// Safer
-            if (W.IsReady() && Combo._player.HealthPercent <= 20 && FirstMenu.GetCheckBoxValue("Saferme") && Combo._player.ManaPercent >= 20)
-            {
-                W.Cast(Modes.Combo._player);
-            }
+            Program.HealMe();
 
-            else if (W.IsReady() && FirstMenu.GetCheckBoxValue("Saferali") && Combo._player.ManaPercent >= 20)
-            {
-                foreach (var ally in EntityManager.Heroes.Allies)
-                {
-                    if (!ally.IsMe && ally.HealthPercent <= 15 && !ally.IsRecalling() && !ally.IsDead)
-                    {
-                        W.Cast(ally);
-                    }
-                }
-            }
+            Program.HealAllies();
             //////////////////////////////////////////////////////////////////////////////////////////////////// Safer
 
             if (Player.HasBuff("zedulttargetmark"))

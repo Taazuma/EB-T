@@ -85,7 +85,7 @@ namespace Eclipse
         private static void GameOnTick(EventArgs args)
         {
             if (check(MiscMenu, "skinhax")) _player.SetSkinId((int)MiscMenu["skinID"].Cast<ComboBox>().CurrentValue);
-            LevelUpSpells();
+            if (check(MiscMenu, "lvlup")) LevelUpSpells();
         }
 
         private static void LevelUpSpells() // Thanks iRaxe
@@ -105,6 +105,29 @@ namespace Eclipse
             if (eL < level[2]) ObjectManager.Player.Spellbook.LevelSpell(SpellSlot.E);
             if (rL < level[3]) ObjectManager.Player.Spellbook.LevelSpell(SpellSlot.R);
         }// Thanks Iraxe
+
+        public static void HealAllies()
+        {
+            if (Combo._player.IsDead || !SpellsManager.W.IsReady() || Combo._player.IsRecalling()) return;
+
+            var test = EntityManager.Heroes.Allies.Where( hero => !hero.IsDead && !hero.IsInShopRange() && !hero.IsZombie && !hero.IsRecalling() && !Combo._player.IsRecalling() &&
+                        hero.Distance(Combo._player) <= SpellsManager.W.Range && hero.HealthPercent <= FirstMenu.GetSliderValue("hpR")).ToList();
+
+            var allytoheal = test.OrderBy(x => x.Health).FirstOrDefault(x => !x.IsInShopRange());
+
+            if (allytoheal != null && FirstMenu.GetCheckBoxValue("Saferali"))
+            {
+                SpellsManager.W.Cast(allytoheal);
+            }
+        }
+
+        public static void HealMe()
+        {
+            if (W.IsReady() && Combo._player.HealthPercent <= 20 && FirstMenu.GetCheckBoxValue("Saferme") && Combo._player.ManaPercent >= 20)
+            {
+                W.Cast(Modes.Combo._player);
+            }
+        }
 
         // Draws
 

@@ -45,8 +45,7 @@ namespace Eclipse
             MiscMenu = FirstMenu.AddSubMenu("Misc", MiscMenuID);
 
             DrawingsMenu.AddGroupLabel("Settings");
-            DrawingsMenu.CreateCheckBox("Show if Enemy Killable", "showkilla");
-            DrawingsMenu.AddSeparator(15);
+            DrawingsMenu.AddSeparator(5);
             DrawingsMenu.AddGroupLabel("Tracker Draws");
             DrawingsMenu.Add("me", new CheckBox("My Path", false));
             DrawingsMenu.Add("ally", new CheckBox("Ally Path", true));

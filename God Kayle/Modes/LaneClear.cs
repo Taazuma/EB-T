@@ -20,14 +20,19 @@ namespace Eclipse.Modes
     {
         public static void Execute()
         {
-            var minions =ObjectManager.Get<Obj_AI_Minion>().Where(m => m.IsEnemy && Modes.Combo._player.Distance(m) <= SpellsManager.E.Range);
+
             var count = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, Player.Instance.ServerPosition, E.Range, true).Count();
             if (count == 0) return;
-            if (minions == null) return;
+            var source = EntityManager.MinionsAndMonsters.GetLaneMinions().OrderBy(a => a.MaxHealth).FirstOrDefault(a => a.IsValidTarget(Q.Range));
 
             if (E.IsReady() && FirstMenu["lc.MinionsE"].Cast<Slider>().CurrentValue <= count)
             {
                 E.Cast();
+            }
+
+            if (Q.IsReady())
+            {
+                Q.Cast(source);
             }
 
         }

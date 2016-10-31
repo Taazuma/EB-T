@@ -70,7 +70,6 @@
   <ItemGroup>
     <Compile Include="Extensions.cs" />
     <Compile Include="Hitch.cs" />
-    <Compile Include="Indicator.cs" />
     <Compile Include="Menus.cs" />
     <Compile Include="Modes\Active.cs" />
     <Compile Include="Modes\Combo.cs" />
@@ -78,7 +77,6 @@
     <Compile Include="Modes\Harass.cs" />
     <Compile Include="Modes\JungleClear.cs" />
     <Compile Include="Modes\LaneClear.cs" />
-    <Compile Include="Modes\LastHit.cs" />
     <Compile Include="Modes\ModeManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
