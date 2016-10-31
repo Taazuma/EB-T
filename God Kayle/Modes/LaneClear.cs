@@ -21,16 +21,19 @@ namespace Eclipse.Modes
         public static void Execute()
         {
 
-            var count = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, Player.Instance.ServerPosition, E.Range, true).Count();
-            if (count == 0) return;
+
             var source = EntityManager.MinionsAndMonsters.GetLaneMinions().OrderBy(a => a.MaxHealth).FirstOrDefault(a => a.IsValidTarget(Q.Range));
 
-            if (E.IsReady() && FirstMenu["lc.MinionsE"].Cast<Slider>().CurrentValue <= count)
+            var qDamage = source.GetDamage(SpellSlot.Q);
+
+            if (source == null) return;
+
+            if (E.IsReady())
             {
                 E.Cast();
             }
 
-            if (Q.IsReady())
+            if (Q.IsReady() && source.Health <= qDamage)
             {
                 Q.Cast(source);
             }
