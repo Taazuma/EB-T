@@ -38,20 +38,31 @@ namespace Eclipse.Modes
                 Q.Cast(qtarget);
             }
 
-            if (E.IsReady() && qtarget.IsValidTarget(30))
+            if (E.IsReady())
             {
                 E.Cast();
             }
 
-            if (W.IsReady() && _player.HealthPercent >= 35)
+            if (W.IsReady() && _player.HealthPercent <= 40)
             {
                 W.Cast(_player);
             }
 
-            //if (R.IsReady() && _player.HealthPercent >= 16)
-            //{
-            //    R.Cast(_player);
-            //}
+            if (R.IsReady() && _player.HealthPercent <= FirstMenu.GetSliderValue("hpR") && FirstMenu.GetCheckBoxValue("Saferme"))
+            {
+                R.Cast(_player);
+            }
+
+            else if (R.IsReady() && FirstMenu.GetCheckBoxValue("Saferali"))
+            {
+                foreach (var ally in EntityManager.Heroes.Allies)
+                {
+                    if (!ally.IsMe && ally.HealthPercent <= FirstMenu.GetSliderValue("hpR") && !ally.IsRecalling() && !ally.IsDead)
+                    {
+                        R.Cast(ally);
+                    }
+                }
+            }
 
             /////////////////////////////////////////////////////////////////// COMBO END
 

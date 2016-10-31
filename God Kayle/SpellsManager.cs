@@ -27,7 +27,7 @@ namespace Eclipse
         {
             Q = new Spell.Targeted(SpellSlot.Q, 650);
             W = new Spell.Targeted(SpellSlot.W, 900);
-            E = new Spell.Active(SpellSlot.E, 20);
+            E = new Spell.Active(SpellSlot.E);
             R = new Spell.Targeted(SpellSlot.R, 900);
         }
 
@@ -86,7 +86,7 @@ namespace Eclipse
                     s => (s.Slot == SpellSlot.Q) || (s.Slot == SpellSlot.W) || (s.Slot == SpellSlot.E) || (s.Slot == SpellSlot.R) && s.IsReady)
                     .Sum(s => target.GetDamage(s.Slot));
 
-            return dmg + Player.Instance.GetAutoAttackDamage(target);
+            return dmg + 2* Player.Instance.GetAutoAttackDamage(target);
         }
 
         public static float GetPassiveDamage(this Obj_AI_Base target)

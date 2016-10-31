@@ -69,7 +69,6 @@ namespace Eclipse
             DrawingsManager.InitializeDrawings();
             Menus.CreateMenu();
             ModeManager.InitializeModes();
-            Game.OnUpdate += OnGameUpdate;
             Game.OnTick += GameOnTick;
             SpellManager.Initialize();
             Drawing.OnDraw += Drawing_OnDraw;
@@ -82,12 +81,6 @@ namespace Eclipse
             Config.Initialize();
             ModeManagerSmite.Initialize();
             Events.Initialize();
-        }
-
-
-        private static void OnGameUpdate(EventArgs args)
-        {
-            _player.SetSkinId(skinId());
         }
 
         private static void GameOnTick(EventArgs args)

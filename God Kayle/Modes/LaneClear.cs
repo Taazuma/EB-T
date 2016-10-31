@@ -30,14 +30,6 @@ namespace Eclipse.Modes
                 E.Cast();
             }
 
-            var minion = ObjectManager.Get<Obj_AI_Minion>().FirstOrDefault(a => a.IsEnemy && a.Health <= SpellsManager.QDamage(a));
-            if (minion == null) return;
-
-            if (Q.IsReady())
-            {
-                Q.Cast(minion);
-            }
-
         }
     }
 }

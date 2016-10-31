@@ -42,6 +42,7 @@ namespace Eclipse
             FirstMenu.AddLabel("The Addon will do his Job");
             FirstMenu.CreateSlider("Mana Manager", "manaSlider", 50);
             FirstMenu.Add("lc.MinionsE", new Slider("Min. Minions for E ", 2, 0, 10));
+            FirstMenu.Add("hpR", new Slider("Use R at % HP", 30));
             FirstMenu.AddLabel("Safer Option");
             FirstMenu.AddSeparator(5);
             FirstMenu.CreateCheckBox("Heal/R Safe Allies?", "Saferali", false);
@@ -100,16 +101,10 @@ namespace Eclipse
    //         KillStealMenu.CreateSlider("Mana must be higher than [{0}%] to use KS spells", "manaSlider", 30);
 
             DrawingsMenu.AddGroupLabel("Settings");
-            DrawingsMenu.CreateCheckBox("Draw spell`s range only if they are ready.", "readyDraw");
             DrawingsMenu.CreateCheckBox("Draw damage indicator.", "damageDraw");
             DrawingsMenu.CreateCheckBox("Draw damage indicator percent.", "perDraw");
             DrawingsMenu.CreateCheckBox("Draw damage indicator statistics.", "statDraw", false);
             DrawingsMenu.CreateCheckBox("Show if Enemy Killable", "showkilla");
-            DrawingsMenu.AddGroupLabel("Spells");
-            DrawingsMenu.CreateCheckBox("Draw Q.", "qDraw", false);
-            DrawingsMenu.CreateCheckBox("Draw W.", "wDraw", false);
-            DrawingsMenu.CreateCheckBox("Draw E.", "eDraw", false);
-            DrawingsMenu.CreateCheckBox("Draw R.", "rDraw", false);
             DrawingsMenu.AddSeparator(15);
             DrawingsMenu.AddGroupLabel("Tracker Draws");
             DrawingsMenu.Add("me", new CheckBox("My Path", false));
@@ -127,11 +122,6 @@ namespace Eclipse
             DrawingsMenu.Add("lasthit", new CheckBox("LastHit", true));
             DrawingsMenu.Add("flee", new CheckBox("Flee", false));
             DrawingsMenu.AddSeparator(15);
-            DrawingsMenu.AddGroupLabel("Drawings Color");
-            QColorSlide = new ColorSlide(DrawingsMenu, "qColor", Color.Red, "Q Color:");
-            WColorSlide = new ColorSlide(DrawingsMenu, "wColor", Color.Purple, "W Color:");
-            EColorSlide = new ColorSlide(DrawingsMenu, "eColor", Color.Orange, "E Color:");
-            RColorSlide = new ColorSlide(DrawingsMenu, "rColor", Color.DeepPink, "R Color:");
             DamageIndicatorColorSlide = new ColorSlide(DrawingsMenu, "healthColor", Color.YellowGreen, "DamageIndicator Color:");
 
             MiscMenu.AddGroupLabel("Settings");
@@ -141,10 +131,6 @@ namespace Eclipse
             MiscMenu.CreateCheckBox("Activate Skin hack", "skinhax", false);
             MiscMenu.Add("skinID", new ComboBox("Skin Hack", 1, "Default", "Silver Kayle", "Unmasked Kayle", "Battleborn Kayle", "Judgement Kayle", "Aether Wing Kayle", "Riot Kayle", "Iron Inquisitor Kayle"));
 
-        }
-        public static int skinId()
-        {
-            return MiscMenu["skin.Id"].Cast<Slider>().CurrentValue;
         }
     }
 }

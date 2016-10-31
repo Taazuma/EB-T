@@ -28,35 +28,22 @@ namespace Eclipse.Modes
                 Indicator.DamageToUnit = SpellsManager.GetTotalDamage;
 
             //////////////////////////////////////////////////////////////////////////////////////////////////// Safer
-            if (W.IsReady() && Combo._player.HealthPercent <= 20 && FirstMenu.GetCheckBoxValue("Saferme"))
+            var target = TargetSelector.GetTarget(Q.Range, DamageType.Mixed);
+
+            if (target == null) return;
+
+            if (W.IsReady() && Combo._player.HealthPercent <= 20 && FirstMenu.GetCheckBoxValue("Saferme") && Combo._player.ManaPercent >= 20)
             {
                 W.Cast(Modes.Combo._player);
             }
 
-            else if (W.IsReady() && FirstMenu.GetCheckBoxValue("Saferali"))
+            else if (W.IsReady() && FirstMenu.GetCheckBoxValue("Saferali") && Combo._player.ManaPercent >= 20)
             {
                 foreach (var ally in EntityManager.Heroes.Allies)
                 {
                     if (!ally.IsMe && ally.HealthPercent <= 15 && !ally.IsRecalling() && !ally.IsDead)
                     {
                         W.Cast(ally);
-                    }
-                }
-            }
-
-            if (R.IsReady() && Combo._player.HealthPercent >= 18 && FirstMenu.GetCheckBoxValue("Saferme"))
-            {
-                R.Cast(Combo._player);
-            }
-
-
-            else if (R.IsReady() && FirstMenu.GetCheckBoxValue("Saferali"))
-            {
-                foreach (var ally in EntityManager.Heroes.Allies)
-                {
-                    if (!ally.IsMe && ally.HealthPercent <= 10 && !ally.IsRecalling() && !ally.IsDead)
-                    {
-                        R.Cast(ally);
                     }
                 }
             }
