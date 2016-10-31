@@ -55,13 +55,7 @@ namespace Eclipse.Modes
 
             else if (R.IsReady() && FirstMenu.GetCheckBoxValue("Saferali"))
             {
-                foreach (var ally in EntityManager.Heroes.Allies)
-                {
-                    if (!ally.IsMe && ally.HealthPercent <= FirstMenu.GetSliderValue("hpR") && !ally.IsRecalling() && !ally.IsDead)
-                    {
-                        R.Cast(ally);
-                    }
-                }
+                Program.SafeAllies();
             }
 
             /////////////////////////////////////////////////////////////////// COMBO END

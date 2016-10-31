@@ -123,13 +123,28 @@ namespace Eclipse
             if (Combo._player.IsDead || !SpellsManager.W.IsReady() || Combo._player.IsRecalling()) return;
 
             var test = EntityManager.Heroes.Allies.Where( hero => !hero.IsDead && !hero.IsInShopRange() && !hero.IsZombie && !hero.IsRecalling() && !Combo._player.IsRecalling() &&
-                        hero.Distance(Combo._player) <= SpellsManager.W.Range && hero.HealthPercent <= FirstMenu.GetSliderValue("hpR")).ToList();
+                        hero.Distance(Combo._player) <= SpellsManager.W.Range && hero.HealthPercent <= 10).ToList();
 
             var allytoheal = test.OrderBy(x => x.Health).FirstOrDefault(x => !x.IsInShopRange());
 
             if (allytoheal != null && FirstMenu.GetCheckBoxValue("Saferali"))
             {
                 SpellsManager.W.Cast(allytoheal);
+            }
+        }
+
+        public static void SafeAllies()
+        {
+            if (Combo._player.IsDead || !SpellsManager.R.IsReady() || Combo._player.IsRecalling()) return;
+
+            var test = EntityManager.Heroes.Allies.Where(hero => !hero.IsDead && !hero.IsInShopRange() && !hero.IsZombie && !hero.IsRecalling() && !Combo._player.IsRecalling() &&
+                       hero.Distance(Combo._player) <= SpellsManager.R.Range && hero.HealthPercent <= FirstMenu.GetSliderValue("hpR")).ToList();
+
+            var allytoheal = test.OrderBy(x => x.Health).FirstOrDefault(x => !x.IsInShopRange());
+
+            if (allytoheal != null && FirstMenu.GetCheckBoxValue("Saferali"))
+            {
+                SpellsManager.R.Cast(allytoheal);
             }
         }
 
