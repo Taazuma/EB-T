@@ -28,10 +28,6 @@ namespace Eclipse.Modes
                 Indicator.DamageToUnit = SpellsManager.GetTotalDamage;
 
             //////////////////////////////////////////////////////////////////////////////////////////////////// Safer
-            var target = TargetSelector.GetTarget(Q.Range, DamageType.Mixed);
-
-            if (target == null) return;
-
             if (W.IsReady() && Combo._player.HealthPercent <= 20 && FirstMenu.GetCheckBoxValue("Saferme") && Combo._player.ManaPercent >= 20)
             {
                 W.Cast(Modes.Combo._player);

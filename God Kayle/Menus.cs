@@ -18,12 +18,6 @@ namespace Eclipse
         public static Menu DrawingsMenu;
         public static Menu MiscMenu;
 
-        public static ColorSlide QColorSlide;
-        public static ColorSlide WColorSlide;
-        public static ColorSlide EColorSlide;
-        public static ColorSlide RColorSlide;
-        public static ColorSlide DamageIndicatorColorSlide;
-
         public const string ComboMenuID = "combomenuid";
         public const string HarassMenuID = "harassmenuid";
         public const string AutoHarassMenuID = "autoharassmenuid";
@@ -42,73 +36,20 @@ namespace Eclipse
             FirstMenu.AddLabel("The Addon will do his Job");
             FirstMenu.CreateSlider("Mana Manager", "manaSlider", 50);
             FirstMenu.Add("lc.MinionsE", new Slider("Min. Minions for E ", 2, 0, 10));
-            FirstMenu.Add("hpR", new Slider("Use R at % HP", 30));
+            FirstMenu.Add("hpR", new Slider("Use R at % HP", 25));
             FirstMenu.AddLabel("Safer Option");
             FirstMenu.AddSeparator(5);
             FirstMenu.CreateCheckBox("Heal/R Safe Allies?", "Saferali", false);
             FirstMenu.CreateCheckBox("Heal/R Safe Me?", "Saferme", true);
-            //ComboMenu = FirstMenu.AddSubMenu("Combo", ComboMenuID);
-            //HarassMenu = FirstMenu.AddSubMenu("Harass", HarassMenuID);
-            //AutoHarassMenu = FirstMenu.AddSubMenu("AutoHarass", AutoHarassMenuID);
-            //LaneClearMenu = FirstMenu.AddSubMenu("LaneClear", LaneClearMenuID);
-            //LasthitMenu = FirstMenu.AddSubMenu("LastHit", LastHitMenuID);
-            //JungleClearMenu = FirstMenu.AddSubMenu("JungleClear", JungleClearMenuID);
-            //KillStealMenu = FirstMenu.AddSubMenu("KillSteal", KillStealMenuID);
             DrawingsMenu = FirstMenu.AddSubMenu("Drawings", DrawingsMenuID);
             MiscMenu = FirstMenu.AddSubMenu("Misc", MiscMenuID);
 
-   //         ComboMenu.AddGroupLabel("Combo");
-   //         ComboMenu.CreateCheckBox("Use Q", "qUse");
-   //         ComboMenu.CreateCheckBox("Use E", "eUse");
-			//ComboMenu.CreateCheckBox("Use W", "wUse");
-			//ComboMenu.CreateCheckBox("Use R", "rUse");
-
-   //         HarassMenu.AddGroupLabel("Harass");
-   //         HarassMenu.CreateCheckBox("Use Q", "qUse");
-   //         HarassMenu.CreateCheckBox("Use E", "eUse");
-   //         HarassMenu.AddGroupLabel("Settings");
-   //         HarassMenu.CreateSlider("Mana must be higher than [{0}%] to use Harass spells", "manaSlider", 30);
-
-   //         AutoHarassMenu.AddGroupLabel("AutoHarass");
-   //         AutoHarassMenu.CreateCheckBox("Use Q", "qUse");
-   //         AutoHarassMenu.CreateCheckBox("Use E", "eUse");
-   //         AutoHarassMenu.AddGroupLabel("Settings");
-   //         AutoHarassMenu.CreateSlider("Mana must be higher than [{0}%] to use AutoHarass spells", "manaSlider", 30);
-
-   //         LaneClearMenu.AddGroupLabel("LaneClear");
-   //         LaneClearMenu.CreateCheckBox("Use Q", "qUse");
-   //         LaneClearMenu.CreateCheckBox("Use E", "eUse");
-   //         LaneClearMenu.AddGroupLabel("Settings");
-   //         LaneClearMenu.CreateSlider("Mana must be higher than [{0}%] to use LaneClear spells", "manaSlider", 30);
-
-   //         LasthitMenu.AddGroupLabel("Lasthit");
-   //         LasthitMenu.CreateCheckBox("Use Q", "qUse");
-   //         LasthitMenu.CreateCheckBox("Use E", "eUse");
-   //         LasthitMenu.AddGroupLabel("Settings");
-   //         LasthitMenu.CreateSlider("Mana must be higher than [{0}%] to use Lasthit spells", "manaSlider", 30);
-
-   //         JungleClearMenu.AddGroupLabel("JungleClear");
-   //         JungleClearMenu.CreateCheckBox("Use Q", "qUse");
-   //         JungleClearMenu.CreateCheckBox("Use E", "eUse");
-   //         JungleClearMenu.AddGroupLabel("Settings");
-   //         JungleClearMenu.CreateSlider("Mana must be higher than [{0}%] to use JungleClear spells", "manaSlider", 30);
-
-   //         KillStealMenu.AddGroupLabel("KillSteal");
-   //         KillStealMenu.CreateCheckBox("Use Q", "qUse");
-   //         KillStealMenu.CreateCheckBox("Use E", "eUse");
-   //         KillStealMenu.CreateCheckBox("Use R", "rUse");
-   //         KillStealMenu.AddGroupLabel("Settings");
-   //         KillStealMenu.CreateSlider("Mana must be higher than [{0}%] to use KS spells", "manaSlider", 30);
-
             DrawingsMenu.AddGroupLabel("Settings");
-            DrawingsMenu.CreateCheckBox("Draw damage indicator.", "damageDraw");
-            DrawingsMenu.CreateCheckBox("Draw damage indicator percent.", "perDraw");
-            DrawingsMenu.CreateCheckBox("Draw damage indicator statistics.", "statDraw", false);
             DrawingsMenu.CreateCheckBox("Show if Enemy Killable", "showkilla");
             DrawingsMenu.AddSeparator(15);
             DrawingsMenu.AddGroupLabel("Tracker Draws");
             DrawingsMenu.Add("me", new CheckBox("My Path", false));
-            DrawingsMenu.Add("ally", new CheckBox("Ally Path", false));
+            DrawingsMenu.Add("ally", new CheckBox("Ally Path", true));
             DrawingsMenu.Add("enemy", new CheckBox("Enemy Path", true));
             DrawingsMenu.AddLabel("Tracker Misc");
             DrawingsMenu.Add("toggle", new KeyBind("Toggle On/Off", true, KeyBind.BindTypes.PressToggle, 'G'));
@@ -122,7 +63,6 @@ namespace Eclipse
             DrawingsMenu.Add("lasthit", new CheckBox("LastHit", true));
             DrawingsMenu.Add("flee", new CheckBox("Flee", false));
             DrawingsMenu.AddSeparator(15);
-            DamageIndicatorColorSlide = new ColorSlide(DrawingsMenu, "healthColor", Color.YellowGreen, "DamageIndicator Color:");
 
             MiscMenu.AddGroupLabel("Settings");
             MiscMenu.AddLabel("Level Up Function");

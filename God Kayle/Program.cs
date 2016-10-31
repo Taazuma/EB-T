@@ -66,7 +66,6 @@ namespace Eclipse
             Chat.Print("Have Fun with Playing ! by TaaZ");
             AbilitySequence = new int[] { 3, 1, 2, 3, 3, 4, 3, 1, 3, 1, 4, 1, 1, 2, 2, 4, 2, 2 };
             SpellsManager.InitializeSpells();
-            DrawingsManager.InitializeDrawings();
             Menus.CreateMenu();
             ModeManager.InitializeModes();
             Game.OnTick += GameOnTick;
@@ -86,6 +85,7 @@ namespace Eclipse
         private static void GameOnTick(EventArgs args)
         {
             if (check(MiscMenu, "skinhax")) _player.SetSkinId((int)MiscMenu["skinID"].Cast<ComboBox>().CurrentValue);
+            LevelUpSpells();
         }
 
         private static void LevelUpSpells() // Thanks iRaxe
