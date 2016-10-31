@@ -1,0 +1,12 @@
+D:\Tommi\Documents\GitHub\EB-T\God Kayle\bin\Release\Eclipse Template.exe.config
+D:\Tommi\Documents\GitHub\EB-T\God Kayle\bin\Release\Eclipse Template.exe
+D:\Tommi\Documents\GitHub\EB-T\God Kayle\bin\Release\Eclipse Template.pdb
+D:\Tommi\Documents\GitHub\EB-T\God Kayle\bin\Release\EloBuddy.dll
+D:\Tommi\Documents\GitHub\EB-T\God Kayle\bin\Release\EloBuddy.Sandbox.dll
+D:\Tommi\Documents\GitHub\EB-T\God Kayle\bin\Release\EloBuddy.SDK.dll
+D:\Tommi\Documents\GitHub\EB-T\God Kayle\bin\Release\Newtonsoft.Json.dll
+D:\Tommi\Documents\GitHub\EB-T\God Kayle\bin\Release\SharpDX.Direct3D9.dll
+D:\Tommi\Documents\GitHub\EB-T\God Kayle\bin\Release\SharpDX.dll
+D:\Tommi\Documents\GitHub\EB-T\God Kayle\bin\Release\SharpDX.XInput.dll
+D:\Tommi\Documents\GitHub\EB-T\God Kayle\obj\Release\Eclipse Template.exe
+D:\Tommi\Documents\GitHub\EB-T\God Kayle\obj\Release\Eclipse Template.pdb
