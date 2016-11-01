@@ -21,7 +21,6 @@ namespace Eclipse.Modes
         public static void Execute()
         {
 
-
             var source = EntityManager.MinionsAndMonsters.GetLaneMinions().OrderBy(a => a.MaxHealth).FirstOrDefault(a => a.IsValidTarget(Q.Range));
 
             var qDamage = source.GetDamage(SpellSlot.Q);
@@ -33,7 +32,7 @@ namespace Eclipse.Modes
                 E.Cast();
             }
 
-            if (Q.IsReady() && source.Health <= qDamage)
+            if (Q.IsReady() && source.Health <= qDamage && FirstMenu.GetCheckBoxValue("qUse"))
             {
                 Q.Cast(source);
             }

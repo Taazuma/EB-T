@@ -33,7 +33,7 @@ namespace Eclipse.Modes
 
             /////////////////////////////////////////////////////////////////// COMBO 
 
-            if (Q.IsReady() && qtarget.IsValidTarget(Q.Range))
+            if (Q.IsReady())
             {
                 Q.Cast(qtarget);
             }

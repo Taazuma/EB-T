@@ -41,6 +41,8 @@ namespace Eclipse
             FirstMenu.AddSeparator(5);
             FirstMenu.CreateCheckBox("Heal/R Safe Allies?", "Saferali", false);
             FirstMenu.CreateCheckBox("Heal/R Safe Me?", "Saferme", true);
+            FirstMenu.AddLabel("Clears Option");
+            FirstMenu.CreateCheckBox("Use Q ?", "qUse", true);
             DrawingsMenu = FirstMenu.AddSubMenu("Drawings", DrawingsMenuID);
             MiscMenu = FirstMenu.AddSubMenu("Misc", MiscMenuID);
 
