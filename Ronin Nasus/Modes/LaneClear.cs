@@ -27,6 +27,7 @@ namespace Ronin.Modes
         {
             var count = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, Player.ServerPosition, Player.AttackRange, false).Count();
             var source = EntityManager.MinionsAndMonsters.GetLaneMinions().OrderBy(a => a.MaxHealth).FirstOrDefault(a => a.IsValidTarget(Q.Range));
+            var qDamage = source.GetDamage(SpellSlot.Q);
             if (count == 0) return;
 
             if (E.IsReady() && LaneClearMenu.GetCheckBoxValue("eUse"))
@@ -34,7 +35,7 @@ namespace Ronin.Modes
                 E.Cast(source.Position);
             }
 
-            if (Q.IsReady() && LaneClearMenu.GetCheckBoxValue("qUse"))
+            if (Q.IsReady() && LaneClearMenu.GetCheckBoxValue("qUse") && source.Health <= qDamage)
             {
                 Orbwalker.ForcedTarget = source;
                 Q.Cast();
