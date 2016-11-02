@@ -18,12 +18,6 @@ namespace Eclipse
         public static Menu DrawingsMenu;
         public static Menu MiscMenu;
 
-        public static ColorSlide QColorSlide;
-        public static ColorSlide WColorSlide;
-        public static ColorSlide EColorSlide;
-        public static ColorSlide RColorSlide;
-        public static ColorSlide DamageIndicatorColorSlide;
-
         public const string ComboMenuID = "combomenuid";
         public const string HarassMenuID = "harassmenuid";
         public const string AutoHarassMenuID = "autoharassmenuid";
@@ -119,17 +113,6 @@ namespace Eclipse
             KillStealMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
 
             DrawingsMenu.AddGroupLabel("Settings");
-            DrawingsMenu.CreateCheckBox("Draw spell`s range only if they are ready.", "readyDraw");
-            DrawingsMenu.CreateCheckBox("Draw damage indicator.", "damageDraw");
-            DrawingsMenu.CreateCheckBox("Draw damage indicator percent.", "perDraw");
-            DrawingsMenu.CreateCheckBox("Draw damage indicator statistics.", "statDraw", false);
-            DrawingsMenu.CreateCheckBox("Show if Enemy Killable", "showkilla");
-            DrawingsMenu.AddGroupLabel("Spells");
-            DrawingsMenu.CreateCheckBox("Draw Q.", "qDraw", false);
-            DrawingsMenu.CreateCheckBox("Draw W.", "wDraw", false);
-            DrawingsMenu.CreateCheckBox("Draw E.", "eDraw");
-            DrawingsMenu.CreateCheckBox("Draw R.", "rDraw");
-            DrawingsMenu.AddSeparator(15);
             DrawingsMenu.AddGroupLabel("Tracker Draws");
             DrawingsMenu.Add("me", new CheckBox("My Path", false));
             DrawingsMenu.Add("ally", new CheckBox("Ally Path", false));
@@ -145,13 +128,6 @@ namespace Eclipse
             DrawingsMenu.Add("laneclear", new CheckBox("LaneClear", false));
             DrawingsMenu.Add("lasthit", new CheckBox("LastHit", true));
             DrawingsMenu.Add("flee", new CheckBox("Flee", false));
-            DrawingsMenu.AddSeparator(15);
-            DrawingsMenu.AddGroupLabel("Drawings Color");
-            QColorSlide = new ColorSlide(DrawingsMenu, "qColor", Color.Red, "Q Color:");
-            WColorSlide = new ColorSlide(DrawingsMenu, "wColor", Color.Purple, "W Color:");
-            EColorSlide = new ColorSlide(DrawingsMenu, "eColor", Color.Orange, "E Color:");
-            RColorSlide = new ColorSlide(DrawingsMenu, "rColor", Color.DeepPink, "R Color:");
-            DamageIndicatorColorSlide = new ColorSlide(DrawingsMenu, "healthColor", Color.YellowGreen, "DamageIndicator Color:");
 
             MiscMenu.AddGroupLabel("Settings");
             MiscMenu.CreateCheckBox("Auto Q", "autoq", false);
@@ -163,10 +139,6 @@ namespace Eclipse
             MiscMenu.AddSeparator(15);
             MiscMenu.Add("skinhax", new CheckBox("Activate Skin hack"));
             MiscMenu.Add("skinID", new ComboBox("Skin Hack", 1, "Default", "Crimson Akali", "Stinger Akali", "All-Star Akali", "Nurse Akali", "Blood Moon Akali", "Silverfang Akali", "Headhunter Akali", "Sashimi Akali"));
-        }
-        public static int skinId()
-        {
-            return MiscMenu["skin.Id"].Cast<Slider>().CurrentValue;
         }
         public static int Qdelay { get { return ComboMenu["Qdelay"].Cast<Slider>().CurrentValue; } }
         public static int Edelay { get { return ComboMenu["Edelay"].Cast<Slider>().CurrentValue; } }

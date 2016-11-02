@@ -25,9 +25,6 @@ namespace Eclipse.Modes
         public static void Execute()
         {
 
-            if (DrawingsMenu.GetCheckBoxValue("showkilla"))
-                Indicator.DamageToUnit = Program.GetComboDamage;
-
             if (Player.HasBuff("zedulttargetmark") && MiscMenu.GetCheckBoxValue("wlow"))
             {
                 if (W.IsReady())

@@ -84,13 +84,6 @@ namespace Eclipse.Modes
                     }
                 }, Edelay);
 
-                //if (W.IsReady() && wtarget.IsValidTarget(W.Range) && ComboMenu.GetCheckBoxValue("wUse"))
-                //{
-                //    if (Player.Instance.CountEnemiesInRange(Q.Range) >= 1 || Player.Instance.HealthPercent <= 15)
-                //    {
-                //        W.Cast(Player.Instance);
-                //    }
-                //}
             }
             // COMBO 1 END --------------------------------------------------------------------------------
 
@@ -130,14 +123,6 @@ namespace Eclipse.Modes
                         R.Cast(rtarget);
                     }
                 }, Rdelay);
-
-                //if (W.IsReady() && wtarget.IsValidTarget(W.Range) && ComboMenu.GetCheckBoxValue("wUse"))
-                //{
-                //    if (Player.Instance.CountEnemiesInRange(Q.Range) >= 1 || Player.Instance.HealthPercent <= 15)
-                //    {
-                //        W.Cast(Player.Instance);
-                //    }
-                //}
             }
             // COMBO 2 END --------------------------------------------------------------------------------
 
@@ -177,16 +162,6 @@ namespace Eclipse.Modes
                         E.Cast();
                     }
                 }, Edelay);
-
-
-
-                //if (W.IsReady() && wtarget.IsValidTarget(W.Range) && ComboMenu.GetCheckBoxValue("wUse"))
-                //{
-                //    if (Player.Instance.CountEnemiesInRange(Q.Range) >= 1 || Player.Instance.HealthPercent <= 15)
-                //    {
-                //        W.Cast(Player.Instance);
-                //    }
-                //}
             }
             // COMBO 3 END --------------------------------------------------------------------------------
 

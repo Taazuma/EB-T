@@ -65,7 +65,6 @@ namespace Eclipse
             Chat.Print("Have Fun with Playing ! by TaaZ");
             AbilitySequence = new int[] { 1, 3, 2, 1, 1, 4, 1, 3, 1, 3, 4, 3, 3, 2, 2, 4, 2, 2 };
             SpellsManager.InitializeSpells();
-            DrawingsManager.InitializeDrawings();
             Menus.CreateMenu();
             ModeManager.InitializeModes();
             Game.OnUpdate += OnGameUpdate;
@@ -76,7 +75,7 @@ namespace Eclipse
             Obj_AI_Base.OnNewPath += Obj_AI_Base_OnNewPath;
             if (!SpellManager.HasSmite())
             {
-                Chat.Print("No smite detected - unloading Smite.", System.Drawing.Color.Red);
+                Chat.Print("No smite detected - unloading Smite.", System.Drawing.Color.MediumVioletRed);
                 return;
             }
             Config.Initialize();
@@ -246,34 +245,6 @@ namespace Eclipse
                 return false;
             return true;
         }
-
-        public static float GetComboDamage(AIHeroClient unit)
-        {
-            return GetComboDamage(unit, 0);
-        }
-
-        public static float GetComboDamage(AIHeroClient unit, int maxStacks)
-        {
-            //Thanks to Joker Basic Template //
-            var d = 2 * Player.Instance.GetAutoAttackDamage(unit);
-
-            if ((Player.Instance.GetSpellSlotFromName("summonerdot") == SpellSlot.Summoner1 ||
-                Player.Instance.GetSpellSlotFromName("summonerdot") == SpellSlot.Summoner2) && Eclipse.Igniter.ignt.IsReady())
-                d += Player.Instance.GetSummonerSpellDamage(unit, DamageLibrary.SummonerSpells.Ignite);
-
-            if (ComboMenu.GetCheckBoxValue("qUse") && SpellsManager.Q.IsReady())
-                d += Player.Instance.GetSpellDamage(unit, SpellSlot.Q);
-
-            if (ComboMenu.GetCheckBoxValue("eUse") && SpellsManager.E.IsReady())
-                d += Player.Instance.GetSpellDamage(unit, SpellSlot.E);
-
-            if (SpellsManager.R.IsReady())
-                d += Player.Instance.GetSpellDamage(unit, SpellSlot.R) * 2;
-
-            return (float)d;
-        }
-
-       
 
     }
 }
