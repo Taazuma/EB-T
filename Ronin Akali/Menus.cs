@@ -131,7 +131,7 @@ namespace Eclipse
 
             MiscMenu.AddGroupLabel("Settings");
             MiscMenu.CreateCheckBox("Auto Q", "autoq", false);
-            MiscMenu.CreateCheckBox("W when low", "wlow");
+            MiscMenu.CreateCheckBox("W when low", "wlow", false);
             MiscMenu.CreateCheckBox("Use Items", "useitems");
             MiscMenu.CreateCheckBox("Base Fun", "fun");
             MiscMenu.AddLabel("Level Up Function");
