@@ -12,3 +12,4 @@ D:\Tommi\Documents\GitHub\EB-T\God Kayle\obj\Release\God Kayle.exe
 D:\Tommi\Documents\GitHub\EB-T\God Kayle\obj\Release\God Kayle.pdb
 D:\Tommi\Documents\GitHub\EB-T\God Kayle\obj\Release\Eclipse_Template.Properties.Resources.resources
 D:\Tommi\Documents\GitHub\EB-T\God Kayle\obj\Release\God Kayle.csproj.GenerateResource.Cache
+D:\Tommi\Documents\GitHub\EB-T\God Kayle\obj\Release\God Kayle.csprojResolveAssemblyReference.cache

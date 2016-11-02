@@ -51,7 +51,6 @@ namespace Eclipse
             DrawingsManager.InitializeDrawings();
             Menus.CreateMenu();
             ModeManager.InitializeModes();
-            Game.OnUpdate += OnGameUpdate;
             Game.OnTick += GameOnTick;
             SpellManager.Initialize();
             Interrupter.OnInterruptableSpell += Program.Interrupter_OnInterruptableSpell;
@@ -65,11 +64,6 @@ namespace Eclipse
             Events.Initialize();
         }
 
-
-        private static void OnGameUpdate(EventArgs args)
-        {
-            _player.SetSkinId(skinId());
-        }
 
         private static void GameOnTick(EventArgs args)
         {
