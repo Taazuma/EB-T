@@ -50,6 +50,7 @@ namespace Eclipse
             // --------------------------------------------------------------COMBO LOGICS-------------------------------------------------------------- //
             ComboMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             ComboMenu.AddLabel("ComboLogics");
+            ComboMenu.AddSeparator(5);
             ComboMenu.CreateCheckBox("Normal One", "combo1", false);
             ComboMenu.AddGroupLabel("Combo Q - AA - R - E - W (when Low)");
             ComboMenu.AddSeparator(10);
@@ -58,6 +59,7 @@ namespace Eclipse
             ComboMenu.AddSeparator(10);
             ComboMenu.CreateCheckBox("Extend Three", "combo3", true);
             ComboMenu.AddGroupLabel("Combo R - Q - AA - E - W (when Low)");
+            ComboMenu.AddSeparator(10);
             ComboMenu.CreateCheckBox("Extend Four", "combo4", false);
             ComboMenu.AddGroupLabel("Combo Q - AA - E - R");
             ComboMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
@@ -133,7 +135,6 @@ namespace Eclipse
             MiscMenu.CreateCheckBox("Auto Q", "autoq", false);
             MiscMenu.CreateCheckBox("W when low", "wlow", false);
             MiscMenu.CreateCheckBox("Use Items", "useitems");
-            MiscMenu.CreateCheckBox("Base Fun", "fun");
             MiscMenu.AddLabel("Level Up Function");
             MiscMenu.Add("lvlup", new CheckBox("Auto Level Up Spells", false));
             MiscMenu.AddSeparator(15);
