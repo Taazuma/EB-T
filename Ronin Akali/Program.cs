@@ -17,6 +17,7 @@ using static Eclipse.Menus;
 using Eclipse.Modes;
 using EloBuddy.SDK.Menu;
 using Color = System.Drawing.Color;
+using RoninAkali.Properties;
 
 namespace Eclipse
 {
@@ -55,14 +56,23 @@ namespace Eclipse
         private static int[] AbilitySequence;
         public static int start = 0;
         public const string ChampName = "Smite";
-        public static Text TextKillable { get; private set; }
-
+        private static int drawTick;
+        private static Sprite introImg;
 
         private static void Loading_OnLoadingComplete(EventArgs args)
         {
             //Put the name of the champion here
             if (Player.Instance.ChampionName != "Akali") return;
-            Chat.Print("Have Fun with Playing ! by TaaZ");
+            Core.DelayAction(() =>
+            {
+                introImg = new Sprite(TextureLoader.BitmapToTexture(Resources.anime));
+                Chat.Print("<b><font size='20' color='#4B0082'>Ronin Akali</font><font size='20' color='#FFA07A'> Loaded</font></b>");
+                Drawing.OnDraw += DrawingOnOnDraw;
+                Core.DelayAction(() =>
+                {
+                    Drawing.OnDraw -= DrawingOnOnDraw;
+                }, 7000);
+            }, 2000);
             AbilitySequence = new int[] { 1, 3, 2, 1, 1, 4, 1, 3, 1, 3, 4, 3, 3, 2, 2, 4, 2, 2 };
             SpellsManager.InitializeSpells();
             Menus.CreateMenu();
@@ -70,9 +80,9 @@ namespace Eclipse
             Game.OnUpdate += OnGameUpdate;
             Game.OnTick += GameOnTick;
             Gapcloser.OnGapcloser += Gapcloser_OnGapcloser;
-            SpellManager.Initialize();
             Drawing.OnDraw += Drawing_OnDraw;
             Obj_AI_Base.OnNewPath += Obj_AI_Base_OnNewPath;
+            SpellManager.Initialize();
             if (!SpellManager.HasSmite())
             {
                 Chat.Print("No smite detected - unloading Smite.", System.Drawing.Color.MediumVioletRed);
@@ -124,6 +134,20 @@ namespace Eclipse
             {
                 SpellsManager.W.Cast(Player.Instance);
             }
+        }
+
+        private static void DrawingOnOnDraw(EventArgs args)
+        {
+            if (drawTick == 0)
+                drawTick = Environment.TickCount;
+
+            int timeElapsed = Environment.TickCount - drawTick;
+            introImg.CenterRef = new Vector2(Drawing.Width / 2f, Drawing.Height / 2f).To3D();
+
+            int dt = 300;
+            if (timeElapsed <= dt)
+                introImg.Scale = new Vector2(timeElapsed * 1f / dt, timeElapsed * 1f / dt);
+            introImg.Draw(new Vector2(Drawing.Width / 2f - 1415 / 2f, Drawing.Height / 2f - 750 / 2f));
         }
 
         private static void Obj_AI_Base_OnNewPath(Obj_AI_Base sender, GameObjectNewPathEventArgs args)
