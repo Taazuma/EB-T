@@ -39,7 +39,7 @@ namespace RoninSkarner.Modes
             }
             if (JungleClearMenu.GetCheckBoxValue("eUse") && E.IsReady() && target.IsValidTarget(SpellsManager.E.Range))
             {
-                E.Cast(target);
+                E.Cast(target.Position);
             }
 
 
