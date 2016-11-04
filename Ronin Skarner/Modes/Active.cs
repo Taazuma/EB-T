@@ -22,9 +22,47 @@ namespace RoninSkarner.Modes
     /// </summary>
     internal class Active
     {
-        public static Obj_AI_Minion Minion;
+
         public static void Execute()
         {
+
+            var target = TargetSelector.GetTarget(1500, DamageType.Magical);
+            var etarget = TargetSelector.GetTarget(E.Range, DamageType.Magical);
+            var enemiese = EntityManager.Heroes.Enemies.OrderByDescending
+             (a => a.HealthPercent).Where(a => !a.IsMe && a.IsValidTarget() && a.Distance(Combo._Player) <= E.Range);
+            var enemies = EntityManager.Heroes.Enemies.OrderByDescending(a => a.HealthPercent).Where(a => !a.IsMe && a.IsValidTarget() && a.Distance(Combo._Player) <= R.Range);
+
+            if (ComboMenu["gankc"].Cast<KeyBind>().CurrentValue)
+            {
+
+                if (W.IsReady())
+                {
+                    W.Cast();
+                }
+
+                if (ComboMenu.GetCheckBoxValue("eUse") && etarget.IsValidTarget(SpellsManager.E.Range) && E.IsReady() && E.GetPrediction(etarget).HitChance >= HitChance.High)
+                {
+                    E.Cast(etarget.Position);
+                }
+
+                if (ComboMenu.GetCheckBoxValue("rUse") && target.IsValidTarget(SpellsManager.R.Range) && R.IsReady())
+                {
+                    foreach (var ultenemies in enemies)
+                    {
+                        var useR = ComboMenu["r.ult" + ultenemies.ChampionName].Cast<CheckBox>().CurrentValue;
+                        {
+                            if (useR)
+                                R.Cast(ultenemies);
+                        }
+                    }
+                }
+
+                if (ComboMenu.GetCheckBoxValue("qUse") && target.IsValidTarget(SpellsManager.Q.Range) && Q.IsReady())
+                {
+                    Q.Cast();
+                }
+            }
+
 
         }
     }

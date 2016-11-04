@@ -36,7 +36,7 @@ namespace RoninSkarner.Modes
             
             if (E.IsReady() && ComboMenu.GetCheckBoxValue("eUse") && etarget.IsValidTarget(SpellsManager.E.Range + 200) && E.GetPrediction(etarget).HitChance >= Hitch.hitchance(E, FirstMenu))    
                 {
-                E.Cast(etarget);
+                E.Cast(etarget.Position);
                 }
 
             if (ComboMenu.GetCheckBoxValue("qUse") && target.IsValidTarget(SpellsManager.Q.Range) && Q.IsReady())
@@ -73,36 +73,7 @@ namespace RoninSkarner.Modes
             }
 
 
-            if (ComboMenu["gankc"].Cast<KeyBind>().CurrentValue)
-            {
 
-                if (W.IsReady())
-                {
-                    W.Cast();
-                }
-
-                if (ComboMenu.GetCheckBoxValue("eUse") && etarget.IsValidTarget(SpellsManager.E.Range) && E.IsReady() && E.GetPrediction(etarget).HitChance >= HitChance.High)
-                {
-                    E.Cast(etarget);
-                }
-
-                if (ComboMenu.GetCheckBoxValue("rUse") && target.IsValidTarget(SpellsManager.R.Range) && R.IsReady())
-                {
-                    foreach (var ultenemies in enemies)
-                    {
-                        var useR = ComboMenu["r.ult" + ultenemies.ChampionName].Cast<CheckBox>().CurrentValue;
-                        {
-                            if (useR)
-                                R.Cast(ultenemies);
-                        }
-                    }
-                }
-
-                if (ComboMenu.GetCheckBoxValue("qUse") && target.IsValidTarget(SpellsManager.Q.Range) && Q.IsReady())
-                {
-                    Q.Cast();
-                }
-            }
 
 
 
