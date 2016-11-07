@@ -27,14 +27,21 @@ namespace RoninSkarner.Modes
         /// </summary>
         public static void Execute()
         {
+
+            var qtarget = EntityManager.MinionsAndMonsters.EnemyMinions.FirstOrDefault(x => !x.IsDead && Q.IsInRange(x));
+            var wtarget = EntityManager.MinionsAndMonsters.EnemyMinions.FirstOrDefault(x => !x.IsDead && W.IsInRange(x));
+            var etarget = EntityManager.MinionsAndMonsters.EnemyMinions.FirstOrDefault(x => !x.IsDead && E.IsInRange(x));
+
             if (LaneClearMenu.GetCheckBoxValue("qUse") && Q.IsReady())
             {
                 Q.TryToCast(Q.GetLastHitMinion(), LaneClearMenu);
             }
+
             if (LaneClearMenu.GetCheckBoxValue("eUse") && E.IsReady())
             {
-                E.TryToCast(E.GetLastHitMinion(), LaneClearMenu);
+                E.Cast(qtarget.Position);
             }
+
         }
     }
 }

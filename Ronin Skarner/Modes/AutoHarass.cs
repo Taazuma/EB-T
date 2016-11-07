@@ -27,23 +27,46 @@ namespace RoninSkarner.Modes
             get { return ObjectManager.Player; }
         }
         public static readonly AIHeroClient Player = ObjectManager.Player;
+
         public static void Execute()
         {
-            var enemiese = EntityManager.Heroes.Enemies.OrderByDescending
-                       (a => a.HealthPercent).Where(a => !a.IsMe && a.IsValidTarget() && a.Distance(Player) <= E.Range);
             var target = TargetSelector.GetTarget(1500, DamageType.Magical);
             var etarget = TargetSelector.GetTarget(E.Range, DamageType.Magical);
+            var enemiese = EntityManager.Heroes.Enemies.OrderByDescending
+             (a => a.HealthPercent).Where(a => !a.IsMe && a.IsValidTarget() && a.Distance(Combo._Player) <= E.Range);
+            var enemies = EntityManager.Heroes.Enemies.OrderByDescending(a => a.HealthPercent).Where(a => !a.IsMe && a.IsValidTarget() && a.Distance(Combo._Player) <= R.Range);
 
-            if (AutoHarassMenu.GetCheckBoxValue("eUse") && etarget.IsValidTarget(SpellsManager.E.Range) && E.IsReady() && AutoHarassMenu.GetKeyBindValue("autoHarassKey") && E.GetPrediction(etarget).HitChance >= Hitch.hitchance(E, FirstMenu))
+            if (AutoHarassMenu["gankc"].Cast<KeyBind>().CurrentValue)
             {
-                foreach (var eenemies in enemiese)
+
+                if (W.IsReady())
                 {
-                    var predE = E.GetPrediction(eenemies);
+                    W.Cast();
+                }
+
+                if (ComboMenu.GetCheckBoxValue("eUse") && etarget.IsValidTarget(SpellsManager.E.Range) && E.IsReady() && E.GetPrediction(etarget).HitChance >= HitChance.High)
+                {
+                    E.Cast(etarget.Position);
+                }
+
+                if (ComboMenu.GetCheckBoxValue("rUse") && target.IsValidTarget(SpellsManager.R.Range) && R.IsReady())
+                {
+                    foreach (var ultenemies in enemies)
                     {
-                        E.Cast(predE.CastPosition);
+                        var useR = ComboMenu["r.ult" + ultenemies.ChampionName].Cast<CheckBox>().CurrentValue;
+                        {
+                            if (useR)
+                                R.Cast(ultenemies);
+                        }
                     }
                 }
+
+                if (ComboMenu.GetCheckBoxValue("qUse") && target.IsValidTarget(SpellsManager.Q.Range) && Q.IsReady())
+                {
+                    Q.Cast();
+                }
             }
+
         }
     }
 }

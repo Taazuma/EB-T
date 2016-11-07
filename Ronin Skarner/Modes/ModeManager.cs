@@ -72,6 +72,11 @@ namespace RoninSkarner.Modes
                 Harass.Execute();
             }
 
+            if (playerMana > AutoHarassMenu.GetSliderValue("manaSlider"))
+            {
+                AutoHarass.Execute();
+            }
+
             if (orbMode.HasFlag(Orbwalker.ActiveModes.LastHit) && playerMana > LasthitMenu.GetSliderValue("manaSlider"))
             {
                 LastHit.Execute();

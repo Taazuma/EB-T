@@ -34,10 +34,15 @@ namespace RoninSkarner.Modes
             var enemiese = EntityManager.Heroes.Enemies.OrderByDescending
              (a => a.HealthPercent).Where(a => !a.IsMe && a.IsValidTarget() && a.Distance(Player) <= E.Range);
             
-            if (E.IsReady() && ComboMenu.GetCheckBoxValue("eUse") && etarget.IsValidTarget(SpellsManager.E.Range + 200) && E.GetPrediction(etarget).HitChance >= Hitch.hitchance(E, FirstMenu))    
-                {
-                E.Cast(etarget.Position);
-                }
+            if (E.IsReady() && ComboMenu.GetCheckBoxValue("eUse") && E.GetPrediction(etarget).HitChance >= Hitch.hitchance(E, FirstMenu))    
+           {
+                E.Cast(target.Position);
+           }
+
+            else if (E.IsReady() && ComboMenu.GetCheckBoxValue("eUse"))
+            {
+                E.TryToCast(target, ComboMenu);
+            }
 
             if (ComboMenu.GetCheckBoxValue("qUse") && target.IsValidTarget(SpellsManager.Q.Range) && Q.IsReady())
             {
@@ -48,6 +53,7 @@ namespace RoninSkarner.Modes
             {
                 W.Cast();
             }
+
 
             if (ComboMenu.GetCheckBoxValue("wrUse") && W.IsReady() && target.IsValidTarget(SpellsManager.W.Range))
             {
