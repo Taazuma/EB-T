@@ -25,6 +25,8 @@ namespace Eclipse.Modes
         public static void Execute()
         {
 
+            if (Combo._player.IsDead || Combo._player.IsRecalling()) return;
+
             //////////////////////////////////////////////////////////////////////////////////////////////////// Safer
             Program.HealMe();
 

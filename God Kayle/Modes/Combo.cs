@@ -43,8 +43,6 @@ namespace Eclipse.Modes
                 E.Cast();
             }
 
-            if (Combo._player.IsDead || Combo._player.IsRecalling()) return;
-
             if (W.IsReady() && _player.HealthPercent <= 40)
             {
                 W.Cast(_player);
