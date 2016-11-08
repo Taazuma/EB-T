@@ -11,19 +11,11 @@ namespace Eclipse
 {
     class Igniter
     {   
-        //private static void Main(string[] args) { Loading.OnLoadingComplete += OnLoad; } CREDITS T7 :*
+
         public static AIHeroClient myhero { get { return ObjectManager.Player; } }
         public static Spell.Targeted ignt = new Spell.Targeted(myhero.GetSpellSlotFromName("summonerdot"), 600);
         private static Menu menu;
-        //public static void OnLoad(EventArgs args)
-        //{
-        //    if (ignt.Slot == SpellSlot.Unknown) return;
-        //    Chat.Print("<font color='#ff0000'>Ignite</font>Helper : Loaded!");
-        //    Chat.Print("<font color='#04B404'>By </font><font color='#FF0000'>T</font><font color='#FA5858'>o</font><font color='#FF0000'>y</font><font color='#FA5858'>o</font><font color='#FF0000'>t</font><font color='#FA5858'>a</font><font color='#0040FF'>7</font><font color='#FF0000'> <3 </font>");
-        //    Menu();
-        //    Game.OnUpdate += OnUpdate;
-        //    Drawing.OnDraw += OnDraw;
-        //}
+
         public static void OnUpdate(EventArgs args)
         {
             var target = TargetSelector.GetTarget(1000, DamageType.Physical, Player.Instance.Position);
@@ -50,5 +42,7 @@ namespace Eclipse
             menu.Add("active", new CheckBox("Use Ignite", true));
             menu.Add("draw", new CheckBox("Draw ignite Range", false));       
         }
+
+
     }
 }
