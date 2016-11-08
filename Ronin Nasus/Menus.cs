@@ -23,7 +23,6 @@ namespace Ronin
         public const string LaneClearMenuID = "laneclearmenuid";
         public const string LastHitMenuID = "lasthitmenuid";
         public const string JungleClearMenuID = "jungleclearmenuid";
-        public const string KillStealMenuID = "killstealmenuid";
         public const string DrawingsMenuID = "drawingsmenuid";
         public const string MiscMenuID = "miscmenuid";
         public static Menu FirstMenu;
@@ -32,7 +31,6 @@ namespace Ronin
         public static Menu LaneClearMenu;
         public static Menu LasthitMenu;
         public static Menu JungleClearMenu;
-        public static Menu KillStealMenu;
         public static Menu DrawingsMenu;
         public static Menu MiscMenu;
 
@@ -54,7 +52,6 @@ namespace Ronin
             LaneClearMenu = FirstMenu.AddSubMenu("• LaneClear", LaneClearMenuID);
             LasthitMenu = FirstMenu.AddSubMenu("• LastHit", LastHitMenuID);
             JungleClearMenu = FirstMenu.AddSubMenu("• JungleClear", JungleClearMenuID);
-            KillStealMenu = FirstMenu.AddSubMenu("• KillSteal", KillStealMenuID);
             MiscMenu = FirstMenu.AddSubMenu("• Misc", MiscMenuID);
             DrawingsMenu = FirstMenu.AddSubMenu("• Drawings", DrawingsMenuID);
 
@@ -104,6 +101,7 @@ namespace Ronin
             MiscMenu.AddSeparator(10);
             MiscMenu.Add("UseEInt", new CheckBox("E to Interrupt"));
             MiscMenu.Add("UseWInt", new CheckBox("W to Interrupt"));
+            MiscMenu.CreateCheckBox(" - KS E", "eks");
 
             DrawingsMenu.AddGroupLabel("Settings");
             DrawingsMenu.CreateCheckBox(" - Draw Spell`s range only if they are ready.", "readyDraw", false);

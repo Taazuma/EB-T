@@ -22,11 +22,34 @@ namespace Ronin.Modes
     /// </summary>
     internal class Active
     {
-        /// <summary>
-        /// Put in here what you want to do when the mode is running
-        /// </summary>
+
+        public static AIHeroClient _player { get { return ObjectManager.Player; } }
+
         public static void Execute()
         {
+
+            if (_player.IsDead || _player.IsRecalling()) return;
+
+            if (E.IsReady() && MiscMenu.GetCheckBoxValue("eks")) // Start KS
+            {
+                var etarget = TargetSelector.GetTarget(E.Range, DamageType.Magical);
+
+                if (etarget == null) return;
+
+                if (E.IsReady())
+                {
+                    var eDamage = etarget.GetDamage(SpellSlot.E);
+
+                    if (etarget.Health + etarget.AttackShield <= eDamage)
+                    {
+                        if (etarget.IsValidTarget(Q.Range))
+                        {
+                            E.Cast(etarget.Position);
+                        }
+                    }
+                }
+            }// END KS
+
         }
     }
 }

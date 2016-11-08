@@ -12,3 +12,16 @@ D:\Tommi\Documents\My\Deve\Ronin`s Nasus\Ronin Nasus\bin\Release\SharpDX.XInput.
 D:\Tommi\Documents\My\Deve\Ronin`s Nasus\Ronin Nasus\obj\Release\Ronin Nasus.csprojResolveAssemblyReference.cache
 D:\Tommi\Documents\My\Deve\Ronin`s Nasus\Ronin Nasus\obj\Release\Ronin.exe
 D:\Tommi\Documents\My\Deve\Ronin`s Nasus\Ronin Nasus\obj\Release\Ronin.pdb
+D:\Tommi\Documents\GitHub\EB-T\Ronin Nasus\bin\Release\Ronin.exe.config
+D:\Tommi\Documents\GitHub\EB-T\Ronin Nasus\bin\Release\Ronin.exe
+D:\Tommi\Documents\GitHub\EB-T\Ronin Nasus\bin\Release\Ronin.pdb
+D:\Tommi\Documents\GitHub\EB-T\Ronin Nasus\bin\Release\EloBuddy.dll
+D:\Tommi\Documents\GitHub\EB-T\Ronin Nasus\bin\Release\EloBuddy.Sandbox.dll
+D:\Tommi\Documents\GitHub\EB-T\Ronin Nasus\bin\Release\EloBuddy.SDK.dll
+D:\Tommi\Documents\GitHub\EB-T\Ronin Nasus\bin\Release\Newtonsoft.Json.dll
+D:\Tommi\Documents\GitHub\EB-T\Ronin Nasus\bin\Release\SharpDX.Direct3D9.dll
+D:\Tommi\Documents\GitHub\EB-T\Ronin Nasus\bin\Release\SharpDX.dll
+D:\Tommi\Documents\GitHub\EB-T\Ronin Nasus\bin\Release\SharpDX.XInput.dll
+D:\Tommi\Documents\GitHub\EB-T\Ronin Nasus\obj\Release\Ronin Nasus.csprojResolveAssemblyReference.cache
+D:\Tommi\Documents\GitHub\EB-T\Ronin Nasus\obj\Release\Ronin.exe
+D:\Tommi\Documents\GitHub\EB-T\Ronin Nasus\obj\Release\Ronin.pdb

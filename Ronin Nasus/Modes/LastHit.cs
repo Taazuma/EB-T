@@ -23,6 +23,7 @@ namespace Ronin.Modes
     internal class LastHit
     {
         public static readonly AIHeroClient Player = ObjectManager.Player;
+
         public static void Execute()
         {
 

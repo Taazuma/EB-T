@@ -30,7 +30,7 @@ namespace Ronin.Modes
             var qDamage = source.GetDamage(SpellSlot.Q);
             if (count == 0) return;
 
-            if (Q.IsReady() && LaneClearMenu.GetCheckBoxValue("qUse") && source.Health <= qDamage)
+            if (Q.IsReady() && LaneClearMenu.GetCheckBoxValue("qUse") && source.Health <= ObjectManager.Player.GetSpellDamage(source, SpellSlot.Q) && source.IsValidTarget(140))
             {
                 Orbwalker.ForcedTarget = source;
                 Q.Cast();
