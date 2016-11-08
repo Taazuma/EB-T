@@ -17,6 +17,7 @@ using static Ronin.Menus;
 using Ronin.Modes;
 using EloBuddy.SDK.Menu;
 using Color = System.Drawing.Color;
+using Ronin.Properties;
 
 namespace Ronin
 {
@@ -55,8 +56,20 @@ namespace Ronin
         private static void Loading_OnLoadingComplete(EventArgs args)
         {
             Chat.Print("Welcome to the Ronin Nasus");
+            Core.DelayAction(() =>
+            {
+                introImg = new Sprite(TextureLoader.BitmapToTexture(Resources.anime));
+                Chat.Print("<b><font size='20' color='#4B0082'>God Kayle</font><font size='20' color='#FFA07A'> Loaded</font></b>");
+                Drawing.OnDraw += DrawingOnOnDraw;
+                Core.DelayAction(() =>
+                {
+                    Drawing.OnDraw -= DrawingOnOnDraw;
+                }, 7000);
+            }, 2000);
             SpellsManager.InitializeSpells();
             Menus.CreateMenu();
+            Drawing.OnDraw += Drawing_OnDraw;
+            Obj_AI_Base.OnNewPath += Obj_AI_Base_OnNewPath;
             Game.OnUpdate += OnGameUpdate;
             ModeManager.InitializeModes();
             Interrupter.OnInterruptableSpell += Program.Interrupter2_OnInterruptableTarget;

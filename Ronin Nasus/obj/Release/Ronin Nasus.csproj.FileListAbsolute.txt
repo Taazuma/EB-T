@@ -25,3 +25,5 @@ D:\Tommi\Documents\GitHub\EB-T\Ronin Nasus\bin\Release\SharpDX.XInput.dll
 D:\Tommi\Documents\GitHub\EB-T\Ronin Nasus\obj\Release\Ronin Nasus.csprojResolveAssemblyReference.cache
 D:\Tommi\Documents\GitHub\EB-T\Ronin Nasus\obj\Release\Ronin.exe
 D:\Tommi\Documents\GitHub\EB-T\Ronin Nasus\obj\Release\Ronin.pdb
+D:\Tommi\Documents\GitHub\EB-T\Ronin Nasus\obj\Release\Ronin.Properties.Resources.resources
+D:\Tommi\Documents\GitHub\EB-T\Ronin Nasus\obj\Release\Ronin Nasus.csproj.GenerateResource.Cache
