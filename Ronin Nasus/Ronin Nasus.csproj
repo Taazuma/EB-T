@@ -62,8 +62,6 @@
     <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ColorSliders.cs" />
-    <Compile Include="DrawingsManager.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Menus.cs" />
     <Compile Include="Modes\Active.cs" />

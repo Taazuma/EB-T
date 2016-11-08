@@ -38,7 +38,6 @@ namespace Ronin
             Menus.CreateMenu();
             Game.OnUpdate += OnGameUpdate;
             ModeManager.InitializeModes();
-            DrawingsManager.InitializeDrawings();
             Interrupter.OnInterruptableSpell += Program.Interrupter2_OnInterruptableTarget;
             Interrupter.OnInterruptableSpell += Program.Interrupter3_OnInterruptableTarget;
         }

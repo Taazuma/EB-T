@@ -34,11 +34,6 @@ namespace Ronin
         public static Menu DrawingsMenu;
         public static Menu MiscMenu;
 
-        //These colorslider are from Mario`s Lib
-        public static ColorSlide QColorSlide;
-        public static ColorSlide WColorSlide;
-        public static ColorSlide EColorSlide;
-        public static ColorSlide RColorSlide;
 
         public static void CreateMenu()
         {
@@ -102,19 +97,6 @@ namespace Ronin
             MiscMenu.Add("UseEInt", new CheckBox("E to Interrupt"));
             MiscMenu.Add("UseWInt", new CheckBox("W to Interrupt"));
             MiscMenu.CreateCheckBox(" - KS E", "eks");
-
-            DrawingsMenu.AddGroupLabel("Settings");
-            DrawingsMenu.CreateCheckBox(" - Draw Spell`s range only if they are ready.", "readyDraw", false);
-            DrawingsMenu.AddGroupLabel("Spells");
-            DrawingsMenu.CreateCheckBox(" - Draw Q.", "qDraw", false);
-            DrawingsMenu.CreateCheckBox(" - Draw W.", "wDraw", false);
-            DrawingsMenu.CreateCheckBox(" - Draw E.", "eDraw", false);
-            DrawingsMenu.CreateCheckBox(" - Draw R.", "rDraw", false);
-            DrawingsMenu.AddGroupLabel("Drawings Color");
-            QColorSlide = new ColorSlide(DrawingsMenu, "qColor", Color.Red, "Q Color:");
-            WColorSlide = new ColorSlide(DrawingsMenu, "wColor", Color.Purple, "W Color:");
-            EColorSlide = new ColorSlide(DrawingsMenu, "eColor", Color.Orange, "E Color:");
-            RColorSlide = new ColorSlide(DrawingsMenu, "rColor", Color.DeepPink, "R Color:");
 
         }
     }
