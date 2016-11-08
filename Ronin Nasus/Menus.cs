@@ -98,6 +98,25 @@ namespace Ronin
             MiscMenu.Add("UseWInt", new CheckBox("W to Interrupt"));
             MiscMenu.CreateCheckBox(" - KS E", "eks");
 
+            DrawingsMenu.AddGroupLabel("Settings");
+            DrawingsMenu.AddSeparator(5);
+            DrawingsMenu.AddGroupLabel("Tracker Draws");
+            DrawingsMenu.Add("me", new CheckBox("My Path", false));
+            DrawingsMenu.Add("ally", new CheckBox("Ally Path", false));
+            DrawingsMenu.Add("enemy", new CheckBox("Enemy Path", true));
+            DrawingsMenu.AddLabel("Tracker Misc");
+            DrawingsMenu.Add("toggle", new KeyBind("Toggle On/Off", true, KeyBind.BindTypes.PressToggle, 'G'));
+            DrawingsMenu.Add("eta", new CheckBox("Estimated time of arrival (only me)", true));
+            DrawingsMenu.Add("name", new CheckBox("Champion Name", true));
+            DrawingsMenu.Add("thick", new Slider("Line Thickness", 2, 1, 5));
+            DrawingsMenu.AddGroupLabel("Disable while use orbwalk");
+            DrawingsMenu.Add("combo", new CheckBox("Combo", true));
+            DrawingsMenu.Add("harass", new CheckBox("Harass", true));
+            DrawingsMenu.Add("laneclear", new CheckBox("LaneClear", false));
+            DrawingsMenu.Add("lasthit", new CheckBox("LastHit", true));
+            DrawingsMenu.Add("flee", new CheckBox("Flee", false));
+            DrawingsMenu.AddSeparator(15);
+
         }
     }
 }
