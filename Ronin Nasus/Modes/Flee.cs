@@ -30,7 +30,7 @@ namespace Ronin.Modes
 
             if (E.IsReady() && W.IsReady())
             {
-                E.Cast(etarget);
+                E.Cast(etarget.Position);
                 W.Cast(wtarget);
             }
 

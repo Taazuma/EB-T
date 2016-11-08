@@ -12,7 +12,6 @@ namespace Ronin
         {
             Drawing.OnDraw += Drawing_OnDraw;
             Drawing.OnEndScene += Drawing_OnEndScene;
-            DamageIndicator.Init();
         }
 
         /// <summary>

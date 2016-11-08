@@ -40,7 +40,7 @@ namespace Ronin.Modes
 
             if (HarassMenu.GetCheckBoxValue("eUse") && E.IsReady() && etarget.IsValidTarget(E.Range))
             {
-                E.Cast(etarget);
+                E.Cast(etarget.Position);
             }
 
 

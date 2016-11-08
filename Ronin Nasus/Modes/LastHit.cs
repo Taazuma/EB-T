@@ -22,13 +22,15 @@ namespace Ronin.Modes
     /// </summary>
     internal class LastHit
     {
- 
-
-        /// <summary>
-        /// Put in here what you want to do when the mode is running
-        /// </summary>
+        public static readonly AIHeroClient Player = ObjectManager.Player;
         public static void Execute()
         {
+
+            var count = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, Player.ServerPosition, Player.AttackRange, false).Count();
+            var source = EntityManager.MinionsAndMonsters.GetLaneMinions().OrderBy(a => a.MaxHealth).FirstOrDefault(a => a.IsValidTarget(Q.Range));
+            var qDamage = source.GetDamage(SpellSlot.Q);
+            if (count == 0) return;
+
             if (LasthitMenu.GetCheckBoxValue("qUse") && Q.IsReady())
             {
                 Q.Cast();

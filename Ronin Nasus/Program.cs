@@ -21,11 +21,7 @@ namespace Ronin
 {
     internal class Program
     {
-        // ReSharper disable once UnusedParameter.Local
-        /// <summary>
-        /// The firs thing that runs on the template
-        /// </summary>
-        /// <param name="args"></param>
+
         private static void Main(string[] args)
         {
             Loading.OnLoadingComplete += Loading_OnLoadingComplete;
@@ -34,15 +30,10 @@ namespace Ronin
         {
             return submenu[sig].Cast<CheckBox>().CurrentValue;
         }
-        /// <summary>
-        /// This event is triggered when the game loads
-        /// </summary>
-        /// <param name="args"></param>
+  
         private static void Loading_OnLoadingComplete(EventArgs args)
         {
-            //Put the name of the champion here
-            if (Player.Instance.ChampionName != "Nasus") return;
-            Chat.Print("Welcome to the Ronin´s BETA ;)");
+            Chat.Print("Welcome to the Ronin Nasus");
             SpellsManager.InitializeSpells();
             Menus.CreateMenu();
             Game.OnUpdate += OnGameUpdate;
@@ -51,10 +42,12 @@ namespace Ronin
             Interrupter.OnInterruptableSpell += Program.Interrupter2_OnInterruptableTarget;
             Interrupter.OnInterruptableSpell += Program.Interrupter3_OnInterruptableTarget;
         }
+
         public static AIHeroClient _player
         {
             get { return ObjectManager.Player; }
         }
+
         private static void Interrupter2_OnInterruptableTarget(Obj_AI_Base sender, Interrupter.InterruptableSpellEventArgs args)
         {
             if (_player.IsDead) return;

@@ -20,7 +20,6 @@ namespace Ronin
     {
         public const string ComboMenuID = "combomenuid";
         public const string HarassMenuID = "harassmenuid";
-        public const string AutoHarassMenuID = "autoharassmenuid";
         public const string LaneClearMenuID = "laneclearmenuid";
         public const string LastHitMenuID = "lasthitmenuid";
         public const string JungleClearMenuID = "jungleclearmenuid";
@@ -30,7 +29,6 @@ namespace Ronin
         public static Menu FirstMenu;
         public static Menu ComboMenu;
         public static Menu HarassMenu;
-        public static Menu AutoHarassMenu;
         public static Menu LaneClearMenu;
         public static Menu LasthitMenu;
         public static Menu JungleClearMenu;
@@ -43,7 +41,6 @@ namespace Ronin
         public static ColorSlide WColorSlide;
         public static ColorSlide EColorSlide;
         public static ColorSlide RColorSlide;
-        public static ColorSlide DamageIndicatorColorSlide;
 
         public static void CreateMenu()
         {
@@ -54,7 +51,6 @@ namespace Ronin
             FirstMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             ComboMenu = FirstMenu.AddSubMenu("• Combo", ComboMenuID);
             HarassMenu = FirstMenu.AddSubMenu("• Harass", HarassMenuID);
-            //AutoHarassMenu = FirstMenu.AddSubMenu("• AutoHarass", AutoHarassMenuID);
             LaneClearMenu = FirstMenu.AddSubMenu("• LaneClear", LaneClearMenuID);
             LasthitMenu = FirstMenu.AddSubMenu("• LastHit", LastHitMenuID);
             JungleClearMenu = FirstMenu.AddSubMenu("• JungleClear", JungleClearMenuID);
@@ -81,16 +77,18 @@ namespace Ronin
 
             LaneClearMenu.AddGroupLabel("LaneClear");
 			LaneClearMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
-            LaneClearMenu.CreateCheckBox(" - Use Q", "qUse", false);
+            LaneClearMenu.CreateCheckBox(" - Use Q", "qUse");
             LaneClearMenu.CreateCheckBox(" - Use E", "eUse");
             LaneClearMenu.AddGroupLabel("Settings");
             LaneClearMenu.CreateSlider("Mana must be higher than [{0}%] to use LaneClear spells", "manaSlider", 20);
 			LaneClearMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
 
             LasthitMenu.AddGroupLabel("Lasthit");
+            LasthitMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             LasthitMenu.CreateCheckBox(" - Use Q", "qUse", true);
             LasthitMenu.AddGroupLabel("Settings");
             LasthitMenu.CreateSlider("Mana must be higher than [{0}%] to use LastHit spells", "manaSlider", 30);
+            LasthitMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
 
             JungleClearMenu.AddGroupLabel("JungleClear");
 			JungleClearMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
@@ -106,22 +104,20 @@ namespace Ronin
             MiscMenu.AddSeparator(10);
             MiscMenu.Add("UseEInt", new CheckBox("E to Interrupt"));
             MiscMenu.Add("UseWInt", new CheckBox("W to Interrupt"));
+
             DrawingsMenu.AddGroupLabel("Settings");
-            DrawingsMenu.CreateCheckBox(" - Draw Spell`s range only if they are ready.", "readyDraw");
-            DrawingsMenu.CreateCheckBox(" - Draw damage indicator.", "damageDraw");
-            DrawingsMenu.CreateCheckBox(" - Draw damage indicator percent.", "perDraw");
-            DrawingsMenu.CreateCheckBox(" - Draw damage indicator statistics.", "statDraw", false);
+            DrawingsMenu.CreateCheckBox(" - Draw Spell`s range only if they are ready.", "readyDraw", false);
             DrawingsMenu.AddGroupLabel("Spells");
-            DrawingsMenu.CreateCheckBox(" - Draw Q.", "qDraw");
-            DrawingsMenu.CreateCheckBox(" - Draw W.", "wDraw");
-            DrawingsMenu.CreateCheckBox(" - Draw E.", "eDraw");
-            DrawingsMenu.CreateCheckBox(" - Draw R.", "rDraw");
+            DrawingsMenu.CreateCheckBox(" - Draw Q.", "qDraw", false);
+            DrawingsMenu.CreateCheckBox(" - Draw W.", "wDraw", false);
+            DrawingsMenu.CreateCheckBox(" - Draw E.", "eDraw", false);
+            DrawingsMenu.CreateCheckBox(" - Draw R.", "rDraw", false);
             DrawingsMenu.AddGroupLabel("Drawings Color");
             QColorSlide = new ColorSlide(DrawingsMenu, "qColor", Color.Red, "Q Color:");
             WColorSlide = new ColorSlide(DrawingsMenu, "wColor", Color.Purple, "W Color:");
             EColorSlide = new ColorSlide(DrawingsMenu, "eColor", Color.Orange, "E Color:");
             RColorSlide = new ColorSlide(DrawingsMenu, "rColor", Color.DeepPink, "R Color:");
-            DamageIndicatorColorSlide = new ColorSlide(DrawingsMenu, "healthColor", Color.YellowGreen, "DamageIndicator Color:");
+
         }
     }
 }

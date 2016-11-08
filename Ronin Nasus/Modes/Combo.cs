@@ -46,10 +46,9 @@ namespace Ronin.Modes
                 if (ComboMenu.GetCheckBoxValue("qUse") && Q.IsReady() && qtarget.IsValidTarget(Q.Range))
                  {
                     Q.Cast();
-                    Orbwalker.ForcedTarget = qtarget;
                  }
 
-             if (ComboMenu.GetCheckBoxValue("rUse") && R.IsReady() && rtarget.IsValidTarget(R.Range) && Player.Instance.HealthPercent <= ComboMenu.GetSliderValue("hpR"))
+             if (ComboMenu.GetCheckBoxValue("rUse") && R.IsReady() && Player.Instance.HealthPercent <= ComboMenu.GetSliderValue("hpR"))
             {
                 R.Cast();
             }

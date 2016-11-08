@@ -30,15 +30,15 @@ namespace Ronin.Modes
             var qDamage = source.GetDamage(SpellSlot.Q);
             if (count == 0) return;
 
-            if (E.IsReady() && LaneClearMenu.GetCheckBoxValue("eUse"))
-            {
-                E.Cast(source.Position);
-            }
-
             if (Q.IsReady() && LaneClearMenu.GetCheckBoxValue("qUse") && source.Health <= qDamage)
             {
                 Orbwalker.ForcedTarget = source;
                 Q.Cast();
+            }
+
+            if (E.IsReady() && LaneClearMenu.GetCheckBoxValue("eUse"))
+            {
+                E.Cast(source.Position);
             }
 
         }
