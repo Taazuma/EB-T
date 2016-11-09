@@ -56,7 +56,7 @@ namespace Eclipse
             ComboMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             ComboMenu.AddLabel("Spells");
             ComboMenu.CreateCheckBox(" - Use Q", "qUse");
-            ComboMenu.CreateCheckBox(" - Use W", "wUse", false);
+            ComboMenu.CreateCheckBox(" - Use W", "wUse");
             ComboMenu.CreateCheckBox(" - Use E", "eUse");
             ComboMenu.CreateCheckBox(" - Use R", "rUse");
             ComboMenu.AddLabel("Humanizer Settings");
@@ -65,13 +65,13 @@ namespace Eclipse
             ComboMenu.Add("Rdelay", new Slider("R Delay (ms)", 0, 0, 300));
             ComboMenu.AddSeparator(10);
             ComboMenu.AddLabel("Logic Infos");
-            ComboMenu.AddGroupLabel("1. Combo Q - AA - R - E - W");
+            ComboMenu.AddLabel("1. Combo Q - AA - R - E - W");
             ComboMenu.AddSeparator(5);
-            ComboMenu.AddGroupLabel("2. Combo Q - AA - E - R - W");
+            ComboMenu.AddLabel("2. Combo Q - AA - E - R - W");
             ComboMenu.AddSeparator(5);
-            ComboMenu.AddGroupLabel("3. Combo R - Q - AA - E - W");
+            ComboMenu.AddLabel("3. Combo R - Q - AA - E - W");
             ComboMenu.AddSeparator(5);
-            ComboMenu.AddGroupLabel("4. Combo Q - AA - E - R- W");
+            ComboMenu.AddLabel("4. Combo Q - AA - E - R- W");
             ComboMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
 
             HarassMenu.AddGroupLabel("Harass");
