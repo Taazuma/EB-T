@@ -209,55 +209,13 @@ namespace Eclipse.Modes
             // COMBO 4 Beginn --------------------------------------------------------------------------------
             if (ComboMenu["Comba"].Cast<ComboBox>().CurrentValue == 3)
             {
-
-                if (MiscMenu.GetCheckBoxValue("useitems"))
-                {
-                    Eclipse.Modes.Items.CastItems(target);
-                }
-
-                Core.DelayAction(delegate
-                {
-                    if (ComboMenu.GetCheckBoxValue("qUse") && Q.IsReady() && qtarget.IsValidTarget(Q.Range))
-                    {
-                        Q.Cast(qtarget);
-                    }
-                }, Qdelay);
-
+                R.Cast(rtarget);
+                Q.Cast(target);
+                W.Cast(wtarget.Position);
                 var motaEnemy = enemyHaveMota;
                 if (motaEnemy != null && motaEnemy.IsValidTarget(_player.GetAutoAttackRange(qtarget)))
                     return;
-
-
-                Core.DelayAction(delegate
-                {
-                    if (ComboMenu.GetCheckBoxValue("eUse") && E.IsReady() && etarget.IsValidTarget(E.Range))
-                    {
-                        E.Cast();
-                    }
-                }, Edelay);
-
-                Core.DelayAction(delegate
-                    {
-                        if (ComboMenu.GetCheckBoxValue("rUse") && R.IsReady() && rtarget.IsValidTarget(R.Range))
-                    {
-                        R.Cast(rtarget);
-                    }
-                    }, Rdelay);
-
-                if (ComboMenu["WC"].Cast<ComboBox>().CurrentValue == 0 && W.IsReady() && ComboMenu.GetCheckBoxValue("wUse"))
-                {
-                    W.Cast(Game.CursorPos);
-                }
-
-                else if (ComboMenu["WC"].Cast<ComboBox>().CurrentValue == 1 && W.IsReady() && ComboMenu.GetCheckBoxValue("wUse"))
-                {
-                    W.Cast(wtarget.Position);
-                }
-
-                else if (ComboMenu["WC"].Cast<ComboBox>().CurrentValue == 2 && W.IsReady() && ComboMenu.GetCheckBoxValue("wUse"))
-                {
-                    W.Cast(Active.Akali.Position - 20);
-                }
+                E.Cast();
             }
             // COMBO 4 END --------------------------------------------------------------------------------
 

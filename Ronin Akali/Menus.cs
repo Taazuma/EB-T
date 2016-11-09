@@ -51,8 +51,8 @@ namespace Eclipse
             ComboMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             ComboMenu.AddLabel("Logics");
             ComboMenu.AddSeparator(4);
-            ComboMenu.Add("Comba", new ComboBox(" Combo Logic ", 0, "Normal One", "Extend Two", "Extend Three", "Extend Four"));
-            ComboMenu.Add("WC", new ComboBox(" W Logic ", 1, "W Mouse", "W Enemy", "W Safe"));
+            ComboMenu.Add("Comba", new ComboBox(" Combo Logic ", 0, "Normal One", "Extend Two", "Extend Three", "Insec Four"));
+            ComboMenu.Add("WC", new ComboBox(" W Position ", 1, "W Mouse", "W Enemy", "W Safe"));
             ComboMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             ComboMenu.AddLabel("Spells");
             ComboMenu.CreateCheckBox(" - Use Q", "qUse");
@@ -66,12 +66,12 @@ namespace Eclipse
             ComboMenu.AddSeparator(10);
             ComboMenu.AddLabel("Logic Infos");
             ComboMenu.AddLabel("1. Combo Q - AA - R - E - W");
-            ComboMenu.AddSeparator(5);
+            ComboMenu.AddSeparator(6);
             ComboMenu.AddLabel("2. Combo Q - AA - E - R - W");
-            ComboMenu.AddSeparator(5);
+            ComboMenu.AddSeparator(6);
             ComboMenu.AddLabel("3. Combo R - Q - AA - E - W");
-            ComboMenu.AddSeparator(5);
-            ComboMenu.AddLabel("4. Combo Q - AA - E - R- W");
+            ComboMenu.AddSeparator(6);
+            ComboMenu.AddLabel("4. Combo (0 Checks) in a sec");
             ComboMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
 
             HarassMenu.AddGroupLabel("Harass");
@@ -111,7 +111,7 @@ namespace Eclipse
             KillStealMenu.CreateCheckBox(" - Use Q", "qUse");
             KillStealMenu.CreateCheckBox(" - Use E", "eUse");
             KillStealMenu.CreateCheckBox("- Use R", "rUse", false);
-            KillStealMenu.AddGroupLabel("Settings");
+            KillStealMenu.AddGroupLabel("News");
             KillStealMenu.AddLabel("Yoyo new KS");
             KillStealMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
 

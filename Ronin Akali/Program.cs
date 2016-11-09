@@ -79,7 +79,6 @@ namespace Eclipse
             SpellsManager.InitializeSpells();
             Menus.CreateMenu();
             ModeManager.InitializeModes();
-            Game.OnUpdate += OnGameUpdate;
             Game.OnTick += GameOnTick;
             Drawing.OnDraw += Drawing_OnDraw;
             Obj_AI_Base.OnNewPath += Obj_AI_Base_OnNewPath;
@@ -94,14 +93,13 @@ namespace Eclipse
             Events.Initialize();
         }
 
-        private static void OnGameUpdate(EventArgs args)
-        {
-            if (check(MiscMenu, "skinhax")) _player.SetSkinId((int)MiscMenu["skinID"].Cast<ComboBox>().CurrentValue);
-        }
-
         private static void GameOnTick(EventArgs args)
         {
-            if (MiscMenu["lvlup"].Cast<CheckBox>().CurrentValue) LevelUpSpells();
+            if (check(MiscMenu, "skinhax")) _player.SetSkinId((int)MiscMenu["skinID"].Cast<ComboBox>().CurrentValue);
+            Core.DelayAction(() =>
+            {
+                if (MiscMenu["lvlup"].Cast<CheckBox>().CurrentValue) LevelUpSpells();
+            }, 500);
         }
 
         private static void LevelUpSpells() // Thanks iRaxe
