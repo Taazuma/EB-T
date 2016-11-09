@@ -31,6 +31,7 @@ namespace Eclipse.Modes
 
             if (Combo._player.IsDead || Combo._player.IsRecalling()) return;
 
+
             if (Player.HasBuff("zedulttargetmark") && MiscMenu.GetCheckBoxValue("wlow"))
             {
                 if (W.IsReady())

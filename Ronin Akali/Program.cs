@@ -81,7 +81,6 @@ namespace Eclipse
             ModeManager.InitializeModes();
             Game.OnUpdate += OnGameUpdate;
             Game.OnTick += GameOnTick;
-            Gapcloser.OnGapcloser += Gapcloser_OnGapcloser;
             Drawing.OnDraw += Drawing_OnDraw;
             Obj_AI_Base.OnNewPath += Obj_AI_Base_OnNewPath;
             SpellManager.Initialize();
@@ -123,15 +122,6 @@ namespace Eclipse
             if (rL < level[3]) ObjectManager.Player.Spellbook.LevelSpell(SpellSlot.R);
         }// Thanks iRaxe
 
-        private static void Gapcloser_OnGapcloser(AIHeroClient sender, Gapcloser.GapcloserEventArgs e)
-        {
-            if (!sender.IsEnemy) return;
-
-            if (sender.IsValidTarget(SpellsManager.R.Range) && SpellsManager.W.IsReady())
-            {
-                SpellsManager.W.Cast(Player.Instance);
-            }
-        }
 
         //#region Wall
 

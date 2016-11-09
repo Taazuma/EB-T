@@ -16,7 +16,7 @@ namespace Eclipse
         public static Menu KillStealMenu;
         public static Menu DrawingsMenu;
         public static Menu MiscMenu;
-        public static Menu JumpMenu;
+        //public static Menu JumpMenu;
 
         public const string ComboMenuID = "combomenuid";
         public const string HarassMenuID = "harassmenuid";
@@ -26,7 +26,7 @@ namespace Eclipse
         public const string KillStealMenuID = "killstealmenuid";
         public const string DrawingsMenuID = "drawingsmenuid";
         public const string MiscMenuID = "miscmenuid";
-        public const string JumpMenuID = "jumpmenuid";
+        //public const string JumpMenuID = "jumpmenuid";
 
         public static void CreateMenu()
         {
@@ -49,7 +49,7 @@ namespace Eclipse
             ComboMenu.AddSeparator(15);
             // --------------------------------------------------------------COMBO LOGICS-------------------------------------------------------------- //
             ComboMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
-            ComboMenu.AddLabel("ComboLogics");
+            ComboMenu.AddLabel("Logics");
             ComboMenu.AddSeparator(4);
             ComboMenu.Add("Comba", new ComboBox(" Combo Logic ", 0, "Normal One", "Extend Two", "Extend Three", "Extend Four"));
             ComboMenu.Add("WC", new ComboBox(" W Logic ", 1, "W Mouse", "W Enemy", "W Safe"));
@@ -64,7 +64,7 @@ namespace Eclipse
             ComboMenu.Add("Edelay", new Slider("E Delay (ms)", 0, 0, 300));
             ComboMenu.Add("Rdelay", new Slider("R Delay (ms)", 0, 0, 300));
             ComboMenu.AddSeparator(10);
-            ComboMenu.AddLabel("Logic Tipps");
+            ComboMenu.AddLabel("Logic Infos");
             ComboMenu.AddGroupLabel("1. Combo Q - AA - R - E - W");
             ComboMenu.AddSeparator(5);
             ComboMenu.AddGroupLabel("2. Combo Q - AA - E - R - W");
@@ -122,7 +122,6 @@ namespace Eclipse
             //JumpMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
 
             DrawingsMenu.AddGroupLabel("Settings");
-            DrawingsMenu.Add("drawjump", new CheckBox("Draw W spot"));
             DrawingsMenu.AddGroupLabel("Tracker Draws");
             DrawingsMenu.Add("me", new CheckBox("My Path", false));
             DrawingsMenu.Add("ally", new CheckBox("Ally Path", false));
@@ -140,8 +139,6 @@ namespace Eclipse
             DrawingsMenu.Add("flee", new CheckBox("Flee", false));
 
             MiscMenu.AddGroupLabel("Settings");
-            MiscMenu.AddLabel("Auto Jump System");
-            MiscMenu.Add("jump", new KeyBind("Enable Auto jump system", true, KeyBind.BindTypes.PressToggle, 'T'));
             MiscMenu.CreateCheckBox("Auto Q", "autoq", false);
             MiscMenu.CreateCheckBox("W when low", "wlow", false);
             MiscMenu.CreateCheckBox("Use Items", "useitems");
