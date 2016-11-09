@@ -12,3 +12,5 @@ D:\Tommi\Documents\GitHub\EB-T\Ronin Akali\bin\Debug\SharpDX.XInput.dll
 D:\Tommi\Documents\GitHub\EB-T\Ronin Akali\obj\Debug\Ronin Akali.csprojResolveAssemblyReference.cache
 D:\Tommi\Documents\GitHub\EB-T\Ronin Akali\obj\Debug\RoninAkali.exe
 D:\Tommi\Documents\GitHub\EB-T\Ronin Akali\obj\Debug\RoninAkali.pdb
+D:\Tommi\Documents\GitHub\EB-T\Ronin Akali\obj\Debug\RoninAkali.Properties.Resources.resources
+D:\Tommi\Documents\GitHub\EB-T\Ronin Akali\obj\Debug\Ronin Akali.csproj.GenerateResource.Cache

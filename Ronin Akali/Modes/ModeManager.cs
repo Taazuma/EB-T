@@ -58,7 +58,7 @@ namespace Eclipse.Modes
                 JungleClear.Execute();
             }
 
-            //AutoHarass.Execute();
+
         }
     }
 }

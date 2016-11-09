@@ -48,8 +48,15 @@ namespace Eclipse.Modes
                 return;
             }
 
+            if (!rtarget.IsValidTarget(R.Range))
+            {
+                W.Cast(Game.CursorPos);
+            }
+
+        
+
             // COMBO 1 Beginn --------------------------------------------------------------------------------
-            if (ComboMenu.GetCheckBoxValue("combo1"))
+            if (ComboMenu["Comba"].Cast<ComboBox>().CurrentValue == 0)
             {
 
                 if (MiscMenu.GetCheckBoxValue("useitems"))
@@ -64,6 +71,7 @@ namespace Eclipse.Modes
                         Q.Cast(qtarget);
                     }
                 }, Qdelay);
+
                 Core.DelayAction(delegate
                 {
                     if (ComboMenu.GetCheckBoxValue("rUse") && R.IsReady() && rtarget.IsValidTarget(R.Range))
@@ -83,12 +91,25 @@ namespace Eclipse.Modes
                         E.Cast();
                     }
                 }, Edelay);
+
+                if (ComboMenu["WC"].Cast<ComboBox>().CurrentValue == 0 && W.IsReady() && ComboMenu.GetCheckBoxValue("wUse"))
+                {
+                    W.Cast(Game.CursorPos);
+                }
+                else if (ComboMenu["WC"].Cast<ComboBox>().CurrentValue == 1 && W.IsReady() && ComboMenu.GetCheckBoxValue("wUse"))
+                {
+                    W.Cast(wtarget.Position);
+                }
+                else if (ComboMenu["WC"].Cast<ComboBox>().CurrentValue == 2 && W.IsReady() && ComboMenu.GetCheckBoxValue("wUse"))
+                {
+                    W.Cast(Active.Akali.Position - 50);
+                }
 
             }
             // COMBO 1 END --------------------------------------------------------------------------------
 
             // COMBO 2 Beginn --------------------------------------------------------------------------------
-            if (ComboMenu.GetCheckBoxValue("combo2"))
+            if (ComboMenu["Comba"].Cast<ComboBox>().CurrentValue == 1)
             {
 
                 if (MiscMenu.GetCheckBoxValue("useitems"))
@@ -123,11 +144,24 @@ namespace Eclipse.Modes
                         R.Cast(rtarget);
                     }
                 }, Rdelay);
+
+                if (ComboMenu["WC"].Cast<ComboBox>().CurrentValue == 0 && W.IsReady() && ComboMenu.GetCheckBoxValue("wUse"))
+                {
+                    W.Cast(Game.CursorPos);
+                }
+                else if (ComboMenu["WC"].Cast<ComboBox>().CurrentValue == 1 && W.IsReady() && ComboMenu.GetCheckBoxValue("wUse"))
+                {
+                    W.Cast(wtarget.Position);
+                }
+                else if (ComboMenu["WC"].Cast<ComboBox>().CurrentValue == 2 && W.IsReady() && ComboMenu.GetCheckBoxValue("wUse"))
+                {
+                    W.Cast(Active.Akali.Position - 50);
+                }
             }
             // COMBO 2 END --------------------------------------------------------------------------------
 
             // COMBO 3 Beginn --------------------------------------------------------------------------------
-            if (ComboMenu.GetCheckBoxValue("combo3"))
+            if (ComboMenu["Comba"].Cast<ComboBox>().CurrentValue == 2)
             {
 
                 if (MiscMenu.GetCheckBoxValue("useitems"))
@@ -162,11 +196,24 @@ namespace Eclipse.Modes
                         E.Cast();
                     }
                 }, Edelay);
+
+                if (ComboMenu["WC"].Cast<ComboBox>().CurrentValue == 0 && W.IsReady() && ComboMenu.GetCheckBoxValue("wUse"))
+                {
+                    W.Cast(Game.CursorPos);
+                }
+                else if (ComboMenu["WC"].Cast<ComboBox>().CurrentValue == 1 && W.IsReady() && ComboMenu.GetCheckBoxValue("wUse"))
+                {
+                    W.Cast(wtarget.Position);
+                }
+                else if (ComboMenu["WC"].Cast<ComboBox>().CurrentValue == 2 && W.IsReady() && ComboMenu.GetCheckBoxValue("wUse"))
+                {
+                    W.Cast(Active.Akali.Position - 50);
+                }
             }
             // COMBO 3 END --------------------------------------------------------------------------------
 
             // COMBO 4 Beginn --------------------------------------------------------------------------------
-            if (ComboMenu.GetCheckBoxValue("combo4"))
+            if (ComboMenu["Comba"].Cast<ComboBox>().CurrentValue == 3)
             {
 
                 if (MiscMenu.GetCheckBoxValue("useitems"))
@@ -202,6 +249,19 @@ namespace Eclipse.Modes
                         R.Cast(rtarget);
                     }
                     }, Rdelay);
+
+                if (ComboMenu["WC"].Cast<ComboBox>().CurrentValue == 0 && W.IsReady() && ComboMenu.GetCheckBoxValue("wUse"))
+                {
+                    W.Cast(Game.CursorPos);
+                }
+                else if (ComboMenu["WC"].Cast<ComboBox>().CurrentValue == 1 && W.IsReady() && ComboMenu.GetCheckBoxValue("wUse"))
+                {
+                    W.Cast(wtarget.Position);
+                }
+                else if (ComboMenu["WC"].Cast<ComboBox>().CurrentValue == 2 && W.IsReady() && ComboMenu.GetCheckBoxValue("wUse"))
+                {
+                    W.Cast(Active.Akali.Position - 50);
+                }
             }
             // COMBO 4 END --------------------------------------------------------------------------------
 

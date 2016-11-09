@@ -323,6 +323,23 @@ namespace Eclipse
         #endregion Getting
 
         #endregion Menus
+        public static void CreateKeyBind(this Menu m, string displayName, string uniqueId, uint defaultKey1, uint defaultKey2,
+    KeyBind.BindTypes bindtype = KeyBind.BindTypes.PressToggle, bool defaultValue = true)
+        {
+            try
+            {
+                m.Add(uniqueId, new KeyBind(displayName, defaultValue, bindtype, defaultKey1, defaultKey2));
+            }
+            catch (Exception)
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.Write("Error creating the checkbox with the uniqueID = ");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(uniqueId);
+                Console.ResetColor();
+            }
+        }
+
 
         #region GetTargetHelper
 
@@ -335,6 +352,23 @@ namespace Eclipse
                             m.IsValidTarget(spell.Range) && Prediction.Health.GetPrediction(m, spell.CastDelay) <= m.GetDamage(spell.Slot) &&
                             m.IsEnemy);
         }
+
+        public static void CreateComboBox(this Menu m, string displayName, string uniqueId, List<string> options, int defaultValue = 0)
+        {
+            try
+            {
+                m.Add(uniqueId, new ComboBox(displayName, options, defaultValue));
+            }
+            catch (Exception)
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.Write("Error creating the combobox with the uniqueID = ");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(uniqueId);
+                Console.ResetColor();
+            }
+        }
+
 
         public static AIHeroClient GetKillableHero(this Spell.SpellBase spell)
         {

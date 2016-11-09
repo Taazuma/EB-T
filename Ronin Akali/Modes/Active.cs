@@ -15,13 +15,17 @@ using SharpDX;
 using static Eclipse.SpellsManager;
 using static Eclipse.Menus;
 using System.Diagnostics;
+using EloBuddy.SDK.Menu;
 
 namespace Eclipse.Modes
 {
     internal class Active
     {
         public static readonly AIHeroClient Akali = ObjectManager.Player;
-
+        public static bool getKeyBindItem(Menu m, string item)
+        {
+            return m[item].Cast<KeyBind>().CurrentValue;
+        }
         public static void Execute()
         {
 
@@ -44,7 +48,7 @@ namespace Eclipse.Modes
 
             if (Player.Instance.CountEnemiesInRange(W.Range) >= 2 || Player.Instance.HealthPercent <= 20 && W.IsReady() && MiscMenu.GetCheckBoxValue("wlow"))
             {
-                W.Cast(Player.Instance);
+                W.Cast(Game.CursorPos);
             }
 
             if (KillStealMenu.GetCheckBoxValue("qUse")) // Start KS Q

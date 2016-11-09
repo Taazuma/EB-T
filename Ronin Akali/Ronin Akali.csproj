@@ -81,8 +81,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extensions.cs" />
+    <Compile Include="FpsBooster.cs" />
     <Compile Include="Hitch.cs" />
-    <Compile Include="Ignite\Igniter.cs" />
     <Compile Include="Menus.cs" />
     <Compile Include="Modes\Active.cs" />
     <Compile Include="Modes\Combo.cs" />

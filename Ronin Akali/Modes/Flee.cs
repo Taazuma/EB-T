@@ -16,30 +16,29 @@ using static Eclipse.Menus;
 using EloBuddy.SDK.Menu;
 using static Eclipse.SpellsManager;
 
-//using Settings = RoninTune.Modes.Flee
 
 namespace Eclipse.Modes
 {
     internal class Flee
     {
-        private static AIHeroClient myHero
-        {
-            get { return Player.Instance; }
-        }
+        public static readonly AIHeroClient Player = ObjectManager.Player;
+
         public static void Execute()
         {
-
-            if (R.IsReady() && Player.Instance.CountEnemiesInRange(R.Range) >= 1)
-            {
-                var enemyminion =EntityManager.MinionsAndMonsters.EnemyMinions.OrderByDescending(m => m.Distance(Game.CursorPos)).FirstOrDefault(m => m.IsValidTarget(R.Range));
-                if (enemyminion == null) return;
-                R.Cast(enemyminion);
-            }
-
             if (W.IsReady())
             {
-                W.Cast(Player.Instance);
+                W.Cast(Game.CursorPos);
             }
+            ///////////////////////////////////////////////////////////////////
+            var target = TargetSelector.GetTarget(Q.Range, DamageType.Magical);
+            /////////////////////////////////////////////////////////////////////
+            if (target == null || target.IsInvulnerable || target.MagicImmune)
+            {
+                return;
+            }
+            /////////////////////////////////////////////////////////////////// COMBO 
+
+            /////////////////////////////////////////////////////////////////// COMBO END
 
         }
     }

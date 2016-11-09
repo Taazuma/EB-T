@@ -26,7 +26,7 @@ namespace Eclipse
         public static void InitializeSpells()
         {
             Q = new Spell.Targeted(SpellSlot.Q, 600);
-            W = new Spell.Skillshot(SpellSlot.W, 700, SkillShotType.Circular, 250, int.MaxValue, 400);
+            W = new Spell.Skillshot(SpellSlot.W, 250, SkillShotType.Circular);
             E = new Spell.Active(SpellSlot.E, 325);
             R = new Spell.Targeted(SpellSlot.R, 700);
         }
