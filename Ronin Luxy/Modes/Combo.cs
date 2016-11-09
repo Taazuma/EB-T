@@ -66,6 +66,14 @@ namespace Eclipse.Modes
                         }
                     }, Edelay);
 
+                    if (_Player.HasBuff("LuxEEnd"))
+                    {
+                        Core.DelayAction(delegate
+                        {
+                            E.Cast();
+                        }, Edelay);
+                    }
+
                     if (ComboMenu.GetCheckBoxValue("rUse") && R.IsReady() && rtarget.IsValidTarget(R.Range))
                     {
                         foreach (var ultenemies in enemies)
@@ -122,10 +130,15 @@ namespace Eclipse.Modes
                         E.Cast(etarget);
                     }
                 }, Edelay);
-                if (ComboMenu.GetCheckBoxValue("wUse") && W.IsReady())
+
+                if (Player.HasBuff("LuxEEnd"))
                 {
-                    W.Cast(wtarget.Position);
+                    Core.DelayAction(delegate
+                    {
+                        E.Cast();
+                    }, Edelay);
                 }
+
                 if (ComboMenu.GetCheckBoxValue("rUse") && R.IsReady() && rtarget.IsValidTarget(R.Range))
                 {
                     foreach (var ultenemies in enemies)
@@ -152,11 +165,10 @@ namespace Eclipse.Modes
                             }
                         }
                     }
-
-                    if (ComboMenu.GetCheckBoxValue("wUse") && W.IsReady() && Player.Instance.HealthPercent <= ComboMenu.GetSliderValue("hpW"))
-                    {
-                        W.Cast(wtarget.Position);
-                    }
+                }
+                if (ComboMenu.GetCheckBoxValue("wUse") && W.IsReady() && Player.Instance.HealthPercent <= ComboMenu.GetSliderValue("hpW"))
+                {
+                    W.Cast(wtarget.Position);
                 }
 
             }            // COMBO 2 / 3 END
