@@ -52,7 +52,7 @@ namespace Eclipse
             ComboMenu.AddLabel("ComboLogics");
             ComboMenu.AddSeparator(4);
             ComboMenu.Add("Comba", new ComboBox(" Combo Logic ", 0, "Normal One", "Extend Two", "Extend Three", "Extend Four"));
-            ComboMenu.Add("WC", new ComboBox(" W Logic ", 0, "W Mouse", "W Enemy", "W Safe"));
+            ComboMenu.Add("WC", new ComboBox(" W Logic ", 1, "W Mouse", "W Enemy", "W Safe"));
             ComboMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             ComboMenu.AddLabel("Spells");
             ComboMenu.CreateCheckBox(" - Use Q", "qUse");

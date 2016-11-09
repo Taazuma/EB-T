@@ -47,13 +47,7 @@ namespace Eclipse.Modes
             {
                 return;
             }
-
-            if (!rtarget.IsValidTarget(R.Range))
-            {
-                W.Cast(Game.CursorPos);
-            }
-
-        
+     
 
             // COMBO 1 Beginn --------------------------------------------------------------------------------
             if (ComboMenu["Comba"].Cast<ComboBox>().CurrentValue == 0)
@@ -102,7 +96,7 @@ namespace Eclipse.Modes
                 }
                 else if (ComboMenu["WC"].Cast<ComboBox>().CurrentValue == 2 && W.IsReady() && ComboMenu.GetCheckBoxValue("wUse"))
                 {
-                    W.Cast(Active.Akali.Position - 50);
+                    W.Cast(Active.Akali.Position - 20);
                 }
 
             }
@@ -155,7 +149,7 @@ namespace Eclipse.Modes
                 }
                 else if (ComboMenu["WC"].Cast<ComboBox>().CurrentValue == 2 && W.IsReady() && ComboMenu.GetCheckBoxValue("wUse"))
                 {
-                    W.Cast(Active.Akali.Position - 50);
+                    W.Cast(Active.Akali.Position - 20);
                 }
             }
             // COMBO 2 END --------------------------------------------------------------------------------
@@ -207,7 +201,7 @@ namespace Eclipse.Modes
                 }
                 else if (ComboMenu["WC"].Cast<ComboBox>().CurrentValue == 2 && W.IsReady() && ComboMenu.GetCheckBoxValue("wUse"))
                 {
-                    W.Cast(Active.Akali.Position - 50);
+                    W.Cast(Active.Akali.Position - 20);
                 }
             }
             // COMBO 3 END --------------------------------------------------------------------------------
@@ -254,13 +248,15 @@ namespace Eclipse.Modes
                 {
                     W.Cast(Game.CursorPos);
                 }
+
                 else if (ComboMenu["WC"].Cast<ComboBox>().CurrentValue == 1 && W.IsReady() && ComboMenu.GetCheckBoxValue("wUse"))
                 {
                     W.Cast(wtarget.Position);
                 }
+
                 else if (ComboMenu["WC"].Cast<ComboBox>().CurrentValue == 2 && W.IsReady() && ComboMenu.GetCheckBoxValue("wUse"))
                 {
-                    W.Cast(Active.Akali.Position - 50);
+                    W.Cast(Active.Akali.Position - 20);
                 }
             }
             // COMBO 4 END --------------------------------------------------------------------------------
