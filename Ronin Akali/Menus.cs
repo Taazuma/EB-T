@@ -16,7 +16,6 @@ namespace Eclipse
         public static Menu KillStealMenu;
         public static Menu DrawingsMenu;
         public static Menu MiscMenu;
-        //public static Menu JumpMenu;
 
         public const string ComboMenuID = "combomenuid";
         public const string HarassMenuID = "harassmenuid";
@@ -26,7 +25,6 @@ namespace Eclipse
         public const string KillStealMenuID = "killstealmenuid";
         public const string DrawingsMenuID = "drawingsmenuid";
         public const string MiscMenuID = "miscmenuid";
-        //public const string JumpMenuID = "jumpmenuid";
 
         public static void CreateMenu()
         {
@@ -40,7 +38,6 @@ namespace Eclipse
             LasthitMenu = FirstMenu.AddSubMenu("LastHit", LastHitMenuID);
             JungleClearMenu = FirstMenu.AddSubMenu("JungleClear", JungleClearMenuID);
             KillStealMenu = FirstMenu.AddSubMenu("KillSteal", KillStealMenuID);
-            //JumpMenu = FirstMenu.AddSubMenu("Jumper", JumpMenuID);
             DrawingsMenu = FirstMenu.AddSubMenu("Drawings", DrawingsMenuID);
             MiscMenu = FirstMenu.AddSubMenu("Misc", MiscMenuID);
 
@@ -51,8 +48,8 @@ namespace Eclipse
             ComboMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             ComboMenu.AddLabel("Logics");
             ComboMenu.AddSeparator(4);
-            ComboMenu.Add("Comba", new ComboBox(" Combo Logic ", 0, "Normal One", "Extend Two", "Extend Three", "Extend Four"));
-            ComboMenu.Add("WC", new ComboBox(" W Logic ", 1, "W Mouse", "W Enemy", "W Safe"));
+            ComboMenu.Add("Comba", new ComboBox(" Combo Logic ", 0, "Normal One", "Extend Two", "Extend Three", "Insec Four"));
+            ComboMenu.Add("WC", new ComboBox(" W Position ", 1, "W Mouse", "W Enemy", "W Safe"));
             ComboMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             ComboMenu.AddLabel("Spells");
             ComboMenu.CreateCheckBox(" - Use Q", "qUse");
@@ -66,12 +63,12 @@ namespace Eclipse
             ComboMenu.AddSeparator(10);
             ComboMenu.AddLabel("Logic Infos");
             ComboMenu.AddLabel("1. Combo Q - AA - R - E - W");
-            ComboMenu.AddSeparator(5);
+            ComboMenu.AddSeparator(6);
             ComboMenu.AddLabel("2. Combo Q - AA - E - R - W");
-            ComboMenu.AddSeparator(5);
+            ComboMenu.AddSeparator(6);
             ComboMenu.AddLabel("3. Combo R - Q - AA - E - W");
-            ComboMenu.AddSeparator(5);
-            ComboMenu.AddLabel("4. Combo Q - AA - E - R- W");
+            ComboMenu.AddSeparator(6);
+            ComboMenu.AddLabel("4. Combo (0 Checks) in a sec");
             ComboMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
 
             HarassMenu.AddGroupLabel("Harass");
@@ -111,15 +108,9 @@ namespace Eclipse
             KillStealMenu.CreateCheckBox(" - Use Q", "qUse");
             KillStealMenu.CreateCheckBox(" - Use E", "eUse");
             KillStealMenu.CreateCheckBox("- Use R", "rUse", false);
-            KillStealMenu.AddGroupLabel("Settings");
+            KillStealMenu.AddGroupLabel("News");
             KillStealMenu.AddLabel("Yoyo new KS");
             KillStealMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
-
-            //JumpMenu.AddGroupLabel("W Jumper Beta");
-            //JumpMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
-            //JumpMenu.AddGroupLabel("Settings");
-            //MiscMenu.Add("escaper", new KeyBind("Escape|WallJump", false, KeyBind.BindTypes.HoldActive, 'T'));
-            //JumpMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
 
             DrawingsMenu.AddGroupLabel("Settings");
             DrawingsMenu.AddGroupLabel("Tracker Draws");
@@ -144,6 +135,7 @@ namespace Eclipse
             MiscMenu.CreateCheckBox("Use Items", "useitems");
             MiscMenu.AddLabel("Level Up Function");
             MiscMenu.Add("lvlup", new CheckBox("Auto Level Up Spells", false));
+            MiscMenu.Add("Lvldelay", new Slider("Lvlup Delay (ms)", 0, 0, 500));
             MiscMenu.AddSeparator(15);
             MiscMenu.Add("skinhax", new CheckBox("Activate Skin hack"));
             MiscMenu.Add("skinID", new ComboBox("Skin Hack", 0, "Default", "Crimson Akali", "Stinger Akali", "All-Star Akali", "Nurse Akali", "Blood Moon Akali", "Silverfang Akali", "Headhunter Akali", "Sashimi Akali"));
@@ -151,5 +143,6 @@ namespace Eclipse
         public static int Qdelay { get { return ComboMenu["Qdelay"].Cast<Slider>().CurrentValue; } }
         public static int Edelay { get { return ComboMenu["Edelay"].Cast<Slider>().CurrentValue; } }
         public static int Rdelay { get { return ComboMenu["Rdelay"].Cast<Slider>().CurrentValue; } }
+        public static int Lvldelay { get { return MiscMenu["Lvldelay"].Cast<Slider>().CurrentValue; } }
     }
 }

@@ -36,7 +36,7 @@ namespace Eclipse.Modes
             {
                 if (W.IsReady())
                 {
-                    W.Cast(Player.Instance);
+                    W.Cast(Game.CursorPos);
                 }
             }
 

@@ -31,7 +31,7 @@ namespace Eclipse.Modes
 
             if (HarassMenu.GetCheckBoxValue("eUse") && E.IsReady() && etarget.IsValidTarget(E.Range))
             {
-                E.Cast(etarget);
+                E.Cast();
             }
 
             if (HarassMenu.GetCheckBoxValue("qUse") && Q.IsReady() && qtarget.IsValidTarget(Q.Range))

@@ -29,11 +29,10 @@ namespace Eclipse.Modes
                 W.Cast(wtarget.ServerPosition - 2);
             }
 
-            if (LaneClearMenu.GetCheckBoxValue("eUse") && E.IsReady() && etarget.IsValidTarget(E.Range - 25))
+            if (LaneClearMenu.GetCheckBoxValue("eUse") && E.IsReady() && etarget.IsValidTarget(E.Range) && etarget.Health < Player.Instance.GetSpellDamage(etarget, SpellSlot.E))
             {
                 E.Cast(etarget);
             }
-
 
         }
     }

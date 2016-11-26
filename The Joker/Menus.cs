@@ -18,12 +18,6 @@ namespace Eclipse
         public static Menu DrawingsMenu;
         public static Menu MiscMenu;
 
-        public static ColorSlide QColorSlide;
-        public static ColorSlide WColorSlide;
-        public static ColorSlide EColorSlide;
-        public static ColorSlide RColorSlide;
-        public static ColorSlide DamageIndicatorColorSlide;
-
         public const string ComboMenuID = "combomenuid";
         public const string HarassMenuID = "harassmenuid";
         public const string AutoHarassMenuID = "autoharassmenuid";
@@ -59,7 +53,7 @@ namespace Eclipse
             ComboMenu.Add("useClone", new CheckBox("Clone Mover"));
             ComboMenu.Add("WaitForStealth", new CheckBox("Block spells in stealth"));
             ComboMenu.AddSeparator(10);
-            ComboMenu.CreateCheckBox("Use R when Low:", "rLow");
+            ComboMenu.CreateCheckBox("Use R when Low", "rLow");
             ComboMenu.Add("hpR", new Slider("Use R at % HP", 30));
 
             HarassMenu.AddGroupLabel("Harass");
@@ -82,26 +76,23 @@ namespace Eclipse
 
             KillStealMenu.AddGroupLabel("KillSteal");
             KillStealMenu.CreateCheckBox("Use E", "eUse");
-            KillStealMenu.CreateCheckBox("Use Smite to KS", "sks");
-            KillStealMenu.AddGroupLabel("Settings");
-            KillStealMenu.CreateSlider("Mana must be higher than [{0}%] to use spells", "manaSlider", 20);
 
             DrawingsMenu.AddGroupLabel("Settings");
-            DrawingsMenu.CreateCheckBox("Draw spell`s range only if they are ready.", "readyDraw");
-            DrawingsMenu.CreateCheckBox("Draw damage indicator.", "damageDraw");
-            DrawingsMenu.CreateCheckBox("Draw damage indicator percent.", "perDraw");
-            DrawingsMenu.CreateCheckBox("Draw damage indicator statistics.", "statDraw", false);
-            DrawingsMenu.AddGroupLabel("Spells");
-            DrawingsMenu.CreateCheckBox("Draw Q.", "qDraw", false);
-            DrawingsMenu.CreateCheckBox("Draw W.", "wDraw", false);
-            DrawingsMenu.CreateCheckBox("Draw E.", "eDraw", false);
-            DrawingsMenu.CreateCheckBox("Draw R.", "rDraw", false);
-            DrawingsMenu.AddGroupLabel("Drawings Color");
-            QColorSlide = new ColorSlide(DrawingsMenu, "qColor", Color.Red, "Q Color:");
-            WColorSlide = new ColorSlide(DrawingsMenu, "wColor", Color.Purple, "W Color:");
-            EColorSlide = new ColorSlide(DrawingsMenu, "eColor", Color.Orange, "E Color:");
-            RColorSlide = new ColorSlide(DrawingsMenu, "rColor", Color.DeepPink, "R Color:");
-            DamageIndicatorColorSlide = new ColorSlide(DrawingsMenu, "healthColor", Color.YellowGreen, "DamageIndicator Color:");
+            DrawingsMenu.AddGroupLabel("Tracker Draws");
+            DrawingsMenu.Add("me", new CheckBox("My Path", false));
+            DrawingsMenu.Add("ally", new CheckBox("Ally Path", false));
+            DrawingsMenu.Add("enemy", new CheckBox("Enemy Path", true));
+            DrawingsMenu.AddLabel("Tracker Misc");
+            DrawingsMenu.Add("toggle", new KeyBind("Toggle On/Off", true, KeyBind.BindTypes.PressToggle, 'G'));
+            DrawingsMenu.Add("eta", new CheckBox("Estimated time of arrival (only me)", true));
+            DrawingsMenu.Add("name", new CheckBox("Champion Name", true));
+            DrawingsMenu.Add("thick", new Slider("Line Thickness", 2, 1, 5));
+            DrawingsMenu.AddGroupLabel("Disable while use orbwalk");
+            DrawingsMenu.Add("combo", new CheckBox("Combo", true));
+            DrawingsMenu.Add("harass", new CheckBox("Harass", true));
+            DrawingsMenu.Add("laneclear", new CheckBox("LaneClear", false));
+            DrawingsMenu.Add("lasthit", new CheckBox("LastHit", true));
+            DrawingsMenu.Add("flee", new CheckBox("Flee", false));
 
             MiscMenu.AddGroupLabel("Settings");
             MiscMenu.CreateCheckBox("Use Evade", "evade");
@@ -111,17 +102,14 @@ namespace Eclipse
             //MiscMenu.Add("stackBox", new KeyBind("Stack boxes", false, KeyBind.BindTypes.HoldActive, "Z".ToCharArray()[0]));
             MiscMenu.CreateCheckBox("Q - Escaper", "qescape");
             MiscMenu.AddSeparator(15);
-            MiscMenu.CreateCheckBox("R Clone - Escaper", "cescape");
+            MiscMenu.CreateCheckBox("R Clone - Escaper", "rescape");
             MiscMenu.AddLabel("Level Up Function");
+            MiscMenu.Add("Lvldelay", new Slider("Lvlup Delay (ms)", 0, 0, 500));
             MiscMenu.Add("lvlup", new CheckBox("Auto Level Up Spells", false));
             MiscMenu.AddSeparator(15);
-            MiscMenu.Add("skinhax", new CheckBox("Activate Skin hack"));
+            MiscMenu.CreateCheckBox("Activate Skin hack", "skinhax", false);
             MiscMenu.Add("skinID", new ComboBox("Skin Hack", 1, "Default", "Mad Hatter Shaco", "Royal Shaco", "Nutcracko", "Workshop Shaco", "Asylum Shaco", "Masked Shaco", "Wild Card Shaco"));
 
-        }
-        public static int skinId()
-        {
-            return MiscMenu["skin.Id"].Cast<Slider>().CurrentValue;
         }
         public static void StringList(Menu menu, string uniqueId, string displayName, string[] values, int defaultValue)
         {
@@ -133,5 +121,6 @@ namespace Eclipse
                     sender.DisplayName = displayName + ": " + values[args.NewValue];
                 };
         }
+        public static int Lvldelay { get { return MiscMenu["Lvldelay"].Cast<Slider>().CurrentValue; } }
     }
 }

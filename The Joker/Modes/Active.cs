@@ -27,19 +27,20 @@ namespace Eclipse.Modes
             //////////////////// KS E
             var targetKSE = TargetSelector.GetTarget(SpellsManager.E.Range, DamageType.Magical);
 
+            if (targetKSE == null || targetKSE.IsInvulnerable || targetKSE.MagicImmune)
+            {
+                return;
+            }
+
             if (targetKSE != null && KillStealMenu.GetCheckBoxValue("eUse") && SpellsManager.E.IsReady())
             {
                 if (targetKSE.Health < Player.Instance.GetSpellDamage(targetKSE, SpellSlot.E))
                 {
                     SpellsManager.E.Cast(targetKSE);
-                    return;
                 }
             }//////////////////// END KS E
 
-            //if (R.IsLearned && Player.Instance.CountEnemiesInRange(R.Range) >= 1 || Player.Instance.HealthPercent <= 20 && R.IsReady() && ComboMenu.GetCheckBoxValue("rLow"))
-            //{
-            //    R.Cast();
-            //}
+           
 
 
 

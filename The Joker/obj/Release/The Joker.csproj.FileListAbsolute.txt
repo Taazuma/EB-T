@@ -11,3 +11,18 @@ D:\Tommi\Documents\Visual Studio 2015\Projects\The Joker\The Joker\bin\Release\S
 D:\Tommi\Documents\Visual Studio 2015\Projects\The Joker\The Joker\obj\Release\The Joker.csprojResolveAssemblyReference.cache
 D:\Tommi\Documents\Visual Studio 2015\Projects\The Joker\The Joker\obj\Release\TheJoker.exe
 D:\Tommi\Documents\Visual Studio 2015\Projects\The Joker\The Joker\obj\Release\TheJoker.pdb
+D:\Tommi\Documents\GitHub\EB-T\The Joker\bin\Release\TheJoker.exe.config
+D:\Tommi\Documents\GitHub\EB-T\The Joker\bin\Release\TheJoker.exe
+D:\Tommi\Documents\GitHub\EB-T\The Joker\bin\Release\TheJoker.pdb
+D:\Tommi\Documents\GitHub\EB-T\The Joker\bin\Release\EloBuddy.dll
+D:\Tommi\Documents\GitHub\EB-T\The Joker\bin\Release\EloBuddy.Sandbox.dll
+D:\Tommi\Documents\GitHub\EB-T\The Joker\bin\Release\EloBuddy.SDK.dll
+D:\Tommi\Documents\GitHub\EB-T\The Joker\bin\Release\Newtonsoft.Json.dll
+D:\Tommi\Documents\GitHub\EB-T\The Joker\bin\Release\SharpDX.Direct3D9.dll
+D:\Tommi\Documents\GitHub\EB-T\The Joker\bin\Release\SharpDX.dll
+D:\Tommi\Documents\GitHub\EB-T\The Joker\bin\Release\SharpDX.XInput.dll
+D:\Tommi\Documents\GitHub\EB-T\The Joker\obj\Release\The Joker.csprojResolveAssemblyReference.cache
+D:\Tommi\Documents\GitHub\EB-T\The Joker\obj\Release\TheJoker.exe
+D:\Tommi\Documents\GitHub\EB-T\The Joker\obj\Release\TheJoker.pdb
+D:\Tommi\Documents\GitHub\EB-T\The Joker\obj\Release\TheJoker.Properties.Resources.resources
+D:\Tommi\Documents\GitHub\EB-T\The Joker\obj\Release\The Joker.csproj.GenerateResource.Cache

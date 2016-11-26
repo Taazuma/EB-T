@@ -11,11 +11,14 @@ using EloBuddy.SDK.Enumerations;
 using EloBuddy.SDK.Events;
 using EloBuddy.SDK.Menu.Values;
 using EloBuddy.SDK.Rendering;
-using SharpDX;
 using static Eclipse.SpellsManager;
 using static Eclipse.Menus;
 using Eclipse.Modes;
 using EloBuddy.SDK.Menu;
+using TheJoker.Properties;
+using SharpDX;
+using Color = System.Drawing.Color;
+using Colour = SharpDX.Color;
 
 namespace Eclipse
 {
@@ -45,6 +48,7 @@ namespace Eclipse
         public static int GhostRange = 2200;
         public static int LastAATick;
         public static float cloneTime, lastBox;
+        public static int start = 0;
         public static bool isDangerousSpell(string spellName, Obj_AI_Base target, Obj_AI_Base hero, Vector3 end, float spellRange)
         {
             if (spellName == "CurseofTheSadMummy")
@@ -102,35 +106,50 @@ namespace Eclipse
             }
             return false;
         }
+        public class UnitData
+        {
+            public static string Name;
+
+            public static int StartTime;
+
+            public static void GetName(AIHeroClient unit)
+            {
+                Name = unit.BaseSkinName;
+            }
+
+            public static void GetStartTime(int time)
+            {
+                StartTime = time;
+            }
+        }
+        private static int drawTick;
+        private static Sprite introImg;
 
         private static void Loading_OnLoadingComplete(EventArgs args)
         {
             //Put the name of the champion here
             if (Player.Instance.ChampionName != "Shaco") return;
+            Core.DelayAction(() =>
+            {
+                introImg = new Sprite(TextureLoader.BitmapToTexture(Resources.anime));
+                Chat.Print("<b><font size='20' color='#4B0082'>Joker Shaco</font><font size='20' color='#FFA07A'> Loaded</font></b>");
+                Drawing.OnDraw += DrawingOnOnDraw;
+                Core.DelayAction(() =>
+                {
+                    Drawing.OnDraw -= DrawingOnOnDraw;
+                }, 7000);
+            }, 2000);
             Chat.Print("Have Fun with Playing ! by TaaZ");
             AbilitySequence = new int[] { 2, 3, 1, 3, 3, 4, 3, 1, 3, 1, 4, 1, 1, 2, 2, 4, 2, 2 };
             SpellsManager.InitializeSpells();
-            DrawingsManager.InitializeDrawings();
             Menus.CreateMenu();
             ModeManager.InitializeModes();
             Game.OnUpdate += OnGameUpdate;
-            Game.OnTick += GameOnTick;
-            SpellManager.Initialize();
             Obj_AI_Base.OnProcessSpellCast += Obj_AI_Base_OnProcessSpellCast;
             Obj_AI_Base.OnProcessSpellCast += Obj_AI_Base_OnProcessSpellCaster;
-            if (!SpellManager.HasSmite())
-            {
-            Chat.Print("No smite detected - unloading Smite.", System.Drawing.Color.Red);
-                return;
-            }
-            Config.Initialize();
-            ModeManagerSmite.Initialize();
-            Events.Initialize();
-            if (Igniter.ignt.Slot == SpellSlot.Unknown) return;
-            Chat.Print("IgniteHelper by T7");
-            Igniter.Menu();
-            Game.OnUpdate += Igniter.OnUpdate;
-            Drawing.OnDraw += Igniter.OnDraw;
+            FpsBooster.Initialize();
+            Drawing.OnDraw += Drawing_OnDraw;
+            Obj_AI_Base.OnNewPath += Obj_AI_Base_OnNewPath;
         }
 
 
@@ -146,12 +165,24 @@ namespace Eclipse
             {
                 moveClone();
             }
-            //
+            Core.DelayAction(() =>
+            {
+                if (MiscMenu["lvlup"].Cast<CheckBox>().CurrentValue) LevelUpSpells();
+            }, Lvldelay);
         }
 
-        private static void GameOnTick(EventArgs args)
+        private static void DrawingOnOnDraw(EventArgs args)
         {
-            if (MiscMenu["lvlup"].Cast<CheckBox>().CurrentValue) LevelUpSpells();
+            if (drawTick == 0)
+                drawTick = Environment.TickCount;
+
+            int timeElapsed = Environment.TickCount - drawTick;
+            introImg.CenterRef = new Vector2(Drawing.Width / 2f, Drawing.Height / 2f).To3D();
+
+            int dt = 300;
+            if (timeElapsed <= dt)
+                introImg.Scale = new Vector2(timeElapsed * 1f / dt, timeElapsed * 1f / dt);
+            introImg.Draw(new Vector2(Drawing.Width / 2f - 1415 / 2f, Drawing.Height / 2f - 750 / 2f));
         }
 
         public static bool getCheckBoxItem(Menu m, string item)
@@ -328,7 +359,6 @@ namespace Eclipse
         {
             get
             {
-                Obj_AI_Minion Clone = null;
                 if (player.Spellbook.GetSpell(SpellSlot.R).Name != "HallucinateGuide") return null;
                 return ObjectManager.Get<Obj_AI_Minion>().FirstOrDefault(m => m.Name == player.Name && !m.IsMe);
             }
@@ -469,23 +499,131 @@ namespace Eclipse
         {
             double damage = 0;
 
-            if (Q.IsReady())
-            {
-                damage += player.GetSpellDamage(hero, SpellSlot.Q);
-            }
             if (E.IsReady())
             {
                 damage += player.GetSpellDamage(hero, SpellSlot.E);
             }
-
-
-            var ignitedmg = player.GetSummonerSpellDamage(hero, DamageLibrary.SummonerSpells.Ignite);
-            if (player.Spellbook.CanUseSpell(player.GetSpellSlotFromName("summonerdot")) == SpellState.Ready &&
-                hero.Health < damage + ignitedmg)
-            {
-                damage += ignitedmg;
-            }
             return (float)damage;
+        }
+
+        private static void Obj_AI_Base_OnNewPath(Obj_AI_Base sender, GameObjectNewPathEventArgs args)
+        {
+            if (!sender.IsMe)
+                return;
+
+            start = TickCount;
+        }
+
+        public static int TickCount
+        {
+            get
+            {
+                return Environment.TickCount & int.MaxValue;
+            }
+        }
+
+        private static void Drawing_OnDraw(EventArgs args)
+        {
+            if (!DrawingsMenu["toggle"].Cast<KeyBind>().CurrentValue || !Enable())
+                return;
+
+            var ETA = DrawingsMenu["eta"].Cast<CheckBox>().CurrentValue;
+            var Name = DrawingsMenu["name"].Cast<CheckBox>().CurrentValue;
+            var Thickness = DrawingsMenu["thick"].Cast<Slider>().CurrentValue;
+
+            foreach (var hero in EntityManager.Heroes.AllHeroes.Where(h => h.IsValid))
+            {
+                if (DrawingsMenu["me"].Cast<CheckBox>().CurrentValue && hero.IsMe)
+                {
+                    DrawPath(Player.Instance, Thickness, Color.LawnGreen);
+
+                    if (ETA && Player.Instance.Path.Length > 1 && Player.Instance.IsMoving)
+                        Drawing.DrawText(Player.Instance.Path[Player.Instance.Path.Length - 1].WorldToScreen(), Color.NavajoWhite, GetETA(Player.Instance), 10);
+
+                    continue;
+                }
+
+                if (DrawingsMenu["ally"].Cast<CheckBox>().CurrentValue && hero.IsAlly && !hero.IsMe)
+                {
+                    DrawPath(hero, Thickness, Color.Orange);
+
+                    if (hero.Path.Length > 1 && hero.IsMoving)
+                    {
+                        if (Name)
+                            Drawing.DrawText(hero.Path[hero.Path.Length - 1].WorldToScreen(), Color.LightSkyBlue, hero.BaseSkinName, 10);
+
+                        if (ETA && false)
+                            Drawing.DrawText(hero.Path[hero.Path.Length - 1].WorldToScreen() + new Vector2(0, 20), Color.NavajoWhite, GetETA(hero), 10);
+                    }
+
+                    continue;
+                }
+
+                if (DrawingsMenu["enemy"].Cast<CheckBox>().CurrentValue && hero.IsEnemy)
+                {
+                    DrawPath(hero, Thickness, Color.Red);
+
+                    if (hero.Path.Length > 1 && hero.IsMoving)
+                    {
+                        if (Name)
+                            Drawing.DrawText(hero.Path[hero.Path.Length - 1].WorldToScreen(), Color.LightSkyBlue, hero.BaseSkinName, 10);
+
+                        if (ETA && false)
+                            Drawing.DrawText(hero.Path[hero.Path.Length - 1].WorldToScreen() + new Vector2(0, 20), Color.NavajoWhite, GetETA(hero), 10);
+                    }
+
+                    continue;
+                }
+            }
+        }
+
+        public static void DrawPath(AIHeroClient unit, int thickness, Color color)
+        {
+            if (!unit.IsMoving)
+                return;
+
+            for (var i = 1; unit.Path.Length > i; i++)
+            {
+                if (unit.Path[i - 1].IsValid() && unit.Path[i].IsValid() && (unit.Path[i - 1].IsOnScreen() || unit.Path[i].IsOnScreen()))
+                {
+                    Drawing.DrawLine(Drawing.WorldToScreen(unit.Path[i - 1]), Drawing.WorldToScreen(unit.Path[i]), thickness, color);
+                }
+            }
+        }
+
+        public static string GetETA(AIHeroClient unit)
+        {
+            float Distance = 0;
+
+            if (unit.Path.Length > 1)
+            {
+                for (var i = 1; unit.Path.Length > i; i++)
+                {
+                    Distance += unit.Path[i - 1].Distance(unit.Path[i]);
+                }
+            }
+
+            var ETA = (start + Distance / unit.MoveSpeed * 1000 - TickCount) / 1000;
+
+            if (ETA <= 0)
+                ETA = 0;
+
+            return ETA.ToString("F2");
+        }
+
+        public static bool Enable()
+        {
+            if (Orbwalker.ActiveModesFlags == Orbwalker.ActiveModes.Combo && DrawingsMenu["combo"].Cast<CheckBox>().CurrentValue)
+                return false;
+            if (Orbwalker.ActiveModesFlags == Orbwalker.ActiveModes.Harass && DrawingsMenu["harass"].Cast<CheckBox>().CurrentValue)
+                return false;
+            if ((Orbwalker.ActiveModesFlags == Orbwalker.ActiveModes.LaneClear || Orbwalker.ActiveModesFlags == Orbwalker.ActiveModes.JungleClear) && DrawingsMenu["laneclear"].Cast<CheckBox>().CurrentValue)
+                return false;
+            if (Orbwalker.ActiveModesFlags == Orbwalker.ActiveModes.LastHit && DrawingsMenu["lasthit"].Cast<CheckBox>().CurrentValue)
+                return false;
+            if (Orbwalker.ActiveModesFlags == Orbwalker.ActiveModes.Flee && DrawingsMenu["flee"].Cast<CheckBox>().CurrentValue)
+                return false;
+            return true;
         }
 
 

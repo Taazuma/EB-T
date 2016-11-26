@@ -62,7 +62,6 @@ namespace Eclipse
 
         private static void Loading_OnLoadingComplete(EventArgs args)
         {
-            //Put the name of the champion here
             if (Player.Instance.ChampionName != "Akali") return;
             Core.DelayAction(() =>
             {
@@ -79,29 +78,18 @@ namespace Eclipse
             SpellsManager.InitializeSpells();
             Menus.CreateMenu();
             ModeManager.InitializeModes();
-            Game.OnUpdate += OnGameUpdate;
-            Game.OnTick += GameOnTick;
+            Game.OnUpdate += GameonUpdate;
             Drawing.OnDraw += Drawing_OnDraw;
             Obj_AI_Base.OnNewPath += Obj_AI_Base_OnNewPath;
-            SpellManager.Initialize();
-            if (!SpellManager.HasSmite())
-            {
-                Chat.Print("No smite detected - unloading Smite.", System.Drawing.Color.MediumVioletRed);
-                return;
-            }
-            Config.Initialize();
-            ModeManagerSmite.Initialize();
-            Events.Initialize();
         }
 
-        private static void OnGameUpdate(EventArgs args)
+        private static void GameonUpdate(EventArgs args)
         {
             if (check(MiscMenu, "skinhax")) _player.SetSkinId((int)MiscMenu["skinID"].Cast<ComboBox>().CurrentValue);
-        }
-
-        private static void GameOnTick(EventArgs args)
-        {
+            Core.DelayAction(() =>
+            {
             if (MiscMenu["lvlup"].Cast<CheckBox>().CurrentValue) LevelUpSpells();
+            }, Lvldelay);
         }
 
         private static void LevelUpSpells() // Thanks iRaxe
@@ -121,142 +109,6 @@ namespace Eclipse
             if (eL < level[2]) ObjectManager.Player.Spellbook.LevelSpell(SpellSlot.E);
             if (rL < level[3]) ObjectManager.Player.Spellbook.LevelSpell(SpellSlot.R);
         }// Thanks iRaxe
-
-
-        //#region Wall
-
-        //public static Vector2? GetFirstWallPoint(Vector3 from, Vector3 to, float step = 25)
-        //{
-        //    return GetFirstWallPoint(from.To2D(), to.To2D(), step);
-        //}
-
-        //public static Vector2? GetFirstWallPoint(Vector2 from, Vector2 to, float step = 25)
-        //{
-        //    var direction = (to - from).Normalized();
-
-        //    for (float d = 0; d < from.Distance(to); d = d + step)
-        //    {
-        //        var testPoint = from + d * direction;
-        //        var flags = NavMesh.GetCollisionFlags(testPoint.X, testPoint.Y);
-        //        if (flags.HasFlag(CollisionFlags.Wall) || flags.HasFlag(CollisionFlags.Building))
-        //        {
-        //            return from + (d - step) * direction;
-        //        }
-        //    }
-
-        //    return null;
-        //}
-
-        //public static void Escapeterino()
-        //{
-        //    // Walljumper credits to Hellsing
-        //    // We need to define a new move position since jumping over walls
-        //    // requires you to be close to the specified wall. Therefore we set the move
-        //    // point to be that specific piont. People will need to get used to it,
-        //    // but this is how it works.
-        //    var wallCheck = GetFirstWallPoint(_player.Position, Game.CursorPos);
-
-        //    // Be more precise
-        //    if (wallCheck != null) wallCheck = GetFirstWallPoint((Vector3)wallCheck, Game.CursorPos, 5);
-
-        //    // Define more position point
-        //    var movePosition = wallCheck != null ? (Vector3)wallCheck : Game.CursorPos;
-
-        //    // Update fleeTargetPosition
-        //    var tempGrid = NavMesh.WorldToGrid(movePosition.X, movePosition.Y);
-
-        //    // Only calculate stuff when our Q is up and there is a wall inbetween
-        //    if (W.IsReady() && wallCheck != null)
-        //    {
-        //        // Get our wall position to calculate from
-        //        var wallPosition = movePosition;
-
-        //        // Check 300 units to the cursor position in a 160 degree cone for a valid non-wall spot
-        //        var direction = (Game.CursorPos.To2D() - wallPosition.To2D()).Normalized();
-        //        float maxAngle = 80;
-        //        var step = maxAngle / 20;
-        //        float currentAngle = 0;
-        //        float currentStep = 0;
-        //        var jumpTriggered = false;
-        //        while (true)
-        //        {
-        //            // Validate the counter, break if no valid spot was found in previous loops
-        //            if (currentStep > maxAngle && currentAngle < 0) break;
-
-        //            // Check next angle
-        //            if ((currentAngle == 0 || currentAngle < 0) && currentStep != 0)
-        //            {
-        //                currentAngle = currentStep * (float)Math.PI / 180;
-        //                currentStep += step;
-        //            }
-
-        //            else if (currentAngle > 0) currentAngle = -currentAngle;
-
-        //            Vector3 checkPoint;
-
-        //            // One time only check for direct line of sight without rotating
-        //            if (currentStep == 0)
-        //            {
-        //                currentStep = step;
-        //                checkPoint = wallPosition + W.Range * direction.To3D();
-        //            }
-        //            // Rotated check
-        //            else checkPoint = wallPosition + W.Range * direction.Rotated(currentAngle).To3D();
-
-        //            // Check if the point is not a wall
-        //            if (!checkPoint.IsWall())
-        //            {
-        //                // Check if there is a wall between the checkPoint and wallPosition
-        //                wallCheck = GetFirstWallPoint(checkPoint, wallPosition);
-        //                if (wallCheck != null)
-        //                {
-        //                    // There is a wall inbetween, get the closes point to the wall, as precise as possible
-        //                    var wallPositionOpposite =
-        //                        (Vector3)GetFirstWallPoint((Vector3)wallCheck, wallPosition, 5);
-
-        //                    //// Check if it's worth to jump considering the path length
-        //                    //if (_player.GetPath(wallPositionOpposite).ToList().ToLookup().PathLength()
-        //                    //    - _player.Distance(wallPositionOpposite) > 200) //200
-        //                    //{
-        //                    // Check the distance to the opposite side of the wall
-        //                    if (_player.Distance(wallPositionOpposite, true)
-        //                        < Math.Pow(W.Range + 200 - _player.BoundingRadius / 2, 2))
-        //                    {
-        //                        // Make the jump happen
-        //                        W.Cast(wallPositionOpposite);
-
-        //                        // Update jumpTriggered value to not orbwalk now since we want to jump
-        //                        jumpTriggered = true;
-
-        //                        break;
-        //                    }
-        //                    //}
-
-        //                    //else
-        //                    //{
-        //                    //    // yolo
-        //                    //    Render.Circle.DrawCircle(Game.CursorPos, 35, Color.Red, 2);
-        //                    //}
-        //                }
-        //            }
-        //        }
-        //        // Check if the loop triggered the jump, if not just orbwalk
-        //        if (!jumpTriggered)
-        //        {
-        //            Orbwalker.OrbwalkTo(Game.CursorPos);
-        //        }
-        //    }
-
-        //    // Either no wall or W on cooldown, just move towards to wall then
-        //    else
-        //    {
-        //        Orbwalker.OrbwalkTo(Game.CursorPos);
-        //        if (W.IsReady()) W.Cast(Game.CursorPos);
-        //    }
-        //}
-        //#endregion Wall
-
-
 
         private static void DrawingOnOnDraw(EventArgs args)
         {

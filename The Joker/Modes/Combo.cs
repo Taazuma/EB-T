@@ -37,8 +37,12 @@ namespace Eclipse.Modes
             var useW = ComboMenu.GetCheckBoxValue("wUse");
             var useE = ComboMenu.GetCheckBoxValue("eUse");
             var useR = ComboMenu.GetCheckBoxValue("rUse");
-            var packets = ComboMenu.GetCheckBoxValue("packets");
             var cmbDmg = Program.ComboDamage(target);
+
+            if (target == null || target.IsInvulnerable || target.MagicImmune)
+            {
+                return;
+            }
             //////////////////////////////////////////////////////////////////////////////////////////
 
             if (Program.ShacoClone && !Program.GhostDelay && ComboMenu["useClone"].Cast<CheckBox>().CurrentValue &&!MiscMenu["autoMoveClone"].Cast<CheckBox>().CurrentValue)
@@ -62,7 +66,7 @@ namespace Eclipse.Modes
                 if (target != null)
                 if (R.IsReady() && target.IsValidTarget() && player.Distance(target) < 400 && player.HasBuff("Deceive") && useR)
                 {
-                    R.Cast();
+                    R2.Cast();
                 }
 
             if (W.IsReady() && useW)
@@ -72,15 +76,10 @@ namespace Eclipse.Modes
                     Program.HandleW(target);
                 }
             }
-
+            
             if (useE && E.IsReady() && target.IsValidTarget(E.Range))
             {
                 E.Cast(target);
-            }
-
-            if (ComboMenu.GetCheckBoxValue("rLow") && R2.IsReady() && Player.Instance.HealthPercent <= ComboMenu.GetSliderValue("hpR"))
-            {
-                R2.Cast();
             }
 
             if (ComboMenu["user"].Cast<CheckBox>().CurrentValue && R.IsReady() && !Program.ShacoClone && target.HealthPercent < 75 &&
@@ -89,11 +88,10 @@ namespace Eclipse.Modes
                 R2.Cast();
             }
 
-
-            //if (Player.Instance.HealthPercent <= ComboMenu.GetSliderValue("hpR") && R.IsReady() && ComboMenu.GetCheckBoxValue("rLow"))
-            //{
-            //    R.Cast();
-            //}
+            else if (ComboMenu.GetCheckBoxValue("rLow") && R2.IsReady() && Player.Instance.HealthPercent <= ComboMenu.GetSliderValue("hpR"))
+            {
+                R2.Cast();
+            }
 
         }
         }

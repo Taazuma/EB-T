@@ -43,6 +43,7 @@ namespace Eclipse
             {
                 AllowedCollisionCount = int.MaxValue
             };
+
             R = new Spell.Skillshot(SpellSlot.R, 3340, SkillShotType.Circular, 1000, int.MaxValue, 110)
             {
                 AllowedCollisionCount = int.MaxValue

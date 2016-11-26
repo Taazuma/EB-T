@@ -22,6 +22,11 @@ namespace Eclipse.Modes
         {
             var target = EntityManager.MinionsAndMonsters.GetJungleMonsters().OrderByDescending(a => a.MaxHealth).FirstOrDefault(a => a.IsValidTarget(900));
 
+            if (target == null || target.IsInvulnerable || target.MagicImmune)
+            {
+                return;
+            }
+
             if (JungleClearMenu.GetCheckBoxValue("wUse") && W.IsReady())
             {
                 W.Cast(target.ServerPosition - 5);
@@ -31,6 +36,7 @@ namespace Eclipse.Modes
             {
                 E.Cast(target);
             }
+
         }
     }
 }

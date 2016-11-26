@@ -26,6 +26,7 @@ namespace Eclipse.Modes
         {
             var orbMode = Orbwalker.ActiveModesFlags;
             var playerMana = Player.Instance.ManaPercent;
+
             Active.Execute();
 
             if (orbMode.HasFlag(Orbwalker.ActiveModes.Combo))
@@ -37,11 +38,6 @@ namespace Eclipse.Modes
             {
                 Harass.Execute();
             }
-
-            //if (orbMode.HasFlag(Orbwalker.ActiveModes.LastHit))
-            //{
-            //    LastHit.Execute();
-            //}
 
             if (orbMode.HasFlag(Orbwalker.ActiveModes.Flee))
             {
@@ -58,7 +54,7 @@ namespace Eclipse.Modes
                 JungleClear.Execute();
             }
 
-            //AutoHarass.Execute();
+     
         }
     }
 }

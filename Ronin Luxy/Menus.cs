@@ -160,10 +160,10 @@ namespace Eclipse
             MiscMenu.AddGroupLabel("Settings");
             MiscMenu.Add("wLow", new CheckBox("Use W -> when Low"));
             MiscMenu.AddLabel("Level Up Function");
-            MiscMenu.Add("lvlup", new CheckBox("Auto Level Up Spells", true));
+            MiscMenu.Add("lvlup", new CheckBox("Auto Level Up Spells", false));
             MiscMenu.AddSeparator(15);
             MiscMenu.Add("skinhax", new CheckBox("Activate Skin hack"));
-            MiscMenu.Add("skinID", new ComboBox("Skin Hack", 1, "Default", "Spellthief Lux", "Sorceress Lux", "Commando Lux", "Imperial Lux", "Steel Legion Lux", "Star Guardian Lux"));
+            MiscMenu.Add("skinID", new ComboBox("Skin Hack", 0, "Default", "Spellthief Lux", "Sorceress Lux", "Commando Lux", "Imperial Lux", "Steel Legion Lux", "Star Guardian Lux"));
             MiscMenu.AddGroupLabel("Interrupter settings");
             MiscMenu.Add("interruptq", new CheckBox("Use Q Spell to Interrupt"));
             MiscMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");

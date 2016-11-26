@@ -27,6 +27,7 @@ namespace Eclipse.Modes
         {
             var useQ = MiscMenu.GetCheckBoxValue("qescape");
             var useC = MiscMenu.GetCheckBoxValue("rescape");
+
             if (Q.IsReady() && useQ)
             { 
             Q.Cast(Game.CursorPos);
@@ -38,6 +39,11 @@ namespace Eclipse.Modes
             {
                 var pos = Game.CursorPos.Extend(clone.Position, clone.Distance(Game.CursorPos) + 2000);
                 R.Cast(pos);
+            }
+
+            if (W.IsReady())
+            {
+                W.Cast(Player.Position - 5);
             }
 
         }
