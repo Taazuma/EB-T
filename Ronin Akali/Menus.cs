@@ -137,7 +137,7 @@ namespace Eclipse
             MiscMenu.Add("lvlup", new CheckBox("Auto Level Up Spells", false));
             MiscMenu.Add("Lvldelay", new Slider("Lvlup Delay (ms)", 0, 0, 500));
             MiscMenu.AddSeparator(15);
-            MiscMenu.Add("skinhax", new CheckBox("Activate Skin hack"));
+            MiscMenu.CreateCheckBox("Activate Skin hack", "skinhax", false);
             MiscMenu.Add("skinID", new ComboBox("Skin Hack", 0, "Default", "Crimson Akali", "Stinger Akali", "All-Star Akali", "Nurse Akali", "Blood Moon Akali", "Silverfang Akali", "Headhunter Akali", "Sashimi Akali"));
         }
         public static int Qdelay { get { return ComboMenu["Qdelay"].Cast<Slider>().CurrentValue; } }

@@ -56,7 +56,6 @@ namespace Eclipse
         public static int qOff = 0, wOff = 0, eOff = 0, rOff = 0;
         private static int[] AbilitySequence;
         public static int start = 0;
-        public const string ChampName = "Smite";
         private static int drawTick;
         private static Sprite introImg;
 
