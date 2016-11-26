@@ -27,6 +27,7 @@ namespace Eclipse.Modes
             //Orbwalker.DisableAttacking = true;
 
             var target = TargetSelector.GetTarget(Q.Range, DamageType.Magical);
+            if (target == null) return;
 
             if (Q.IsReady())
             {

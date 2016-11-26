@@ -34,8 +34,7 @@ namespace Eclipse.Modes
             if (target == null) return;
             //---------------------------------------------------------------------------------------- #Start COMBO
   
-            if (ComboMenu.GetCheckBoxValue("combouse"))
-            {
+ 
                 var pred = Q.GetPrediction(target);
                 //var sayimiz = target.CountEnemiesInRange(Q.Width);
                 // THANKS TO aliyrlmz ! //
@@ -108,7 +107,7 @@ namespace Eclipse.Modes
                 {
                     E.TryToCast(player1, ComboMenu);
                 }
-            }
+            
 
             //----------------------------------------------------------------------------------------#End COMBO
 

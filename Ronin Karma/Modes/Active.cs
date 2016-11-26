@@ -28,15 +28,12 @@ namespace Eclipse.Modes
             if (DrawingsMenu.GetCheckBoxValue("showkilla"))
                 Indicator.DamageToUnit = SpellsManager.GetTotalDamageEBDB;
 
-
             if (Player.HasBuff("zedulttargetmark") && MiscMenu.GetCheckBoxValue("esafe") && R.IsReady() && E.IsReady())
             {
                 R.Cast();
                 var player1 = ObjectManager.Player;
                 E.Cast(player1);
             }
-
-    
 
             //////////////////// KS Q
             var targetKSQ = TargetSelector.GetTarget(SpellsManager.Q.Range, DamageType.Magical);

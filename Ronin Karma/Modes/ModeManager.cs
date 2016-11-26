@@ -24,8 +24,6 @@ namespace Eclipse.Modes
             Game.OnTick += Game_OnTick;
         }
 
-
-
         private static void Game_OnTick(EventArgs args)
         {
             var orbMode = Orbwalker.ActiveModesFlags;
@@ -37,11 +35,6 @@ namespace Eclipse.Modes
             {
                 Combo.Execute();
             }
-
-            //if (orbMode.HasFlag(Orbwalker.ActiveModes.LastHit) && playerMana > LasthitMenu.GetSliderValue("manaSlider"))
-            //{
-            //    LastHit.Execute();
-            //}
 
             if (orbMode.HasFlag(Orbwalker.ActiveModes.Flee))
             {

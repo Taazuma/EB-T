@@ -17,6 +17,8 @@ using static Eclipse.Menus;
 using Eclipse.Modes;
 using EloBuddy.SDK.Menu;
 using Color = System.Drawing.Color;
+using Eclipse_Template.Properties;
+using Colour = SharpDX.Color;
 
 namespace Eclipse
 {
@@ -48,9 +50,10 @@ namespace Eclipse
             get { return ObjectManager.Player; }
 
         }
+        private static int drawTick;
+        private static Sprite introImg;
         public static int qOff = 0, wOff = 0, eOff = 0, rOff = 0;
         public static int start = 0;
-        public const string ChampName = "Smite";
         public static Text TextKillable { get; private set; }
         private static int[] AbilitySequence;
         private static bool check(Menu submenu, string sig)
@@ -62,23 +65,37 @@ namespace Eclipse
         {
             //Put the name of the champion here
             if (Player.Instance.ChampionName != "Karma") return;
-            Chat.Print("Have Fun with Playing ! by TaaZ");
+            Core.DelayAction(() =>
+            {
+                introImg = new Sprite(TextureLoader.BitmapToTexture(Resources.anime));
+                Chat.Print("<b><font size='20' color='#4B0082'>Ronin Karma</font><font size='20' color='#FFA07A'> Loaded</font></b>");
+                Drawing.OnDraw += DrawingOnOnDraw;
+                Core.DelayAction(() =>
+                {
+                    Drawing.OnDraw -= DrawingOnOnDraw;
+                }, 7000);
+            }, 2000);
             AbilitySequence = new int[] { 1, 3, 2, 1, 1, 4, 1, 3, 1, 2, 4, 3, 3, 2, 2, 4, 2, 2 };
             SpellsManager.InitializeSpells();
             DrawingsManager.InitializeDrawings();
             Menus.CreateMenu();
             ModeManager.InitializeModes();
-            Game.OnTick += GameOnTick;
+            Game.OnUpdate += GameOnUpdate;
             Gapcloser.OnGapcloser += OnGapcloser;
             Drawing.OnDraw += Drawing_OnDraw;
             Obj_AI_Base.OnNewPath += Obj_AI_Base_OnNewPath;
             Obj_AI_Base.OnBasicAttack += OnBasicAttack;
             Obj_AI_Base.OnProcessSpellCast += onSpellCast;
+            FpsBooster.Initialize();
         }
 
-        private static void GameOnTick(EventArgs args)
+        private static void GameOnUpdate(EventArgs args)
         {
             if (check(MiscMenu, "skinhax")) _player.SetSkinId((int)MiscMenu["skinID"].Cast<ComboBox>().CurrentValue);
+            Core.DelayAction(() =>
+            {
+            if (MiscMenu["lvlup"].Cast<CheckBox>().CurrentValue) LevelUpSpells();
+            }, Lvldelay);
         }
 
         private static void LevelUpSpells() // Thanks iRaxe
@@ -100,6 +117,20 @@ namespace Eclipse
         }// Thanks Iraxe
 
         //----------------------------------------------------------------------------------------
+
+        private static void DrawingOnOnDraw(EventArgs args)
+        {
+            if (drawTick == 0)
+                drawTick = Environment.TickCount;
+
+            int timeElapsed = Environment.TickCount - drawTick;
+            introImg.CenterRef = new Vector2(Drawing.Width / 2f, Drawing.Height / 2f).To3D();
+
+            int dt = 300;
+            if (timeElapsed <= dt)
+                introImg.Scale = new Vector2(timeElapsed * 1f / dt, timeElapsed * 1f / dt);
+            introImg.Draw(new Vector2(Drawing.Width / 2f - 1415 / 2f, Drawing.Height / 2f - 750 / 2f));
+        }
 
         public static void onSpellCast(Obj_AI_Base sender, GameObjectProcessSpellCastEventArgs args)
         {

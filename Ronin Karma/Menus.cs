@@ -41,10 +41,8 @@ namespace Eclipse
             FirstMenu.Add(SpellsManager.Q.Slot + "hit", new ComboBox("Q HitChance", 0, "High", "Medium", "Low"));
             FirstMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             ComboMenu = FirstMenu.AddSubMenu("Combo", ComboMenuID);
-            //HarassMenu = FirstMenu.AddSubMenu("Harass", HarassMenuID);
             AutoHarassMenu = FirstMenu.AddSubMenu("AutoHarass", AutoHarassMenuID);
             LaneClearMenu = FirstMenu.AddSubMenu("LaneClear", LaneClearMenuID);
-            //LasthitMenu = FirstMenu.AddSubMenu("LastHit", LastHitMenuID);
             JungleClearMenu = FirstMenu.AddSubMenu("JungleClear", JungleClearMenuID);
             KillStealMenu = FirstMenu.AddSubMenu("KillSteal", KillStealMenuID);
             DrawingsMenu = FirstMenu.AddSubMenu("Drawings", DrawingsMenuID);
@@ -55,8 +53,7 @@ namespace Eclipse
             // --------------------------------------------------------------COMBO LOGICS-------------------------------------------------------------- //
             ComboMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             ComboMenu.AddLabel("Combo");
-            ComboMenu.CreateCheckBox("- Use Combo", "combouse", true);
-            ComboMenu.AddSeparator(10);
+            ComboMenu.AddSeparator(7);
             ComboMenu.CreateCheckBox(" - Use Q", "qUse");
             ComboMenu.CreateCheckBox(" - Use W", "wUse");
             ComboMenu.CreateCheckBox(" - Use E", "eUse");
@@ -81,11 +78,6 @@ namespace Eclipse
             LaneClearMenu.CreateSlider("Mana must be higher than [{0}%] to use LaneClear spells", "manaSlider", 70);
             LaneClearMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
 
-            //LasthitMenu.AddGroupLabel("Lasthit");
-            //LasthitMenu.CreateCheckBox(" - Use Q", "qUse");
-            //LasthitMenu.AddGroupLabel("Settings");
-            //LasthitMenu.CreateSlider("Mana must be higher than [{0}%] to use LastHit spells", "manaSlider", 30);
-
             JungleClearMenu.AddGroupLabel("JungleClear");
             JungleClearMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             JungleClearMenu.CreateCheckBox(" - Use Q", "qUse");
@@ -103,16 +95,16 @@ namespace Eclipse
 
             DrawingsMenu.AddGroupLabel("Settings");
             DrawingsMenu.CreateCheckBox("Draw spell`s range only if they are ready.", "readyDraw");
-            DrawingsMenu.CreateCheckBox("Draw damage indicator.", "damageDraw");
-            DrawingsMenu.CreateCheckBox("Draw damage indicator percent.", "perDraw");
+            DrawingsMenu.CreateCheckBox("Draw damage indicator.", "damageDraw", false);
+            DrawingsMenu.CreateCheckBox("Draw damage indicator percent.", "perDraw", false);
             DrawingsMenu.CreateCheckBox("Draw damage indicator statistics.", "statDraw", false);
             DrawingsMenu.AddGroupLabel("Spells");
-            DrawingsMenu.CreateCheckBox("Draw Q.", "qDraw");
+            DrawingsMenu.CreateCheckBox("Draw Q.", "qDraw", false);
             DrawingsMenu.CreateCheckBox("Draw W.", "wDraw", false);
             DrawingsMenu.CreateCheckBox("Draw E.", "eDraw", false); //No one like Drawings kappa
             DrawingsMenu.CreateCheckBox("Draw R.", "rDraw", false );
-            DrawingsMenu.CreateCheckBox("Show Killable", "showkilla");
-            DrawingsMenu.AddSeparator(8);
+            DrawingsMenu.CreateCheckBox("Show Killable", "showkilla", false);
+            DrawingsMenu.AddSeparator(10);
             DrawingsMenu.AddGroupLabel("Tracker Draws");
             DrawingsMenu.Add("me", new CheckBox("My Path", false));
             DrawingsMenu.Add("ally", new CheckBox("Ally Path", false));
@@ -139,8 +131,9 @@ namespace Eclipse
             MiscMenu.AddGroupLabel("Settings");
             MiscMenu.AddLabel("Level Up Function");
             MiscMenu.Add("lvlup", new CheckBox("Auto Level Up Spells", false));
+            MiscMenu.Add("Lvldelay", new Slider("Lvlup Delay (ms)", 0, 0, 500));
             MiscMenu.AddSeparator(15);
-            MiscMenu.Add("skinhax", new CheckBox("Activate Skin hack"));
+            MiscMenu.CreateCheckBox("Activate Skin hack", "skinhax", false);
             MiscMenu.Add("skinID", new ComboBox("Skin Hack", 1, "Default", "Sakura Karma", "Sun Goddess Karma", "Traditional Karma", "Order of the Lotus Karma", "Warden Karma"));
             MiscMenu.AddSeparator(10);
             MiscMenu.AddLabel("Some Settings:");
@@ -148,8 +141,6 @@ namespace Eclipse
             MiscMenu.Add("autoShieldTurret", new CheckBox("Auto shield turret", true));
             MiscMenu.Add("autoShieldSpell", new CheckBox("Auto shield spell", false));
             MiscMenu.Add("antiGapCloser", new CheckBox("Anti GapCloser", true));
-            MiscMenu.CreateCheckBox("- Use OP E Logic - BlockSpell", "blockSpellsE");
-            MiscMenu.AddSeparator(14);
         }
 
         public static int comboUseRW
@@ -176,5 +167,6 @@ namespace Eclipse
         {
             get { return MiscMenu["blockSpellsE"].Cast<CheckBox>().CurrentValue; }
         }
+        public static int Lvldelay { get { return MiscMenu["Lvldelay"].Cast<Slider>().CurrentValue; } }
     }
 }
