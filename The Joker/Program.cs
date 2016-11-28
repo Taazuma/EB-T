@@ -147,9 +147,9 @@ namespace Eclipse
             Game.OnUpdate += OnGameUpdate;
             Obj_AI_Base.OnProcessSpellCast += Obj_AI_Base_OnProcessSpellCast;
             Obj_AI_Base.OnProcessSpellCast += Obj_AI_Base_OnProcessSpellCaster;
-            FpsBooster.Initialize();
             Drawing.OnDraw += Drawing_OnDraw;
             Obj_AI_Base.OnNewPath += Obj_AI_Base_OnNewPath;
+            FpsBooster.Initialize();
         }
 
 
