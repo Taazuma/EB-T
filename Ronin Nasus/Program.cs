@@ -55,11 +55,10 @@ namespace Ronin
 
         private static void Loading_OnLoadingComplete(EventArgs args)
         {
-            Chat.Print("Welcome to the Ronin Nasus");
             Core.DelayAction(() =>
             {
                 introImg = new Sprite(TextureLoader.BitmapToTexture(Resources.anime));
-                Chat.Print("<b><font size='20' color='#4B0082'>God Kayle</font><font size='20' color='#FFA07A'> Loaded</font></b>");
+                Chat.Print("<b><font size='20' color='#4B0082'>Ronin Nasus</font><font size='20' color='#FFA07A'> Loaded</font></b>");
                 Drawing.OnDraw += DrawingOnOnDraw;
                 Core.DelayAction(() =>
                 {
