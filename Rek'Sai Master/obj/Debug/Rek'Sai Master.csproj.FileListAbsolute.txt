@@ -1,0 +1,2 @@
+D:\Tommi\Documents\Visual Studio 2015\Projects\Rek'Sai Master\Rek'Sai Master\bin\Debug\Eclipse Template.exe.config
+D:\Tommi\Documents\Visual Studio 2015\Projects\Rek'Sai Master\Rek'Sai Master\obj\Debug\Rek'Sai Master.csprojResolveAssemblyReference.cache
