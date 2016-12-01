@@ -24,9 +24,16 @@ namespace Eclipse.Modes
             var wtarget = EntityManager.MinionsAndMonsters.EnemyMinions.FirstOrDefault(x => !x.IsDead && W.IsInRange(x));
             var etarget = EntityManager.MinionsAndMonsters.EnemyMinions.FirstOrDefault(x => !x.IsDead && E.IsInRange(x));
 
-            if (LaneClearMenu.GetCheckBoxValue("qUse") && Q2.IsReady())
+            if (etarget == null) return;
+
+            if (LaneClearMenu.GetCheckBoxValue("qUse") && Q.IsReady())
             {
-                Q2.Cast(qtarget.Position);
+                Q.Cast();
+            }
+
+            if (LaneClearMenu.GetCheckBoxValue("eUse") && E.IsReady() && etarget.Health <= etarget.GetDamage(SpellSlot.E))
+            {
+                E.Cast(etarget);
             }
 
         }

@@ -28,11 +28,17 @@ namespace Eclipse.Modes
                     var te = TargetSelector.GetTarget(E.Range + W.Range, DamageType.Magical);
                     var targetE = TargetSelector.GetTarget(550, DamageType.Physical);
                     var targetE2 = TargetSelector.GetTarget(E2.Range, DamageType.Physical);
-                    var predE2 = E2.GetPrediction(targetE2);
+                    var prede2 = E2.GetPrediction(targetE2).HitChance >= Hitch.hitchance(E2, FirstMenu);
                     var predq2 = Q2.GetPrediction(targetQ2).HitChance >= Hitch.hitchance(Q2, FirstMenu);
                     var t = TargetSelector.GetTarget(Q2.Range, DamageType.Physical);
                     var reksaifury = Equals(Program._player.Mana, Program._player.MaxMana);
-                    if (te == null) return;
+                    var target2 = TargetSelector.GetTarget(Q.Range + 200, DamageType.Magical);
+
+                    if (target2 == null || target2.IsInvulnerable || target2.MagicImmune)
+                    {
+                           return;
+                    }
+
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
             #region Combo0
@@ -43,24 +49,22 @@ namespace Eclipse.Modes
                 {
                     if (ComboMenu.GetCheckBoxValue("UseEBCombo"))
                     {
-                        if (E.IsReady() && te.IsValidTarget(E.Range + W.Range) && Program._player.Distance(te) > Q.Range)
+                        if (E.IsReady() && te.IsValidTarget(E.Range + W.Range) && Program._player.Distance(te) > Q.Range && prede2)
                         {
-                            var predE22 = SpellsManager.E2.GetPrediction(te);
-                            E2.Cast(predE22.CastPosition);
+                            E2.Cast(te.Position);
                         }
                     }
 
                     if (ComboMenu.GetCheckBoxValue("UseQBCombo") && Q2.IsReady() && predq2)
                     {
-                        var predQ2 = SpellsManager.Q2.GetPrediction(targetQ2);
-                        Q2.Cast(predQ2.CastPosition);
+                        Q2.Cast(targetQ2.Position);
                     }
 
                     if (ComboMenu.GetCheckBoxValue("UseWCombo") && W.IsReady())
                     {
                         if (W.IsReady() && targetW.IsValidTarget(W.Range) && !Q2.IsReady())
                         {
-                            W.Cast(t);
+                            W.Cast();
                         }
                     }
                 }
@@ -148,7 +152,6 @@ namespace Eclipse.Modes
                             {
                                 E2.Cast(targetE2.Position + 200);
                                 return;
-
                             }
                         }
                     }
@@ -228,7 +231,7 @@ namespace Eclipse.Modes
                 {
                     if (targetQ2.IsValidTarget() && !targetQ2.IsZombie)
                     {
-                        Q2.Cast(targetQ2);
+                        Q2.Cast(targetQ2.Position);
                     }
                 }
                 // W1 cast
@@ -270,7 +273,7 @@ namespace Eclipse.Modes
                     {
                         foreach (var enemy in ObjectManager.Get<AIHeroClient>().Where(x => x.IsEnemy && !x.IsZombie && x.IsValidTarget(Q2.Range)))
                         {
-                            if (Q2.GetPrediction(targetQ2).HitChance >= Hitch.hitchance(Q2, FirstMenu))
+                            if (predq2)
                             {
                                 Q2.Cast(enemy.Position);
                             }
@@ -280,7 +283,7 @@ namespace Eclipse.Modes
                     {
                         foreach (var enemy in ObjectManager.Get<AIHeroClient>().Where(x => x.IsEnemy && !x.IsZombie && x.IsValidTarget(E2.Range)))
                         {
-                            E.Cast(enemy.Position - 50);
+                            E2.Cast(enemy.Position - 50);
                         }
                     }
                     if (W.IsReady() && !Q2.IsReady() && !E2.IsReady()) // Auto Switch
@@ -288,13 +291,14 @@ namespace Eclipse.Modes
                         W.Cast();
                     }
                 }
+
                 if (!Program.IsBurrowed())
                 {
                     if (Q.IsReady() && ComboMenu.GetCheckBoxValue("UseQCombo"))
                     {
                         foreach (var enemy in ObjectManager.Get<AIHeroClient>().Where(x => x.IsEnemy && !x.IsZombie))
                         {
-                            if (targetQ.IsValidTarget(Q.Range - 10))
+                            if (targetQ.IsValidTarget(Q.Range - 5))
                             {
                                 Q.Cast();
                             }

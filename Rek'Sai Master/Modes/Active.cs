@@ -27,10 +27,25 @@ namespace Eclipse.Modes
 
             if (Program._player.IsDead || Program._player.IsRecalling()) return;
 
-            #region KS
+            //W autodisable
+            if (MiscMenu.GetCheckBoxValue("turnburrowed"))
+            {
+                int monsters = EntityManager.MinionsAndMonsters.CombinedAttackable.Where(monster => monster.IsValidTarget(W.Range * 2)).Count();
+                int enemies = EntityManager.Heroes.Enemies.Where(enemy => enemy.IsValidTarget(W.Range *3)).Count();
+                if (monsters == 0 && enemies == 0)
+                    Program.autoburrowed();
+            }
 
-            //////////////////// KS Q2
-            if (KillStealMenu.GetCheckBoxValue("qUse"))
+            else if (MiscMenu.GetCheckBoxValue("turnburrowed") && MiscMenu.GetCheckBoxValue("AutoW"))
+            {
+                Program.AutoW();
+            }
+                //
+
+                #region KS
+
+                //////////////////// KS Q2
+                if (KillStealMenu.GetCheckBoxValue("qUse"))
             {
                 var q2target = TargetSelector.GetTarget(Q2.Range, DamageType.Magical);
 

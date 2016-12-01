@@ -66,19 +66,19 @@ namespace Eclipse
             ComboMenu.AddLabel("Logics");
             ComboMenu.AddSeparator(4);
             ComboMenu.Add("Comba", new ComboBox(" Combo Logic ", 0, "Normal", "Ninja´s", "HeavenStrike", "wFights"));
-            ComboMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
-            ComboMenu.AddSeparator();
+            ComboMenu.AddSeparator(4);
+            ComboMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
+            ComboMenu.AddSeparator(7);
             ComboMenu.Add("UseQCombo", new CheckBox("Use Q Unburrowed"));
             ComboMenu.Add("UseQBCombo", new CheckBox("Use Q"));
-            ComboMenu.AddSeparator();
+            ComboMenu.AddSeparator(7);
             ComboMenu.Add("UseWCombo", new CheckBox("Use W"));
-            ComboMenu.AddSeparator();
+            ComboMenu.AddSeparator(7);
             ComboMenu.Add("UseECombo", new CheckBox("Use E Unburrowed"));
             ComboMenu.Add("UseEBCombo", new CheckBox("Use E burrowed"));
-            ComboMenu.AddSeparator();
+            ComboMenu.AddSeparator(7);
             ComboMenu.AddLabel("Pro Tips");
             ComboMenu.AddLabel("If you get problems with Q, turn on Ninja Q on MiscMenu");
-            ComboMenu.AddLabel("Find your own best Combo, there may be bugs, Beta Phase");
 
             HarassMenu.AddGroupLabel("Harass");
             HarassMenu.CreateCheckBox("Use Q", "qUse", false);

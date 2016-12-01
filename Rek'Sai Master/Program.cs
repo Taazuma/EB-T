@@ -137,31 +137,6 @@ namespace Eclipse
         private static void Game_OnGameUpdate(EventArgs args)
         {
             if (check(MiscMenu, "skinhax")) _player.SetSkinId((int)MiscMenu["skinID"].Cast<ComboBox>().CurrentValue);
-            Core.DelayAction(() =>
-            {
-                if (MiscMenu["lvlup"].Cast<CheckBox>().CurrentValue) LevelUpSpells();
-            }, Lvldelay);
-            Orbwalker.DisableAttacking = false;
-            if (getCheckBoxItem(MiscMenu, "AutoW") &&
-              (getCheckBoxItem(MiscMenu, "turnburrowed") &&
-               !Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.Combo) ||
-               !Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.LaneClear) ||
-               !Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.JungleClear) ||
-               !getKeyBindItem(MiscMenu, "escapeterino") ||
-               !Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.Flee)))
-            {
-                AutoW();
-            }
-
-            if ((!Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.Combo) ||
-                 !Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.LaneClear) ||
-                 !Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.JungleClear) ||
-                 !getKeyBindItem(MiscMenu, "escapeterino") ||
-                 !Orbwalker.ActiveModesFlags.HasFlag(Orbwalker.ActiveModes.Flee)) &&
-                getCheckBoxItem(MiscMenu, "turnburrowed") && !IsBurrowed())
-            {
-                autoburrowed();
-            }
             if (getKeyBindItem(MiscMenu, "escapeterino"))
             {
                 Escapeterino();
@@ -183,7 +158,7 @@ namespace Eclipse
         }
 
 
-        private static void AutoW()
+        public static void AutoW()
         {
             var reksaiHp = _player.MaxHealth * getSliderItem(MiscMenu, "AutoWHP") / 100;
             var reksaiMp = _player.MaxMana * getSliderItem(MiscMenu, "AutoWMP") / 100;
