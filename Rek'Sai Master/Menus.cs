@@ -108,9 +108,6 @@ namespace Eclipse
             MiscMenu.Add("Inter_W", new CheckBox("Use W to Interrupter"));
             MiscMenu.Add("turnburrowed", new CheckBox("Turn Burrowed if do nothing"));
             MiscMenu.CreateCheckBox("Ninja Q Logic", "ninjaq", false);
-            MiscMenu.AddLabel("Level Up Function");
-            MiscMenu.Add("lvlup", new CheckBox("Auto Level Up Spells", false));
-            MiscMenu.Add("Lvldelay", new Slider("Lvlup Delay (ms)", 0, 0, 500));
             MiscMenu.AddSeparator(12);
             MiscMenu.CreateCheckBox("Activate Skin hack", "skinhax", false);
             MiscMenu.Add("skinID", new ComboBox("Skin Hack", 0, "Default", "Eternum Rek'Sai", "Pool Party Rek'Sai"));
@@ -135,6 +132,5 @@ namespace Eclipse
             DrawingsMenu.Add("flee", new CheckBox("Flee", false));
 
         }
-        public static int Lvldelay { get { return MiscMenu["Lvldelay"].Cast<Slider>().CurrentValue; } }
     }
 }
