@@ -25,7 +25,7 @@ namespace Eclipse.Modes
             var useQ = JungleClearMenu.GetCheckBoxValue("qUse");
             var useW = JungleClearMenu.GetCheckBoxValue("wUse");
             var useE = JungleClearMenu.GetCheckBoxValue("eUse");
-            var source = EntityManager.MinionsAndMonsters.GetJungleMonsters(Eclipse.Modes.LaneClear.Player.ServerPosition).OrderByDescending(a => a.MaxHealth).FirstOrDefault(a => a.Distance(Eclipse.Modes.LaneClear.Player) <= Eclipse.Modes.LaneClear.Player.GetAutoAttackRange());
+            var source = EntityManager.MinionsAndMonsters.GetJungleMonsters(Eclipse.Modes.LaneClear.Playerr.ServerPosition).OrderByDescending(a => a.MaxHealth).FirstOrDefault(a => a.Distance(Eclipse.Modes.LaneClear.Playerr) <= Eclipse.Modes.LaneClear.Playerr.GetAutoAttackRange());
             ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             if (target == null) return;
 
@@ -42,9 +42,9 @@ namespace Eclipse.Modes
             }
 
             if (!W.IsReady() || !useW) return;
-            if (W.IsReady() && Eclipse.Modes.LaneClear.Player.HealthPercent < JungleClearMenu["jungle.minw"].Cast<Slider>().CurrentValue)
+            if (W.IsReady() && Eclipse.Modes.LaneClear.Playerr.HealthPercent < JungleClearMenu["jungle.minw"].Cast<Slider>().CurrentValue)
             {
-                if (Eclipse.Modes.LaneClear.Player.Spellbook.GetSpell(SpellSlot.W).ToggleState == 2)
+                if (Eclipse.Modes.LaneClear.Playerr.Spellbook.GetSpell(SpellSlot.W).ToggleState == 2)
                 {
                     W.Cast();
                     return;
@@ -52,8 +52,8 @@ namespace Eclipse.Modes
             }
 
             if (!W.IsReady() ||
-                !(Eclipse.Modes.LaneClear.Player.HealthPercent > JungleClearMenu["jungle.maxw"].Cast<Slider>().CurrentValue)) return;
-            if (Eclipse.Modes.LaneClear.Player.Spellbook.GetSpell(SpellSlot.W).ToggleState != 1) return;
+                !(Eclipse.Modes.LaneClear.Playerr.HealthPercent > JungleClearMenu["jungle.maxw"].Cast<Slider>().CurrentValue)) return;
+            if (Eclipse.Modes.LaneClear.Playerr.Spellbook.GetSpell(SpellSlot.W).ToggleState != 1) return;
             W.Cast();
             return;
 

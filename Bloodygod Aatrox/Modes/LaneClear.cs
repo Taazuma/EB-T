@@ -18,7 +18,7 @@ namespace Eclipse.Modes
 {
     internal class LaneClear
     {
-        public static AIHeroClient Player
+        public static AIHeroClient Playerr
         {
             get { return ObjectManager.Player; }
         }
@@ -28,13 +28,15 @@ namespace Eclipse.Modes
             Orbwalker.ForcedTarget = null;
             var useQ = LaneClearMenu.GetCheckBoxValue("qUse");
             var useE = LaneClearMenu.GetCheckBoxValue("eUse");
-            var count = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, Player.ServerPosition, E.Range, false).Count();
-            var sourceq = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, Player.ServerPosition, Q.Range).OrderByDescending(a => a.MaxHealth).FirstOrDefault();
-            var sourcee = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, Player.ServerPosition, E.Range).OrderByDescending(a => a.MaxHealth).FirstOrDefault();
+            var count = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, Playerr.ServerPosition, E.Range, false).Count();
+            var sourceq = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, Playerr.ServerPosition, Q.Range).OrderByDescending(a => a.MaxHealth).FirstOrDefault();
+            var sourcee = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, Playerr.ServerPosition, E.Range).OrderByDescending(a => a.MaxHealth).FirstOrDefault();
             ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
             if (sourceq == null) return;
             if (count == 0) return;
+
+            if (sourceq.IsUnderHisturret() && Player.Instance.CountEnemiesInRange(Q.Range *2) >= 1) return;
 
             if (Q.IsReady() && useQ && LaneClearMenu["lc.MinionsQ"].Cast<Slider>().CurrentValue >= count)
             {
