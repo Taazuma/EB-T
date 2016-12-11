@@ -42,11 +42,8 @@ namespace Eclipse
             FirstMenu.AddLabel("Have fun with Playing");
             ComboMenu = FirstMenu.AddSubMenu("Combo", ComboMenuID);
             HarassMenu = FirstMenu.AddSubMenu("Harass", HarassMenuID);
-            //AutoHarassMenu = FirstMenu.AddSubMenu("AutoHarass", AutoHarassMenuID);
             LaneClearMenu = FirstMenu.AddSubMenu("LaneClear", LaneClearMenuID);
-            //LasthitMenu = FirstMenu.AddSubMenu("LastHit", LastHitMenuID);
             JungleClearMenu = FirstMenu.AddSubMenu("JungleClear", JungleClearMenuID);
-            //KillStealMenu = FirstMenu.AddSubMenu("KillSteal", KillStealMenuID);
             DrawingsMenu = FirstMenu.AddSubMenu("Drawings", DrawingsMenuID);
             MiscMenu = FirstMenu.AddSubMenu("Misc", MiscMenuID);
 
@@ -113,10 +110,6 @@ namespace Eclipse
             MiscMenu.Add("skinID", new ComboBox("Skin Hack", 1, "Default", "Justikar Aatrox", "Mecha Aatrox", "Sea Hunter Aatrox"));
 
 
-        }
-        public static int skinId()
-        {
-            return MiscMenu["skin.Id"].Cast<Slider>().CurrentValue;
         }
     }
 }

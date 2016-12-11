@@ -59,7 +59,7 @@ namespace Eclipse
                 return;
             }
 
-            E.Cast(e.Sender);
+            E.Cast(e.Sender.Position);
         }
 
         private static void Interrupter_OnInterruptableSpell(Obj_AI_Base sender, Interrupter.InterruptableSpellEventArgs e)
@@ -70,7 +70,7 @@ namespace Eclipse
             }
             if (Q.IsReady() && MiscMenu["interrupt.q"].Cast<CheckBox>().CurrentValue)
             {
-                Q.Cast(sender);
+                Q.Cast(sender.Position);
             }
         }
 
@@ -99,7 +99,6 @@ namespace Eclipse
 
         public static float GetComboDamage(AIHeroClient unit, int maxStacks)
         {
-            //Thanks to Joker Basic Template //
             var d = 2 * Player.Instance.GetAutoAttackDamage(unit);
 
             if ((Player.Instance.GetSpellSlotFromName("summonerdot") == SpellSlot.Summoner1 ||
