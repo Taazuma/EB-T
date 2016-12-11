@@ -58,7 +58,10 @@ namespace Eclipse
             ComboMenu.Add("combo.maxw", new Slider("Max hp to Blood Thirst / Blood Price (W Spell)", 80, 0, 100));
             ComboMenu.AddSeparator(5);
             ComboMenu.CreateCheckBox("Use E", "eUse");
+            ComboMenu.AddSeparator(5);
             ComboMenu.CreateCheckBox("Use R", "rUse");
+            ComboMenu.Add("RS", new ComboBox(" R Usage ", 1, "On Cast", "Faceing", "Low HP"));
+            ComboMenu.AddSeparator(5);
             ComboMenu.Add("combo.REnemies", new Slider("R Min Enemies >=", 2, 1, 5));
             ComboMenu.AddSeparator(5);
 
@@ -67,24 +70,12 @@ namespace Eclipse
             HarassMenu.AddSeparator(5);
             HarassMenu.CreateCheckBox("Use E", "eUse");
 
-            //AutoHarassMenu.AddGroupLabel("AutoHarass");
-            //AutoHarassMenu.CreateCheckBox("Use Q", "qUse");
-            //AutoHarassMenu.CreateCheckBox("Use E", "eUse");
-            //AutoHarassMenu.AddGroupLabel("Settings");
-            //AutoHarassMenu.CreateSlider("Mana must be higher than [{0}%] to use Harass spells", "manaSlider", 30);
-
             LaneClearMenu.AddGroupLabel("LaneClear");
             LaneClearMenu.CreateCheckBox("Use Q", "qUse");
             LaneClearMenu.Add("lc.MinionsQ", new Slider("Min. Minions for Dark Flight ", 3, 0, 10));
             LaneClearMenu.AddSeparator(5);
             LaneClearMenu.CreateCheckBox("Use E", "eUse");
             LaneClearMenu.Add("lc.MinionsE", new Slider("Min. Minions for Blades of Torment ", 3, 0, 10));
-
-            //LasthitMenu.AddGroupLabel("Lasthit");
-            //LasthitMenu.CreateCheckBox("Use Q", "qUse");
-            //LasthitMenu.CreateCheckBox("Use E", "eUse");
-            //LasthitMenu.AddGroupLabel("Settings");
-            //LasthitMenu.CreateSlider("Mana must be higher than [{0}%] to use Harass spells", "manaSlider", 30);
 
             JungleClearMenu.AddGroupLabel("JungleClear");
             JungleClearMenu.CreateCheckBox("Use Q", "qUse");
@@ -95,15 +86,15 @@ namespace Eclipse
 
             DrawingsMenu.AddGroupLabel("Settings");
             DrawingsMenu.CreateCheckBox("Draw spell`s range only if they are ready.", "readyDraw");
-            DrawingsMenu.CreateCheckBox("Draw damage indicator.", "damageDraw");
-            DrawingsMenu.CreateCheckBox("Draw damage indicator percent.", "perDraw");
+            DrawingsMenu.CreateCheckBox("Draw damage indicator.", "damageDraw", false);
+            DrawingsMenu.CreateCheckBox("Draw damage indicator percent.", "perDraw", false);
             DrawingsMenu.CreateCheckBox("Draw damage indicator statistics.", "statDraw", false);
             DrawingsMenu.AddGroupLabel("Spells");
             DrawingsMenu.CreateCheckBox("Draw Q.", "qDraw", false);
             DrawingsMenu.CreateCheckBox("Draw W.", "wDraw", false);
-            DrawingsMenu.CreateCheckBox("Draw E.", "eDraw");
+            DrawingsMenu.CreateCheckBox("Draw E.", "eDraw", false);
             DrawingsMenu.CreateCheckBox("Draw R.", "rDraw", false);
-            DrawingsMenu.CreateCheckBox("Show Killable", "showkilla");
+            DrawingsMenu.CreateCheckBox("Show if the Target is killable", "showkilla", false);
             DrawingsMenu.AddGroupLabel("Drawings Color");
             QColorSlide = new ColorSlide(DrawingsMenu, "qColor", Color.Red, "Q Color:");
             WColorSlide = new ColorSlide(DrawingsMenu, "wColor", Color.Purple, "W Color:");
@@ -114,11 +105,11 @@ namespace Eclipse
             MiscMenu.AddGroupLabel("Settings");
             MiscMenu.Add("interrupt.q", new CheckBox("Blades of Torment (Q Spell) to Interrupt"));
             MiscMenu.Add("gapcloser.e", new CheckBox("Blades of Torment (E Spell) on Incoming Gapcloser"));
-            MiscMenu.AddSeparator(10);
+            MiscMenu.AddSeparator(13);
             MiscMenu.AddLabel("Level Up Function"); 
             MiscMenu.Add("lvlup", new CheckBox("Auto Level Up Spells", false));
-            MiscMenu.AddSeparator(15);
-            MiscMenu.Add("skinhax", new CheckBox("Activate Skin hack"));
+            MiscMenu.AddSeparator(13);
+            MiscMenu.CreateCheckBox("Activate Skin hack", "skinhax", false);
             MiscMenu.Add("skinID", new ComboBox("Skin Hack", 1, "Default", "Justikar Aatrox", "Mecha Aatrox", "Sea Hunter Aatrox"));
 
 

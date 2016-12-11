@@ -31,7 +31,7 @@ namespace Eclipse.Modes
 
             if (Q.IsReady() && Eclipse.Menus.HarassMenu.GetCheckBoxValue("qUse") && ttarget.Distance(Eclipse.Modes.LaneClear.Player) <= Q.Range)
             {
-                Q.Cast(ttarget);
+                Q.Cast(ttarget.Position);
             }
 
             if (useE && E.IsReady())

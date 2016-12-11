@@ -11,3 +11,16 @@ D:\Tommi\Documents\Visual Studio 2015\Projects\Bloodygod Aatrox\Bloodygod Aatrox
 D:\Tommi\Documents\Visual Studio 2015\Projects\Bloodygod Aatrox\Bloodygod Aatrox\obj\Release\Bloodygod Aatrox.exe
 D:\Tommi\Documents\Visual Studio 2015\Projects\Bloodygod Aatrox\Bloodygod Aatrox\obj\Release\Bloodygod Aatrox.pdb
 D:\Tommi\Documents\Visual Studio 2015\Projects\Bloodygod Aatrox\Bloodygod Aatrox\obj\Release\Bloodygod Aatrox.csprojResolveAssemblyReference.cache
+D:\Tommi\Documents\GitHub\EB-T\Bloodygod Aatrox\bin\Release\Bloodygod Aatrox.exe.config
+D:\Tommi\Documents\GitHub\EB-T\Bloodygod Aatrox\bin\Release\Bloodygod Aatrox.exe
+D:\Tommi\Documents\GitHub\EB-T\Bloodygod Aatrox\bin\Release\Bloodygod Aatrox.pdb
+D:\Tommi\Documents\GitHub\EB-T\Bloodygod Aatrox\bin\Release\EloBuddy.dll
+D:\Tommi\Documents\GitHub\EB-T\Bloodygod Aatrox\bin\Release\EloBuddy.Sandbox.dll
+D:\Tommi\Documents\GitHub\EB-T\Bloodygod Aatrox\bin\Release\EloBuddy.SDK.dll
+D:\Tommi\Documents\GitHub\EB-T\Bloodygod Aatrox\bin\Release\Newtonsoft.Json.dll
+D:\Tommi\Documents\GitHub\EB-T\Bloodygod Aatrox\bin\Release\SharpDX.Direct3D9.dll
+D:\Tommi\Documents\GitHub\EB-T\Bloodygod Aatrox\bin\Release\SharpDX.dll
+D:\Tommi\Documents\GitHub\EB-T\Bloodygod Aatrox\bin\Release\SharpDX.XInput.dll
+D:\Tommi\Documents\GitHub\EB-T\Bloodygod Aatrox\obj\Release\Bloodygod Aatrox.csprojResolveAssemblyReference.cache
+D:\Tommi\Documents\GitHub\EB-T\Bloodygod Aatrox\obj\Release\Bloodygod Aatrox.exe
+D:\Tommi\Documents\GitHub\EB-T\Bloodygod Aatrox\obj\Release\Bloodygod Aatrox.pdb

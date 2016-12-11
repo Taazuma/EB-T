@@ -73,22 +73,19 @@ namespace Eclipse
                 }, 7000);
             }, 2000);
             AbilitySequence = new int[] { 1, 3, 2, 1, 1, 4, 1, 3, 1, 3, 4, 3, 3, 2, 2, 4, 2, 2 };
-            FpsBooster.Initialize();
             SpellsManager.InitializeSpells();
             Menus.CreateMenu();
             ModeManager.InitializeModes();
-            Game.OnUpdate += GameonUpdate;
+            Game.OnUpdate += GameOnUpdate;
             Drawing.OnDraw += Drawing_OnDraw;
             Obj_AI_Base.OnNewPath += Obj_AI_Base_OnNewPath;
+            FpsBooster.Initialize();
         }
 
-        private static void GameonUpdate(EventArgs args)
+        private static void GameOnUpdate(EventArgs args)
         {
             if (check(MiscMenu, "skinhax")) _player.SetSkinId((int)MiscMenu["skinID"].Cast<ComboBox>().CurrentValue);
-            Core.DelayAction(() =>
-            {
             if (MiscMenu["lvlup"].Cast<CheckBox>().CurrentValue) LevelUpSpells();
-            }, Lvldelay);
         }
 
         private static void LevelUpSpells() // Thanks iRaxe

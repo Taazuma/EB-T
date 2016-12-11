@@ -27,7 +27,7 @@ namespace Eclipse.Modes
             var useE = JungleClearMenu.GetCheckBoxValue("eUse");
             var source = EntityManager.MinionsAndMonsters.GetJungleMonsters(Eclipse.Modes.LaneClear.Player.ServerPosition).OrderByDescending(a => a.MaxHealth).FirstOrDefault(a => a.Distance(Eclipse.Modes.LaneClear.Player) <= Eclipse.Modes.LaneClear.Player.GetAutoAttackRange());
             ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            if (source == null) return;
+            if (target == null) return;
 
             if (E.IsReady() && useE)
             {
@@ -37,9 +37,10 @@ namespace Eclipse.Modes
 
             if (Q.IsReady() && useQ && source.Distance(Eclipse.Modes.LaneClear.Player) <= Q.Range)
             {
-                Q.Cast(target);
+                Q.Cast(target.Position);
                 return;
             }
+
             if (!W.IsReady() || !useW) return;
             if (W.IsReady() && Eclipse.Modes.LaneClear.Player.HealthPercent < JungleClearMenu["jungle.minw"].Cast<Slider>().CurrentValue)
             {

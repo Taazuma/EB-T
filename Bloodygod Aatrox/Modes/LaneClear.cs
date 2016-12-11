@@ -37,7 +37,7 @@ namespace Eclipse.Modes
             if (count == 0) return;
             if (Q.IsReady() && useQ && LaneClearMenu["lc.MinionsQ"].Cast<Slider>().CurrentValue >= count)
             {
-                Q.Cast(sourceq);
+                Q.Cast(sourceq.Position);
             }
 
             if (!E.IsReady() || !useE || LaneClearMenu["lc.MinionsE"].Cast<Slider>().CurrentValue > count) return;
@@ -45,7 +45,7 @@ namespace Eclipse.Modes
 
             if (prediction.HitChance >= HitChance.High)
             {
-                E.Cast(sourcee);
+                E.Cast(sourcee.Position);
             }
 
 

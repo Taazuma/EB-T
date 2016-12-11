@@ -71,11 +71,21 @@ namespace Eclipse.Modes
                 }
             }
 
-         
-            if (useR && R.IsReady() && Player.Instance.IsFacing(Target) && _player.ServerPosition.CountEnemiesInRange(500f) <= ultEnemies)
+            if (ComboMenu["RS"].Cast<ComboBox>().CurrentValue == 0 && useR && R.IsReady() && _player.ServerPosition.CountEnemiesInRange(500f) <= ultEnemies)
             {
                 R.Cast();
             }
+
+            else if (ComboMenu["RS"].Cast<ComboBox>().CurrentValue == 1 && useR && R.IsReady() && Player.Instance.IsFacing(Target) && _player.ServerPosition.CountEnemiesInRange(500f) <= ultEnemies)
+            {
+                R.Cast();
+            }
+
+            else if (ComboMenu["RS"].Cast<ComboBox>().CurrentValue == 2 && useR && R.IsReady() && Program._player.Health <= 25 && _player.ServerPosition.CountEnemiesInRange(500f) <= ultEnemies)
+            {
+                R.Cast();
+            }
+
 
         }
     }

@@ -28,26 +28,19 @@ namespace Eclipse.Modes
 
             ///////////////////////////////////////////////////////////////////////
             var Target = TargetSelector.GetTarget(Q.Range, DamageType.Physical);
-            var useQ = ComboMenu.GetCheckBoxValue("qUse");
-            var useW = ComboMenu.GetCheckBoxValue("wUse");
-            var useE = ComboMenu.GetCheckBoxValue("eUse");
-            var useR = ComboMenu.GetCheckBoxValue("rUse");
-            var ultEnemies = ComboMenu.GetSliderValue("combo.REnemies");
+            ///////////////////////////////////////////////////////////////////////
+
+            if (Q.IsReady())
+            {
+               Q.Cast(Game.CursorPos);
+            }
+
             if (Target == null || Target.IsInvulnerable || Target.MagicImmune)
             {
                 return;
             }
-            ///////////////////////////////////////////////////////////////////////
 
-            if (useQ && Q.IsReady())
-            {
-                if (!Target.HasBuff("AatroxQ"))
-                {
-                    Q.Cast(Target.ServerPosition);
-                }
-            }
-
-            if (useE && E.IsReady())
+            if (E.IsReady())
             {
                 E.Cast(Target.ServerPosition);
             }

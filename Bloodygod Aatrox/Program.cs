@@ -29,7 +29,7 @@ namespace Eclipse
         {
             get { return ObjectManager.Player; }
         }
-        private static bool check(Menu submenu, string sig)
+        public static bool check(Menu submenu, string sig)
         {
             return submenu[sig].Cast<CheckBox>().CurrentValue;
         }
@@ -46,32 +46,11 @@ namespace Eclipse
             SpellsManager.InitializeSpells();
             DrawingsManager.InitializeDrawings();
             ModeManager.InitializeModes();
-            Game.OnUpdate += OnGameUpdate;
-            Game.OnTick += GameOnTick;
             Menus.CreateMenu();
             Interrupter.OnInterruptableSpell += Interrupter_OnInterruptableSpell;
             Gapcloser.OnGapcloser += AntiGapCloser;
-            if (!SpellManager.HasSmite())
-            {
-                Chat.Print("No smite detected - unloading Smite.", System.Drawing.Color.Red);
-                return;
-            }
-            Config.Initialize();
-            ModeManagerSmite.Initialize();
-            Events.Initialize();
-            if (Igniter.ignt.Slot == SpellSlot.Unknown) return;
-            Chat.Print("IgniteHelper by T7");
-            Igniter.Menu();
-            Game.OnUpdate += Igniter.OnUpdate;
-            Drawing.OnDraw += Igniter.OnDraw;
+            FpsBooster.Initialize();
         }
-
-        private static void OnGameUpdate(EventArgs args)
-        {
-            if (check(MiscMenu, "skinhax")) _player.SetSkinId((int)MiscMenu["skinID"].Cast<ComboBox>().CurrentValue);
-        }
-
-
 
         private static void AntiGapCloser(AIHeroClient sender, Gapcloser.GapcloserEventArgs e)
         {
@@ -95,12 +74,7 @@ namespace Eclipse
             }
         }
 
-        private static void GameOnTick(EventArgs args)
-        {
-            if (MiscMenu["lvlup"].Cast<CheckBox>().CurrentValue) LevelUpSpells();
-        }
-
-        private static void LevelUpSpells()
+        public static void LevelUpSpells()
         {
             var qL = _player.Spellbook.GetSpell(SpellSlot.Q).Level + qOff;
             var wL = _player.Spellbook.GetSpell(SpellSlot.W).Level + wOff;
@@ -129,7 +103,7 @@ namespace Eclipse
             var d = 2 * Player.Instance.GetAutoAttackDamage(unit);
 
             if ((Player.Instance.GetSpellSlotFromName("summonerdot") == SpellSlot.Summoner1 ||
-                Player.Instance.GetSpellSlotFromName("summonerdot") == SpellSlot.Summoner2) && Eclipse.Igniter.ignt.IsReady())
+                Player.Instance.GetSpellSlotFromName("summonerdot") == SpellSlot.Summoner2))
                 d += Player.Instance.GetSummonerSpellDamage(unit, DamageLibrary.SummonerSpells.Ignite);
 
             if (ComboMenu.GetCheckBoxValue("qUse") && SpellsManager.Q.IsReady())
