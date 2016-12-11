@@ -68,13 +68,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ColorSliders.cs" />
-    <Compile Include="DamageIndicator.cs" />
-    <Compile Include="DrawingsManager.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="FpsBooster.cs" />
     <Compile Include="Hitch.cs" />
-    <Compile Include="Indicator.cs" />
     <Compile Include="Menus.cs" />
     <Compile Include="Modes\Active.cs" />
     <Compile Include="Modes\Combo.cs" />

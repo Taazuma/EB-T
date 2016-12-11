@@ -354,5 +354,29 @@ namespace Eclipse
         }
 
         #endregion GetTargetHelper
+
+        #region ici
+        public static void AddStringList(this Menu m, string uniqueId, string displayName, string[] values,
+    int defaultValue = 0)
+        {
+            var mode = m.Add(uniqueId, new Slider(displayName, defaultValue, 0, values.Length - 1));
+            mode.DisplayName = displayName + ": " + values[mode.CurrentValue];
+            mode.OnValueChange +=
+                delegate (ValueBase<int> sender, ValueBase<int>.ValueChangeArgs args)
+                {
+                    sender.DisplayName = displayName + ": " + values[args.NewValue];
+                };
+        }
+        public static bool IsInEnemyTurret(this Obj_AI_Base unit)
+        {
+            if (unit == null || !unit.IsValid || unit.IsDead) return false;
+            var turret =
+                EntityManager.Turrets.Enemies.FirstOrDefault(
+                    m => m != null && m.Health > 0 && m.IsValid && unit.Distance(m, true) <= Math.Pow(750f + 80, 2));
+            return turret != null;
+        }
+        #endregion ici
+
+
     }
 }

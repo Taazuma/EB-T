@@ -13,6 +13,7 @@ using EloBuddy.SDK.Menu.Values;
 using EloBuddy.SDK.Rendering;
 using SharpDX;
 using static Eclipse.SpellsManager;
+using static Eclipse.Menus;
 
 namespace Eclipse.Modes
 {
@@ -22,19 +23,19 @@ namespace Eclipse.Modes
         {
             var Target = TargetSelector.GetTarget(E.Range, DamageType.Physical);
             var ttarget = TargetSelector.GetTarget(Q.Range, DamageType.Physical);
-            if (!Target.IsValidTarget())
+
+            if (Target == null || Target.IsInvulnerable || Target.MagicImmune)
             {
                 return;
             }
-
             var useE = Eclipse.Menus.HarassMenu.GetCheckBoxValue("eUse");
 
-            if (Q.IsReady() && Eclipse.Menus.HarassMenu.GetCheckBoxValue("qUse") && ttarget.Distance(Eclipse.Modes.LaneClear.Player) <= Q.Range)
+            if (Q.IsReady() && Eclipse.Menus.HarassMenu.GetCheckBoxValue("qUse") && ttarget.IsValidTarget(Q.Range -20) && Q.GetPrediction(ttarget).HitChance >= Hitch.hitchance(Q, FirstMenu))
             {
                 Q.Cast(ttarget.Position);
             }
 
-            if (useE && E.IsReady())
+            if (useE && E.IsReady() && Target.IsValidTarget(E.Range - 20) && E.GetPrediction(Target).HitChance >= Hitch.hitchance(E, FirstMenu))
             {
                 E.Cast(Target.Position);
             }

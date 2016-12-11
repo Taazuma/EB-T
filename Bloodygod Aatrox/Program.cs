@@ -44,11 +44,11 @@ namespace Eclipse
             Chat.Print("Have Fun with Playing ! by TaaZ");
             AbilitySequence = new int[] { 3, 2, 3, 1, 3, 4, 3, 2, 3, 2, 4, 2, 2, 1, 1, 4, 1, 1 };
             SpellsManager.InitializeSpells();
-            DrawingsManager.InitializeDrawings();
             ModeManager.InitializeModes();
             Menus.CreateMenu();
             Interrupter.OnInterruptableSpell += Interrupter_OnInterruptableSpell;
             Gapcloser.OnGapcloser += AntiGapCloser;
+            Drawing.OnDraw += OnDraw;
             FpsBooster.Initialize();
         }
 
@@ -92,30 +92,43 @@ namespace Eclipse
             if (rL < level[3]) ObjectManager.Player.Spellbook.LevelSpell(SpellSlot.R);
         }
 
-        public static float GetComboDamage(AIHeroClient unit)
+        #region drawa
+        private static void OnDraw(EventArgs args)
         {
-            return GetComboDamage(unit, 0);
+            if (_player.IsDead) return;
+
+            if (check(DrawingsMenu, "drawQ") && SpellsManager.Q.Level > 0 && !_player.IsDead && !check(DrawingsMenu, "nodraw"))
+            {
+
+                if (check(DrawingsMenu, "drawonlyrdy"))
+                { Circle.Draw(SpellsManager.Q.IsOnCooldown ? SharpDX.Color.Transparent : SharpDX.Color.Fuchsia, 750, _player.Position); }
+
+                else if (!check(DrawingsMenu, "drawonlyrdy")) { Circle.Draw(SharpDX.Color.Fuchsia, 750, _player.Position); }
+
+            }
+
+            if (check(DrawingsMenu, "drawW") && SpellsManager.W.Level > 0 && !_player.IsDead && !check(DrawingsMenu, "nodraw"))
+            {
+
+                if (check(DrawingsMenu, "drawonlyrdy"))
+                { Circle.Draw(SpellsManager.W.IsOnCooldown ? SharpDX.Color.Transparent : SharpDX.Color.Fuchsia, SpellsManager.W.Range, _player.Position); }
+
+                else if (!check(DrawingsMenu, "drawonlyrdy")) { Circle.Draw(SharpDX.Color.Fuchsia, SpellsManager.W.Range, _player.Position); }
+
+            }
+
+            if (check(DrawingsMenu, "drawR") && SpellsManager.R.Level > 0 && !_player.IsDead && !check(DrawingsMenu, "nodraw"))
+            {
+
+                if (check(DrawingsMenu, "drawonlyrdy"))
+                { Circle.Draw(SpellsManager.R.IsOnCooldown ? SharpDX.Color.Transparent : SharpDX.Color.Fuchsia, SpellsManager.R.Range, _player.Position); }
+
+                else if (!check(DrawingsMenu, "drawonlyrdy")) { Circle.Draw(SharpDX.Color.Fuchsia, SpellsManager.R.Range, _player.Position); }
+            }
+
         }
+        #endregion drawa
 
-        public static float GetComboDamage(AIHeroClient unit, int maxStacks)
-        {
-            var d = 2 * Player.Instance.GetAutoAttackDamage(unit);
-
-            if ((Player.Instance.GetSpellSlotFromName("summonerdot") == SpellSlot.Summoner1 ||
-                Player.Instance.GetSpellSlotFromName("summonerdot") == SpellSlot.Summoner2))
-                d += Player.Instance.GetSummonerSpellDamage(unit, DamageLibrary.SummonerSpells.Ignite);
-
-            if (ComboMenu.GetCheckBoxValue("qUse") && SpellsManager.Q.IsReady())
-                d += Player.Instance.GetSpellDamage(unit, SpellSlot.Q);
-
-            if (ComboMenu.GetCheckBoxValue("eUse") && SpellsManager.E.IsReady())
-                d += Player.Instance.GetSpellDamage(unit, SpellSlot.E);
-
-            if (SpellsManager.R.IsReady() && ComboMenu.GetCheckBoxValue("rUse"))
-                d += 2 * Player.Instance.GetAutoAttackDamage(unit);
-
-            return (float)d;
-        }
 
     }
 }

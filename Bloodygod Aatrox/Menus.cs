@@ -18,12 +18,6 @@ namespace Eclipse
         public static Menu DrawingsMenu;
         public static Menu MiscMenu;
 
-        public static ColorSlide QColorSlide;
-        public static ColorSlide WColorSlide;
-        public static ColorSlide EColorSlide;
-        public static ColorSlide RColorSlide;
-        public static ColorSlide DamageIndicatorColorSlide;
-
         public const string ComboMenuID = "combomenuid";
         public const string HarassMenuID = "harassmenuid";
         public const string AutoHarassMenuID = "autoharassmenuid";
@@ -38,8 +32,14 @@ namespace Eclipse
         {
             FirstMenu = MainMenu.AddMenu("God " + Player.Instance.ChampionName, Player.Instance.ChampionName.ToLower() + "bloodygod");
 			FirstMenu.AddGroupLabel("Addon by Taazuma / Thanks for using it");
-            FirstMenu.AddLabel("If you found any bugs report it on my Thread");
-            FirstMenu.AddLabel("Have fun with Playing");
+            FirstMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
+            FirstMenu.AddGroupLabel("Prediction");
+            FirstMenu.AddSeparator(5);
+            FirstMenu.AddGroupLabel("Q Settings");
+            FirstMenu.Add(SpellsManager.Q.Slot + "hit", new ComboBox("Q HitChance", 1, "High", "Medium", "Low"));
+            FirstMenu.AddGroupLabel("E Settings");
+            FirstMenu.Add(SpellsManager.E.Slot + "hit", new ComboBox("E HitChance", 1, "High", "Medium", "Low"));
+            FirstMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             ComboMenu = FirstMenu.AddSubMenu("Combo", ComboMenuID);
             HarassMenu = FirstMenu.AddSubMenu("Harass", HarassMenuID);
             LaneClearMenu = FirstMenu.AddSubMenu("LaneClear", LaneClearMenuID);
@@ -48,7 +48,8 @@ namespace Eclipse
             MiscMenu = FirstMenu.AddSubMenu("Misc", MiscMenuID);
 
             ComboMenu.AddGroupLabel("Combo");
-            ComboMenu.CreateCheckBox("Use Q", "qUse");
+            ComboMenu.AddStringList("Q1", "Use Q", new[] { "Never", "Only on target", "On any enemy" }, 1);
+            ComboMenu.AddSeparator(5);
             ComboMenu.CreateCheckBox("Use W", "wUse");
             ComboMenu.AddSeparator(5);
             ComboMenu.Add("combo.minw", new Slider("Min hp to Blood Thirst / Blood Price (W Spell)", 50, 0, 100));
@@ -61,6 +62,7 @@ namespace Eclipse
             ComboMenu.AddSeparator(5);
             ComboMenu.Add("combo.REnemies", new Slider("R Min Enemies >=", 2, 1, 5));
             ComboMenu.AddSeparator(5);
+            ComboMenu.AddLabel("Change Hitchange on the First Menu!");
 
             HarassMenu.AddGroupLabel("Harass");
             HarassMenu.CreateCheckBox("Use Q", "qUse");
@@ -82,22 +84,12 @@ namespace Eclipse
             JungleClearMenu.CreateCheckBox("Use E", "eUse");
 
             DrawingsMenu.AddGroupLabel("Settings");
-            DrawingsMenu.CreateCheckBox("Draw spell`s range only if they are ready.", "readyDraw");
-            DrawingsMenu.CreateCheckBox("Draw damage indicator.", "damageDraw", false);
-            DrawingsMenu.CreateCheckBox("Draw damage indicator percent.", "perDraw", false);
-            DrawingsMenu.CreateCheckBox("Draw damage indicator statistics.", "statDraw", false);
-            DrawingsMenu.AddGroupLabel("Spells");
-            DrawingsMenu.CreateCheckBox("Draw Q.", "qDraw", false);
-            DrawingsMenu.CreateCheckBox("Draw W.", "wDraw", false);
-            DrawingsMenu.CreateCheckBox("Draw E.", "eDraw", false);
-            DrawingsMenu.CreateCheckBox("Draw R.", "rDraw", false);
-            DrawingsMenu.CreateCheckBox("Show if the Target is killable", "showkilla", false);
-            DrawingsMenu.AddGroupLabel("Drawings Color");
-            QColorSlide = new ColorSlide(DrawingsMenu, "qColor", Color.Red, "Q Color:");
-            WColorSlide = new ColorSlide(DrawingsMenu, "wColor", Color.Purple, "W Color:");
-            EColorSlide = new ColorSlide(DrawingsMenu, "eColor", Color.Orange, "E Color:");
-            RColorSlide = new ColorSlide(DrawingsMenu, "rColor", Color.DeepPink, "R Color:");
-            DamageIndicatorColorSlide = new ColorSlide(DrawingsMenu, "healthColor", Color.YellowGreen, "DamageIndicator Color:");
+            DrawingsMenu.Add("nodraw", new CheckBox("Disable All Drawings", false));
+            DrawingsMenu.AddSeparator();
+            DrawingsMenu.Add("drawQ", new CheckBox("Draw Q Range", false));
+            DrawingsMenu.Add("drawW", new CheckBox("Draw W Range", false));
+            DrawingsMenu.Add("drawR", new CheckBox("Draw R Range", false));
+            DrawingsMenu.Add("drawonlyrdy", new CheckBox("Draw Only Ready Spells", true));
 
             MiscMenu.AddGroupLabel("Settings");
             MiscMenu.Add("interrupt.q", new CheckBox("Blades of Torment (Q Spell) to Interrupt"));

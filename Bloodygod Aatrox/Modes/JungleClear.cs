@@ -35,7 +35,7 @@ namespace Eclipse.Modes
                 return;
             }
 
-            if (Q.IsReady() && useQ && source.Distance(Eclipse.Modes.LaneClear.Player) <= Q.Range)
+            if (Q.IsReady() && useQ)
             {
                 Q.Cast(target.Position);
                 return;

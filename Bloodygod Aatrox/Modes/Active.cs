@@ -20,15 +20,11 @@ namespace Eclipse.Modes
 {
     internal class Active
     {
-       
-
+   
         public static void Execute()
         {
-
-            if (DrawingsMenu.GetCheckBoxValue("showkilla"))
-                Indicator.DamageToUnit = Program.GetComboDamage;
+            if (Combo._player.IsDead || Combo._player.IsRecalling()) return;
 
         }
-
     }
 }

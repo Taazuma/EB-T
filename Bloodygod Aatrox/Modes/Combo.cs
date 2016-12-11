@@ -28,7 +28,6 @@ namespace Eclipse.Modes
 
             ///////////////////////////////////////////////////////////////////////
             var Target = TargetSelector.GetTarget(Q.Range, DamageType.Physical);
-            var useQ = ComboMenu.GetCheckBoxValue("qUse");
             var useW = ComboMenu.GetCheckBoxValue("wUse");
             var useE = ComboMenu.GetCheckBoxValue("eUse");
             var useR = ComboMenu.GetCheckBoxValue("rUse");
@@ -39,22 +38,34 @@ namespace Eclipse.Modes
             }
             ///////////////////////////////////////////////////////////////////////
 
-            if (useE && E.IsReady())
+            if (useE && E.IsReady() && E.GetPrediction(Target).HitChance >= Hitch.hitchance(E, FirstMenu))
             {
                 E.Cast(Target.ServerPosition);
             }
 
-            if (useQ && Q.IsReady())
+            if (Q.IsReady() && Q.GetPrediction(Target).HitChance >= Hitch.hitchance(Q, FirstMenu))
             {
-                if (!Target.HasBuff("AatroxQ"))
+                if (Target.IsUnderHisturret()) return;
+                if (ComboMenu.GetSliderValue("Q1") > 0)
                 {
-                    Q.Cast(Target.ServerPosition);
+                    switch (ComboMenu.GetSliderValue("Q1"))
+                    {
+                        case 1:
+                            Q.Cast(Target.ServerPosition);
+                            break;
+                        case 2:
+                            foreach (var h in EntityManager.Heroes.Enemies.Where(h => h.IsValidTarget()))
+                            {
+                                Q.Cast(h.ServerPosition);
+                            }
+                            break;
+                    }
                 }
             }
 
-            if (W.IsReady() && useW)
+           if (W.IsReady() && useW)
             {
-                if (W.IsReady() && _player.HealthPercent < ComboMenu.GetSliderValue("combo.minw"))
+                if (_player.HealthPercent < ComboMenu.GetSliderValue("combo.minw"))
                 {
                     if (_player.Spellbook.GetSpell(SpellSlot.W).ToggleState == 2)
                     {
@@ -62,7 +73,7 @@ namespace Eclipse.Modes
                     }
                 }
 
-                if (W.IsReady() && _player.HealthPercent > ComboMenu.GetSliderValue("combo.maxw"))
+                if (_player.HealthPercent > ComboMenu.GetSliderValue("combo.maxw"))
                 {
                     if (_player.Spellbook.GetSpell(SpellSlot.W).ToggleState == 1)
                     {
@@ -81,7 +92,7 @@ namespace Eclipse.Modes
                 R.Cast();
             }
 
-            else if (ComboMenu["RS"].Cast<ComboBox>().CurrentValue == 2 && useR && R.IsReady() && Program._player.Health <= 25 && _player.ServerPosition.CountEnemiesInRange(500f) <= ultEnemies)
+            else if (ComboMenu["RS"].Cast<ComboBox>().CurrentValue == 2 && useR && R.IsReady() && Program._player.HealthPercent <= 25 && _player.ServerPosition.CountEnemiesInRange(500f) <= ultEnemies)
             {
                 R.Cast();
             }
