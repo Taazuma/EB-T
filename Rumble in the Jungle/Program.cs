@@ -16,6 +16,7 @@ using static Eclipse.SpellsManager;
 using static Eclipse.Menus;
 using Eclipse.Modes;
 using EloBuddy.SDK.Menu;
+using Eclipse_Template.Properties;
 
 namespace Eclipse
 {
@@ -30,48 +31,55 @@ namespace Eclipse
             get { return ObjectManager.Player; }
 
         }
-        private static bool check(Menu submenu, string sig)
+        public static bool check(Menu submenu, string sig)
         {
             return submenu[sig].Cast<CheckBox>().CurrentValue;
         }
+        public class UnitData
+        {
+            public static string Name;
+
+            public static int StartTime;
+
+            public static void GetName(AIHeroClient unit)
+            {
+                Name = unit.BaseSkinName;
+            }
+
+            public static void GetStartTime(int time)
+            {
+                StartTime = time;
+            }
+        }
+        private static int drawTick;
+        private static Sprite introImg;
         public static int qOff = 0, wOff = 0, eOff = 0, rOff = 0;
         private static int[] AbilitySequence;
         public static AIHeroClient myhero { get { return ObjectManager.Player; } }
         public float lastE;
+
         private static void Loading_OnLoadingComplete(EventArgs args)
         {
             //Put the name of the champion here
             if (Player.Instance.ChampionName != "Rumble") return;
-            Chat.Print("Have Fun with Playing ! by TaaZ");
+            Core.DelayAction(() =>
+            {
+                introImg = new Sprite(TextureLoader.BitmapToTexture(Resources.anime));
+                Chat.Print("<b><font size='20' color='#4B0082'>Rumble Jungle</font><font size='20' color='#FFA07A'> Loaded</font></b>");
+                Drawing.OnDraw += DrawingOnOnDraw;
+                Core.DelayAction(() =>
+                {
+                    Drawing.OnDraw -= DrawingOnOnDraw;
+                }, 7000);
+            }, 2000);
             AbilitySequence = new int[] { 3, 2, 3, 1, 3, 4, 3, 2, 3, 2, 4, 2, 2, 1, 1, 4, 1, 1 };
             SpellsManager.InitializeSpells();
             DrawingsManager.InitializeDrawings();
             Menus.CreateMenu();
             ModeManager.InitializeModes();
-            Game.OnUpdate += OnGameUpdate;
-            Game.OnTick += GameOnTick;
-            SpellManager.Initialize();
             Gapcloser.OnGapcloser += AntiGapCloser;
-
             DMGHandler.DamageHandler.Initialize();
-            if (!SpellManager.HasSmite())
-            {
-                Chat.Print("No smite detected - unloading Smite.", System.Drawing.Color.Red);
-                return;
-            }
-            Config.Initialize();
-            ModeManagerSmite.Initialize();
-            Events.Initialize();
-        }
-
-        private static void OnGameUpdate(EventArgs args)
-        {
-            if (check(MiscMenu, "skinhax")) myhero.SetSkinId((int)MiscMenu["skinID"].Cast<ComboBox>().CurrentValue);
-        }
-
-        private static void GameOnTick(EventArgs args)
-        {
-            if (MiscMenu["lvlup"].Cast<CheckBox>().CurrentValue) LevelUpSpells();
+            FpsBooster.Initialize();
         }
 
         private static bool Silenced
@@ -99,7 +107,21 @@ namespace Eclipse
             SpellsManager.W.Cast();
         }
 
-        private static void LevelUpSpells() // Thanks iRaxe
+        private static void DrawingOnOnDraw(EventArgs args)
+        {
+            if (drawTick == 0)
+                drawTick = Environment.TickCount;
+
+            int timeElapsed = Environment.TickCount - drawTick;
+            introImg.CenterRef = new Vector2(Drawing.Width / 2f, Drawing.Height / 2f).To3D();
+
+            int dt = 300;
+            if (timeElapsed <= dt)
+                introImg.Scale = new Vector2(timeElapsed * 1f / dt, timeElapsed * 1f / dt);
+            introImg.Draw(new Vector2(Drawing.Width / 2f - 1415 / 2f, Drawing.Height / 2f - 750 / 2f));
+        }
+
+        public static void LevelUpSpells() // Thanks iRaxe
         {
             var qL = _player.Spellbook.GetSpell(SpellSlot.Q).Level + qOff;
             var wL = _player.Spellbook.GetSpell(SpellSlot.W).Level + wOff;
