@@ -27,24 +27,31 @@ namespace Eclipse.Modes
 
             var targetW = TargetSelector.GetTarget(Player.Instance.BoundingRadius + 175, DamageType.Physical);
             var targetQ2 = TargetSelector.GetTarget(850, DamageType.Magical);
-            var predq2 = Q2.GetPrediction(targetQ2).HitChance >= Hitch.hitchance(Q2, FirstMenu);
             var targetE = TargetSelector.GetTarget(550, DamageType.Physical);
             var targetE2 = TargetSelector.GetTarget(E2.Range, DamageType.Physical);
 
-            if (HarassMenu.GetCheckBoxValue("qUse") && Q.IsReady() && targetE.IsValidTarget(100))
+            if (!Program.burrowed)
             {
-                Q.Cast();
+
+                if (HarassMenu.GetCheckBoxValue("qUse") && Q.IsReady() && targetE.IsValidTarget(100))
+                {
+                    Q.Cast();
+                }
+
+                if (HarassMenu.GetCheckBoxValue("eUse") && E.IsReady())
+                {
+                    E.Cast(targetE);
+                }
+
             }
 
-            if (HarassMenu.GetCheckBoxValue("eUse") && E.IsReady())
+            if (Program.IsBurrowed())
             {
-                E.Cast(targetE);
-            }
-
-            if (HarassMenu.GetCheckBoxValue("q2Use") && Q2.IsReady() && predq2)
-            {
-                var predQ2 = SpellsManager.Q2.GetPrediction(targetQ2);
-                Q2.Cast(predQ2.CastPosition);
+                if (HarassMenu.GetCheckBoxValue("q2Use") && Q2.IsReady())
+                {
+                    var predQ2 = Q2.GetPrediction(targetQ2);
+                    Q2.Cast(predQ2.CastPosition);
+                }
             }
 
         }

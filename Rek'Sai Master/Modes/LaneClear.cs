@@ -26,14 +26,17 @@ namespace Eclipse.Modes
 
             if (etarget == null) return;
 
-            if (LaneClearMenu.GetCheckBoxValue("qUse") && Q.IsReady())
+            if (!Program.burrowed)
             {
-                Q.Cast();
-            }
+                if (LaneClearMenu.GetCheckBoxValue("qUse") && Q.IsReady())
+                {
+                    Q.Cast();
+                }
 
-            if (LaneClearMenu.GetCheckBoxValue("eUse") && E.IsReady() && etarget.Health <= etarget.GetDamage(SpellSlot.E))
-            {
-                E.Cast(etarget);
+                if (LaneClearMenu.GetCheckBoxValue("eUse") && E.IsReady() && etarget.Health <= etarget.GetDamage(SpellSlot.E))
+                {
+                    E.Cast(etarget);
+                }
             }
 
         }

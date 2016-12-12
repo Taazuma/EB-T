@@ -45,19 +45,14 @@ namespace Eclipse
         public static void CreateMenu()
         {
             FirstMenu = MainMenu.AddMenu("Master "+Player.Instance.ChampionName, Player.Instance.ChampionName.ToLower() + "master");
-            FirstMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
-            FirstMenu.Add(Q2.Slot + "hit", new ComboBox("Q2 HitChance", 0, "High", "Medium", "Low"));
-            FirstMenu.Add(E2.Slot + "hit", new ComboBox("E2 HitChance", 0, "High", "Medium", "Low"));
-            FirstMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             FirstMenu.AddGroupLabel("Addon by Taazuma / Thanks for using it");
-            FirstMenu.AddLabel("New huge Update Release");
-            FirstMenu.AddLabel("Have fun with Playing");
+            FirstMenu.AddLabel("Status: 6.24");
             ComboMenu = FirstMenu.AddSubMenu("• Combo", ComboMenuID);
             HarassMenu = FirstMenu.AddSubMenu("• Harass", HarassMenuID);
             LaneClearMenu = FirstMenu.AddSubMenu("• LaneClear", LaneClearMenuID);
             LasthitMenu = FirstMenu.AddSubMenu("• LastHit", LastHitMenuID);
             JungleClearMenu = FirstMenu.AddSubMenu("• JungleClear", JungleClearMenuID);
-            KillStealMenu = FirstMenu.AddSubMenu("• KillSteal", KillStealMenuID);
+            //KillStealMenu = FirstMenu.AddSubMenu("• KillSteal", KillStealMenuID);
             MiscMenu = FirstMenu.AddSubMenu("• Misc", MiscMenuID);
             DrawingsMenu = FirstMenu.AddSubMenu("• Drawings", DrawingsMenuID);
 
@@ -65,7 +60,7 @@ namespace Eclipse
             ComboMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             ComboMenu.AddLabel("Logics");
             ComboMenu.AddSeparator(4);
-            ComboMenu.Add("Comba", new ComboBox(" Combo Logic ", 0, "Normal", "Ninja´s", "HeavenStrike", "wFights"));
+            ComboMenu.Add("Comba", new ComboBox(" Combo Logic ", 1, "Normal", "Ninja´s", "HeavenStrike", "wFights"));
             ComboMenu.AddSeparator(4);
             ComboMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             ComboMenu.AddSeparator(7);
@@ -97,9 +92,9 @@ namespace Eclipse
             JungleClearMenu.CreateCheckBox("Use Q2", "q2Use");
             JungleClearMenu.CreateCheckBox("Use E", "eUse");
 
-            KillStealMenu.AddGroupLabel("KillSteal");
-            KillStealMenu.CreateCheckBox("Use Q2", "qUse");
-            KillStealMenu.CreateCheckBox("Use E2", "eUse");
+            //KillStealMenu.AddGroupLabel("KillSteal");
+            //KillStealMenu.CreateCheckBox("Use Q2", "qUse");
+            //KillStealMenu.CreateCheckBox("Use E2", "eUse");
 
             MiscMenu.AddGroupLabel("Settings");
             MiscMenu.Add("AutoW", new CheckBox("Auto W"));
@@ -113,6 +108,8 @@ namespace Eclipse
             MiscMenu.Add("skinID", new ComboBox("Skin Hack", 0, "Default", "Eternum Rek'Sai", "Pool Party Rek'Sai"));
             MiscMenu.AddSeparator(12);
             MiscMenu.Add("escapeterino", new KeyBind("Escape|WallJump", false, KeyBind.BindTypes.HoldActive, 'T'));
+            MiscMenu.AddSeparator(12);
+
 
             DrawingsMenu.AddGroupLabel("Settings");
             DrawingsMenu.AddGroupLabel("Tracker Draws");
@@ -130,7 +127,8 @@ namespace Eclipse
             DrawingsMenu.Add("laneclear", new CheckBox("LaneClear", false));
             DrawingsMenu.Add("lasthit", new CheckBox("LastHit", true));
             DrawingsMenu.Add("flee", new CheckBox("Flee", false));
-
+            DrawingsMenu.AddLabel("Pro Tips");
+            DrawingsMenu.AddLabel("Disable Drawings if you get FPS Drops or Crash/Black Screen");
         }
     }
 }

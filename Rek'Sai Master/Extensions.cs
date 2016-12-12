@@ -132,7 +132,7 @@ namespace Eclipse
             if (spell == null) return false;
             if (m != ComboMenu)
             {
-                if (Player.Instance.ManaPercent < m.GetSliderValue("manaSlider")) return false;
+                //if (Player.Instance.ManaPercent < m.GetSliderValue("manaSlider")) return false;
             }
             return target.IsValidTarget(spell.Range) && spell.IsReady() && m.GetCheckBoxValue(spell.Slot.ToString().ToLower() + "Use");
         }

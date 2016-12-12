@@ -24,6 +24,9 @@ namespace Eclipse.Modes
 
             if (target == null) return;
 
+            if (!Program.burrowed)
+                { 
+
             if (JungleClearMenu.GetCheckBoxValue("qUse") && Q.IsReady())
             {
                 Q.Cast();
@@ -34,9 +37,15 @@ namespace Eclipse.Modes
                 E.Cast(target);
             }
 
-            if (JungleClearMenu.GetCheckBoxValue("q2Use") && Q2.IsReady())
+            }
+
+            else if (Program.burrowed)
             {
-                Q2.Cast(target.Position);
+                if (JungleClearMenu.GetCheckBoxValue("qUse") && Q2.IsReady())
+                {
+                    var predQ2 = Q2.GetPrediction(target);
+                    Q2.Cast(predQ2.CastPosition);
+                }
             }
 
 

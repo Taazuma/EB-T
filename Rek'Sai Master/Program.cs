@@ -71,14 +71,13 @@ namespace Eclipse
                 }, 7000);
             }, 2000);
             SpellsManager.InitializeSpells();
-            FpsBooster.Initialize();
             Menus.CreateMenu();
             ModeManager.InitializeModes();
             Interrupter.OnInterruptableSpell += Program.Interrupter2_OnInterruptableTarget;
             Orbwalker.OnPostAttack += OnAfterAttack;
-            Game.OnUpdate += Game_OnGameUpdate;
             Drawing.OnDraw += Drawing_OnDraw;
             Obj_AI_Base.OnNewPath += Obj_AI_Base_OnNewPath;
+            FpsBooster.Initialize();
         }
 
         #region Miscs
@@ -129,19 +128,21 @@ namespace Eclipse
             return ObjectManager.Player.HasBuff("RekSaiW");
         }
 
-        private static bool check(Menu submenu, string sig)
+        public static bool check(Menu submenu, string sig)
         {
             return submenu[sig].Cast<CheckBox>().CurrentValue;
         }
-
-        private static void Game_OnGameUpdate(EventArgs args)
+        public static void HailHydra()
         {
-            if (check(MiscMenu, "skinhax")) _player.SetSkinId((int)MiscMenu["skinID"].Cast<ComboBox>().CurrentValue);
-            if (getKeyBindItem(MiscMenu, "escapeterino"))
-            {
-                Escapeterino();
-            }
+            if (Item.HasItem(3074) && Item.CanUseItem(3074)) Item.UseItem(3074); //hydra
+            if (Item.HasItem(3077) && Item.CanUseItem(3077)) Item.UseItem(3077); //tiamat
+            if (Item.HasItem(3748) && Item.CanUseItem(3748)) Item.UseItem(3748); //titanic             
         }
+        public static void Yomuus()
+        {
+            if (Item.HasItem(3142) && Item.CanUseItem(3142)) Item.UseItem(3142); Item.UseItem(3142);
+        }
+
 
         public static void autoburrowed()
         {
@@ -233,7 +234,7 @@ namespace Eclipse
             return null;
         }
 
-        private static void Escapeterino()
+        public static void Escapeterino()
         {
             // Walljumper credits to Hellsing
 
@@ -346,6 +347,8 @@ namespace Eclipse
         #endregion Walli
 
         #region Drawingss
+
+     
 
         private static void DrawingOnOnDraw(EventArgs args)
         {
