@@ -22,6 +22,8 @@ namespace Eclipse.Modes
         {
             var target = EntityManager.MinionsAndMonsters.GetJungleMonsters().OrderByDescending(a => a.MaxHealth).FirstOrDefault(a => a.IsValidTarget(900));
 
+            if (target == null) return;
+
             if (JungleClearMenu.GetCheckBoxValue("eUse") && E.IsReady())
             {
                 E.Cast(target.Position);

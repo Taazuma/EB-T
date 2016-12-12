@@ -33,6 +33,8 @@ namespace Eclipse.Modes
             var sourcee = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, Player.ServerPosition, E.Range).OrderByDescending(a => a.MaxHealth).FirstOrDefault();
             ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+            if (sourceq == null) return;
+
             if (Q.IsReady() && sourceq.IsValidTarget(Q.Range) && useQ && LaneClearMenu["lc.MinionsQ"].Cast<Slider>().CurrentValue >= count)
             {
                 Q.Cast();
