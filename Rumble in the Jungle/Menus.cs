@@ -64,9 +64,8 @@ namespace Eclipse
             ComboMenu.AddLabel("R Settings");
 			ComboMenu.CreateCheckBox("Use R", "rUse");
             ComboMenu.AddLabel("R Logic Select");
-            ComboMenu.CreateCheckBox("My Logic", "my");
             ComboMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
-            ComboMenu.CreateCheckBox("Mario Logic", "mario", false);
+            ComboMenu.Add("rlog", new ComboBox(" R Logic ", 2, "Crazy", "Mario", "Pred. Pos."));
             ComboMenu.Add("minR", new Slider("Minimun enemies to use R ?", 2, 0, 5));
             ComboMenu.Add("comboRKill", new CheckBox("Only use R if it will kill at least one ?", false));
 

@@ -34,7 +34,7 @@ namespace Eclipse.Modes
             {
                 if (target.IsValidTarget(E.Range) && E.IsReady() && ComboMenu.GetCheckBoxValue("eUse") && (Hitch.ShouldOverload(SpellSlot.E) || Player.Instance.Mana < 80))
                 {
-                    E.Cast(target);
+                    E.Cast(target.Position);
                 }
             }, Edelay);
 
@@ -59,22 +59,22 @@ namespace Eclipse.Modes
             var targetR = TargetSelector.GetTarget(R.Range, DamageType.Magical);
             if (targetR == null || targetR.IsZombie || targetR.HasUndyingBuff()) return;
 
-            if (ComboMenu.GetCheckBoxValue("my") && R.IsReady())
+            if (ComboMenu["rlog"].Cast<ComboBox>().CurrentValue == 0 && R.IsReady())
                 if (targetR.IsMoving)
                 {
-                    if (targetR.IsValidTarget(R.Range + 1000))
+                    if (targetR.IsValidTarget(R.Range + 300))
                     {
                         R.Cast(target.Position -target.MoveSpeed);
                     }
                 else
                 {
-                    R.Cast(target.Position + 100);
+                    R.Cast(target.Position - target.MoveSpeed/2);
                 }
                }
 
-            if (R.IsReady() && targetR.IsValidTarget(R.Range) && ComboMenu.GetCheckBoxValue("mario") && !targetR.IsInRange(Player.Instance, E.Range) && !targetR.IsFacing(Player.Instance))
+            else if (R.IsReady() && targetR.IsValidTarget(R.Range + Q.Range) && ComboMenu["rlog"].Cast<ComboBox>().CurrentValue == 1 && !targetR.IsInRange(Player.Instance, E.Range) && !targetR.IsFacing(Player.Instance))
             {
-                if (KillStealMenu.GetCheckBoxValue("rUse") && Prediction.Health.GetPrediction(targetR, R.CastDelay) <=
+                if (ComboMenu.GetCheckBoxValue("rUse") && Prediction.Health.GetPrediction(targetR, R.CastDelay) <=
                     SpellDamage.GetRealDamage(SpellSlot.R, targetR))
                 {
                     Hitch.CastR(targetR, MiscMenu.GetSliderValue("minR"));
@@ -84,6 +84,26 @@ namespace Eclipse.Modes
                     Hitch.CastR(targetR, MiscMenu.GetSliderValue("minR"));
                 }
             }
+
+            else if (ComboMenu["rlog"].Cast<ComboBox>().CurrentValue == 2 && R.IsReady())
+                { 
+                if (targetR.IsValidTarget(R.Range + Q.Range))
+                {
+                    var predr = R.GetPrediction(targetR);
+                    if (predr.HitChance >= HitChance.High)
+                    {
+                        R.Cast(predr.CastPosition - 40);
+                    }
+                }
+                    else
+                    {
+                        var predictedHealth = Prediction.Health.GetPrediction(targetR, R.CastDelay + Game.Ping);
+                        var predr = R.GetPrediction(targetR);
+                        var rDamage = targetR.GetDamage(SpellSlot.R);
+                        if (predictedHealth <= rDamage) R.Cast(predr.CastPosition);
+                    }
+                }
+
 
 
 
