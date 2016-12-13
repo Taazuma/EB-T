@@ -47,6 +47,7 @@ namespace Eclipse
 			FirstMenu.AddGroupLabel("Addon by Taazuma / Thanks for using it");
             FirstMenu.AddLabel("If you found any bugs report it on my Thread");
             FirstMenu.AddLabel("Have fun with Playing");
+            FirstMenu.AddLabel("Cast Flee Key (T) do your E -> Press Spacebar");
             ComboMenu = FirstMenu.AddSubMenu("Combo", ComboMenuID);
             //HarassMenu = FirstMenu.AddSubMenu("Harass", HarassMenuID);
             AutoHarassMenu = FirstMenu.AddSubMenu("AutoHarass", AutoHarassMenuID);
@@ -109,6 +110,7 @@ namespace Eclipse
             KillStealMenu.CreateCheckBox("Use W", "wUse", false);
             KillStealMenu.AddGroupLabel("Settings");
             KillStealMenu.CreateSlider("Mana must be higher than [{0}%] to use KS spells", "manaSlider", 25);
+            KillStealMenu.AddLabel("Disable this if you get Problems !! May dont work at the moment");
 
             DrawingsMenu.AddGroupLabel("Settings");
             DrawingsMenu.AddLabel("Tracker Draws");
