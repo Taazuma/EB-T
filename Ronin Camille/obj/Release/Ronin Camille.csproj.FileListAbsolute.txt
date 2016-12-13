@@ -1,0 +1,30 @@
+D:\Tommi\Documents\GitHub\EB-T\God Camille\bin\Release\Eclipse Template.exe.config
+D:\Tommi\Documents\GitHub\EB-T\God Camille\bin\Release\Eclipse Template.exe
+D:\Tommi\Documents\GitHub\EB-T\God Camille\bin\Release\Eclipse Template.pdb
+D:\Tommi\Documents\GitHub\EB-T\God Camille\bin\Release\EloBuddy.dll
+D:\Tommi\Documents\GitHub\EB-T\God Camille\bin\Release\EloBuddy.Sandbox.dll
+D:\Tommi\Documents\GitHub\EB-T\God Camille\bin\Release\EloBuddy.SDK.dll
+D:\Tommi\Documents\GitHub\EB-T\God Camille\bin\Release\Newtonsoft.Json.dll
+D:\Tommi\Documents\GitHub\EB-T\God Camille\bin\Release\SharpDX.Direct3D9.dll
+D:\Tommi\Documents\GitHub\EB-T\God Camille\bin\Release\SharpDX.dll
+D:\Tommi\Documents\GitHub\EB-T\God Camille\bin\Release\SharpDX.XInput.dll
+D:\Tommi\Documents\GitHub\EB-T\God Camille\obj\Release\Ronin Camille.csprojResolveAssemblyReference.cache
+D:\Tommi\Documents\GitHub\EB-T\God Camille\obj\Release\Eclipse_Template.Properties.Resources.resources
+D:\Tommi\Documents\GitHub\EB-T\God Camille\obj\Release\Ronin Camille.csproj.GenerateResource.Cache
+D:\Tommi\Documents\GitHub\EB-T\God Camille\obj\Release\Eclipse Template.exe
+D:\Tommi\Documents\GitHub\EB-T\God Camille\obj\Release\Eclipse Template.pdb
+D:\Tommi\Documents\GitHub\EB-T\Ronin Camille\bin\Release\Eclipse Template.exe.config
+D:\Tommi\Documents\GitHub\EB-T\Ronin Camille\bin\Release\Eclipse Template.exe
+D:\Tommi\Documents\GitHub\EB-T\Ronin Camille\bin\Release\Eclipse Template.pdb
+D:\Tommi\Documents\GitHub\EB-T\Ronin Camille\bin\Release\EloBuddy.dll
+D:\Tommi\Documents\GitHub\EB-T\Ronin Camille\bin\Release\EloBuddy.Sandbox.dll
+D:\Tommi\Documents\GitHub\EB-T\Ronin Camille\bin\Release\EloBuddy.SDK.dll
+D:\Tommi\Documents\GitHub\EB-T\Ronin Camille\bin\Release\Newtonsoft.Json.dll
+D:\Tommi\Documents\GitHub\EB-T\Ronin Camille\bin\Release\SharpDX.Direct3D9.dll
+D:\Tommi\Documents\GitHub\EB-T\Ronin Camille\bin\Release\SharpDX.dll
+D:\Tommi\Documents\GitHub\EB-T\Ronin Camille\bin\Release\SharpDX.XInput.dll
+D:\Tommi\Documents\GitHub\EB-T\Ronin Camille\obj\Release\Ronin Camille.csprojResolveAssemblyReference.cache
+D:\Tommi\Documents\GitHub\EB-T\Ronin Camille\obj\Release\Eclipse_Template.Properties.Resources.resources
+D:\Tommi\Documents\GitHub\EB-T\Ronin Camille\obj\Release\Ronin Camille.csproj.GenerateResource.Cache
+D:\Tommi\Documents\GitHub\EB-T\Ronin Camille\obj\Release\Eclipse Template.exe
+D:\Tommi\Documents\GitHub\EB-T\Ronin Camille\obj\Release\Eclipse Template.pdb
