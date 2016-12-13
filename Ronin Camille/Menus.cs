@@ -106,7 +106,7 @@ namespace Eclipse
             JungleClearMenu.CreateSlider("Mana must be higher than [{0}%] to use JungleClear spells", "manaSlider", 15);
 
             KillStealMenu.AddGroupLabel("KillSteal");
-            KillStealMenu.CreateCheckBox("Use W", "wUse");
+            KillStealMenu.CreateCheckBox("Use W", "wUse", false);
             KillStealMenu.AddGroupLabel("Settings");
             KillStealMenu.CreateSlider("Mana must be higher than [{0}%] to use KS spells", "manaSlider", 25);
 
