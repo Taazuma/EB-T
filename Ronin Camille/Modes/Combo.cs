@@ -68,7 +68,6 @@ namespace Eclipse.Modes
                 }
             }
 
-            Program.HailHydra();
 
 
         }
