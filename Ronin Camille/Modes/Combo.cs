@@ -34,6 +34,12 @@ namespace Eclipse.Modes
                 return;
             }
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            if (Player.Instance.CountEnemiesInRange(800) > 0)
+            {
+                Program.Yomuus();
+            }
+
             Core.DelayAction(delegate
             {
                 if (wtarget.IsValidTarget(W.Range) && W.IsReady() && ComboMenu.GetCheckBoxValue("wUse"))
@@ -62,6 +68,7 @@ namespace Eclipse.Modes
                 }
             }
 
+            Program.HailHydra();
 
 
         }

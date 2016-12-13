@@ -121,6 +121,18 @@ namespace Eclipse
             if (rL < level[3]) ObjectManager.Player.Spellbook.LevelSpell(SpellSlot.R);
         }// Thanks Iraxe
 
+        public static void HailHydra()
+        {
+            if (Item.HasItem(3074) && Item.CanUseItem(3074)) Item.UseItem(3074); //hydra
+            if (Item.HasItem(3077) && Item.CanUseItem(3077)) Item.UseItem(3077); //tiamat
+            if (Item.HasItem(3748) && Item.CanUseItem(3748)) Item.UseItem(3748); //titanic             
+        }
+
+        public static void Yomuus()
+        {
+            if (Item.HasItem(3142) && Item.CanUseItem(3142)) Item.UseItem(3142); Item.UseItem(3142);
+        }
+
         public static void AAResetLane()
         {
             var Qmin = EntityManager.MinionsAndMonsters.GetLaneMinions().OrderByDescending(m => m.Health).FirstOrDefault(m => m.IsValidTarget(Q.Range));
