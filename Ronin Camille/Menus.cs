@@ -110,7 +110,7 @@ namespace Eclipse
             KillStealMenu.CreateCheckBox("Use W", "wUse", false);
             KillStealMenu.AddGroupLabel("Settings");
             KillStealMenu.CreateSlider("Mana must be higher than [{0}%] to use KS spells", "manaSlider", 25);
-            KillStealMenu.AddLabel("Disable this if you get Problems !! May dont work at the moment");
+            KillStealMenu.AddLabel("Disable this if you get Problems ! May dont work at the moment");
 
             DrawingsMenu.AddGroupLabel("Settings");
             DrawingsMenu.AddLabel("Tracker Draws");
