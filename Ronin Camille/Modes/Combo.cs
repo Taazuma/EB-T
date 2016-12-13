@@ -51,14 +51,6 @@ namespace Eclipse.Modes
             }
             }, Qdelay);
 
-            Core.DelayAction(delegate
-            { 
-            if (W.IsReady() && ComboMenu.GetCheckBoxValue("wUse") && Prediction.Health.GetPrediction(wtarget, W.CastDelay) <= wtarget.GetDamage(SpellSlot.W))
-            {
-                W.Cast(wtarget.Position);
-            }
-            }, Wdelay);
-
             if (ComboMenu.GetCheckBoxValue("rUse") && target.IsValidTarget(SpellsManager.R.Range) && R.IsReady())
             {
                 foreach (var ultenemies in enemies)
