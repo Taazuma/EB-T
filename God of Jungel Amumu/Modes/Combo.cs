@@ -34,14 +34,20 @@ namespace Eclipse.Modes
             var euse = ComboMenu.GetCheckBoxValue("eUse");
             var ruse = ComboMenu.GetCheckBoxValue("rUse");
             //////////////////////////////////////////////////////////////////////////////////////////////////////////
-            if (ComboMenu.GetCheckBoxValue("cOne"))
+
+            if (target == null || target.IsInvulnerable || target.MagicImmune)
+            {
+                return;
+            }
+
+            if (ComboMenu["Comba"].Cast<ComboBox>().CurrentValue == 0)
             { 
             if (target.IsValidTarget(1000) && quse && target.IsEnemy && Q.GetPrediction(target).HitChance >= Hitch.hitchance(Q, FirstMenu))
             {
                     Q.Cast(target.Position);
             }
 
-            if (R.IsLearned && R.IsReady() && ruse && rtarget.IsStunned || rtarget.IsRooted || rtarget.IsTaunted || rtarget.IsCharmed || rtarget.Spellbook.IsChanneling
+            if (R.IsReady() && ruse && rtarget.IsStunned || rtarget.IsRooted || rtarget.IsTaunted || rtarget.IsCharmed || rtarget.Spellbook.IsChanneling
                    || rtarget.HasBuffOfType(BuffType.Charm) || rtarget.HasBuffOfType(BuffType.Knockback) || rtarget.HasBuffOfType(BuffType.Knockup)
                    || rtarget.HasBuffOfType(BuffType.Snare) || rtarget.HasBuffOfType(BuffType.Stun) || rtarget.HasBuffOfType(BuffType.Suppression) // Credits Kappa the Kappa Def. not Kappa ^)
                    || rtarget.HasBuffOfType(BuffType.Taunt))
@@ -60,7 +66,8 @@ namespace Eclipse.Modes
             }
             }
             //////////////////////////////////////////////////////////////////////////////////////////////////////////
-            if (ComboMenu.GetCheckBoxValue("cTwo"))
+
+            if (ComboMenu["Comba"].Cast<ComboBox>().CurrentValue == 1)
             {
                 if (target.IsValidTarget(1000) && quse && target.IsEnemy && Q.GetPrediction(target).HitChance >= Hitch.hitchance(Q, FirstMenu))
                 {

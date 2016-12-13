@@ -30,7 +30,7 @@ namespace Eclipse
             get { return ObjectManager.Player; }
 
         }
-        private static bool check(Menu submenu, string sig)
+        public static bool check(Menu submenu, string sig)
         {
             return submenu[sig].Cast<CheckBox>().CurrentValue;
         }
@@ -46,8 +46,6 @@ namespace Eclipse
             DrawingsManager.InitializeDrawings();
             Menus.CreateMenu();
             ModeManager.InitializeModes();
-            Game.OnUpdate += OnGameUpdate;
-            Game.OnTick += GameOnTick;
             if (!SpellManager.HasSmite())
             {
                 Chat.Print("No smite detected - unloading Smite.", System.Drawing.Color.Red);
@@ -58,17 +56,7 @@ namespace Eclipse
             Events.Initialize();
         }
 
-        private static void OnGameUpdate(EventArgs args)
-        {
-            if (check(MiscMenu, "skinhax")) _player.SetSkinId((int)MiscMenu["skinID"].Cast<ComboBox>().CurrentValue);
-        }
-
-        private static void GameOnTick(EventArgs args)
-        {
-            if (MiscMenu["lvlup"].Cast<CheckBox>().CurrentValue) LevelUpSpells();
-        }
-
-        private static void LevelUpSpells()
+        public static void LevelUpSpells()
         {
             var qL = _player.Spellbook.GetSpell(SpellSlot.Q).Level + qOff;
             var wL = _player.Spellbook.GetSpell(SpellSlot.W).Level + wOff;
@@ -85,8 +73,6 @@ namespace Eclipse
             if (eL < level[2]) ObjectManager.Player.Spellbook.LevelSpell(SpellSlot.E);
             if (rL < level[3]) ObjectManager.Player.Spellbook.LevelSpell(SpellSlot.R);
         }
-
-
 
         public readonly static string[] MonstersNames =
         {

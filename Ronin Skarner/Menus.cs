@@ -69,8 +69,8 @@ namespace RoninSkarner
             ComboMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             ComboMenu.CreateCheckBox(" - Use Q", "qUse");
             ComboMenu.AddLabel("W Spells");
-            ComboMenu.CreateCheckBox(" - Use W Always", "wUse", true);
-            ComboMenu.CreateCheckBox(" - Use W Only in Enemy Range", "wrUse", false);
+            ComboMenu.Add("WC", new ComboBox(" W Usage ", 0, "Use W Always", "Use W Only in Enemy Range", "Use W Faceing"));
+            ComboMenu.AddSeparator(7);
             ComboMenu.CreateCheckBox(" - Use E", "eUse");
             ComboMenu.CreateCheckBox(" - Use R", "rUse");
             ComboMenu.AddLabel("Use ultimate on");
@@ -89,11 +89,11 @@ namespace RoninSkarner
             HarassMenu.CreateSlider("Mana must be higher than [{0}%] to use Harass spells", "manaSlider", 30);
             HarassMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
 
-            AutoHarassMenu.AddGroupLabel("AutoHarass");
+            AutoHarassMenu.AddGroupLabel("GankMenu");
             AutoHarassMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             AutoHarassMenu.Add("gankc", new KeyBind("Gank Combo", false, KeyBind.BindTypes.HoldActive, 'T'));
             AutoHarassMenu.AddGroupLabel("Settings");
-            AutoHarassMenu.CreateSlider("Mana must be higher than [{0}%] to use Harass spells", "manaSlider", 80);
+            AutoHarassMenu.CreateSlider("Mana must be higher than [{0}%] to use Harass spells", "manaSlider", 40);
             AutoHarassMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
 
             LaneClearMenu.AddGroupLabel("LaneClear");
@@ -130,14 +130,14 @@ namespace RoninSkarner
 
             DrawingsMenu.AddGroupLabel("Settings");
             DrawingsMenu.CreateCheckBox(" - Draw Spell`s range only if they are ready.", "readyDraw");
-            DrawingsMenu.CreateCheckBox(" - Draw damage indicator.", "damageDraw");
-            DrawingsMenu.CreateCheckBox(" - Draw damage indicator percent.", "perDraw");
+            DrawingsMenu.CreateCheckBox(" - Draw damage indicator.", "damageDraw", false);
+            DrawingsMenu.CreateCheckBox(" - Draw damage indicator percent.", "perDraw", false);
             DrawingsMenu.CreateCheckBox(" - Draw damage indicator statistics.", "statDraw", false);
             DrawingsMenu.AddGroupLabel("Spells");
-            DrawingsMenu.CreateCheckBox(" - Draw Q.", "qDraw");
-            DrawingsMenu.CreateCheckBox(" - Draw W.", "wDraw");
-            DrawingsMenu.CreateCheckBox(" - Draw E.", "eDraw");
-            DrawingsMenu.CreateCheckBox(" - Draw R.", "rDraw");
+            DrawingsMenu.CreateCheckBox(" - Draw Q.", "qDraw", false);
+            DrawingsMenu.CreateCheckBox(" - Draw W.", "wDraw", false);
+            DrawingsMenu.CreateCheckBox(" - Draw E.", "eDraw", false);
+            DrawingsMenu.CreateCheckBox(" - Draw R.", "rDraw", false);
             DrawingsMenu.AddGroupLabel("Drawings Color");
             QColorSlide = new ColorSlide(DrawingsMenu, "qColor", Color.Red, "Q Color:");
             WColorSlide = new ColorSlide(DrawingsMenu, "wColor", Color.Purple, "W Color:");

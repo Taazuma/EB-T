@@ -34,7 +34,12 @@ namespace RoninSkarner.Modes
             var target = TargetSelector.GetTarget(1500, DamageType.Magical);
             var etarget = TargetSelector.GetTarget(E.Range, DamageType.Magical);
 
-            if (HarassMenu.GetCheckBoxValue("eUse") && etarget.IsValidTarget(SpellsManager.E.Range) && E.IsReady() && E.GetPrediction(etarget).HitChance >= Hitch.hitchance(E, FirstMenu))
+            if (target == null || target.IsInvulnerable || target.MagicImmune)
+            {
+                return;
+            }
+
+            if (HarassMenu.GetCheckBoxValue("eUse") && etarget.IsValidTarget(SpellsManager.E.Range) && E.IsReady())
             {
                 foreach (var eenemies in enemiese)
                 {
@@ -44,6 +49,8 @@ namespace RoninSkarner.Modes
                     }
                 }
             }
+
+
         }
     }
 }

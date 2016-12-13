@@ -56,7 +56,7 @@ namespace Eclipse
         public static int start = 0;
         public const string ChampName = "Smite";
         public static Text TextKillable { get; private set; }
-        private static bool check(Menu submenu, string sig)
+        public static bool check(Menu submenu, string sig)
         {
             return submenu[sig].Cast<CheckBox>().CurrentValue;
         }
@@ -80,27 +80,13 @@ namespace Eclipse
             SpellsManager.InitializeSpells();
             Menus.CreateMenu();
             ModeManager.InitializeModes();
-            Game.OnTick += GameOnTick;
-            SpellManager.Initialize();
             Drawing.OnDraw += Drawing_OnDraw;
             Obj_AI_Base.OnNewPath += Obj_AI_Base_OnNewPath;
-            if (!SpellManager.HasSmite())
-            {
-                Chat.Print("No smite detected - unloading Smite.", System.Drawing.Color.PaleVioletRed);
-                return;
-            }
-            Config.Initialize();
-            ModeManagerSmite.Initialize();
-            Events.Initialize();
+            FpsBooster.Initialize();
     }
 
-        private static void GameOnTick(EventArgs args)
-        {
-            if (check(MiscMenu, "skinhax")) _player.SetSkinId((int)MiscMenu["skinID"].Cast<ComboBox>().CurrentValue);
-            if (check(MiscMenu, "lvlup")) LevelUpSpells();
-        }
 
-        private static void LevelUpSpells() // Thanks iRaxe
+        public static void LevelUpSpells() // Thanks iRaxe
         {
             var qL = _player.Spellbook.GetSpell(SpellSlot.Q).Level + qOff;
             var wL = _player.Spellbook.GetSpell(SpellSlot.W).Level + wOff;

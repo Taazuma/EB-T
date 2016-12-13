@@ -28,11 +28,14 @@ namespace RoninTune.Modes
         public static void Execute()
         {
             var count =
-              EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, Player.ServerPosition,
-                  Player.AttackRange, false).Count();
-            var source =
-              EntityManager.MinionsAndMonsters.GetLaneMinions().OrderBy(a => a.MaxHealth).FirstOrDefault(a => a.IsValidTarget(Q.Range));
+              EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, Player.ServerPosition,Player.AttackRange, false).Count();
+            var source = EntityManager.MinionsAndMonsters.GetLaneMinions().OrderBy(a => a.MaxHealth).FirstOrDefault(a => a.IsValidTarget(Q.Range));
             if (count == 0) return;
+
+            if (source == null || source.IsInvulnerable || source.MagicImmune)
+            {
+                return;
+            }
 
 
             if (E.IsReady() && LaneClearMenu.GetCheckBoxValue("eUse"))
@@ -45,9 +48,6 @@ namespace RoninTune.Modes
                     Q.Cast(source.Position);
                 }
             }
+
         }
-        //Q.TryToCast(Q.GetLastHitMinion(), LaneClearMenu);
-        //W.TryToCast(W.GetLastHitMinion(), LaneClearMenu);
-        //E.TryToCast(E.GetLastHitMinion(), LaneClearMenu);
-        //R.TryToCast(R.GetLastHitMinion(), LaneClearMenu);
     }

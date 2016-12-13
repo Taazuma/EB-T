@@ -17,6 +17,7 @@ using static RoninTune.Menus;
 using RoninTune.Modes;
 using EloBuddy.SDK.Menu;
 using Color = System.Drawing.Color;
+using Ronin_Tune.Properties;
 
 namespace RoninTune
 {
@@ -49,7 +50,7 @@ namespace RoninTune
             get { return ObjectManager.Player; }
 
         }
-        private static bool check(Menu submenu, string sig)
+        public static bool check(Menu submenu, string sig)
         {
             return submenu[sig].Cast<CheckBox>().CurrentValue;
         }
@@ -59,19 +60,28 @@ namespace RoninTune
         public const string ChampName = "Smite";
         public static Text TextKillable { get; private set; }
 
+        private static int drawTick;
+        private static Sprite introImg;
         private static void Loading_OnLoadingComplete(EventArgs args)
         {
             //Put the name of the champion here
             if (Player.Instance.ChampionName != "Nocturne") return;
-            Chat.Print("Welcome to the Ronin´s BETA ;)");
-            Chat.Print("By Taazuma ;)");
+            Core.DelayAction(() =>
+            {
+                introImg = new Sprite(TextureLoader.BitmapToTexture(Resources.anime));
+                Chat.Print("<b><font size='20' color='#4B0082'>Ronin Tune</font><font size='20' color='#FFA07A'> Loaded</font></b>");
+                Drawing.OnDraw += DrawingOnOnDraw;
+                Core.DelayAction(() =>
+                {
+                    Drawing.OnDraw -= DrawingOnOnDraw;
+                }, 7000);
+            }, 2000);
             SpellsManager.InitializeSpells();
             Menus.CreateMenu();
             _W.Initialize();
             _W_Advance.Initialize();
             ModeManager.InitializeModes();
             DrawingsManager.InitializeDrawings();
-            Game.OnUpdate += OnGameUpdate;
             Interrupter.OnInterruptableSpell += Program.Interrupter2_OnInterruptableTarget;
             Drawing.OnDraw += Drawing_OnDraw;
             Obj_AI_Base.OnNewPath += Obj_AI_Base_OnNewPath;
@@ -85,9 +95,18 @@ namespace RoninTune
             Events.Initialize();
         }
 
-        private static void OnGameUpdate(EventArgs args)
+        private static void DrawingOnOnDraw(EventArgs args)
         {
-            if (check(MiscMenu, "skinhax")) _player.SetSkinId((int)MiscMenu["skinID"].Cast<ComboBox>().CurrentValue);
+            if (drawTick == 0)
+                drawTick = Environment.TickCount;
+
+            int timeElapsed = Environment.TickCount - drawTick;
+            introImg.CenterRef = new Vector2(Drawing.Width / 2f, Drawing.Height / 2f).To3D();
+
+            int dt = 300;
+            if (timeElapsed <= dt)
+                introImg.Scale = new Vector2(timeElapsed * 1f / dt, timeElapsed * 1f / dt);
+            introImg.Draw(new Vector2(Drawing.Width / 2f - 1415 / 2f, Drawing.Height / 2f - 750 / 2f));
         }
 
         public static bool getCheckBoxItem(Menu m, string item)

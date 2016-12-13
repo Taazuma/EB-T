@@ -45,7 +45,7 @@ namespace RoninTune.Modes
                 return;
             }
 
-            if (ComboMenu.GetCheckBoxValue("cOne"))
+            if (ComboMenu["Comba"].Cast<ComboBox>().CurrentValue == 0)
             {
 
                 if (R.IsReady() && target.IsValidTarget(R.Range) && ComboMenu.GetCheckBoxValue("rUse"))
@@ -83,7 +83,7 @@ namespace RoninTune.Modes
                 }
             }
 
-            else if (ComboMenu.GetCheckBoxValue("cTwo"))
+            else if (ComboMenu["Comba"].Cast<ComboBox>().CurrentValue == 1)
             {
 
                 if (R.IsReady() && target.IsValidTarget(R.Range) && ComboMenu.GetCheckBoxValue("rUse"))
@@ -123,7 +123,7 @@ namespace RoninTune.Modes
                 }
             }
 
-           else if (ComboMenu.GetCheckBoxValue("cThree"))
+           else if (ComboMenu["Comba"].Cast<ComboBox>().CurrentValue == 2)
             {
 
                 if (R.IsReady() && target.IsValidTarget(R.Range) && ComboMenu.GetCheckBoxValue("rUse"))
@@ -154,11 +154,9 @@ namespace RoninTune.Modes
 
                     
                     }
-
-
                 }
 
-            else if (ComboMenu.GetCheckBoxValue("cFour"))
+            else if (ComboMenu["Comba"].Cast<ComboBox>().CurrentValue == 3)
             {
 
                 if (R.IsReady() && target.IsValidTarget(R.Range) && ComboMenu.GetCheckBoxValue("rUse"))
@@ -186,7 +184,6 @@ namespace RoninTune.Modes
                 if (E.IsReady() && ComboMenu.GetCheckBoxValue("eUse") && target.IsValidTarget(E.Range))
                     {
                         E.Cast(target);
-                       
                     }
 
                 Program.ItemsYuno();

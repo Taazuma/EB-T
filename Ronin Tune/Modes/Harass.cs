@@ -32,7 +32,7 @@ namespace RoninTune.Modes
             var enemiesq = EntityManager.Heroes.Enemies.OrderByDescending
                 (a => a.HealthPercent).Where(a => !a.IsMe && a.IsValidTarget() && a.Distance(Player) <= Q.Range);
             var target = TargetSelector.GetTarget(1900, DamageType.Magical);
-            if (!target.IsValidTarget())
+            if (target == null || target.IsInvulnerable || target.MagicImmune)
             {
                 return;
             }

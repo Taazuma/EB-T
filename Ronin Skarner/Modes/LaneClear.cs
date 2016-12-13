@@ -32,6 +32,11 @@ namespace RoninSkarner.Modes
             var wtarget = EntityManager.MinionsAndMonsters.EnemyMinions.FirstOrDefault(x => !x.IsDead && W.IsInRange(x));
             var etarget = EntityManager.MinionsAndMonsters.EnemyMinions.FirstOrDefault(x => !x.IsDead && E.IsInRange(x));
 
+            if (etarget == null || etarget.IsInvulnerable || etarget.MagicImmune)
+            {
+                return;
+            }
+
             if (LaneClearMenu.GetCheckBoxValue("qUse") && Q.IsReady())
             {
                 Q.TryToCast(Q.GetLastHitMinion(), LaneClearMenu);

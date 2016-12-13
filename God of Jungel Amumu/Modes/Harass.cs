@@ -24,6 +24,11 @@ namespace Eclipse.Modes
             var euse = Eclipse.Menus.HarassMenu.GetCheckBoxValue("eUse");
             var etarget = TargetSelector.GetTarget(E.Range, DamageType.Physical);
 
+            if (etarget == null || etarget.IsInvulnerable || etarget.MagicImmune)
+            {
+                return;
+            }
+
             if (E.IsReady() && euse && etarget.IsValidTarget(E.Range))
             {
                 E.Cast();

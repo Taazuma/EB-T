@@ -77,11 +77,6 @@ namespace RoninSkarner.Modes
                 AutoHarass.Execute();
             }
 
-            if (orbMode.HasFlag(Orbwalker.ActiveModes.LastHit) && playerMana > LasthitMenu.GetSliderValue("manaSlider"))
-            {
-                LastHit.Execute();
-            }
-
             if (orbMode.HasFlag(Orbwalker.ActiveModes.LaneClear) && playerMana > LaneClearMenu.GetSliderValue("manaSlider"))
             {
                 LaneClear.Execute();
@@ -96,6 +91,9 @@ namespace RoninSkarner.Modes
             {
                 Flee.Execute();
             }
+
+            if (Program.check(MiscMenu, "skinhax")) Program._player.SetSkinId((int)MiscMenu["skinID"].Cast<ComboBox>().CurrentValue);
+
         }
     }
 }

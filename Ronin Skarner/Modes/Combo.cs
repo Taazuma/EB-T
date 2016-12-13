@@ -33,15 +33,23 @@ namespace RoninSkarner.Modes
             var etarget = TargetSelector.GetTarget(E.Range, DamageType.Magical);
             var enemiese = EntityManager.Heroes.Enemies.OrderByDescending
              (a => a.HealthPercent).Where(a => !a.IsMe && a.IsValidTarget() && a.Distance(Player) <= E.Range);
-            
-            if (E.IsReady() && ComboMenu.GetCheckBoxValue("eUse") && E.GetPrediction(etarget).HitChance >= Hitch.hitchance(E, FirstMenu))    
-           {
-                E.Cast(target.Position);
-           }
 
-            else if (E.IsReady() && ComboMenu.GetCheckBoxValue("eUse"))
+            if (target == null || target.IsInvulnerable || target.MagicImmune)
             {
-                E.TryToCast(target, ComboMenu);
+                return;
+            }
+
+            if (E.IsReady() && ComboMenu.GetCheckBoxValue("eUse"))    
+           {
+                var predictionE = E.GetPrediction(target);
+                if (predictionE.HitChance >= HitChance.High)
+                { 
+                    E.Cast(predictionE.CastPosition);
+                }
+                else
+                {
+                    E.TryToCast(target, ComboMenu);
+                }
             }
 
             if (ComboMenu.GetCheckBoxValue("qUse") && target.IsValidTarget(SpellsManager.Q.Range) && Q.IsReady())
@@ -49,31 +57,35 @@ namespace RoninSkarner.Modes
                 Q.Cast();
             }
 
-            if (ComboMenu.GetCheckBoxValue("wUse") && W.IsReady())
+            if (ComboMenu["WC"].Cast<ComboBox>().CurrentValue == 0 && W.IsReady())
             {
                 W.Cast();
             }
 
+            else if (ComboMenu["WC"].Cast<ComboBox>().CurrentValue == 1 && W.IsReady() && target.IsValidTarget(SpellsManager.W.Range))
+            {
+                W.Cast();
+            }
 
-            if (ComboMenu.GetCheckBoxValue("wrUse") && W.IsReady() && target.IsValidTarget(SpellsManager.W.Range))
+            else if (ComboMenu["WC"].Cast<ComboBox>().CurrentValue == 2 && W.IsReady() && target.IsValidTarget(SpellsManager.W.Range) && Player.IsFacing(target))
             {
                 W.Cast();
             }
 
             var enemies = EntityManager.Heroes.Enemies.OrderByDescending(a => a.HealthPercent).Where(a => !a.IsMe && a.IsValidTarget() && a.Distance(_Player) <= R.Range);
+
             if (ComboMenu.GetCheckBoxValue("rUse") && ComboMenu.GetCheckBoxValue("manu.ult"))
             {
                 return;
             }
 
-            else if (ComboMenu.GetCheckBoxValue("rUse") && target.IsValidTarget(SpellsManager.R.Range) && R.IsReady())
+            else if (ComboMenu.GetCheckBoxValue("rUse") && target.IsValidTarget(R.Range + 50) && R.IsReady())
             { 
                 foreach (var ultenemies in enemies)
             {
                 var useR = ComboMenu["r.ult" + ultenemies.ChampionName].Cast<CheckBox>().CurrentValue;
             {
-                        if (useR)
-                        R.Cast(ultenemies);
+                        if (useR) R.Cast(ultenemies);
             }
             }
             }

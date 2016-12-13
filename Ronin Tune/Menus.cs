@@ -66,7 +66,7 @@ namespace RoninTune
         {
             FirstMenu = MainMenu.AddMenu("Ronin " + Player.Instance.ChampionName, Player.Instance.ChampionName.ToLower() + "hue");
             FirstMenu.AddGroupLabel("News");
-            FirstMenu.AddLabel("Update 6.21 - new Combo - Killsteal Fix - Path Tracker - Killable Message");
+            FirstMenu.AddLabel("Update 6.24");
             ComboMenu = FirstMenu.AddSubMenu("♠ Combo", ComboMenuID);
             HarassMenu = FirstMenu.AddSubMenu("♠ Harass", HarassMenuID);
             //AutoHarassMenu = FirstMenu.AddSubMenu("♠ AutoHarass", AutoHarassMenuID);
@@ -80,27 +80,21 @@ namespace RoninTune
  
 
             ComboMenu.AddGroupLabel("ComboMenu");
-            ComboMenu.AddGroupLabel("ONLY USE ON COMBO");
             ComboMenu.AddSeparator(15);
             // --------------------------------------------------------------COMBO LOGICS-------------------------------------------------------------- //
             ComboMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
-            ///ComboMenu.CreateComboBox("Choose your Logic", "Logics", new List<string> { "Normal", "Normal 2", "Gank" });
-            //ComboMenu.Add("ComboLogics", new ComboBox("Choose your Logics", 0, "1 - [ComboOne]", "2 - [ComboTwo]", "3 - [GankCombo]"));
             ComboMenu.AddLabel("ComboLogics");
-            ComboMenu.CreateCheckBox("Normal", "cOne", false);
-            ComboMenu.AddGroupLabel("Combo R - E - W - Q");
-            ComboMenu.AddSeparator(15);
-            ComboMenu.CreateCheckBox("Combo Two", "cTwo", false);
-            ComboMenu.AddGroupLabel("Combo R - W - E - Q");
-            ComboMenu.AddSeparator(15);
-            ComboMenu.CreateCheckBox("Combo Three", "cThree", true);
-            ComboMenu.AddGroupLabel("Combo R - Q - E");
-            ComboMenu.AddSeparator(15);
-            ComboMenu.CreateCheckBox("Combo Four", "cFour", true);
-            ComboMenu.AddGroupLabel("Combo R - Q - E - Items- Smite");
-            ComboMenu.AddSeparator(15);
-            //ComboMenu.CreateCheckBox("Gank Combo", "gThree");
-            //ComboMenu.AddSeparator(15);
+            ComboMenu.AddSeparator(5);
+            ComboMenu.Add("Comba", new ComboBox(" Combo Logic ", 0, "Normal One", "Combo Two", "Combo Three", "Combo Four"));
+            ComboMenu.AddSeparator(5);
+            ComboMenu.AddGroupLabel("Combo 1 R - E - W - Q");
+            ComboMenu.AddSeparator(5);
+            ComboMenu.AddGroupLabel("Combo 2 R - W - E - Q");
+            ComboMenu.AddSeparator(5);
+            ComboMenu.AddGroupLabel("Combo 3 R - Q - E");
+            ComboMenu.AddSeparator(5);
+            ComboMenu.AddGroupLabel("Combo 4 R - Q - E - Items- Smite");
+            ComboMenu.AddSeparator(5);
             ComboMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             ComboMenu.CreateCheckBox(" - Use Q", "qUse");
             ComboMenu.CreateCheckBox(" - Use W", "wUse");
@@ -113,7 +107,7 @@ namespace RoninTune
 
             HarassMenu.AddGroupLabel("HarassMenu");
             HarassMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
-            HarassMenu.CreateCheckBox(" - Use Q", "qUse", true);
+            HarassMenu.CreateCheckBox(" - Use Q", "qUse");
             HarassMenu.CreateCheckBox(" - Use E", "eUse");
             HarassMenu.AddGroupLabel("Settings");
             HarassMenu.CreateSlider("Mana must be higher than [{0}%] to use Harass spells", "manaSlider", 30);
@@ -125,18 +119,9 @@ namespace RoninTune
             LaneClearMenu.CreateCheckBox(" - Use Q", "qUse");
             LaneClearMenu.CreateCheckBox(" - Use E", "eUse", false);
             LaneClearMenu.AddGroupLabel("Settings");
-            LaneClearMenu.CreateSlider("Mana must be higher than [{0}%] to use LaneClear spells", "manaSlider", 30);
+            LaneClearMenu.CreateSlider("Mana must be higher than [{0}%] to use LaneClear spells", "manaSlider", 80);
             LaneClearMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             LaneClearMenu.AddSeparator();
-
-            //LasthitMenu.AddGroupLabel("LastHit");
-            //LasthitMenu.CreateCheckBox(" - Use Q", "qUse");
-            //LasthitMenu.CreateCheckBox(" - Use W", "wUse");
-            //LasthitMenu.CreateCheckBox(" - Use E", "eUse");
-            //LasthitMenu.CreateCheckBox(" - Use R", "rUse");
-            //LasthitMenu.AddGroupLabel("Settings");
-            //LasthitMenu.CreateSlider("Mana must be lower than [{0}%] to use LastHit spells", "manaSlider", 30);
-            //LasthitMenu.AddSeparator();
 
             JungleClearMenu.AddGroupLabel("JungleClear");
             JungleClearMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
@@ -158,30 +143,24 @@ namespace RoninTune
             KillStealMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             KillStealMenu.AddSeparator();
 
-            //ItemMenu.AddGroupLabel("Items");
-            //ItemMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
-
-            //ItemMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
-            //ItemMenu.AddSeparator();
-
             MiscMenu.Add("UseWInt", new CheckBox("W Save Interrupt"));
-            MiscMenu.Add("skinhax", new CheckBox("Activate Skin hack"));
-            MiscMenu.Add("skinID", new ComboBox("Skin Hack", 1, "Default", "Frozen Terror Nocturne", "Void Nocturne", "Ravager Nocturne", "Haunting Nocturne", "Eternum Nocturne", "Cursed Revenant Nocturne"));
+            MiscMenu.CreateCheckBox("Activate Skin hack", "skinhax", false);
+            MiscMenu.Add("skinID", new ComboBox("Skin Hack", 0, "Default", "Frozen Terror Nocturne", "Void Nocturne", "Ravager Nocturne", "Haunting Nocturne", "Eternum Nocturne", "Cursed Revenant Nocturne"));
             MiscMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             MiscMenu.CreateCheckBox("- Use OP W Logic", "wLogic");
             MiscMenu.AddSeparator(10);
 
             DrawingsMenu.AddGroupLabel("Draw Settings");
             DrawingsMenu.CreateCheckBox(" - Draw Spell`s range only if they are ready.", "readyDraw");
-            DrawingsMenu.CreateCheckBox(" - Draw damage indicator.", "damageDraw");
-            DrawingsMenu.CreateCheckBox(" - Draw damage indicator percent.", "perDraw");
+            DrawingsMenu.CreateCheckBox(" - Draw damage indicator.", "damageDraw", false);
+            DrawingsMenu.CreateCheckBox(" - Draw damage indicator percent.", "perDraw", false);
             DrawingsMenu.CreateCheckBox(" - Draw damage indicator statistics.", "statDraw", false);
             DrawingsMenu.CreateCheckBox("Show Killable", "showkilla");
             DrawingsMenu.AddGroupLabel("Spells");
             DrawingsMenu.CreateCheckBox(" - Draw Q.", "qDraw");
-            DrawingsMenu.CreateCheckBox(" - Draw W.", "wDraw");
-            DrawingsMenu.CreateCheckBox(" - Draw E.", "eDraw");
-            DrawingsMenu.CreateCheckBox(" - Draw R.", "rDraw");
+            DrawingsMenu.CreateCheckBox(" - Draw W.", "wDraw", false);
+            DrawingsMenu.CreateCheckBox(" - Draw E.", "eDraw", false);
+            DrawingsMenu.CreateCheckBox(" - Draw R.", "rDraw", false);
             DrawingsMenu.AddSeparator(15);
             DrawingsMenu.AddGroupLabel("Tracker Draws");
             DrawingsMenu.Add("me", new CheckBox("My Path", false));

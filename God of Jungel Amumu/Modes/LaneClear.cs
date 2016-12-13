@@ -24,6 +24,12 @@ namespace Eclipse.Modes
             var wtarget = EntityManager.MinionsAndMonsters.EnemyMinions.FirstOrDefault(x => !x.IsDead && W.IsInRange(x));
             var etarget = EntityManager.MinionsAndMonsters.EnemyMinions.FirstOrDefault(x => !x.IsDead && E.IsInRange(x));
 
+
+            if (qtarget == null || qtarget.IsInvulnerable || qtarget.MagicImmune)
+            {
+                return;
+            }
+
             if (LaneClearMenu.GetCheckBoxValue("eUse") && E.IsReady() && etarget.IsValidTarget(E.Range))
             {
                 E.Cast();

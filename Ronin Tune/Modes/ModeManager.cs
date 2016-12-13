@@ -3,6 +3,7 @@ using EloBuddy;
 using EloBuddy.SDK;
 using static RoninTune.Menus;
 using static RoninTune.SpellsManager;
+using EloBuddy.SDK.Menu.Values;
 
 namespace RoninTune.Modes
 {
@@ -158,16 +159,9 @@ private static void Game_OnTick(EventArgs args)
                 Combo.Execute();
             }
 
-            
-
             if (orbMode.HasFlag(Orbwalker.ActiveModes.Harass) && playerMana > HarassMenu.GetSliderValue("manaSlider"))
             {
                 Harass.Execute();
-            }
-
-            if (orbMode.HasFlag(Orbwalker.ActiveModes.LastHit) && playerMana > LasthitMenu.GetSliderValue("manaSlider"))
-            {
-                LastHit.Execute();
             }
 
             if (orbMode.HasFlag(Orbwalker.ActiveModes.LaneClear) && playerMana > LaneClearMenu.GetSliderValue("manaSlider"))
@@ -184,6 +178,8 @@ private static void Game_OnTick(EventArgs args)
             {
                 Flee.Execute();
             }
+
+            if (Program.check(MiscMenu, "skinhax")) Program._player.SetSkinId((int)MiscMenu["skinID"].Cast<ComboBox>().CurrentValue);
 
         }
     }

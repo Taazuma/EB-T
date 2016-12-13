@@ -25,6 +25,11 @@ namespace RoninTune.Modes
         {
 
             var target = TargetSelector.GetTarget(E.Range, DamageType.Mixed);
+            if (target == null || target.IsInvulnerable || target.MagicImmune)
+            {
+                return;
+            }
+
             if (Q.IsReady())
             {
                 Q.Cast(Player.ServerPosition.Extend(Game.CursorPos, Q.Range).To3D());

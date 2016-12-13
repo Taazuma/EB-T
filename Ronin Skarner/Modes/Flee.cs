@@ -26,6 +26,12 @@ namespace RoninSkarner.Modes
         public static void Execute()
         {
             var etarget = TargetSelector.GetTarget(E.Range, DamageType.Magical);
+
+            if (etarget == null || etarget.IsInvulnerable || etarget.MagicImmune)
+            {
+                return;
+            }
+
             if (W.IsReady() && Q.IsReady())
             {
                 Q.Cast();

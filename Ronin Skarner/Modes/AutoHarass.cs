@@ -36,6 +36,11 @@ namespace RoninSkarner.Modes
              (a => a.HealthPercent).Where(a => !a.IsMe && a.IsValidTarget() && a.Distance(Combo._Player) <= E.Range);
             var enemies = EntityManager.Heroes.Enemies.OrderByDescending(a => a.HealthPercent).Where(a => !a.IsMe && a.IsValidTarget() && a.Distance(Combo._Player) <= R.Range);
 
+            if (target == null || target.IsInvulnerable || target.MagicImmune)
+            {
+                return;
+            }
+
             if (AutoHarassMenu["gankc"].Cast<KeyBind>().CurrentValue)
             {
 

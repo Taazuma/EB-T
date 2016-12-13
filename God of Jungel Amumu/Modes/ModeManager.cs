@@ -55,6 +55,9 @@ namespace Eclipse.Modes
                 JungleClear.Execute();
             }
 
+            if (MiscMenu["lvlup"].Cast<CheckBox>().CurrentValue) Program.LevelUpSpells();
+            if (Program.check(MiscMenu, "skinhax")) Program._player.SetSkinId((int)MiscMenu["skinID"].Cast<ComboBox>().CurrentValue);
+
         }
     }
 }
