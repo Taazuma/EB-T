@@ -26,12 +26,7 @@ namespace Eclipse.Modes
                 return;
             }
 
-            if (Item.HasItem(3074) && Item.CanUseItem(3074) || Item.HasItem(3077) && Item.CanUseItem(3077) || Item.HasItem(3748) && Item.CanUseItem(3748))
-            {
-                Program.HailHydra();
-            }
-
-                if (JungleClearMenu.GetCheckBoxValue("qUse") && Q.IsReady() && target.IsValidTarget(Q.Range))
+             if (JungleClearMenu.GetCheckBoxValue("qUse") && Q.IsReady() && target.IsValidTarget(Q.Range))
             {
                 Q.Cast();
             }
