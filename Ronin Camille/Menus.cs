@@ -79,7 +79,6 @@ namespace Eclipse
             ComboMenu.Add("Qdelay", new Slider("Q Delay (ms)", 0, 0, 300));
             ComboMenu.Add("Wdelay", new Slider("W Delay (ms)", 0, 0, 300));
             ComboMenu.Add("Edelay", new Slider("E Delay (ms)", 100, 0, 300));
-            ComboMenu.Add("Rdelay", new Slider("R Delay (ms)", 0, 0, 300));
 
             AutoHarassMenu.AddGroupLabel("AutoHarass");
             AutoHarassMenu.CreateCheckBox("Use W", "wUse");
