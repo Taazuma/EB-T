@@ -47,7 +47,7 @@ namespace Eclipse.Modes
                     Q.Cast(target.Position);
             }
 
-            if (R.IsReady() && ruse && rtarget.IsStunned || rtarget.IsRooted || rtarget.IsTaunted || rtarget.IsCharmed || rtarget.Spellbook.IsChanneling
+            if (R.IsReady() && ruse && rtarget.IsValidTarget(R.Range) && rtarget.IsStunned ||  rtarget.IsTaunted || rtarget.IsCharmed || rtarget.Spellbook.IsChanneling
                    || rtarget.HasBuffOfType(BuffType.Charm) || rtarget.HasBuffOfType(BuffType.Knockback) || rtarget.HasBuffOfType(BuffType.Knockup)
                    || rtarget.HasBuffOfType(BuffType.Snare) || rtarget.HasBuffOfType(BuffType.Stun) || rtarget.HasBuffOfType(BuffType.Suppression) // Credits Kappa the Kappa Def. not Kappa ^)
                    || rtarget.HasBuffOfType(BuffType.Taunt))
