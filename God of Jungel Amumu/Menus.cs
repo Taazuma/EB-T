@@ -58,7 +58,7 @@ namespace Eclipse
             ComboMenu.AddLabel("ComboLogics");
             ComboMenu.Add("Comba", new ComboBox(" Combo Logic ", 0, "GankCombo", "Teamfight Normal"));
             ComboMenu.AddSeparator(10);
-            ComboMenu.AddLabel("Q - when Stunned -> R - W - E");
+            ComboMenu.AddLabel("Q - when CC -> R - W - E");
             ComboMenu.AddSeparator(5);
             ComboMenu.CreateCheckBox("Teamfight Combo", "cTwo", false);
             ComboMenu.AddLabel("Q - R - W - E");
@@ -103,7 +103,7 @@ namespace Eclipse
 
             KillStealMenu.AddGroupLabel("KillSteal");
             KillStealMenu.CreateCheckBox("Use Q", "qUse");
-            KillStealMenu.CreateCheckBox("Use Smite to KS", "sks");
+            //KillStealMenu.CreateCheckBox("Use Smite to KS", "sks");
             KillStealMenu.AddGroupLabel("Settings");
             KillStealMenu.CreateSlider("Mana must be higher than [{0}%] to use Harass spells", "manaSlider", 20);
 
