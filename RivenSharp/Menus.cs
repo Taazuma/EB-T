@@ -65,7 +65,6 @@ namespace Eclipse
             ComboMenu.AddLabel("Pro Tips");
             ComboMenu.AddLabel("R Fast: Is without Checks for Pred. Position...Faster Way");
             ComboMenu.AddLabel("R Checks: With some Checks...");
-            ComboMenu.AddLabel("You may have to disable R2 Max Damage if you choose the Fast Way");
 
             LaneClearMenu.AddGroupLabel("LaneClear Settings");
             LaneClearMenu.AddSeparator(7);
