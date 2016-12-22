@@ -7,8 +7,8 @@
     <ProjectGuid>{C40695E3-7010-4BF8-B74C-B44550EAA786}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Eclipse_Template</RootNamespace>
-    <AssemblyName>Eclipse Template</AssemblyName>
+    <RootNamespace>Eclipse_Riven</RootNamespace>
+    <AssemblyName>Eclipse Riven</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
