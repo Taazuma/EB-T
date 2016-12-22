@@ -79,7 +79,7 @@
                 //Chat.Print("I casted E toward " + target.Name);
                 Usables.CastYoumoo();
 
-                if (MenuConfig.AlwaysR && Spells.R.IsReady() && !Spells.R.IsOnCooldown && Spells.R.Name == IsFirstR)
+                if (MenuConfig.AlwaysR && Spells.R.IsReady() && !Spells.R.IsOnCooldown && Spells.R.Name == IsFirstR && ComboMenu["rbox"].Cast<ComboBox>().CurrentValue == 1)
                 {
                     Player.Spellbook.CastSpell(SpellSlot.R, target);
                 }
@@ -90,6 +90,11 @@
 
                     EloBuddy.SDK.Core.DelayAction(Usables.CastHydra, 10);
                 }
+            }
+
+            else if (MenuConfig.AlwaysR && Spells.R.IsReady() && !Spells.R.IsOnCooldown && Spells.R.Name == IsFirstR && ComboMenu["rbox"].Cast<ComboBox>().CurrentValue == 0)
+            {
+                Spells.R.Cast(target.ServerPosition);
             }
 
             if (Spells.W.IsReady() && BackgroundData.InRange(target))

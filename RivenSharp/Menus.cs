@@ -61,9 +61,11 @@ namespace Eclipse
             ComboMenu.Add("AlwaysF", new KeyBind("Use Flash (Toggle)", true, KeyBind.BindTypes.PressToggle, 'L'));
             ComboMenu.Add("BurstEnabled", new KeyBind("Enable Burst Combo (Toggle)", false, KeyBind.BindTypes.PressToggle, 'H'));
             ComboMenu.AddSeparator(7);
-            ComboMenu.CreateCheckBox(" - Use E in Burst", "eburst", false);
-            ComboMenu.AddSeparator(7);
             ComboMenu.Add("rbox", new ComboBox(" R2 Option ", 1, "R Fast", "R Checks"));
+            ComboMenu.AddLabel("Pro Tips");
+            ComboMenu.AddLabel("R Fast: Is without Checks for Pred. Position...Faster Way");
+            ComboMenu.AddLabel("R Checks: With some Checks...");
+            ComboMenu.AddLabel("You may have to disable R2 Max Damage if you choose the Fast Way");
 
             LaneClearMenu.AddGroupLabel("LaneClear Settings");
             LaneClearMenu.AddSeparator(7);

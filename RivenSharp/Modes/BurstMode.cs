@@ -46,7 +46,7 @@
                     Usables.CastYoumoo();
                 }
 
-                if (Spells.R.IsReady() && Spells.R.Name == IsSecondR && Qstack > 1)
+                if (Spells.R.IsReady() && Spells.R.Name == IsSecondR && Qstack > 1 && ComboMenu["rbox"].Cast<ComboBox>().CurrentValue == 1)
                 {
                     var pred = Spells.R.GetPrediction(target);
 
@@ -54,6 +54,11 @@
                     {
                         Player.Spellbook.CastSpell(SpellSlot.R, pred.CastPosition);
                     }
+                }
+
+                else if (Spells.R.IsReady() && Spells.R.Name == IsSecondR && Qstack > 1 && ComboMenu["rbox"].Cast<ComboBox>().CurrentValue == 0)
+                {
+                        Spells.R.Cast(target.ServerPosition);
                 }
 
                 if (Spells.E.IsReady())
