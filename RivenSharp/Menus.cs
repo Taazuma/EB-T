@@ -60,6 +60,10 @@ namespace Eclipse
             ComboMenu.Add("AlwaysR", new KeyBind("Use R (Toggle)", true, KeyBind.BindTypes.PressToggle, 'G'));
             ComboMenu.Add("AlwaysF", new KeyBind("Use Flash (Toggle)", true, KeyBind.BindTypes.PressToggle, 'L'));
             ComboMenu.Add("BurstEnabled", new KeyBind("Enable Burst Combo (Toggle)", false, KeyBind.BindTypes.PressToggle, 'H'));
+            ComboMenu.AddSeparator(7);
+            ComboMenu.CreateCheckBox(" - Use E in Burst", "eburst", false);
+            ComboMenu.AddSeparator(7);
+            ComboMenu.Add("rbox", new ComboBox(" R2 Option ", 1, "R Fast", "R Checks"));
 
             LaneClearMenu.AddGroupLabel("LaneClear Settings");
             LaneClearMenu.AddSeparator(7);

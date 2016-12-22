@@ -7,7 +7,9 @@
     using EloBuddy.SDK;
 
     #endregion
-
+    using static Eclipse.Menus;
+    using Eclipse;
+    using EloBuddy.SDK.Menu.Values;
     internal class ComboMode : RivenSharp.Core.Core
     {
         #region Public Methods and Operators
@@ -29,7 +31,8 @@
                 if (pred.HitChance != EloBuddy.SDK.Enumerations.HitChance.High || target.HasBuff(BackgroundData.InvulnerableList.ToString()))// || Player.IsWindingUp)
                 {
                     //return;
-                }else
+                }
+                else
                 {
                     if ((!MenuConfig.OverKillCheck && Qstack > 1) || MenuConfig.OverKillCheck
                     && (target.HealthPercent <= 40
@@ -51,7 +54,8 @@
                 if (!Spells.E.IsReady() || wallPoint.Distance(Player.Position) > Spells.E.Range || !wallPoint.IsValid())
                 {
                     //return;
-                } else
+                }
+                else
                 {
                     Player.Spellbook.CastSpell(SpellSlot.E, wallPoint);
 
@@ -83,7 +87,7 @@
                 {
                     Player.Spellbook.CastSpell(SpellSlot.E, target);
                     //if (Player.Distance(target) < 350)
-                    
+
                     EloBuddy.SDK.Core.DelayAction(Usables.CastHydra, 10);
                 }
             }
@@ -106,7 +110,7 @@
                 BackgroundData.CastQ(target);
                 //Player.Spellbook.CastSpell(SpellSlot.Q, target);
             }
-        }
+    }
 
         #endregion
     }

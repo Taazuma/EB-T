@@ -3,11 +3,12 @@
     #region
 
     using Core;
+    using Eclipse;
     using EloBuddy;
     using EloBuddy.SDK;
-
+    using EloBuddy.SDK.Menu.Values;
     #endregion
-
+    using static Eclipse.Menus;
     internal class BurstMode : RivenSharp.Core.Core
     {
         #region Public Methods and Operators
@@ -17,7 +18,7 @@
             if (Player.Spellbook.CanUseSpell(Spells.Flash) == SpellState.Ready && MenuConfig.AlwaysF)
             {
                 var selectedTarget = TargetSelector.GetTarget(Player.AttackRange + 625, DamageType.Physical);
-                
+
                 if (selectedTarget == null
                     || Player.Distance(selectedTarget.Position) > (Player.AttackRange + 625)
                     || Player.Distance(selectedTarget.Position) < Player.AttackRange
@@ -40,7 +41,7 @@
 
                 if (target == null) return;
 
-                if(!MenuConfig.AlwaysF)
+                if (!MenuConfig.AlwaysF)
                 {
                     Usables.CastYoumoo();
                 }

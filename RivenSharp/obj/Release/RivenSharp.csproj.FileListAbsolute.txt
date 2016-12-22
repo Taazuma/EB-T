@@ -10,3 +10,15 @@ D:\Tommi\Downloads\HesaElobuddy-master\RivenSharp\bin\Release\SharpDX.dll
 D:\Tommi\Downloads\HesaElobuddy-master\RivenSharp\bin\Release\SharpDX.XInput.dll
 D:\Tommi\Downloads\HesaElobuddy-master\RivenSharp\obj\Release\Eclipse Template.exe
 D:\Tommi\Downloads\HesaElobuddy-master\RivenSharp\obj\Release\Eclipse Template.pdb
+D:\Tommi\Documents\GitHub\EB-T\RivenSharp\bin\Release\Eclipse Template.exe.config
+D:\Tommi\Documents\GitHub\EB-T\RivenSharp\bin\Release\Eclipse Template.exe
+D:\Tommi\Documents\GitHub\EB-T\RivenSharp\bin\Release\Eclipse Template.pdb
+D:\Tommi\Documents\GitHub\EB-T\RivenSharp\bin\Release\EloBuddy.dll
+D:\Tommi\Documents\GitHub\EB-T\RivenSharp\bin\Release\EloBuddy.Sandbox.dll
+D:\Tommi\Documents\GitHub\EB-T\RivenSharp\bin\Release\EloBuddy.SDK.dll
+D:\Tommi\Documents\GitHub\EB-T\RivenSharp\bin\Release\Newtonsoft.Json.dll
+D:\Tommi\Documents\GitHub\EB-T\RivenSharp\bin\Release\SharpDX.Direct3D9.dll
+D:\Tommi\Documents\GitHub\EB-T\RivenSharp\bin\Release\SharpDX.dll
+D:\Tommi\Documents\GitHub\EB-T\RivenSharp\bin\Release\SharpDX.XInput.dll
+D:\Tommi\Documents\GitHub\EB-T\RivenSharp\obj\Release\Eclipse Template.exe
+D:\Tommi\Documents\GitHub\EB-T\RivenSharp\obj\Release\Eclipse Template.pdb

@@ -83,6 +83,7 @@ namespace Eclipse
             Drawing.OnDraw += DrawWallSpot.WallDraw;
 
             Game.OnUpdate += KillSteal.Update;
+            Game.OnUpdate += PermaActive.Update;
             Orbwalker.OnPostAttack += ProcessSpell.Orbwalker_OnPostAttack;
 
             Interrupter.OnInterruptableSpell += Interrupt2.OnInterruptableTarget;
@@ -91,7 +92,7 @@ namespace Eclipse
             #endregion sharp
             Drawing.OnDraw += Drawing_OnDraw2;
             Obj_AI_Base.OnNewPath += Obj_AI_Base_OnNewPath;
-            FpsBooster.Initialize();
+            Console.WriteLine("SharpRiven: Loaded");
         }
 
         #region Misc

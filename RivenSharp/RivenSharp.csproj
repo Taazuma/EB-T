@@ -34,25 +34,25 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EloBuddy">
-      <HintPath>..\..\..\Documents\My\Deve\ItsMeMario-master\ItsMeMario-master\Mario`s Lib\Mario`s Lib\bin\Debug\EloBuddy.dll</HintPath>
+      <HintPath>..\..\..\My\Deve\ItsMeMario-master\ItsMeMario-master\Mario`s Lib\Mario`s Lib\bin\Debug\EloBuddy.dll</HintPath>
     </Reference>
     <Reference Include="EloBuddy.Sandbox">
-      <HintPath>..\..\..\Documents\My\Deve\ItsMeMario-master\ItsMeMario-master\Mario`s Lib\Mario`s Lib\bin\Debug\EloBuddy.Sandbox.dll</HintPath>
+      <HintPath>..\..\..\My\Deve\ItsMeMario-master\ItsMeMario-master\Mario`s Lib\Mario`s Lib\bin\Debug\EloBuddy.Sandbox.dll</HintPath>
     </Reference>
     <Reference Include="EloBuddy.SDK">
-      <HintPath>..\..\..\Documents\My\Deve\ItsMeMario-master\ItsMeMario-master\Mario`s Lib\Mario`s Lib\bin\Debug\EloBuddy.SDK.dll</HintPath>
+      <HintPath>..\..\..\My\Deve\ItsMeMario-master\ItsMeMario-master\Mario`s Lib\Mario`s Lib\bin\Debug\EloBuddy.SDK.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\..\Documents\My\Deve\ItsMeMario-master\ItsMeMario-master\Mario`s Lib\Mario`s Lib\bin\Debug\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\..\My\Deve\ItsMeMario-master\ItsMeMario-master\Mario`s Lib\Mario`s Lib\bin\Debug\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="SharpDX">
-      <HintPath>..\..\..\Documents\My\Deve\ItsMeMario-master\ItsMeMario-master\Mario`s Lib\Mario`s Lib\bin\Debug\SharpDX.dll</HintPath>
+      <HintPath>..\..\..\My\Deve\ItsMeMario-master\ItsMeMario-master\Mario`s Lib\Mario`s Lib\bin\Debug\SharpDX.dll</HintPath>
     </Reference>
     <Reference Include="SharpDX.Direct3D9">
-      <HintPath>..\..\..\Documents\My\Deve\ItsMeMario-master\ItsMeMario-master\Mario`s Lib\Mario`s Lib\bin\Debug\SharpDX.Direct3D9.dll</HintPath>
+      <HintPath>..\..\..\My\Deve\ItsMeMario-master\ItsMeMario-master\Mario`s Lib\Mario`s Lib\bin\Debug\SharpDX.Direct3D9.dll</HintPath>
     </Reference>
     <Reference Include="SharpDX.XInput">
-      <HintPath>..\..\..\Documents\My\Deve\ItsMeMario-master\ItsMeMario-master\Mario`s Lib\Mario`s Lib\bin\Debug\SharpDX.XInput.dll</HintPath>
+      <HintPath>..\..\..\My\Deve\ItsMeMario-master\ItsMeMario-master\Mario`s Lib\Mario`s Lib\bin\Debug\SharpDX.XInput.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
