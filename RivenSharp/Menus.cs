@@ -109,6 +109,7 @@ namespace Eclipse
             DrawingsMenu.Add("me", new CheckBox("My Path", false));
             DrawingsMenu.Add("ally", new CheckBox("Ally Path", false));
             DrawingsMenu.Add("enemy", new CheckBox("Enemy Path", true));
+            DrawingsMenu.AddSeparator(7);
             DrawingsMenu.AddLabel("Tracker Misc");
             DrawingsMenu.Add("toggle", new KeyBind("Toggle On/Off", true, KeyBind.BindTypes.PressToggle, 'G'));
             DrawingsMenu.Add("eta", new CheckBox("Estimated time of arrival (only me)", true));

@@ -51,9 +51,10 @@ namespace Eclipse
             LaneClearMenu = FirstMenu.AddSubMenu("LaneClear", LaneClearMenuID);
             //LasthitMenu = FirstMenu.AddSubMenu("LastHit", LastHitMenuID);
             JungleClearMenu = FirstMenu.AddSubMenu("JungleClear", JungleClearMenuID);
-            KillStealMenu = FirstMenu.AddSubMenu("KillSteal", KillStealMenuID);
+            //KillStealMenu = FirstMenu.AddSubMenu("KillSteal", KillStealMenuID);
             MiscMenu = FirstMenu.AddSubMenu("Misc", MiscMenuID);
             DrawingsMenu = FirstMenu.AddSubMenu("Drawings", DrawingsMenuID);
+
             ComboMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             ComboMenu.AddLabel("ComboLogics");
             ComboMenu.Add("Comba", new ComboBox(" Combo Logic ", 0, "GankCombo", "Teamfight Normal"));
@@ -100,12 +101,6 @@ namespace Eclipse
             JungleClearMenu.CreateCheckBox("Use E", "eUse");
             JungleClearMenu.AddGroupLabel("Settings");
             JungleClearMenu.CreateSlider("Mana must be higher than [{0}%] to use Harass spells", "manaSlider", 20);
-
-            KillStealMenu.AddGroupLabel("KillSteal");
-            KillStealMenu.CreateCheckBox("Use Q", "qUse");
-            //KillStealMenu.CreateCheckBox("Use Smite to KS", "sks");
-            KillStealMenu.AddGroupLabel("Settings");
-            KillStealMenu.CreateSlider("Mana must be higher than [{0}%] to use Harass spells", "manaSlider", 20);
 
             MiscMenu.AddGroupLabel("Settings");
             MiscMenu.Add("smartW", new CheckBox("Automatic disable W (Smart)"));

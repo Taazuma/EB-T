@@ -22,3 +22,4 @@ D:\Tommi\Documents\GitHub\EB-T\RivenSharp\bin\Release\Eclipse Riven.exe
 D:\Tommi\Documents\GitHub\EB-T\RivenSharp\bin\Release\Eclipse Riven.pdb
 D:\Tommi\Documents\GitHub\EB-T\RivenSharp\obj\Release\Eclipse Riven.exe
 D:\Tommi\Documents\GitHub\EB-T\RivenSharp\obj\Release\Eclipse Riven.pdb
+D:\Tommi\Documents\GitHub\EB-T\RivenSharp\obj\Release\RivenSharp.csprojResolveAssemblyReference.cache

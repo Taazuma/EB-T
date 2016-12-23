@@ -1,1 +1,2 @@
 D:\Tommi\Documents\GitHub\EB-T\RivenSharp\bin\Debug\Eclipse Template.exe.config
+D:\Tommi\Documents\GitHub\EB-T\RivenSharp\bin\Debug\Eclipse Riven.exe.config

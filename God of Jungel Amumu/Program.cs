@@ -74,13 +74,6 @@ namespace Eclipse
             if (rL < level[3]) ObjectManager.Player.Spellbook.LevelSpell(SpellSlot.R);
         }
 
-        public readonly static string[] MonstersNames =
-        {
-            "SRU_Dragon_Water", "SRU_Dragon_Fire", "SRU_Dragon_Earth", "SRU_Dragon_Air", "SRU_Dragon_Elder", "Sru_Crab", "SRU_Baron", "SRU_RiftHerald",
-            "SRU_Red", "SRU_Blue",  "SRU_Krug", "SRU_Gromp", "SRU_Murkwolf", "SRU_Razorbeak",
-            "TT_Spiderboss", "TTNGolem", "TTNWolf", "TTNWraith",
-        };
-
         public static bool getCheckBoxItem(Menu m, string item)
         {
             return m[item].Cast<CheckBox>().CurrentValue;

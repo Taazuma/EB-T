@@ -71,7 +71,7 @@ namespace Eclipse.Modes
             {
                 if (target.IsValidTarget(1000) && quse && target.IsEnemy && Q.GetPrediction(target).HitChance >= Hitch.hitchance(Q, FirstMenu))
                 {
-                    Q.Cast(target.Position);
+                    Q.Cast(predictionQ.CastPosition);
                 }
 
                 if (R.IsLearned && R.IsReady() && ruse)
