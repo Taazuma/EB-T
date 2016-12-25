@@ -1,0 +1,15 @@
+D:\Tommi\Documents\GitHub\EB-T\Ronin Olaf\bin\Release\Ronin Olaf.exe.config
+D:\Tommi\Documents\GitHub\EB-T\Ronin Olaf\bin\Release\Ronin Olaf.exe
+D:\Tommi\Documents\GitHub\EB-T\Ronin Olaf\bin\Release\Ronin Olaf.pdb
+D:\Tommi\Documents\GitHub\EB-T\Ronin Olaf\bin\Release\EloBuddy.dll
+D:\Tommi\Documents\GitHub\EB-T\Ronin Olaf\bin\Release\EloBuddy.Sandbox.dll
+D:\Tommi\Documents\GitHub\EB-T\Ronin Olaf\bin\Release\EloBuddy.SDK.dll
+D:\Tommi\Documents\GitHub\EB-T\Ronin Olaf\bin\Release\Newtonsoft.Json.dll
+D:\Tommi\Documents\GitHub\EB-T\Ronin Olaf\bin\Release\SharpDX.Direct3D9.dll
+D:\Tommi\Documents\GitHub\EB-T\Ronin Olaf\bin\Release\SharpDX.dll
+D:\Tommi\Documents\GitHub\EB-T\Ronin Olaf\bin\Release\SharpDX.XInput.dll
+D:\Tommi\Documents\GitHub\EB-T\Ronin Olaf\obj\Release\Ronin Olaf.csprojResolveAssemblyReference.cache
+D:\Tommi\Documents\GitHub\EB-T\Ronin Olaf\obj\Release\Eclipse_Template.Properties.Resources.resources
+D:\Tommi\Documents\GitHub\EB-T\Ronin Olaf\obj\Release\Ronin Olaf.csproj.GenerateResource.Cache
+D:\Tommi\Documents\GitHub\EB-T\Ronin Olaf\obj\Release\Ronin Olaf.exe
+D:\Tommi\Documents\GitHub\EB-T\Ronin Olaf\obj\Release\Ronin Olaf.pdb
