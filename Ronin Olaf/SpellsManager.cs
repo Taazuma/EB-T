@@ -22,13 +22,6 @@ namespace Eclipse
         public static Spell.Active W;
         public static Spell.Targeted E;
         public static Spell.Active R;
-        public static Spell.Targeted Smite { get; private set; }
-        public static Spell.Targeted Ignite { get; private set; }
-        public static Spell.Targeted Exhaust { get; private set; }
-        public static Spell.Active Heal { get; private set; }
-        public static Spell.Active Barrier { get; private set; }
-        public static Spell.Active Cleanse { get; private set; }
-        public static Spell.Active Ghost { get; private set; }
 
         public static void InitializeSpells()
         {
@@ -37,42 +30,6 @@ namespace Eclipse
             W = new Spell.Active(SpellSlot.W);
             E = new Spell.Targeted(SpellSlot.E, 325);
             R = new Spell.Active(SpellSlot.R);
-
-            var slot = Player.Instance.GetSpellSlotFromName("summonerdot");
-            if (slot != SpellSlot.Unknown)
-            {
-                Ignite = new Spell.Targeted(slot, 600);
-            }
-            slot = Player.Instance.GetSpellSlotFromName("summonersmite");
-            if (slot != SpellSlot.Unknown)
-            {
-                Smite = new Spell.Targeted(slot, 500);
-            }
-            slot = Player.Instance.GetSpellSlotFromName("SummonerExhaust");
-            if (slot != SpellSlot.Unknown)
-            {
-                Exhaust = new Spell.Targeted(slot, 650);
-            }
-            slot = Player.Instance.GetSpellSlotFromName("summonerheal");
-            if (slot != SpellSlot.Unknown)
-            {
-                Heal = new Spell.Active(slot, 850);
-            }
-            slot = Player.Instance.GetSpellSlotFromName("SummonerBarrier");
-            if (slot != SpellSlot.Unknown)
-            {
-                Barrier = new Spell.Active(slot);
-            }
-            slot = Player.Instance.GetSpellSlotFromName("SummonerBoost");
-            if (slot != SpellSlot.Unknown)
-            {
-                Cleanse = new Spell.Active(slot);
-            }
-            slot = Player.Instance.GetSpellSlotFromName("summonerghost");
-            if (slot != SpellSlot.Unknown)
-            {
-                Ghost = new Spell.Active(slot);
-            }
         }
 
 

@@ -43,17 +43,6 @@ namespace Eclipse.Modes
 
                 if (Q.IsReady())
                 {
-                    var rDamage = DamageManager.GetQDamage(qtarget);
-                    if (qtarget.Health + qtarget.AttackShield <= rDamage)
-                    {
-                        if (qtarget.IsValidTarget(Q.Range))
-                        {
-                            Q.Cast(qtarget);
-                        }
-                    }
-                }
-                else if (Q.IsReady())
-                {
                     var rDamage = Player.Instance.GetSpellDamage(qtarget, SpellSlot.Q);
                     if (Player.Instance.GetSpellDamage(qtarget, SpellSlot.Q) >= Prediction.Health.GetPrediction(qtarget, Q.CastDelay + Game.Ping))
                     {

@@ -75,6 +75,7 @@
     <Compile Include="Menus.cs" />
     <Compile Include="Misc\DamageManager.cs" />
     <Compile Include="Misc\Helper.cs" />
+    <Compile Include="Misc\SummonerSpells.cs" />
     <Compile Include="Modes\Active.cs" />
     <Compile Include="Modes\AutoHarass.cs" />
     <Compile Include="Modes\Combo.cs" />

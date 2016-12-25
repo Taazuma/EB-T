@@ -14,6 +14,7 @@ using EloBuddy.SDK.Rendering;
 using SharpDX;
 using static Eclipse.SpellsManager;
 using static Eclipse.Menus;
+using Eclipse.Misc.Spells;
 
 namespace Eclipse.Modes
 {
@@ -99,9 +100,9 @@ namespace Eclipse.Modes
             if (ComboMenu["Comba"].Cast<ComboBox>().CurrentValue == 1)
             {
 
-                if (Ghost != null && Ghost.IsReady())
+                if (SummonerSpells.Ghost != null && SummonerSpells.PlayerHasGhost && SummonerSpells.Ghost.IsReady())
                 {
-                    Ghost.Cast();
+                    SummonerSpells.Ghost.Cast();
                 }
 
                 if (target == null || target.IsInvulnerable || target.MagicImmune)
@@ -109,14 +110,14 @@ namespace Eclipse.Modes
                     return;
                 }
 
-                if (Smite != null && Smite.IsReady() && target.IsValidTarget(Smite.Range))
+                if (SummonerSpells.Ignite != null && SummonerSpells.PlayerHasIgnite && SummonerSpells.Ignite.IsReady())
                 {
-                    Smite.Cast(target);
+                    SummonerSpells.Ignite.Cast(target);
                 }
 
-                if (Ignite != null && Ignite.IsReady() && target.IsValidTarget(Ignite.Range))
+                if (SummonerSpells.Smite != null && SummonerSpells.PlayerHasSmite && SummonerSpells.Smite.IsReady())
                 {
-                    Ignite.Cast(target);
+                    SummonerSpells.Smite.Cast(target);
                 }
 
                 Eclipse.Activator.Items.Youmuus.Cast();
