@@ -80,8 +80,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DamageManager.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="FpsBooster.cs" />
+    <Compile Include="Helper.cs" />
     <Compile Include="Hitch.cs" />
     <Compile Include="Menus.cs" />
     <Compile Include="Modes\Active.cs" />
@@ -91,7 +93,6 @@
     <Compile Include="Modes\Items.cs" />
     <Compile Include="Modes\JungleClear.cs" />
     <Compile Include="Modes\LaneClear.cs" />
-    <Compile Include="Modes\LastHit.cs" />
     <Compile Include="Modes\ModeManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

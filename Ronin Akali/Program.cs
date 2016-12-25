@@ -49,7 +49,7 @@ namespace Eclipse
             get { return ObjectManager.Player; }
 
         }
-        private static bool check(Menu submenu, string sig)
+        public static bool check(Menu submenu, string sig)
         {
             return submenu[sig].Cast<CheckBox>().CurrentValue;
         }
@@ -76,19 +76,13 @@ namespace Eclipse
             SpellsManager.InitializeSpells();
             Menus.CreateMenu();
             ModeManager.InitializeModes();
-            Game.OnUpdate += GameOnUpdate;
             Drawing.OnDraw += Drawing_OnDraw;
             Obj_AI_Base.OnNewPath += Obj_AI_Base_OnNewPath;
             FpsBooster.Initialize();
         }
 
-        private static void GameOnUpdate(EventArgs args)
-        {
-            if (check(MiscMenu, "skinhax")) _player.SetSkinId((int)MiscMenu["skinID"].Cast<ComboBox>().CurrentValue);
-            if (MiscMenu["lvlup"].Cast<CheckBox>().CurrentValue) LevelUpSpells();
-        }
 
-        private static void LevelUpSpells() // Thanks iRaxe
+        public static void LevelUpSpells() // Thanks iRaxe
         {
             var qL = _player.Spellbook.GetSpell(SpellSlot.Q).Level + qOff;
             var wL = _player.Spellbook.GetSpell(SpellSlot.W).Level + wOff;

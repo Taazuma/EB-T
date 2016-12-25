@@ -16,6 +16,7 @@ using static Eclipse.SpellsManager;
 using static Eclipse.Menus;
 using System.Diagnostics;
 using EloBuddy.SDK.Menu;
+using Eclipse.Managers;
 
 namespace Eclipse.Modes
 {
@@ -30,7 +31,6 @@ namespace Eclipse.Modes
         {
 
             if (Combo._player.IsDead || Combo._player.IsRecalling()) return;
-
 
             if (Player.HasBuff("zedulttargetmark") && MiscMenu.GetCheckBoxValue("wlow"))
             {
@@ -47,7 +47,12 @@ namespace Eclipse.Modes
                 return;
             }
 
-            if (Player.Instance.CountEnemiesInRange(W.Range) >= 2 || Player.Instance.HealthPercent <= 20 && W.IsReady() && MiscMenu.GetCheckBoxValue("wlow"))
+            if (MiscMenu.GetCheckBoxValue("autoq") && Q.IsReady() && target.IsValidTarget(Q.Range + 200) && Player.Instance.Mana <= 100)
+            {
+                Q.Cast(target);
+            }
+
+            if (Player.Instance.CountEnemiesInRange(W.Range) >= 2 || Player.Instance.HealthPercent <= 16 && W.IsReady() && MiscMenu.GetCheckBoxValue("wlow"))
             {
                 W.Cast(Game.CursorPos);
             }
@@ -60,7 +65,7 @@ namespace Eclipse.Modes
 
                 if (Q.IsReady())
                 {
-                    var rDamage = qtarget.GetDamage(SpellSlot.Q);
+                    var rDamage = DamageManager.GetQDamage(qtarget);
                     if (qtarget.Health + qtarget.AttackShield <= rDamage)
                     {
                         if (qtarget.IsValidTarget(Q.Range))
@@ -92,7 +97,7 @@ namespace Eclipse.Modes
                 if (R.IsReady())
                 {
                     //var passiveDamage = rtarget.HasPassive() ? rtarget.GetPassiveDamage() : 0f;
-                    var rDamage = rtarget.GetDamage(SpellSlot.R);
+                    var rDamage = DamageManager.GetRDamage(rtarget);
 
                     if (rtarget.Health + rtarget.AttackShield <= rDamage)
                     {
@@ -103,11 +108,6 @@ namespace Eclipse.Modes
                     }
                 }
             }// END KS
-
-            if (MiscMenu.GetCheckBoxValue("autoq") && Q.IsReady() && target.IsValidTarget(Q.Range + 200) && Player.Instance.Mana <= 100)
-            {
-                Q.Cast(target);
-            }
 
 
         }

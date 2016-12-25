@@ -35,7 +35,7 @@ namespace Eclipse
             ComboMenu = FirstMenu.AddSubMenu("Combo", ComboMenuID);
             HarassMenu = FirstMenu.AddSubMenu("Harass", HarassMenuID);
             LaneClearMenu = FirstMenu.AddSubMenu("LaneClear", LaneClearMenuID);
-            LasthitMenu = FirstMenu.AddSubMenu("LastHit", LastHitMenuID);
+            //LasthitMenu = FirstMenu.AddSubMenu("LastHit", LastHitMenuID);
             JungleClearMenu = FirstMenu.AddSubMenu("JungleClear", JungleClearMenuID);
             KillStealMenu = FirstMenu.AddSubMenu("KillSteal", KillStealMenuID);
             DrawingsMenu = FirstMenu.AddSubMenu("Drawings", DrawingsMenuID);
@@ -88,12 +88,6 @@ namespace Eclipse
             LaneClearMenu.AddGroupLabel("Settings");
             LaneClearMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
 
-            LasthitMenu.AddGroupLabel("Lasthit");
-            LasthitMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
-            LasthitMenu.CreateCheckBox(" - Use Q", "qUse");
-            LasthitMenu.AddGroupLabel("Settings");
-            LasthitMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
-
             JungleClearMenu.AddGroupLabel("JungleClear");
             JungleClearMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             JungleClearMenu.CreateCheckBox(" - Use Q", "qUse");
@@ -105,7 +99,7 @@ namespace Eclipse
 
             KillStealMenu.AddGroupLabel("KillSteal");
             KillStealMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
-            KillStealMenu.CreateCheckBox(" - Use Q", "qUse");
+            KillStealMenu.CreateCheckBox(" - Use Q", "qUse", false);
             KillStealMenu.CreateCheckBox(" - Use E", "eUse");
             KillStealMenu.CreateCheckBox("- Use R", "rUse", false);
             KillStealMenu.AddGroupLabel("News");

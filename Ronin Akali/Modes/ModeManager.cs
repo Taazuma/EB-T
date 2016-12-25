@@ -38,11 +38,6 @@ namespace Eclipse.Modes
                 Harass.Execute();
             }
 
-            if (orbMode.HasFlag(Orbwalker.ActiveModes.LastHit))
-            {
-                LastHit.Execute();
-            }
-
             if (orbMode.HasFlag(Orbwalker.ActiveModes.Flee))
             {
                 Flee.Execute();
@@ -58,6 +53,8 @@ namespace Eclipse.Modes
                 JungleClear.Execute();
             }
 
+            if (Program.check(Menus.MiscMenu, "skinhax")) Program._player.SetSkinId((int)Menus.MiscMenu["skinID"].Cast<ComboBox>().CurrentValue);
+            if (Menus.MiscMenu["lvlup"].Cast<CheckBox>().CurrentValue) Program.LevelUpSpells();
 
         }
     }
