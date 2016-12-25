@@ -35,17 +35,6 @@ namespace Eclipse.Modes
                 return;
             }
 
-            if (Ignite != null && KillStealMenu.GetCheckBoxValue("igks"))
-            {
-                 var target2 = EntityManager.Heroes.Enemies.Where(t => t.IsValidTarget(Ignite.Range) &&t.Health <= Player.Instance.GetSummonerSpellDamage(t, DamageLibrary.SummonerSpells.Ignite)).FirstOrDefault();
-
-              if (target != null && Ignite.IsReady())
-               {
-                  Ignite.Cast(target2);
-               }
-             }
-
-
             if (KillStealMenu.GetCheckBoxValue("qUse")) // Start KS Q
             {
                 var qtarget = TargetSelector.GetTarget(Q.Range, DamageType.Magical);

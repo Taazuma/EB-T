@@ -80,7 +80,7 @@ namespace Eclipse
             Drawing.OnDraw += Drawing_OnDraw;
             Obj_AI_Base.OnNewPath += Obj_AI_Base_OnNewPath;
             FpsBooster.Initialize();
-            Orbwalker.OnPostAttack += ResetAttack; // Credits Mercedes im to lazy 
+            //Orbwalker.OnPostAttack += ResetAttack; // Credits Mercedes im to lazy 
             Gapcloser.OnGapcloser += Gapcloser_OnGapcloser;
             Drawing.OnDraw += Drawing_OnDrawSpells;
         }
@@ -177,11 +177,6 @@ namespace Eclipse
             if (DrawingsMenu["DrawE"].Cast<CheckBox>().CurrentValue)
             {
                 new Circle() { Color = Color.Orange, BorderWidth = 1, Radius = E.Range }.Draw(_player.Position);
-            }
-
-            if (DrawingsMenu["Axe"].Cast<CheckBox>().CurrentValue && Axe != null)
-            {
-                new Circle() { Color = Color.GreenYellow, BorderWidth = 6, Radius = 100 }.Draw(Axe.Position);
             }
         }
 

@@ -30,13 +30,12 @@ namespace Eclipse
 
         public static void CreateMenu()
         {
-            FirstMenu = MainMenu.AddMenu("Taazuma "+Player.Instance.ChampionName, Player.Instance.ChampionName.ToLower() + "taazuma");
+            FirstMenu = MainMenu.AddMenu("Ronin "+Player.Instance.ChampionName, Player.Instance.ChampionName.ToLower() + "taazuma");
 			FirstMenu.AddGroupLabel("Addon by Taazuma / Thanks for using it");
             FirstMenu.AddLabel("If you found any bugs report it on my Thread");
             FirstMenu.AddLabel("Have fun with Playing");
-            FirstMenu.Add(SpellsManager.Q.Slot + "hit", new ComboBox("Q HitChance", 1, "High", "Medium", "Low"));
             ComboMenu = FirstMenu.AddSubMenu("Combo", ComboMenuID);
-            HarassMenu = FirstMenu.AddSubMenu("Harass", HarassMenuID);
+            //HarassMenu = FirstMenu.AddSubMenu("Harass", HarassMenuID);
             AutoHarassMenu = FirstMenu.AddSubMenu("AutoHarass", AutoHarassMenuID);
             LaneClearMenu = FirstMenu.AddSubMenu("LaneClear", LaneClearMenuID);
             //LasthitMenu = FirstMenu.AddSubMenu("LastHit", LastHitMenuID);
@@ -61,13 +60,6 @@ namespace Eclipse
             ComboMenu.Add("Wdelay", new Slider("W Delay (ms)", 0, 0, 300));
             ComboMenu.Add("Edelay", new Slider("E Delay (ms)", 0, 0, 300));
             ComboMenu.Add("Rdelay", new Slider("R Delay (ms)", 0, 0, 300));
-            ComboMenu.AddSeparator(10);
-            ComboMenu.AddLabel("Logic Infos");
-            ComboMenu.AddLabel("1. Combo ");
-            ComboMenu.AddSeparator(6);
-            ComboMenu.AddLabel("2. Combo ");
-            ComboMenu.AddSeparator(6);
-            ComboMenu.AddLabel("3. Combo ");
             ComboMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
 
             AutoHarassMenu.AddGroupLabel("Autoharass");
@@ -78,7 +70,7 @@ namespace Eclipse
 
             LaneClearMenu.AddGroupLabel("LaneClear");
             LaneClearMenu.CreateCheckBox("Use Q", "qUse");
-            ComboMenu.Add("QSE", new ComboBox(" Q Option ", 1, "Q Lasthit", "Q Normal"));
+            LaneClearMenu.Add("QSE", new ComboBox(" Q Option ", 1, "Q Lasthit", "Q Normal"));
             LaneClearMenu.CreateCheckBox("Use E", "eUse");
             LaneClearMenu.AddGroupLabel("Settings");
             LaneClearMenu.CreateSlider("Mana must be higher than [{0}%] to use LaneClear spells", "manaSlider", 60);
@@ -95,14 +87,12 @@ namespace Eclipse
             KillStealMenu.AddGroupLabel("KillSteal");
             KillStealMenu.CreateCheckBox("Use Q", "qUse");
             KillStealMenu.CreateCheckBox("Use E", "eUse");
-            KillStealMenu.CreateCheckBox("Ignite", "igks");
             KillStealMenu.AddGroupLabel("Settings");
             KillStealMenu.CreateSlider("Mana must be higher than [{0}%] to use KS spells", "manaSlider", 10);
 
             DrawingsMenu.AddGroupLabel("Settings");
             DrawingsMenu.Add("DrawQ", new CheckBox("Q Range", false));
             DrawingsMenu.Add("DrawE", new CheckBox("E Range", false));
-            DrawingsMenu.Add("Axe", new CheckBox("Axe Draw"));
             DrawingsMenu.AddSeparator();
             DrawingsMenu.AddLabel("Tracker Draws");
             DrawingsMenu.Add("me", new CheckBox("My Path", false));

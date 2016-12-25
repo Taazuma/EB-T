@@ -42,11 +42,6 @@ namespace Eclipse.Modes
                 E.Cast(target);
             }
 
-            if (JungleClearMenu.GetCheckBoxValue("rUse") && R.IsReady())
-            {
-                R.Cast(target);
-            }
-
 
         }
     }

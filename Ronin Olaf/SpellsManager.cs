@@ -68,6 +68,11 @@ namespace Eclipse
             {
                 Cleanse = new Spell.Active(slot);
             }
+            slot = Player.Instance.GetSpellSlotFromName("summonerghost");
+            if (slot != SpellSlot.Unknown)
+            {
+                Ghost = new Spell.Active(slot);
+            }
         }
 
 

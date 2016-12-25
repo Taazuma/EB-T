@@ -31,10 +31,6 @@ namespace Eclipse.Modes
             var useW = ComboMenu.GetCheckBoxValue("wUse");
             var useE = ComboMenu.GetCheckBoxValue("eUse");
             var useR = ComboMenu.GetCheckBoxValue("rUse");
-            if (target == null || target.IsInvulnerable || target.MagicImmune)
-            {
-                return;
-            }
             //////////////////////////////////////////////////////////////////////////////////
             // Lets Beginn this here
 
@@ -42,6 +38,10 @@ namespace Eclipse.Modes
             //Begin
             if (ComboMenu["Comba"].Cast<ComboBox>().CurrentValue == 0)
             {
+                if (target == null || target.IsInvulnerable || target.MagicImmune)
+                {
+                    return;
+                }
                 var pos = Q.GetPrediction(target).CastPosition.Extend(Player.Instance.Position, -80);
                 if (useQ && Q.IsReady() && target.IsValidTarget(Q.Range))
                 {
@@ -85,7 +85,7 @@ namespace Eclipse.Modes
 
             Core.DelayAction(delegate
             {
-                if (useR && R.IsReady() && Player.HasBuffOfType(BuffType.Snare) || Player.HasBuffOfType(BuffType.Stun) || Player.HasBuffOfType(BuffType.Taunt) || Player.HasBuffOfType(BuffType.Knockup) || Program._player.IsRooted)
+                if (useR && R.IsReady() && Player.HasBuffOfType(BuffType.Snare) || Player.HasBuffOfType(BuffType.Stun) || Player.HasBuffOfType(BuffType.Taunt) || Player.HasBuffOfType(BuffType.Knockup))
             {
                     R.Cast();
             }
@@ -99,17 +99,22 @@ namespace Eclipse.Modes
             if (ComboMenu["Comba"].Cast<ComboBox>().CurrentValue == 1)
             {
 
-                if (Ghost.IsReady())
+                if (Ghost != null && Ghost.IsReady())
                 {
                     Ghost.Cast();
                 }
 
-                if (Smite.IsReady() && target.IsValidTarget(Smite.Range))
+                if (target == null || target.IsInvulnerable || target.MagicImmune)
+                {
+                    return;
+                }
+
+                if (Smite != null && Smite.IsReady() && target.IsValidTarget(Smite.Range))
                 {
                     Smite.Cast(target);
                 }
 
-                if (Ignite.IsReady() && target.IsValidTarget(Ignite.Range))
+                if (Ignite != null && Ignite.IsReady() && target.IsValidTarget(Ignite.Range))
                 {
                     Ignite.Cast(target);
                 }
@@ -161,7 +166,7 @@ namespace Eclipse.Modes
 
             Core.DelayAction(delegate
             {
-                if (useR && R.IsReady() && Player.HasBuffOfType(BuffType.Snare) || Player.HasBuffOfType(BuffType.Stun) || Player.HasBuffOfType(BuffType.Taunt) || Player.HasBuffOfType(BuffType.Knockup) || Program._player.IsRooted)
+                if (useR && R.IsReady() && Player.HasBuffOfType(BuffType.Snare) || Player.HasBuffOfType(BuffType.Stun) || Player.HasBuffOfType(BuffType.Taunt) || Player.HasBuffOfType(BuffType.Knockup))
                 {
                     R.Cast();
                 }
@@ -175,6 +180,10 @@ namespace Eclipse.Modes
             //Beginn
             if (ComboMenu["Comba"].Cast<ComboBox>().CurrentValue == 2)
             {
+                if (target == null || target.IsInvulnerable || target.MagicImmune)
+                {
+                    return;
+                }
                 var pos = Q.GetPrediction(target).CastPosition.Extend(Player.Instance.Position, -80);
                 if (useQ && Q.IsReady() && target.IsValidTarget(Q.Range))
                 {
@@ -210,7 +219,7 @@ namespace Eclipse.Modes
 
             Core.DelayAction(delegate
             {
-                if (useR && R.IsReady() && Player.Instance.CountEnemiesInRange(W.Range) >= 3 && MiscMenu.GetCheckBoxValue("rtUse"))
+                if (useR && R.IsReady() && Player.Instance.CountEnemiesInRange(R.Range) >= 4 && MiscMenu.GetCheckBoxValue("rtUse"))
                 {
                     R.Cast();
                 }
@@ -226,7 +235,7 @@ namespace Eclipse.Modes
 
             Core.DelayAction(delegate
             {
-                if (useR && R.IsReady() && Player.HasBuffOfType(BuffType.Snare) || Player.HasBuffOfType(BuffType.Stun) || Player.HasBuffOfType(BuffType.Taunt) || Player.HasBuffOfType(BuffType.Knockup) || Program._player.IsRooted)
+                if (useR && R.IsReady() && Player.HasBuffOfType(BuffType.Snare) || Player.HasBuffOfType(BuffType.Stun) || Player.HasBuffOfType(BuffType.Taunt) || Player.HasBuffOfType(BuffType.Knockup))
                 {
                     R.Cast();
                 }
