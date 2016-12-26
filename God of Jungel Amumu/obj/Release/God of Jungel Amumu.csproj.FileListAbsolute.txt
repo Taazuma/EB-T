@@ -11,9 +11,6 @@ D:\Tommi\Documents\Visual Studio 2015\Projects\God of Jungel Amumu\God of Jungel
 D:\Tommi\Documents\Visual Studio 2015\Projects\God of Jungel Amumu\God of Jungel Amumu\obj\Release\Eclipse Template.exe
 D:\Tommi\Documents\Visual Studio 2015\Projects\God of Jungel Amumu\God of Jungel Amumu\obj\Release\Eclipse Template.pdb
 D:\Tommi\Documents\Visual Studio 2015\Projects\God of Jungel Amumu\God of Jungel Amumu\obj\Release\God of Jungel Amumu.csprojResolveAssemblyReference.cache
-D:\Tommi\Documents\GitHub\EB-T\God of Jungel Amumu\bin\Release\Eclipse Template.exe.config
-D:\Tommi\Documents\GitHub\EB-T\God of Jungel Amumu\bin\Release\Eclipse Template.exe
-D:\Tommi\Documents\GitHub\EB-T\God of Jungel Amumu\bin\Release\Eclipse Template.pdb
 D:\Tommi\Documents\GitHub\EB-T\God of Jungel Amumu\bin\Release\EloBuddy.dll
 D:\Tommi\Documents\GitHub\EB-T\God of Jungel Amumu\bin\Release\EloBuddy.Sandbox.dll
 D:\Tommi\Documents\GitHub\EB-T\God of Jungel Amumu\bin\Release\EloBuddy.SDK.dll
@@ -24,5 +21,8 @@ D:\Tommi\Documents\GitHub\EB-T\God of Jungel Amumu\bin\Release\SharpDX.XInput.dl
 D:\Tommi\Documents\GitHub\EB-T\God of Jungel Amumu\obj\Release\God of Jungel Amumu.csprojResolveAssemblyReference.cache
 D:\Tommi\Documents\GitHub\EB-T\God of Jungel Amumu\obj\Release\Eclipse_Template.Properties.Resources.resources
 D:\Tommi\Documents\GitHub\EB-T\God of Jungel Amumu\obj\Release\God of Jungel Amumu.csproj.GenerateResource.Cache
-D:\Tommi\Documents\GitHub\EB-T\God of Jungel Amumu\obj\Release\Eclipse Template.exe
-D:\Tommi\Documents\GitHub\EB-T\God of Jungel Amumu\obj\Release\Eclipse Template.pdb
+D:\Tommi\Documents\GitHub\EB-T\God of Jungel Amumu\bin\Release\God of Jungel.exe.config
+D:\Tommi\Documents\GitHub\EB-T\God of Jungel Amumu\bin\Release\God of Jungel.exe
+D:\Tommi\Documents\GitHub\EB-T\God of Jungel Amumu\bin\Release\God of Jungel.pdb
+D:\Tommi\Documents\GitHub\EB-T\God of Jungel Amumu\obj\Release\God of Jungel.exe
+D:\Tommi\Documents\GitHub\EB-T\God of Jungel Amumu\obj\Release\God of Jungel.pdb

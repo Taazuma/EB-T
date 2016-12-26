@@ -17,6 +17,7 @@ using static Eclipse.Menus;
 using Eclipse.Modes;
 using EloBuddy.SDK.Menu;
 using Eclipse_Template.Properties;
+using Color = System.Drawing.Color;
 
 namespace Eclipse
 {
@@ -57,9 +58,9 @@ namespace Eclipse
             }, 2000);
             AbilitySequence = new int[] { 2, 3, 1, 3, 3, 4, 3, 1, 3, 1, 4, 1, 1, 2, 2, 4, 2, 2 };
             SpellsManager.InitializeSpells();
-            DrawingsManager.InitializeDrawings();
             Menus.CreateMenu();
             ModeManager.InitializeModes();
+            Drawing.OnDraw += Drawing_OnDrawSpells;
             FpsBooster.Initialize();
             if (!SpellManager.HasSmite())
             {
@@ -70,6 +71,8 @@ namespace Eclipse
             ModeManagerSmite.Initialize();
             Events.Initialize();
         }
+
+        #region Misc Drawings
 
         public static void LevelUpSpells()
         {
@@ -102,6 +105,33 @@ namespace Eclipse
                 introImg.Scale = new Vector2(timeElapsed * 1f / dt, timeElapsed * 1f / dt);
             introImg.Draw(new Vector2(Drawing.Width / 2f - 1415 / 2f, Drawing.Height / 2f - 750 / 2f));
         }
+
+
+        public static void Drawing_OnDrawSpells(EventArgs args)
+        {
+            if (DrawingsMenu["qDraw"].Cast<CheckBox>().CurrentValue)
+            {
+                new Circle() { Color = Color.WhiteSmoke, BorderWidth = 1, Radius = Q.Range }.Draw(_player.Position);
+            }
+
+            if (DrawingsMenu["wDraw"].Cast<CheckBox>().CurrentValue)
+            {
+                new Circle() { Color = Color.WhiteSmoke, BorderWidth = 1, Radius = W.Range }.Draw(_player.Position);
+            }
+
+            if (DrawingsMenu["eDraw"].Cast<CheckBox>().CurrentValue)
+            {
+                new Circle() { Color = Color.GhostWhite, BorderWidth = 1, Radius = E.Range }.Draw(_player.Position);
+            }
+
+            if (DrawingsMenu["rDraw"].Cast<CheckBox>().CurrentValue)
+            {
+                new Circle() { Color = Color.PapayaWhip, BorderWidth = 1, Radius = R.Range }.Draw(_player.Position);
+            }
+        }
+
+
+        #endregion Misc Drawings
 
         public static bool getCheckBoxItem(Menu m, string item)
         {

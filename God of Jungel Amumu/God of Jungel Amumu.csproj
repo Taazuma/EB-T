@@ -8,7 +8,7 @@
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Eclipse_Template</RootNamespace>
-    <AssemblyName>Eclipse Template</AssemblyName>
+    <AssemblyName>God of Jungel</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -68,9 +68,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ColorSliders.cs" />
-    <Compile Include="DamageIndicator.cs" />
-    <Compile Include="DrawingsManager.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="FpsBooster.cs" />
     <Compile Include="Hitch.cs" />

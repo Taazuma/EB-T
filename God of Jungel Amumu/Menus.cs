@@ -19,12 +19,6 @@ namespace Eclipse
         public static Menu DrawingsMenu;
         public static Menu MiscMenu;
 
-        public static ColorSlide QColorSlide;
-        public static ColorSlide WColorSlide;
-        public static ColorSlide EColorSlide;
-        public static ColorSlide RColorSlide;
-        public static ColorSlide DamageIndicatorColorSlide;
-
         public const string ComboMenuID = "combomenuid";
         public const string HarassMenuID = "harassmenuid";
         public const string AutoHarassMenuID = "autoharassmenuid";
@@ -61,9 +55,9 @@ namespace Eclipse
             ComboMenu.AddSeparator(10);
             ComboMenu.AddLabel("Information:");
             ComboMenu.AddSeparator(5);
-            ComboMenu.AddLabel("Q - when CC -> R - W - E");
+            ComboMenu.AddLabel("Gank: Q - when CC -> R - W - E");
             ComboMenu.AddSeparator(5);
-            ComboMenu.AddLabel("Q - R - W - E");
+            ComboMenu.AddLabel("Team: Q - R - W - E");
             ComboMenu.AddSeparator(10);
             ComboMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             ComboMenu.CreateCheckBox("Use Q", "qUse");
@@ -108,21 +102,11 @@ namespace Eclipse
             MiscMenu.Add("skinID", new ComboBox("Skin Hack", 0, "Default", "Sad Robot Amumu", "Little Knight Amumu", "Emumu", "Almost-Prom King Amumu", "Pharaoh Amumu", "Surprise Party Amumu", "Re-Gifted Amumu", "Vancouver Amumu"));
 
             DrawingsMenu.AddGroupLabel("Settings");
-            DrawingsMenu.CreateCheckBox("Draw spell`s range only if they are ready.", "readyDraw");
-            DrawingsMenu.CreateCheckBox("Draw damage indicator.", "damageDraw");
-            DrawingsMenu.CreateCheckBox("Draw damage indicator percent.", "perDraw");
-            DrawingsMenu.CreateCheckBox("Draw damage indicator statistics.", "statDraw", false);
             DrawingsMenu.AddGroupLabel("Spells");
             DrawingsMenu.CreateCheckBox("Draw Q.", "qDraw");
             DrawingsMenu.CreateCheckBox("Draw W.", "wDraw", false);
             DrawingsMenu.CreateCheckBox("Draw E.", "eDraw", false);
             DrawingsMenu.CreateCheckBox("Draw R.", "rDraw", false);
-            DrawingsMenu.AddGroupLabel("Drawings Color");
-            QColorSlide = new ColorSlide(DrawingsMenu, "qColor", Color.Red, "Q Color:");
-            WColorSlide = new ColorSlide(DrawingsMenu, "wColor", Color.Purple, "W Color:");
-            EColorSlide = new ColorSlide(DrawingsMenu, "eColor", Color.Orange, "E Color:");
-            RColorSlide = new ColorSlide(DrawingsMenu, "rColor", Color.DeepPink, "R Color:");
-            DamageIndicatorColorSlide = new ColorSlide(DrawingsMenu, "healthColor", Color.YellowGreen, "DamageIndicator Color:");
 
         }
         public static int Qdelay { get { return ComboMenu["Qdelay"].Cast<Slider>().CurrentValue; } }
