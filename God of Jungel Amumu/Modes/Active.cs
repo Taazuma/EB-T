@@ -26,14 +26,17 @@ namespace Eclipse.Modes
         {
 
 
-            //W autodisable thanks to Sunnyline2
-            if (MiscMenu.GetCheckBoxValue("smartW")&& Program.WStatus())
+            Core.DelayAction(delegate
+            {
+                //W autodisable thanks to Sunnyline2
+                if (MiscMenu.GetCheckBoxValue("smartW")&& Program.WStatus())
             {
                 int monsters = EntityManager.MinionsAndMonsters.CombinedAttackable.Where(monster => monster.IsValidTarget(W.Range * 2)).Count();
                 int enemies = EntityManager.Heroes.Enemies.Where(enemy => enemy.IsValidTarget(W.Range * 2)).Count();
                 if (monsters == 0 && enemies == 0)
                     Program.WDisable();
             }
+            }, WSdelay);
             //// Sunnyline2
 
 

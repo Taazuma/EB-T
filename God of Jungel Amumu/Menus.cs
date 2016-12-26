@@ -61,7 +61,6 @@ namespace Eclipse
             ComboMenu.AddSeparator(10);
             ComboMenu.AddLabel("Q - when CC -> R - W - E");
             ComboMenu.AddSeparator(5);
-            ComboMenu.CreateCheckBox("Teamfight Combo", "cTwo", false);
             ComboMenu.AddLabel("Q - R - W - E");
             ComboMenu.AddSeparator(10);
             ComboMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
@@ -72,28 +71,21 @@ namespace Eclipse
             ComboMenu.CreateCheckBox("Use R", "rUse");
             ComboMenu.AddSeparator(10);
             ComboMenu.Add("enemyr", new Slider("Enemy in R for Teamfight", 3, 1, 5));
+            ComboMenu.AddSeparator(10);
+            ComboMenu.AddLabel("Humanizer Settings");
+            ComboMenu.Add("Qdelay", new Slider("Q Delay (ms)", 0, 0, 300));
+            ComboMenu.Add("Wdelay", new Slider("W Delay (ms)", 0, 0, 300));
+            ComboMenu.Add("Edelay", new Slider("E Delay (ms)", 0, 0, 300));
 
             HarassMenu.AddGroupLabel("Harass");
             HarassMenu.CreateCheckBox("Use E", "eUse");
             HarassMenu.AddGroupLabel("Settings");
             HarassMenu.CreateSlider("Mana must be higher than [{0}%] to use Harass spells", "manaSlider", 50);
 
-            //AutoHarassMenu.AddGroupLabel("AutoHarass");
-            //AutoHarassMenu.CreateCheckBox("Use Q", "qUse");
-            //AutoHarassMenu.CreateCheckBox("Use E", "eUse");
-            //AutoHarassMenu.AddGroupLabel("Settings");
-            //AutoHarassMenu.CreateSlider("Mana must be higher than [{0}%] to use Harass spells", "manaSlider", 30);
-
             LaneClearMenu.AddGroupLabel("LaneClear");
             LaneClearMenu.CreateCheckBox("Use E", "eUse");
             LaneClearMenu.AddGroupLabel("Settings");
             LaneClearMenu.CreateSlider("Mana must be higher than [{0}%] to use Harass spells", "manaSlider", 50);
-
-            //LasthitMenu.AddGroupLabel("Lasthit");
-            //LasthitMenu.CreateCheckBox("Use Q", "qUse");
-            //LasthitMenu.CreateCheckBox("Use E", "eUse");
-            //LasthitMenu.AddGroupLabel("Settings");
-            //LasthitMenu.CreateSlider("Mana must be higher than [{0}%] to use Harass spells", "manaSlider", 30);
 
             JungleClearMenu.AddGroupLabel("JungleClear");
             JungleClearMenu.CreateCheckBox("Use Q", "qUse");
@@ -103,12 +95,15 @@ namespace Eclipse
             JungleClearMenu.CreateSlider("Mana must be higher than [{0}%] to use Harass spells", "manaSlider", 20);
 
             MiscMenu.AddGroupLabel("Settings");
+            MiscMenu.AddSeparator(7);
             MiscMenu.Add("smartW", new CheckBox("Automatic disable W (Smart)"));
+            MiscMenu.Add("WSdelay", new Slider("Smart W Delay (ms)", 0, 0, 400));
+            MiscMenu.AddSeparator(12);
             MiscMenu.AddLabel("Level Up Function");
             MiscMenu.Add("lvlup", new CheckBox("Auto Level Up Spells", false));
             MiscMenu.AddSeparator(15);
             MiscMenu.Add("skinhax", new CheckBox("Activate Skin hack"));
-            MiscMenu.Add("skinID", new ComboBox("Skin Hack", 1, "Default", "Sad Robot Amumu", "Little Knight Amumu", "Emumu", "Almost-Prom King Amumu", "Pharaoh Amumu", "Surprise Party Amumu", "Re-Gifted Amumu", "Vancouver Amumu"));
+            MiscMenu.Add("skinID", new ComboBox("Skin Hack", 0, "Default", "Sad Robot Amumu", "Little Knight Amumu", "Emumu", "Almost-Prom King Amumu", "Pharaoh Amumu", "Surprise Party Amumu", "Re-Gifted Amumu", "Vancouver Amumu"));
 
             DrawingsMenu.AddGroupLabel("Settings");
             DrawingsMenu.CreateCheckBox("Draw spell`s range only if they are ready.", "readyDraw");
@@ -117,9 +112,9 @@ namespace Eclipse
             DrawingsMenu.CreateCheckBox("Draw damage indicator statistics.", "statDraw", false);
             DrawingsMenu.AddGroupLabel("Spells");
             DrawingsMenu.CreateCheckBox("Draw Q.", "qDraw");
-            DrawingsMenu.CreateCheckBox("Draw W.", "wDraw");
-            DrawingsMenu.CreateCheckBox("Draw E.", "eDraw");
-            DrawingsMenu.CreateCheckBox("Draw R.", "rDraw");
+            DrawingsMenu.CreateCheckBox("Draw W.", "wDraw", false);
+            DrawingsMenu.CreateCheckBox("Draw E.", "eDraw", false);
+            DrawingsMenu.CreateCheckBox("Draw R.", "rDraw", false);
             DrawingsMenu.AddGroupLabel("Drawings Color");
             QColorSlide = new ColorSlide(DrawingsMenu, "qColor", Color.Red, "Q Color:");
             WColorSlide = new ColorSlide(DrawingsMenu, "wColor", Color.Purple, "W Color:");
@@ -128,9 +123,9 @@ namespace Eclipse
             DamageIndicatorColorSlide = new ColorSlide(DrawingsMenu, "healthColor", Color.YellowGreen, "DamageIndicator Color:");
 
         }
-        public static int skinId()
-        {
-            return MiscMenu["skin.Id"].Cast<Slider>().CurrentValue;
-        }
+        public static int Qdelay { get { return ComboMenu["Qdelay"].Cast<Slider>().CurrentValue; } }
+        public static int Wdelay { get { return ComboMenu["Wdelay"].Cast<Slider>().CurrentValue; } }
+        public static int Edelay { get { return ComboMenu["Edelay"].Cast<Slider>().CurrentValue; } }
+        public static int WSdelay { get { return MiscMenu["WSdelay"].Cast<Slider>().CurrentValue; } }
     }
 }

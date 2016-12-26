@@ -16,6 +16,7 @@ using static Eclipse.SpellsManager;
 using static Eclipse.Menus;
 using Eclipse.Modes;
 using EloBuddy.SDK.Menu;
+using Eclipse_Template.Properties;
 
 namespace Eclipse
 {
@@ -36,16 +37,30 @@ namespace Eclipse
         }
         public static int qOff = 0, wOff = 0, eOff = 0, rOff = 0;
         private static int[] AbilitySequence;
+        public static int start = 0;
+        private static int drawTick;
+        private static Sprite introImg;
 
         private static void Loading_OnLoadingComplete(EventArgs args)
         {
             //Put the name of the champion here
             if (Player.Instance.ChampionName != "Amumu") return;
+            Core.DelayAction(() =>
+            {
+                introImg = new Sprite(TextureLoader.BitmapToTexture(Resources.god));
+                Chat.Print("<b><font size='20' color='#4B0082'>God of Jungel Loaded</font><font size='20' color='#FFA07A'> Loaded</font></b>");
+                Drawing.OnDraw += DrawingOnOnDraw;
+                Core.DelayAction(() =>
+                {
+                    Drawing.OnDraw -= DrawingOnOnDraw;
+                }, 7000);
+            }, 2000);
             AbilitySequence = new int[] { 2, 3, 1, 3, 3, 4, 3, 1, 3, 1, 4, 1, 1, 2, 2, 4, 2, 2 };
             SpellsManager.InitializeSpells();
             DrawingsManager.InitializeDrawings();
             Menus.CreateMenu();
             ModeManager.InitializeModes();
+            FpsBooster.Initialize();
             if (!SpellManager.HasSmite())
             {
                 Chat.Print("No smite detected - unloading Smite.", System.Drawing.Color.Red);
@@ -72,6 +87,20 @@ namespace Eclipse
             if (wL < level[1]) ObjectManager.Player.Spellbook.LevelSpell(SpellSlot.W);
             if (eL < level[2]) ObjectManager.Player.Spellbook.LevelSpell(SpellSlot.E);
             if (rL < level[3]) ObjectManager.Player.Spellbook.LevelSpell(SpellSlot.R);
+        }
+
+        private static void DrawingOnOnDraw(EventArgs args)
+        {
+            if (drawTick == 0)
+                drawTick = Environment.TickCount;
+
+            int timeElapsed = Environment.TickCount - drawTick;
+            introImg.CenterRef = new Vector2(Drawing.Width / 2f, Drawing.Height / 2f).To3D();
+
+            int dt = 300;
+            if (timeElapsed <= dt)
+                introImg.Scale = new Vector2(timeElapsed * 1f / dt, timeElapsed * 1f / dt);
+            introImg.Draw(new Vector2(Drawing.Width / 2f - 1415 / 2f, Drawing.Height / 2f - 750 / 2f));
         }
 
         public static bool getCheckBoxItem(Menu m, string item)
