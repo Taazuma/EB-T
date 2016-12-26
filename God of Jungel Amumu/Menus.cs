@@ -59,6 +59,8 @@ namespace Eclipse
             ComboMenu.AddLabel("ComboLogics");
             ComboMenu.Add("Comba", new ComboBox(" Combo Logic ", 0, "GankCombo", "Teamfight Normal"));
             ComboMenu.AddSeparator(10);
+            ComboMenu.AddLabel("Information:");
+            ComboMenu.AddSeparator(5);
             ComboMenu.AddLabel("Q - when CC -> R - W - E");
             ComboMenu.AddSeparator(5);
             ComboMenu.AddLabel("Q - R - W - E");
