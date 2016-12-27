@@ -326,24 +326,7 @@ namespace Eclipse
 
         #region GetTargetHelper
 
-        public static Obj_AI_Minion GetLastHitMinion(this Spell.SpellBase spell)
-        {
-            return
-                EntityManager.MinionsAndMonsters.GetLaneMinions()
-                    .FirstOrDefault(
-                        m =>
-                            m.IsValidTarget(spell.Range) && Prediction.Health.GetPrediction(m, spell.CastDelay) <= m.GetDamage(spell.Slot) &&
-                            m.IsEnemy);
-        }
-
-        public static AIHeroClient GetKillableHero(this Spell.SpellBase spell)
-        {
-            return
-                EntityManager.Heroes.Enemies.FirstOrDefault(
-                    e =>
-                        e.IsValidTarget(spell.Range) && Prediction.Health.GetPrediction(e, spell.CastDelay) <= e.GetDamage(spell.Slot) &&
-                        !e.HasUndyingBuff());
-        }
+       
 
         public static Obj_AI_Base GetJungleMinion(this Spell.SpellBase spell)
         {

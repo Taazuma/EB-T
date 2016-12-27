@@ -57,19 +57,11 @@ namespace Eclipse
                 }, 7000);
             }, 2000);
             AbilitySequence = new int[] { 2, 3, 1, 3, 3, 4, 3, 1, 3, 1, 4, 1, 1, 2, 2, 4, 2, 2 };
-            SpellsManager.InitializeSpells();
-            Menus.CreateMenu();
+            InitializeSpells();
+            CreateMenu();
             ModeManager.InitializeModes();
-                        Drawing.OnDraw += Drawing_OnDrawSpells;
+            Drawing.OnDraw += Drawing_OnDrawSpells;
             FpsBooster.Initialize();
-            if (!SpellManager.HasSmite())
-            {
-                Chat.Print("No smite detected - unloading Smite.", System.Drawing.Color.Red);
-                return;
-            }
-            Config.Initialize();
-            ModeManagerSmite.Initialize();
-            Events.Initialize();
         }
 
         #region Misc Drawings

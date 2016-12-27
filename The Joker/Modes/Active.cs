@@ -32,7 +32,7 @@ namespace Eclipse.Modes
                 return;
             }
 
-            if (targetKSE != null && KillStealMenu.GetCheckBoxValue("eUse") && SpellsManager.E.IsReady())
+            if (KillStealMenu.GetCheckBoxValue("eUse") && SpellsManager.E.IsReady())
             {
                 if (targetKSE.Health < Player.Instance.GetSpellDamage(targetKSE, SpellSlot.E))
                 {

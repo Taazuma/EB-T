@@ -1,2 +1,3 @@
 D:\Tommi\Documents\Visual Studio 2015\Projects\God of Jungel Amumu\God of Jungel Amumu\bin\Debug\Eclipse Template.exe.config
 D:\Tommi\Documents\GitHub\EB-T\God of Jungel Amumu\bin\Debug\Eclipse Template.exe.config
+D:\Tommi\Documents\GitHub\EB-T\God of Jungel Amumu\bin\Debug\God of Jungel.exe.config

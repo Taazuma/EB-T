@@ -63,15 +63,9 @@ namespace Eclipse.Modes
                 }
             }
 
-                if (target != null)
-                if (R.IsReady() && target.IsValidTarget() && player.Distance(target) < 400 && player.HasBuff("Deceive") && useR)
-                {
-                    R2.Cast();
-                }
-
             if (W.IsReady() && useW)
             {
-                if (!target.IsValidTarget(W.Range))
+                if (target.IsValidTarget(W.Range + 250))
                 {
                     Program.HandleW(target);
                 }
@@ -82,7 +76,7 @@ namespace Eclipse.Modes
                 E.Cast(target);
             }
 
-            if (ComboMenu["user"].Cast<CheckBox>().CurrentValue && R.IsReady() && !Program.ShacoClone && target.HealthPercent < 75 &&
+            if (useR && R.IsReady() && !Program.ShacoClone && target.HealthPercent < 60 &&
             cmbDmg < target.Health && target.HealthPercent > cmbDmg && target.HealthPercent > 25)
             {
                 R2.Cast();

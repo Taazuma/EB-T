@@ -22,7 +22,6 @@ namespace Eclipse.Modes
         public static void Execute()
         {
             //////////////////////////////////////////////////////////////////////////////////////////////////////////
-            var target = TargetSelector.GetTarget(1000, DamageType.Magical, Player.Instance.Position);
             var qtarget = TargetSelector.GetTarget(Q.Range, DamageType.Physical);
             var wtarget = TargetSelector.GetTarget(W.Range, DamageType.Physical);
             var etarget = TargetSelector.GetTarget(E.Range, DamageType.Physical);
@@ -41,39 +40,41 @@ namespace Eclipse.Modes
                 return;
             }
 
+            #region Combos
+
             if (ComboMenu["Comba"].Cast<ComboBox>().CurrentValue == 0)
-            {
+                {
                 Core.DelayAction(delegate
                 {
-            if (target.IsValidTarget(1000) && quse && target.IsEnemy && predictionQ.HitChance >= HitChance.High)
-            {
+                 if (qtarget.IsValidTarget(1000) && quse && qtarget.IsEnemy && predictionQ.HitChance >= HitChance.High)
+                {
                 Q.Cast(predictionQ.CastPosition);
-            }
+                }
                 }, Qdelay);
 
-                if (R.IsReady() && ruse && rtarget.IsValidTarget(R.Range - 10) && rtarget.IsStunned ||  rtarget.IsTaunted || rtarget.HasBuffOfType(BuffType.Knockback) || rtarget.HasBuffOfType(BuffType.Knockup)
-                   || rtarget.HasBuffOfType(BuffType.Snare) || rtarget.HasBuffOfType(BuffType.Stun) || rtarget.HasBuffOfType(BuffType.Suppression)
-                   || rtarget.HasBuffOfType(BuffType.Taunt))
-            { 
-                    R.Cast();
-            }
 
-                Core.DelayAction(delegate
+                if (R.IsReady() && ruse && rtarget.IsValidTarget(R.Range - 10) && rtarget.IsStunned ||  rtarget.IsTaunted || rtarget.HasBuffOfType(BuffType.Knockback) || rtarget.HasBuffOfType(BuffType.Knockup)
+               || rtarget.HasBuffOfType(BuffType.Snare) || rtarget.HasBuffOfType(BuffType.Stun) || rtarget.HasBuffOfType(BuffType.Taunt))
+                 { 
+                    R.Cast();
+                 }
+
+                  Core.DelayAction(delegate
+                 {
+                     if (W.IsLearned && W.IsReady() && wtarget.IsValidTarget(W.Range * 2) && wuse)
                 {
-                    if (W.IsLearned && W.IsReady() && wtarget.IsValidTarget(W.Range * 2) && wuse)
-            {
-                Program.WEnable();
-            }
+                    Program.WEnable();
+                }
                 }, Wdelay);
 
                 Core.DelayAction(delegate
                 {
                     if (etarget.IsValidTarget(E.Range) && euse && E.IsReady())
-            {
+                {
                 E.Cast();
-            }
+                }
                 }, Edelay);
-            }
+                 }
             //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
             if (ComboMenu["Comba"].Cast<ComboBox>().CurrentValue == 1)
@@ -81,15 +82,13 @@ namespace Eclipse.Modes
 
                 Core.DelayAction(delegate
                 {
-                    if (target.IsValidTarget(1000) && quse && target.IsEnemy && Q.GetPrediction(target).HitChance >= Hitch.hitchance(Q, FirstMenu))
+                    if (qtarget.IsValidTarget(1000) && quse && qtarget.IsEnemy && predictionQ.HitChance >= HitChance.High)
                 {
                     Q.Cast(predictionQ.CastPosition);
                 }
                 }, Qdelay);
-
-
    
-                    if (R.IsLearned && R.IsReady() && ruse)
+                if (R.IsLearned && R.IsReady() && ruse)
                 {
                     if (Player.Instance.CountEnemiesInRange(R.Range) >= ComboMenu.GetSliderValue("enemyr"))
                     { 
@@ -115,6 +114,7 @@ namespace Eclipse.Modes
                 }, Edelay);
             }
             //////////////////////////////////////////////////////////////////////////////////////////////////////////
+            #endregion Combos
 
         }
     }

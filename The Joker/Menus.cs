@@ -99,16 +99,16 @@ namespace Eclipse
             MiscMenu.Add("usercc", new CheckBox("Dodge targeted cc"));
             MiscMenu.Add("autoMoveClone", new CheckBox("Always move clone"));
             StringList(MiscMenu, "ghostTarget", "Ghost target priority", new[] { "Targetselector", "Lowest health", "Closest to you" }, 0);
-            //MiscMenu.Add("stackBox", new KeyBind("Stack boxes", false, KeyBind.BindTypes.HoldActive, "Z".ToCharArray()[0]));
+            MiscMenu.AddSeparator();
             MiscMenu.CreateCheckBox("Q - Escaper", "qescape");
             MiscMenu.AddSeparator(15);
             MiscMenu.CreateCheckBox("R Clone - Escaper", "rescape");
+            MiscMenu.AddSeparator(15);
             MiscMenu.AddLabel("Level Up Function");
-            MiscMenu.Add("Lvldelay", new Slider("Lvlup Delay (ms)", 0, 0, 500));
             MiscMenu.Add("lvlup", new CheckBox("Auto Level Up Spells", false));
             MiscMenu.AddSeparator(15);
             MiscMenu.CreateCheckBox("Activate Skin hack", "skinhax", false);
-            MiscMenu.Add("skinID", new ComboBox("Skin Hack", 1, "Default", "Mad Hatter Shaco", "Royal Shaco", "Nutcracko", "Workshop Shaco", "Asylum Shaco", "Masked Shaco", "Wild Card Shaco"));
+            MiscMenu.Add("skinID", new ComboBox("Skin Hack", 0, "Default", "Mad Hatter Shaco", "Royal Shaco", "Nutcracko", "Workshop Shaco", "Asylum Shaco", "Masked Shaco", "Wild Card Shaco"));
 
         }
         public static void StringList(Menu menu, string uniqueId, string displayName, string[] values, int defaultValue)
@@ -121,6 +121,5 @@ namespace Eclipse
                     sender.DisplayName = displayName + ": " + values[args.NewValue];
                 };
         }
-        public static int Lvldelay { get { return MiscMenu["Lvldelay"].Cast<Slider>().CurrentValue; } }
     }
 }

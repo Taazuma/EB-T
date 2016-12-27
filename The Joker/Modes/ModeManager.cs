@@ -12,6 +12,7 @@ using EloBuddy.SDK.Events;
 using EloBuddy.SDK.Menu.Values;
 using EloBuddy.SDK.Rendering;
 using SharpDX;
+using static Eclipse.Menus;
 
 namespace Eclipse.Modes
 {
@@ -54,7 +55,18 @@ namespace Eclipse.Modes
                 JungleClear.Execute();
             }
 
-     
+            if (Program.check(MiscMenu, "skinhax")) Program._player.SetSkinId((int)MiscMenu["skinID"].Cast<ComboBox>().CurrentValue);
+
+            if (!Program.ShacoClone)
+            {
+                Program.cloneTime = System.Environment.TickCount;
+            }
+            if (Program.ShacoClone && !Program.GhostDelay && MiscMenu["autoMoveClone"].Cast<CheckBox>().CurrentValue)
+            {
+                Program.moveClone();
+            }
+            if (MiscMenu["lvlup"].Cast<CheckBox>().CurrentValue) Program.LevelUpSpells();
+
         }
     }
 }
