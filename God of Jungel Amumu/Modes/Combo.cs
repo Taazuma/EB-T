@@ -36,7 +36,7 @@ namespace Eclipse.Modes
             var predictionQ = Q.GetPrediction(qtarget);
             //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-            if (target == null || target.IsInvulnerable || target.MagicImmune)
+            if (qtarget == null || qtarget.IsInvulnerable || qtarget.MagicImmune)
             {
                 return;
             }

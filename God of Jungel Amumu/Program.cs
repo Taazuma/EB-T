@@ -60,7 +60,7 @@ namespace Eclipse
             SpellsManager.InitializeSpells();
             Menus.CreateMenu();
             ModeManager.InitializeModes();
-            Drawing.OnDraw += Drawing_OnDrawSpells;
+                        Drawing.OnDraw += Drawing_OnDrawSpells;
             FpsBooster.Initialize();
             if (!SpellManager.HasSmite())
             {
@@ -111,7 +111,7 @@ namespace Eclipse
         {
             if (DrawingsMenu["qDraw"].Cast<CheckBox>().CurrentValue)
             {
-                new Circle() { Color = Color.WhiteSmoke, BorderWidth = 1, Radius = Q.Range }.Draw(_player.Position);
+                new Circle() { Color = Color.AntiqueWhite, BorderWidth = 1, Radius = Q.Range }.Draw(_player.Position);
             }
 
             if (DrawingsMenu["wDraw"].Cast<CheckBox>().CurrentValue)
