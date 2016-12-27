@@ -45,6 +45,11 @@ namespace Eclipse.Modes
             }
             //////////////////////////////////////////////////////////////////////////////////////////
 
+            if (ComboMenu.GetCheckBoxValue("itemss"))
+            {
+                Eclipse.Activator.Items.CastItems(target);
+            }
+
             if (Program.ShacoClone && !Program.GhostDelay && ComboMenu["useClone"].Cast<CheckBox>().CurrentValue &&!MiscMenu["autoMoveClone"].Cast<CheckBox>().CurrentValue)
             {
                 Program.moveClone();
@@ -82,7 +87,7 @@ namespace Eclipse.Modes
                 R2.Cast();
             }
 
-            else if (ComboMenu.GetCheckBoxValue("rLow") && R2.IsReady() && Player.Instance.HealthPercent <= ComboMenu.GetSliderValue("hpR"))
+            if (ComboMenu.GetCheckBoxValue("rLow") && R2.IsReady() && Player.Instance.HealthPercent <= ComboMenu.GetSliderValue("hpR"))
             {
                 R2.Cast();
             }

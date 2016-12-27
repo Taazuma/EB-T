@@ -55,6 +55,8 @@ namespace Eclipse
             ComboMenu.AddSeparator(10);
             ComboMenu.CreateCheckBox("Use R when Low", "rLow");
             ComboMenu.Add("hpR", new Slider("Use R at % HP", 30));
+            ComboMenu.AddSeparator(6);
+            ComboMenu.CreateCheckBox("Use Items", "itemss");
 
             HarassMenu.AddGroupLabel("Harass");
             HarassMenu.CreateCheckBox("Use W", "wUse");
