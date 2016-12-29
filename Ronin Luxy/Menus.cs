@@ -30,12 +30,6 @@ namespace Eclipse
         public static Menu DrawingsMenu;
         public static Menu MiscMenu;
 
-        public static ColorSlide QColorSlide;
-        public static ColorSlide WColorSlide;
-        public static ColorSlide EColorSlide;
-        public static ColorSlide RColorSlide;
-        public static ColorSlide DamageIndicatorColorSlide;
-
         public const string ComboMenuID = "combomenuid";
         public const string HarassMenuID = "harassmenuid";
         public const string AutoHarassMenuID = "autoharassmenuid";
@@ -53,7 +47,7 @@ namespace Eclipse
             FirstMenu.AddLabel("If you found any bugs report it on my Thread");
             FirstMenu.AddLabel("Have fun with Playing");
             FirstMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
-            FirstMenu.Add(Q.Slot + "hit", new ComboBox("Q HitChance", 0, "High", "Medium", "Low"));
+            FirstMenu.Add(Q.Slot + "hit", new ComboBox("Q HitChance", 1, "High", "Medium", "Low"));
             FirstMenu.Add(E.Slot + "hit", new ComboBox("E HitChance", 0, "High", "Medium", "Low"));
             FirstMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             ComboMenu = FirstMenu.AddSubMenu("Combo", ComboMenuID);
@@ -63,21 +57,19 @@ namespace Eclipse
             LasthitMenu = FirstMenu.AddSubMenu("LastHit", LastHitMenuID);
             JungleClearMenu = FirstMenu.AddSubMenu("JungleClear", JungleClearMenuID);
             KillStealMenu = FirstMenu.AddSubMenu("KillSteal", KillStealMenuID);
-            DrawingsMenu = FirstMenu.AddSubMenu("Drawings", DrawingsMenuID);
             MiscMenu = FirstMenu.AddSubMenu("Misc", MiscMenuID);
 
             ComboMenu.AddGroupLabel("ComboMenu");
             ComboMenu.AddSeparator(15);
             // --------------------------------------------------------------COMBO LOGICS-------------------------------------------------------------- //
             ComboMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
-            ComboMenu.AddLabel("Only use one Combo");
-            ComboMenu.AddLabel("ComboLogics");
-            ComboMenu.CreateCheckBox("Taaz Stun - Spell Combo", "1combo", true);
+            ComboMenu.Add("Comba", new ComboBox(" Combo Logics ", 0, "Taaz Stun", "Taaz - Spell Combo"));
+            ComboMenu.CreateCheckBox(" - Spell Combo", "1combo", true);
+            ComboMenu.AddSeparator(10);
             ComboMenu.AddGroupLabel("Combo Q - when Stunned -> E - R - W");
-            ComboMenu.AddSeparator(15);
-            ComboMenu.CreateCheckBox("Taaz - Spell Combo", "3combo", false);
+            ComboMenu.AddSeparator(10);
             ComboMenu.AddGroupLabel("Combo Q - E - R - W");
-            ComboMenu.AddSeparator(15);
+            ComboMenu.AddSeparator(10);
             ComboMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             ComboMenu.CreateCheckBox(" - Use Q", "qUse");
             ComboMenu.CreateCheckBox(" - Use E", "eUse");
@@ -140,27 +132,8 @@ namespace Eclipse
             KillStealMenu.CreateSlider("Mana must be higher than [{0}%] to use Killsteal spells", "manaSlider", 20);
             KillStealMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
 
-            DrawingsMenu.AddGroupLabel("Settings");
-            DrawingsMenu.CreateCheckBox("Draw spell`s range only if they are ready.", "readyDraw");
-            DrawingsMenu.CreateCheckBox("Draw damage indicator.", "damageDraw");
-            DrawingsMenu.CreateCheckBox("Draw damage indicator percent.", "perDraw");
-            DrawingsMenu.CreateCheckBox("Draw damage indicator statistics.", "statDraw", false);
-            DrawingsMenu.AddGroupLabel("Spells");
-            DrawingsMenu.CreateCheckBox("Draw Q.", "qDraw");
-            DrawingsMenu.CreateCheckBox("Draw W.", "wDraw");
-            DrawingsMenu.CreateCheckBox("Draw E.", "eDraw");
-            DrawingsMenu.CreateCheckBox("Draw R.", "rDraw");
-            DrawingsMenu.AddGroupLabel("Drawings Color");
-            QColorSlide = new ColorSlide(DrawingsMenu, "qColor", Color.Red, "Q Color:");
-            WColorSlide = new ColorSlide(DrawingsMenu, "wColor", Color.Purple, "W Color:");
-            EColorSlide = new ColorSlide(DrawingsMenu, "eColor", Color.Orange, "E Color:");
-            RColorSlide = new ColorSlide(DrawingsMenu, "rColor", Color.DeepPink, "R Color:");
-            DamageIndicatorColorSlide = new ColorSlide(DrawingsMenu, "healthColor", Color.YellowGreen, "DamageIndicator Color:");
-
             MiscMenu.AddGroupLabel("Settings");
             MiscMenu.Add("wLow", new CheckBox("Use W -> when Low"));
-            MiscMenu.AddLabel("Level Up Function");
-            MiscMenu.Add("lvlup", new CheckBox("Auto Level Up Spells", false));
             MiscMenu.AddSeparator(15);
             MiscMenu.Add("skinhax", new CheckBox("Activate Skin hack"));
             MiscMenu.Add("skinID", new ComboBox("Skin Hack", 0, "Default", "Spellthief Lux", "Sorceress Lux", "Commando Lux", "Imperial Lux", "Steel Legion Lux", "Star Guardian Lux"));

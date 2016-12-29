@@ -49,7 +49,7 @@ namespace Eclipse
         }
         public static int qOff = 0, wOff = 0, eOff = 0, rOff = 0;
         private static int[] AbilitySequence;
-        private static bool check(Menu submenu, string sig)
+        public static bool check(Menu submenu, string sig)
         {
             return submenu[sig].Cast<CheckBox>().CurrentValue;
         }
@@ -64,7 +64,7 @@ namespace Eclipse
         {
             //Put the name of the champion here
             if (Player.Instance.ChampionName != "Lux") return;
-            Chat.Print("Have Fun with Playing ! by TaaZ");
+            Chat.Print("Ronin Lux Loaded");
             Core.DelayAction(() =>
             {
                 introImg = new Sprite(TextureLoader.BitmapToTexture(Resources.anime));
@@ -76,46 +76,10 @@ namespace Eclipse
             }, 2000);
             AbilitySequence = new int[] { 3, 1, 3, 2, 3, 4, 3, 1, 3, 1, 4, 1, 1, 2, 2, 4, 2, 2 };
             SpellsManager.InitializeSpells();
-            DrawingsManager.InitializeDrawings();
             Menus.CreateMenu();
             ModeManager.InitializeModes();
-            Game.OnTick += GameOnTick;
-            SpellManager.Initialize();
             Interrupter.OnInterruptableSpell += Program.Interrupter_OnInterruptableSpell;
-            if (!SpellManager.HasSmite())
-            {
-                Chat.Print("No smite detected - unloading Smite.", System.Drawing.Color.Red);
-                return;
-            }
-            Config.Initialize();
-            ModeManagerSmite.Initialize();
-            Events.Initialize();
         }
-
-
-        private static void GameOnTick(EventArgs args)
-        {
-            if (check(MiscMenu, "skinhax")) _player.SetSkinId((int)MiscMenu["skinID"].Cast<ComboBox>().CurrentValue);
-        }
-
-        private static void LevelUpSpells() // Thanks iRaxe
-        {
-            var qL = _player.Spellbook.GetSpell(SpellSlot.Q).Level + qOff;
-            var wL = _player.Spellbook.GetSpell(SpellSlot.W).Level + wOff;
-            var eL = _player.Spellbook.GetSpell(SpellSlot.E).Level + eOff;
-            var rL = _player.Spellbook.GetSpell(SpellSlot.R).Level + rOff;
-            if (qL + wL + eL + rL >= ObjectManager.Player.Level) return;
-            var level = new[] { 0, 0, 0, 0 };
-            for (var i = 0; i < ObjectManager.Player.Level; i++)
-            {
-                level[AbilitySequence[i] - 1] = level[AbilitySequence[i] - 1] + 1;
-            }
-            if (qL < level[0]) ObjectManager.Player.Spellbook.LevelSpell(SpellSlot.Q);
-            if (wL < level[1]) ObjectManager.Player.Spellbook.LevelSpell(SpellSlot.W);
-            if (eL < level[2]) ObjectManager.Player.Spellbook.LevelSpell(SpellSlot.E);
-            if (rL < level[3]) ObjectManager.Player.Spellbook.LevelSpell(SpellSlot.R);
-        }// Thanks Iraxe
-
 
         public static void Interrupter_OnInterruptableSpell(Obj_AI_Base unit, Interrupter.InterruptableSpellEventArgs spell)
         {

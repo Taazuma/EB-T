@@ -38,6 +38,7 @@ namespace Eclipse.Modes
             var rtarget = TargetSelector.GetTarget(3400, DamageType.Mixed);
             var target = TargetSelector.GetTarget(E.Range + 200, DamageType.Magical);
             var enemies = EntityManager.Heroes.Enemies.OrderByDescending(a => a.HealthPercent).Where(a => !a.IsMe && a.IsValidTarget() && a.Distance(_Player) <= R.Range);
+            var predq = Q.GetPrediction(qtarget);
             if (target == null || target.IsInvulnerable || target.MagicImmune)
             {
                 return;
@@ -46,13 +47,13 @@ namespace Eclipse.Modes
 
 
             // COMBO 1
-            if (ComboMenu.GetCheckBoxValue("1combo"))
+            if (ComboMenu["Comba"].Cast<ComboBox>().CurrentValue == 0)
             {
                 Core.DelayAction(delegate
                 {
                     if (ComboMenu.GetCheckBoxValue("qUse") && Q.IsReady() && qtarget.IsValidTarget(Q.Range) && Q.GetPrediction(qtarget).HitChance >= Hitch.hitchance(Q, FirstMenu))
                     {
-                        Q.Cast(qtarget);
+                        Q.Cast(predq.CastPosition);
                     }
                 }, Qdelay);
 
@@ -113,14 +114,14 @@ namespace Eclipse.Modes
 
 
             // COMBO 2 / 3
-            if (ComboMenu.GetCheckBoxValue("3combo"))
+            if (ComboMenu["Comba"].Cast<ComboBox>().CurrentValue == 1)
             {
 
                 Core.DelayAction(delegate
                 {
                     if (ComboMenu.GetCheckBoxValue("qUse") && Q.IsReady() && qtarget.IsValidTarget(Q.Range) && Q.GetPrediction(qtarget).HitChance >= Hitch.hitchance(Q, FirstMenu))
                     {
-                        Q.Cast(qtarget);
+                        Q.Cast(predq.CastPosition);
                     }
                 }, Qdelay);
                 Core.DelayAction(delegate

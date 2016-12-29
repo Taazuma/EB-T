@@ -23,6 +23,10 @@ namespace Eclipse.Modes
             var count = EntityManager.MinionsAndMonsters.GetLaneMinions(EntityManager.UnitTeam.Enemy, Player.Instance.ServerPosition, E.Range, true).Count();
             if (count == 0) return;
             var source = EntityManager.MinionsAndMonsters.GetLaneMinions().OrderBy(a => a.MaxHealth).FirstOrDefault(a => a.IsValidTarget(Q.Range));
+            if (source == null || source.IsInvulnerable || source.MagicImmune)
+            {
+                return;
+            }
 
             if (E.IsReady() && LaneClearMenu.GetCheckBoxValue("eUse") && LaneClearMenu["lc.MinionsE"].Cast<Slider>().CurrentValue <= count)
             {

@@ -28,7 +28,11 @@ namespace Eclipse.Modes
             var wtarget = TargetSelector.GetTarget(W.Range, DamageType.Mixed);
             var etarget = TargetSelector.GetTarget(E.Range, DamageType.Mixed);
             var rtarget = TargetSelector.GetTarget(3400, DamageType.Mixed);
-           // var target = TargetSelector.GetTarget(E.Range + 200, DamageType.Magical);
+            // var target = TargetSelector.GetTarget(E.Range + 200, DamageType.Magical);
+            if (target == null || target.IsInvulnerable || target.MagicImmune)
+            {
+                return;
+            }
 
             if (Q.IsReady() && HarassMenu.GetCheckBoxValue("qUse"))
             {

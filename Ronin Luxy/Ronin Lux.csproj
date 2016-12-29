@@ -65,9 +65,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ColorSliders.cs" />
-    <Compile Include="DamageIndicator.cs" />
-    <Compile Include="DrawingsManager.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Hitch.cs" />
     <Compile Include="Menus.cs" />
@@ -86,15 +83,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Smite\Config.cs" />
-    <Compile Include="Smite\Damages.cs" />
-    <Compile Include="Smite\Debug.cs" />
-    <Compile Include="Smite\Events.cs" />
-    <Compile Include="Smite\ModeManager.cs" />
-    <Compile Include="Smite\Modes\ModeBase.cs" />
-    <Compile Include="Smite\Modes\PermaActive.cs" />
-    <Compile Include="Smite\SpellManager.cs" />
-    <Compile Include="Smite\Util.cs" />
     <Compile Include="SpellsManager.cs" />
   </ItemGroup>
   <ItemGroup>

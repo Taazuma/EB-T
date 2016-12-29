@@ -68,7 +68,7 @@ namespace Eclipse.Modes
                         var pred = R.GetPrediction(rtarget);
                         if (pred.HitChancePercent >= 90)
                         {
-                            R.Cast(rtarget);
+                            R.Cast(pred.CastPosition);
                         }
                     }
                 }
