@@ -65,7 +65,7 @@ namespace Eclipse.Modes
                     }
                 }, Qdelay);
 
-                if (R.IsReady() && ruse && rtarget.IsValidTarget(R.Range - 50) && rtarget.IsStunned ||  rtarget.IsTaunted || rtarget.HasBuffOfType(BuffType.Knockback) || rtarget.HasBuffOfType(BuffType.Knockup)
+                if (R.IsReady() && ruse && rtarget.IsValidTarget(R.Range - 15) && rtarget.IsStunned ||  rtarget.IsTaunted || rtarget.HasBuffOfType(BuffType.Knockback) || rtarget.HasBuffOfType(BuffType.Knockup)
                || rtarget.HasBuffOfType(BuffType.Snare) || rtarget.HasBuffOfType(BuffType.Stun) || rtarget.HasBuffOfType(BuffType.Taunt))
                  { 
                     R.Cast();
@@ -114,7 +114,7 @@ namespace Eclipse.Modes
 
                 if (R.IsLearned && R.IsReady() && ruse)
                 {
-                    if (Player.Instance.CountEnemiesInRange(R.Range - 60) >= ComboMenu.GetSliderValue("enemyr"))
+                    if (Player.Instance.CountEnemiesInRange(R.Range - 15) >= ComboMenu.GetSliderValue("enemyr"))
                     { 
                     R.Cast();
                     }
