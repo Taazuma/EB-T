@@ -94,12 +94,24 @@ namespace Eclipse.Modes
 
                 Core.DelayAction(delegate
                 {
-                    if (qtarget.IsValidTarget(1000) && quse && qtarget.IsEnemy && predictionQ.HitChance >= HitChance.High)
-                {
-                    Q.Cast(predictionQ.CastPosition);
-                }
+                    if (ComboMenu.GetSliderValue("QQ") > 0 && predictionQ.HitChance >= HitChance.High)
+                    {
+                        switch (ComboMenu.GetSliderValue("QQ"))
+                        {
+                            case 1:
+                                Q.Cast(predictionQ.CastPosition);
+                                break;
+                            case 2:
+                                foreach (var h in EntityManager.Heroes.Enemies.Where(h => h.IsValidTarget()))
+                                {
+                                    var predictionh = Q.GetPrediction(h);
+                                    Q.Cast(predictionh.CastPosition);
+                                }
+                                break;
+                        }
+                    }
                 }, Qdelay);
-   
+
                 if (R.IsLearned && R.IsReady() && ruse)
                 {
                     if (Player.Instance.CountEnemiesInRange(R.Range) >= ComboMenu.GetSliderValue("enemyr"))
