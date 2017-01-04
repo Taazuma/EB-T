@@ -122,6 +122,18 @@ namespace Eclipse
             public Vector3 CastPosition;
         }
 
+        public static void AddStringList(this Menu m, string uniqueId, string displayName, string[] values,
+    int defaultValue = 0)
+        {
+            var mode = m.Add(uniqueId, new Slider(displayName, defaultValue, 0, values.Length - 1));
+            mode.DisplayName = displayName + ": " + values[mode.CurrentValue];
+            mode.OnValueChange +=
+                delegate (ValueBase<int> sender, ValueBase<int>.ValueChangeArgs args)
+                {
+                    sender.DisplayName = displayName + ": " + values[args.NewValue];
+                };
+        }
+
         #endregion Vector
 
         #region Spells

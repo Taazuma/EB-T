@@ -58,7 +58,8 @@ namespace Eclipse
             ComboMenu.AddLabel("Team: Q - R - W - E");
             ComboMenu.AddSeparator(10);
             ComboMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
-            ComboMenu.CreateCheckBox("Use Q", "qUse");
+            ComboMenu.AddStringList("QQ", "Use Q", new[] { "Never", "Only on target", "On any enemy" }, 1);
+            ComboMenu.AddSeparator(10);
             ComboMenu.CreateCheckBox("Use E", "eUse");
             ComboMenu.AddSeparator(10);
             ComboMenu.CreateCheckBox("Use W", "wUse");
@@ -91,7 +92,7 @@ namespace Eclipse
             MiscMenu.AddGroupLabel("Settings");
             MiscMenu.AddSeparator(7);
             MiscMenu.Add("smartW", new CheckBox("Automatic disable W (Smart)"));
-            MiscMenu.Add("WSdelay", new Slider("Smart W Delay (ms)", 0, 0, 400));
+            MiscMenu.Add("WSdelay", new Slider("Smart W Delay (ms)", 0, 0, 500));
             MiscMenu.AddSeparator(12);
             MiscMenu.AddLabel("Level Up Function");
             MiscMenu.Add("lvlup", new CheckBox("Auto Level Up Spells", false));
