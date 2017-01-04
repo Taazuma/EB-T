@@ -28,7 +28,7 @@ namespace Eclipse.Modes
             var rtarget = TargetSelector.GetTarget(R.Range, DamageType.Physical);
             var targetW = TargetSelector.GetTarget(Player.Instance.BoundingRadius + 175, DamageType.Physical);
             //////////////////////////////////////////////////////////////////////////////////////////////////////////
-            var quse = ComboMenu.GetCheckBoxValue("qUse");
+            //var quse = ComboMenu.GetCheckBoxValue("qUse");
             var wuse = ComboMenu.GetCheckBoxValue("wUse");
             var euse = ComboMenu.GetCheckBoxValue("eUse");
             var ruse = ComboMenu.GetCheckBoxValue("rUse");
