@@ -43,6 +43,7 @@ namespace Eclipse
             FirstMenu.CreateCheckBox("Heal/R Safe Me?", "Saferme", true);
             FirstMenu.AddLabel("Clears Option");
             FirstMenu.CreateCheckBox("Use Q ?", "qUse", true);
+            FirstMenu.CreateCheckBox("Use E ?", "eUse", true);
             DrawingsMenu = FirstMenu.AddSubMenu("Drawings", DrawingsMenuID);
             MiscMenu = FirstMenu.AddSubMenu("Misc", MiscMenuID);
 

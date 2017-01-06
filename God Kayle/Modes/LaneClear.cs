@@ -27,7 +27,7 @@ namespace Eclipse.Modes
 
             if (source == null) return;
 
-            if (E.IsReady())
+            if (E.IsReady() && FirstMenu.GetCheckBoxValue("eUse"))
             {
                 E.Cast();
             }

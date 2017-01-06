@@ -24,12 +24,12 @@ namespace Eclipse.Modes
 
             if (target == null) return;
 
-            if (Q.IsReady() && target.IsValidTarget(Q.Range))
+            if (Q.IsReady() && target.IsValidTarget(Q.Range) && FirstMenu.GetCheckBoxValue("eUse"))
             {
                 Q.Cast(target);
             }
 
-            if (E.IsReady())
+            if (E.IsReady() && FirstMenu.GetCheckBoxValue("eUse"))
             {
                 E.Cast();
             }
