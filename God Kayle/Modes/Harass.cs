@@ -31,7 +31,7 @@ namespace Eclipse.Modes
                 Q.Cast(target);
             }
 
-            if (E.IsReady() && target.IsValidTarget(30))
+            if (E.IsReady() && target.IsValidTarget(Q.Range))
             {
                 E.Cast();
             }
