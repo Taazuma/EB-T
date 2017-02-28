@@ -95,12 +95,6 @@ namespace RoninTune.Modes
                         Program.ItemsYuno();
                     }
 
-                if (W.IsReady() && ComboMenu.GetCheckBoxValue("wUse"))
-                {
-                    W.Cast();
-                }
-
-
                 if (E.IsReady() && target.IsValidTarget(E.Range) && ComboMenu.GetCheckBoxValue("eUse"))
                     foreach (var eenemies in enemies)
 

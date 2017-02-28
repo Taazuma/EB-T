@@ -85,11 +85,11 @@ namespace RoninTune
             ComboMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             ComboMenu.AddLabel("ComboLogics");
             ComboMenu.AddSeparator(5);
-            ComboMenu.Add("Comba", new ComboBox(" Combo Logic ", 0, "Normal One", "Combo Two", "Combo Three", "Combo Four"));
+            ComboMenu.Add("Comba", new ComboBox(" Combo Logic ", 3, "Normal One", "Combo Two", "Combo Three", "Combo Four"));
             ComboMenu.AddSeparator(5);
             ComboMenu.AddGroupLabel("Combo 1 R - E - W - Q");
             ComboMenu.AddSeparator(5);
-            ComboMenu.AddGroupLabel("Combo 2 R - W - E - Q");
+            ComboMenu.AddGroupLabel("Combo 2 R - E - Q");
             ComboMenu.AddSeparator(5);
             ComboMenu.AddGroupLabel("Combo 3 R - Q - E");
             ComboMenu.AddSeparator(5);
@@ -110,7 +110,7 @@ namespace RoninTune
             HarassMenu.CreateCheckBox(" - Use Q", "qUse");
             HarassMenu.CreateCheckBox(" - Use E", "eUse");
             HarassMenu.AddGroupLabel("Settings");
-            HarassMenu.CreateSlider("Mana must be higher than [{0}%] to use Harass spells", "manaSlider", 30);
+            HarassMenu.CreateSlider("Mana must be higher than [{0}%] to use Harass spells", "manaSlider", 50);
             HarassMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             HarassMenu.AddSeparator();
 
@@ -119,7 +119,7 @@ namespace RoninTune
             LaneClearMenu.CreateCheckBox(" - Use Q", "qUse");
             LaneClearMenu.CreateCheckBox(" - Use E", "eUse", false);
             LaneClearMenu.AddGroupLabel("Settings");
-            LaneClearMenu.CreateSlider("Mana must be higher than [{0}%] to use LaneClear spells", "manaSlider", 80);
+            LaneClearMenu.CreateSlider("Mana must be higher than [{0}%] to use LaneClear spells", "manaSlider", 75);
             LaneClearMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             LaneClearMenu.AddSeparator();
 
@@ -143,7 +143,7 @@ namespace RoninTune
             KillStealMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             KillStealMenu.AddSeparator();
 
-            MiscMenu.Add("UseWInt", new CheckBox("W Save Interrupt"));
+            MiscMenu.CreateCheckBox("W Save Interrupt", "UseWInt", false);
             MiscMenu.CreateCheckBox("Activate Skin hack", "skinhax", false);
             MiscMenu.Add("skinID", new ComboBox("Skin Hack", 0, "Default", "Frozen Terror Nocturne", "Void Nocturne", "Ravager Nocturne", "Haunting Nocturne", "Eternum Nocturne", "Cursed Revenant Nocturne"));
             MiscMenu.AddLabel("▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
@@ -184,7 +184,9 @@ namespace RoninTune
             RColorSlide = new ColorSlide(DrawingsMenu, "rColor", Color.DeepPink, "R Color:");
             DamageIndicatorColorSlide = new ColorSlide(DrawingsMenu, "healthColor", Color.YellowGreen, "DamageIndicator Color:");
             DrawingsMenu.AddSeparator();
-            
+            DrawingsMenu.AddGroupLabel("News");
+            DrawingsMenu.AddLabel("Disable Drawings if you get Problems !");
+
         }
         public static bool BlockSpells
         {
