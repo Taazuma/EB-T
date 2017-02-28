@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Ronin Akali")]
-[assembly: AssemblyCopyright("Copyright © Taazuma  2016")]
+[assembly: AssemblyCopyright("Copyright © Taazuma  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // Sie können alle Werte angeben oder die standardmäßigen Build- und Revisionsnummern 
 // übernehmen, indem Sie "*" eingeben:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("6.23")]
-[assembly: AssemblyFileVersion("6.23")]
+[assembly: AssemblyVersion("7.4")]
+[assembly: AssemblyFileVersion("7.4")]

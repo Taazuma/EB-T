@@ -29,9 +29,20 @@ namespace Eclipse.Modes
                 return;
             }
 
-            if (Q.IsReady() && LaneClearMenu.GetCheckBoxValue("qUse"))
+            if (LaneClearMenu["LQ"].Cast<ComboBox>().CurrentValue == 0)
             {
-                Q.Cast(source);
+                if (Q.IsReady() && LaneClearMenu.GetCheckBoxValue("qUse"))
+                {
+                    Q.Cast(source);
+                }
+            }
+
+            if (LaneClearMenu["LQ"].Cast<ComboBox>().CurrentValue == 1)
+            {
+                if (Q.IsReady() && LaneClearMenu.GetCheckBoxValue("qUse") && source.Health <= ObjectManager.Player.GetSpellDamage(source, SpellSlot.Q))
+                {
+                    Q.Cast(source);
+                }
             }
 
             var QBuff = source.HasBuff("AkaliMota");
@@ -52,6 +63,7 @@ namespace Eclipse.Modes
             {
                 R.Cast(source);
             }
+
         }
     }
 }
